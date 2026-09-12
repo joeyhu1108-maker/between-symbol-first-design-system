@@ -28,7 +28,7 @@
 .seed-card.chosen .seed-card-inner{transform:rotateY(180deg) translateY(-4px)}
 .seed-card-face{position:absolute;inset:0;display:grid;place-items:center;border-radius:5px;backface-visibility:hidden}
 .seed-card-front{background:linear-gradient(145deg,#fff,#f0eafa);color:#ac99c5;font:22px SerifLocal;box-shadow:0 5px 14px rgba(125,92,155,.12),inset 0 0 0 3px rgba(255,255,255,.8)}
-.seed-card-front:after{content:'·';font-size:34px;color:#c9b3df}
+.seed-card-front:after{content:'◒';font-size:24px;color:#ac99c5}
 .seed-card-back{transform:rotateY(180deg);background:radial-gradient(circle at 50% 42%,#e6d5f2,#fff 70%);color:#6e5889;font:25px SerifLocal;box-shadow:0 5px 14px rgba(125,92,155,.15),inset 0 0 0 2px #d2bce8}
 .seed-card:focus-visible{outline:2px solid #8f6da4;outline-offset:3px}
 .seed-selection{display:flex;align-items:center;gap:9px;color:#8f6da4;font:22px SerifLocal;min-height:25px;margin:4px 0 13px}
