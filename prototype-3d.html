@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>铸造钥匙｜3D 游戏原型</title>
+<link rel="stylesheet" href="./prototype-3d.css">
+</head>
+<body>
+<main class="app">
+  <canvas id="scene" aria-label="3D 铸造钥匙游戏场景"></canvas>
+  <header class="topbar"><div class="brand" aria-label="BETWEEN / 铸造钥匙">⌘</div><div id="stageLabel" aria-label="当前阶段">◒</div></header>
+  <section class="hud left-panel">
+    <p class="kicker">实体输入 · DICE LAB</p><h1 aria-label="让一颗种子开始发生"><span aria-hidden="true">◒<br><em>✳</em></span></h1>
+    <p class="lede">摇动两颗实体骰子。屏幕只记录结果，作品最后会在真实打印机中出现。</p>
+    <div class="dice-readout"><div aria-label="成长骰"><span aria-hidden="true">◒</span><strong id="growthValue">—</strong></div><div aria-label="关系骰"><span aria-hidden="true">⋔</span><strong id="relationValue">—</strong></div></div>
+    <div class="actions input-actions"><button id="rollGrowth" aria-label="摇成长骰" title="摇成长骰">◒</button><button id="rollRelation" aria-label="摇关系骰" title="摇关系骰">⋔</button><button id="lockInput" class="primary" aria-label="锁定输入，生成钥匙" title="锁定输入，生成钥匙" disabled>✦</button></div>
+    <p id="status" class="status">请先摇动两颗骰子。</p>
+  </section>
+  <section class="hud right-panel" id="keyPanel" hidden>
+    <p class="kicker">中间凭证 · KEY TRACE</p><div id="keyGlyph" class="key-glyph">—</div><p id="keyExplain">这串钥匙会指向一张答案卡。</p>
+    <div class="generation-box"><div class="generation-head"><span aria-label="预生成作品">◌</span><strong id="generationPercent">0%</strong></div><div class="generation-progress"><i id="generationProgress"></i></div><p id="generationCopy">钥匙生成后立即开始，不让打印时等待。</p></div>
+    <img id="generatedArt" class="generated-art" alt="预生成的作品预览" hidden>
+    <div class="actions"><button id="openCards" class="primary" aria-label="去答案墙寻找卡片" title="去答案墙寻找卡片">⌁</button></div>
+  </section>
+  <section class="hud cards-panel" id="cardsPanel" hidden>
+    <div class="cards-head"><div><p class="kicker">第二次实体输入 · ANSWER WALL</p><h2 aria-label="找到钥匙指向的种子">◇</h2></div><div id="targetHint" class="target-hint">—</div></div>
+    <div id="cardGrid" class="card-grid"></div>
+    <div class="card-actions"><button id="scanCard" class="primary" aria-label="模拟 NFC 触碰" title="模拟 NFC 触碰" disabled>◉</button><button id="manualCard" class="secondary" aria-label="电脑端直接确认" title="电脑端直接确认" disabled>⌂</button><span id="scanStatus">—</span></div>
+  </section>
+  <section class="hud print-panel" id="printPanel" hidden>
+    <p class="kicker">实体输出 · PRINT TWIN</p><h2 id="printTitle" aria-label="数字孪生正在打印">▧</h2><p id="printCopy">—</p>
+    <img id="printArt" class="generated-art print-art" alt="即将打印的预生成作品" hidden>
+    <div class="progress"><i id="printProgress"></i></div><div class="print-meta"><span id="layerText">等待启动</span><span id="percentText">0%</span></div>
+    <button id="startPrintButton" class="primary print-button" aria-label="发送到小米打印机" title="发送到小米打印机">⟶</button>
+    <button id="restart" class="ghost" aria-label="重新开始" title="重新开始">↺</button>
+  </section>
+  <footer><span>3D 游戏原型 · NFC / 电脑确认 · 小米打印机输出</span><span id="jobText">JOB —</span></footer>
+</main>
+<script>window.addEventListener('error',event=>{const node=document.querySelector('#status');if(node)node.textContent=`原型加载错误：${event.message}（${event.filename||''}:${event.lineno||''}）`;});window.addEventListener('unhandledrejection',event=>{const node=document.querySelector('#status');if(node)node.textContent=`原型加载错误：${event.reason?.stack||event.reason?.message||event.reason}`;});</script>
+<script type="module">window.addEventListener('DOMContentLoaded',()=>import('./prototype-3d.js?v=3'));</script>
+</body></html>
