@@ -10,11 +10,12 @@
   <canvas id="scene" aria-label="3D 铸造钥匙游戏场景"></canvas>
   <header class="topbar"><div class="brand" aria-label="BETWEEN / 铸造钥匙">⌘</div><div id="stageLabel" aria-label="当前阶段">◒</div></header>
   <section class="hud left-panel">
-    <p class="kicker">实体输入 · DICE LAB</p><h1 aria-label="让一颗种子开始发生"><span aria-hidden="true">◒<br><em>✳</em></span></h1>
-    <p class="lede">摇动两颗实体骰子。屏幕只记录结果，作品最后会在真实打印机中出现。</p>
-    <div class="dice-readout"><div aria-label="成长骰"><span aria-hidden="true">◒</span><strong id="growthValue">—</strong></div><div aria-label="关系骰"><span aria-hidden="true">⋔</span><strong id="relationValue">—</strong></div></div>
-    <div class="actions input-actions"><button id="rollGrowth" aria-label="摇成长骰" title="摇成长骰">◒</button><button id="rollRelation" aria-label="摇关系骰" title="摇关系骰">⋔</button><button id="lockInput" class="primary" aria-label="锁定输入，生成钥匙" title="锁定输入，生成钥匙" disabled>✦</button></div>
-    <p id="status" class="status">请先摇动两颗骰子。</p>
+    <p class="kicker">入口 · SEED FIELD</p><h1 aria-label="让一颗种子开始发生"><span aria-hidden="true">◒<br><em>✳</em></span></h1>
+    <p class="lede">翻开两张种子卡，让它们彼此发生。</p>
+    <div id="seedDeck" class="seed-deck" aria-label="选择两张种子卡"></div>
+    <div class="seed-selection" aria-live="polite"><span id="seedOne">—</span><i>·</i><span id="seedTwo">—</span></div>
+    <div class="actions input-actions"><button id="lockInput" class="primary" aria-label="锁定两张种子，生成钥匙" title="锁定两张种子，生成钥匙" disabled>✦</button></div>
+    <p id="status" class="status">翻开并选择两张种子卡。</p>
   </section>
   <section class="hud right-panel" id="keyPanel" hidden>
     <p class="kicker">中间凭证 · KEY TRACE</p><div id="keyGlyph" class="key-glyph">—</div><p id="keyExplain">这串钥匙会指向一张答案卡。</p>

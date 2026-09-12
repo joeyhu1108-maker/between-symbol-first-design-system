@@ -19,3 +19,19 @@
 /* Real 3D printer from printer/ (bridge.js), layered between the WebGL canvas and the HUD. */
 .printer-scene{position:fixed;inset:0;width:100%;height:100%;border:0;z-index:1;background:transparent;visibility:hidden}.printer-scene.visible{visibility:visible}
 .card .symbol{display:block;position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);font:38px SerifLocal;color:#f1eaff;text-shadow:0 0 14px rgba(191,154,255,.9)}.card .name,.card .card-tag{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Entry is a tactile field of seeds: the card flip is the first interaction. */
+.seed-deck{display:grid;grid-template-columns:repeat(4,48px);gap:8px;margin:10px 0 14px;perspective:700px}
+.seed-card{position:relative;width:48px;aspect-ratio:.72;border:1px solid #d7c9e3;border-radius:6px;padding:0;background:transparent;cursor:pointer;perspective:700px}
+.seed-card-inner{position:absolute;inset:0;display:block;transform-style:preserve-3d;transition:transform .72s cubic-bezier(.2,.72,.2,1)}
+.seed-card:hover .seed-card-inner{transform:rotateY(16deg) translateY(-3px)}
+.seed-card.chosen .seed-card-inner{transform:rotateY(180deg) translateY(-4px)}
+.seed-card-face{position:absolute;inset:0;display:grid;place-items:center;border-radius:5px;backface-visibility:hidden}
+.seed-card-front{background:linear-gradient(145deg,#fff,#f0eafa);color:#ac99c5;font:22px SerifLocal;box-shadow:0 5px 14px rgba(125,92,155,.12),inset 0 0 0 3px rgba(255,255,255,.8)}
+.seed-card-front:after{content:'·';font-size:34px;color:#c9b3df}
+.seed-card-back{transform:rotateY(180deg);background:radial-gradient(circle at 50% 42%,#e6d5f2,#fff 70%);color:#6e5889;font:25px SerifLocal;box-shadow:0 5px 14px rgba(125,92,155,.15),inset 0 0 0 2px #d2bce8}
+.seed-card:focus-visible{outline:2px solid #8f6da4;outline-offset:3px}
+.seed-selection{display:flex;align-items:center;gap:9px;color:#8f6da4;font:22px SerifLocal;min-height:25px;margin:4px 0 13px}
+.seed-selection i{font-style:normal;color:#c8b9d1}
+.input-actions .primary{width:100%}
+@media(max-width:760px){.seed-deck{grid-template-columns:repeat(4,44px);gap:7px}.seed-card{width:44px}}
