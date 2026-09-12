@@ -23,7 +23,7 @@
 .card .symbol{display:block;position:absolute;inset:50% auto auto 50%;transform:translate(-50%,-50%);font:48px SerifLocal;color:#765b9c;text-shadow:0 0 18px rgba(198,164,255,.72);z-index:1}.card .name,.card .card-tag{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* Entry is a tactile field of seeds: the card flip is the first interaction. */
-.seed-deck{display:grid;grid-template-columns:repeat(6,minmax(112px,1fr));gap:18px;margin:24px auto 26px;width:min(1120px,90vw);perspective:1400px}
+.seed-deck{position:relative;display:grid;grid-template-columns:repeat(6,minmax(112px,1fr));gap:18px;margin:24px auto 26px;width:min(1120px,90vw);perspective:1400px}
 .seed-card{position:relative;width:100%;aspect-ratio:.68;border:1px solid #d7c9e3;border-radius:14px;padding:0;background:transparent;cursor:pointer;perspective:1100px;filter:drop-shadow(0 10px 14px rgba(104,80,132,.12));transition:filter .3s ease}
 .seed-card-inner{position:absolute;inset:0;display:block;transform-style:preserve-3d;transition:transform .72s cubic-bezier(.2,.72,.2,1)}
 .seed-card:hover{filter:drop-shadow(0 18px 20px rgba(104,80,132,.2))}.seed-card:hover .seed-card-inner{transform:rotateY(16deg) rotateX(3deg) translateY(-7px)}
@@ -51,3 +51,41 @@ body[data-stage="cards"] .card-grid{grid-template-columns:repeat(6,minmax(120px,
 body[data-stage="cards"] .card{min-height:220px}
 @media(max-width:1100px){body[data-stage="cards"] .card-grid{grid-template-columns:repeat(4,minmax(110px,1fr))}}
 @media(max-width:760px){body[data-stage="input"] .left-panel{top:9%;width:90vw}body[data-stage="cards"] .cards-panel{bottom:5%;padding:16px}body[data-stage="cards"] .card-grid{grid-template-columns:repeat(3,minmax(70px,1fr));gap:8px}body[data-stage="cards"] .card{min-height:150px}}
+
+/* Pairing is a short, tactile fusion beat between card confirmation and print. */
+.fusion-field{position:absolute;left:50%;top:48%;width:120px;height:120px;transform:translate(-50%,-50%);pointer-events:none;opacity:0;z-index:2}
+.fusion-field i{position:absolute;left:50%;top:50%;width:9px;height:9px;border-radius:50%;background:#a886d7;box-shadow:0 0 18px #c8a9ff;transform-origin:0 0;opacity:.8}
+.fusion-field i:nth-child(1){animation:orbit-a 1.2s linear infinite}.fusion-field i:nth-child(2){animation:orbit-b 1.8s linear infinite;background:#e4a07e}.fusion-field i:nth-child(3){animation:orbit-c 1.5s linear infinite;background:#8fc6ca}.fusion-field i:nth-child(4){animation:orbit-d 2s linear infinite;background:#d6b4e8}
+.cards-panel.is-pairing .fusion-field{opacity:1;animation:fusion-bloom 2.6s cubic-bezier(.2,.8,.2,1) both}
+.cards-panel.is-pairing .card-grid{filter:blur(1px);transition:filter .35s}.cards-panel.is-pairing .card.selected{z-index:3;animation:card-fuse 2.6s cubic-bezier(.2,.8,.2,1) both}
+.pair-button{width:58px!important;height:48px!important;border-radius:50%;font-size:28px!important;background:linear-gradient(135deg,#e9d7fb,#c5a0ed)!important;border-color:#a885d5!important;color:#fff!important;box-shadow:0 0 0 0 rgba(183,138,235,.55),0 8px 20px rgba(120,83,157,.22);animation:pair-pulse 1.8s ease-in-out infinite}
+.cards-panel.matched .pair-button{display:block}
+.hidden-key{color:#b27a25!important;text-shadow:0 0 16px rgba(244,190,76,.75)}
+.seed-card.hidden-seed .seed-card-back{box-shadow:inset 0 0 0 2px #dbb24c,0 8px 26px rgba(212,166,54,.3)}
+.seed-card.hidden-pair .seed-card-back{background:linear-gradient(145deg,#fff9da,#f9e7ad 56%,#efc967);color:#8d641e;border-color:#d9ad3f;box-shadow:inset 0 0 0 2px #ffe9a0,0 0 34px rgba(238,187,65,.7)}
+.card.hidden-fusion{background:radial-gradient(circle at 50% 38%,rgba(255,232,140,.9),transparent 36%),linear-gradient(145deg,#fffced,#f8e4a5 62%,#e9c45b);border-color:#d7ab39;color:#825e22;box-shadow:inset 0 0 0 4px rgba(255,255,255,.8),inset 0 0 25px rgba(244,191,55,.42),0 14px 30px rgba(185,132,34,.28)}
+.card.hidden-fusion .symbol,.card.hidden-fusion .num{color:#9a6a1f;text-shadow:0 0 18px rgba(255,239,150,.95)}
+body[data-hidden-pair] .generated-art{border-color:#d7ab39;box-shadow:0 8px 28px rgba(185,132,34,.28),0 0 24px rgba(244,191,55,.34)}
+@keyframes card-fuse{0%{transform:translateY(-7px) rotate(0) scale(1.04)}35%{transform:translate(80px,-24px) rotate(18deg) scale(1.12)}68%{transform:translate(-80px,18px) rotate(-20deg) scale(1.12)}100%{transform:translate(0,0) rotate(360deg) scale(.96);filter:brightness(1.18)}}
+@keyframes fusion-bloom{0%{transform:translate(-50%,-50%) scale(.25);filter:blur(8px)}30%{transform:translate(-50%,-50%) scale(1.1);filter:blur(0)}70%{transform:translate(-50%,-50%) scale(.88)}100%{transform:translate(-50%,-50%) scale(1.5);opacity:0;filter:blur(5px)}}
+@keyframes orbit-a{to{transform:rotate(360deg) translateX(53px) rotate(-360deg)}}@keyframes orbit-b{to{transform:rotate(-360deg) translateX(42px) rotate(360deg)}}@keyframes orbit-c{to{transform:rotate(360deg) translateX(30px) rotate(-360deg)}}@keyframes orbit-d{to{transform:rotate(-360deg) translateX(64px) rotate(360deg)}}
+@keyframes pair-pulse{0%,100%{box-shadow:0 0 0 0 rgba(183,138,235,.55),0 8px 20px rgba(120,83,157,.22)}50%{box-shadow:0 0 0 12px rgba(183,138,235,0),0 10px 26px rgba(120,83,157,.32)}}
+
+/* Three tactile opening cuts: the user can audition a language, then begin. */
+.shuffle-controls{display:flex;align-items:center;justify-content:center;gap:9px;margin:5px auto 0}
+.shuffle-mode,.shuffle-start{width:42px!important;height:42px;padding:0!important;border-radius:50%;font-size:21px!important;line-height:1}
+.shuffle-mode{border-color:#d5cbe1!important;background:rgba(255,255,255,.78)!important;color:#876e9e!important}
+.shuffle-mode.is-active{border-color:#a68ac7!important;background:#eee7f8!important;box-shadow:0 0 0 3px rgba(190,164,231,.2)}
+.shuffle-start{margin-left:5px;font-size:18px!important}
+.seed-deck:not(.is-started){opacity:.38;filter:grayscale(.15) blur(.25px);pointer-events:none}
+.seed-deck.is-animating{pointer-events:none}
+.seed-deck.is-animating:after{content:'';position:absolute;z-index:5;left:50%;top:50%;width:74px;height:74px;display:block;pointer-events:none;opacity:0;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(213,190,244,.32),rgba(255,255,255,0) 70%)}
+.seed-deck[data-shuffle="hand"].is-animating:after{content:'✋';font:42px SerifLocal;color:#8d70a7;opacity:.8;animation:ai-hand 1.8s cubic-bezier(.22,1,.36,1) both}
+.seed-deck[data-shuffle="hand"].is-animating .seed-card{animation:hand-shuffle 1.7s cubic-bezier(.22,1,.36,1) both;animation-delay:var(--shuffle-delay,0ms)}
+.seed-deck[data-shuffle="slot"].is-animating .seed-card-inner{animation:slot-roll 1.85s cubic-bezier(.16,1,.3,1) both;animation-delay:var(--shuffle-delay,0ms)}
+.seed-deck[data-shuffle="converge"].is-animating .seed-card{animation:converge-shuffle 1.9s cubic-bezier(.16,1,.3,1) both;animation-delay:var(--shuffle-delay,0ms)}
+@keyframes ai-hand{0%{opacity:0;transform:translate(-280%,-50%) rotate(-18deg)}18%{opacity:.86}72%{opacity:.72;transform:translate(170%,-50%) rotate(13deg)}100%{opacity:0;transform:translate(280%,-50%) rotate(18deg)}}
+@keyframes hand-shuffle{0%{transform:translate3d(0,0,0) rotate(0)}24%{transform:translate3d(var(--hand-x,0px),-18px,45px) rotate(var(--hand-r,0deg))}53%{transform:translate3d(var(--hand-return-x,0px),12px,90px) rotate(var(--hand-return-r,0deg))}100%{transform:translate3d(0,0,0) rotate(0)}}
+@keyframes slot-roll{0%{transform:translateY(0) rotateY(0)}18%{transform:translateY(-22px) rotateY(35deg)}44%{transform:translateY(36px) rotateY(180deg)}68%{transform:translateY(-15px) rotateY(320deg)}100%{transform:translateY(0) rotateY(360deg)}}
+@keyframes converge-shuffle{0%{transform:translate3d(0,0,0) scale(1) rotate(0)}38%{transform:translate3d(var(--converge-mid-x,0px),var(--converge-y,0px),75px) scale(.88) rotate(var(--converge-r,0deg))}66%{transform:translate3d(var(--converge-x,0px),0,110px) scale(.62) rotate(var(--converge-r,0deg))}100%{transform:translate3d(0,0,0) scale(1) rotate(0)}}
+@media(prefers-reduced-motion:reduce){.seed-deck.is-animating .seed-card,.seed-deck.is-animating .seed-card-inner,.seed-deck.is-animating:after{animation:none!important}.seed-deck.is-animating{opacity:1}}
