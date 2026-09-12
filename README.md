@@ -9,3 +9,5 @@ node seed-universe/server.mjs
 ```
 
 打开 <http://127.0.0.1:4187>。无需网络、模型 API 或素材请求。可用鼠标、触控和空格键点击式互动；`nutrient` 自定义事件为后续 Arduino/传感器桥留出接口。声音由本地 Web Audio 生成，可静音。
+
+符号设计规则见 [`SYMBOL-DESIGN-SYSTEM.md`](./SYMBOL-DESIGN-SYSTEM.md)，完整用户流程、状态机和手机/NFC/小米打印机技术边界见 [`ARCHITECTURE-AND-FLOW.md`](./ARCHITECTURE-AND-FLOW.md)。
