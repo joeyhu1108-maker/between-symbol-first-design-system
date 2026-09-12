@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Local, persistent Chladni artwork jobs, dice relay and explicit CUPS printing. No cloud dependency.
+"""Local, persistent Chladni artwork jobs, dice relay and explicit printing (direct IPP JPEG, CUPS fallback). No cloud dependency.
 Serves the whole BETWEEN repository so the symbol console and the printer scene share one origin."""
 import json, math, os, random, re, secrets, sqlite3, subprocess, threading, time
 from datetime import datetime
@@ -14,6 +14,7 @@ from reportlab.lib.utils import ImageReader
 from garden_style import STYLE,ai_prompt,render_garden
 from rarity import rarity_for
 from story import story_for
+import ipp
 
 ROOT=Path(__file__).resolve().parent
 SITE=ROOT.parent
@@ -22,6 +23,10 @@ DB=ROOT/'jobs'/'archive.sqlite3'; DB.parent.mkdir(exist_ok=True)
 PORT=int(os.getenv('PORT','8765'))
 LOCK=threading.RLock()
 DICE={'values':[],'at':None}; DICE_FRESH=5.0
+# Direct IPP printing of the JPEG page; BETWEEN_DIRECT_PRINT=0 forces the CUPS/PDF path.
+DIRECT_PRINT=os.getenv('BETWEEN_DIRECT_PRINT','1')!='0'
+PRINT_MEDIA='iso_a4_210x297mm'
+ENDPOINTS={}  # CUPS queue -> ipp.Printer; the IPP-USB proxy port changes when the printer is replugged
 def connect():
     con=sqlite3.connect(DB); con.row_factory=sqlite3.Row; return con
 with connect() as db:
@@ -118,7 +123,8 @@ def generate(jid):
         rarity=rarity_for(p['m'],p['n']);pdf.setFont('Helvetica',5.5)
         pdf.drawCentredString(74*mm,6*mm,f'SUM {rarity["sum"]} | {rarity["token"]} | {rarity["ways"]}/66 ({rarity["percent"]}%)')
         pdf.showPage(); pdf.save()
-        job.update(status='ready',ready_at=datetime.now().isoformat(),image=f'{JOBS_URL}/{jid}/artwork.png',pdf=f'{JOBS_URL}/{jid}/artwork.pdf',particles=f'{JOBS_URL}/{jid}/particles.json',particle_count=N)
+        print_page(folder,jid,p)
+        job.update(status='ready',ready_at=datetime.now().isoformat(),image=f'{JOBS_URL}/{jid}/artwork.png',pdf=f'{JOBS_URL}/{jid}/artwork.pdf',print_image=f'{JOBS_URL}/{jid}/print.jpg',particles=f'{JOBS_URL}/{jid}/particles.json',particle_count=N)
         (folder/'manifest.json').write_text(json.dumps(job,ensure_ascii=False,indent=2))
     except Exception as e: job.update(status='failed',error=str(e))
     save(job)
@@ -134,23 +140,74 @@ def set_dice(data):
     if not all(1<=v<=6 for v in values): raise ValueError('骰子点数必须是 1–6')
     DICE.update(values=values,at=time.time()); return dice_state()
 def printers():
+    # `lpstat -e` prints bare destination names. The other listings follow the macOS UI language
+    # (LC_ALL=C does not override it), so parsing their English wording finds nothing on a Chinese system.
     try:
-        r=subprocess.run(['lpstat','-p'],capture_output=True,text=True,timeout=4,env={**os.environ,'LC_ALL':'C'})
-        return re.findall(r'^printer\s+(\S+)',r.stdout,re.M)
+        r=subprocess.run(['lpstat','-e'],capture_output=True,text=True,timeout=4)
+        return [line.strip() for line in r.stdout.splitlines() if line.strip()]
     except (FileNotFoundError,subprocess.TimeoutExpired): return []
+def print_page(folder,jid,p):
+    # A4 at 300 dpi, the paper the printer has loaded: the artwork at 250 mm high plus the edition line,
+    # all above the printer's 12.7 mm bottom margin. Rendered once, next to the PDF proof.
+    path=folder/'print.jpg'
+    if path.exists(): return path
+    px=300/25.4; page=Image.new('RGB',(2480,3508),'white')
+    h=round(250*px); w=round(h*7/12)
+    page.paste(Image.open(folder/'artwork.png').convert('RGB').resize((w,h),Image.LANCZOS),((2480-w)//2,round(16*px)))
+    fontpath='/System/Library/Fonts/Helvetica.ttc'
+    big,small=[ImageFont.truetype(fontpath,s) if Path(fontpath).exists() else ImageFont.load_default() for s in (29,27)]
+    rarity=rarity_for(p['m'],p['n']); draw=ImageDraw.Draw(page); y=round(273*px)
+    draw.text((1240,y),jid+' / GARDEN',font=big,fill=(89,69,64),anchor='mm')
+    draw.text((1240,y+round(5.5*px)),f'SUM {rarity["sum"]} | {rarity["token"]} | {rarity["ways"]}/66 ({rarity["percent"]}%)',font=small,fill=(89,69,64),anchor='mm')
+    page.save(path,'JPEG',quality=90,optimize=True,dpi=(300,300))
+    return path
+def submit_direct(job,queue):
+    """Send the JPEG page straight to the printer. False = nothing reached the printer, so CUPS may take over."""
+    jpeg=print_page(ROOT/'jobs'/job['id'],job['id'],job['params']).read_bytes()
+    for _ in range(2):
+        try:
+            printer=ENDPOINTS.get(queue) or ipp.resolve(queue); ENDPOINTS[queue]=printer
+            printer_job,state=ipp.print_jpeg(printer,jpeg,job['id'],PRINT_MEDIA)
+        except ipp.Unreachable: ENDPOINTS.pop(queue,None); continue  # stale proxy port: resolve again once
+        except ipp.Uncertain as e:
+            # The printer may hold the page already; never resend automatically.
+            job.update(print_status='uncertain',print_path='ipp-direct',print_error=f'{e}；先看打印机是否出纸，不要重复发送'); return True
+        except (ipp.IPPError,OSError,subprocess.SubprocessError) as e: job['direct_error']=str(e); return False
+        job.update(print_status='submitted',print_path='ipp-direct',printer_job_id=printer_job,print_state=state,printer_uri=printer.uri,submitted_at=datetime.now().isoformat())
+        return True
+    job['direct_error']='打印机端点无法连接'; return False
+def refresh_print(job):
+    # Direct jobs read their state from the printer: printed means the sheet has come out.
+    if job.get('print_path')!='ipp-direct' or job.get('print_status') not in ('submitted','printing'): return job
+    with LOCK:
+        job=get_job(job['id'])
+        try:
+            printer=ENDPOINTS.get(job['printer']) or ipp.resolve(job['printer']); ENDPOINTS[job['printer']]=printer
+            state,_=ipp.job_state(printer,job['printer_job_id'])
+        except (ipp.IPPError,OSError,subprocess.SubprocessError): return job
+        status={'completed':'printed','canceled':'canceled','aborted':'failed'}.get(state,'printing')
+        if (status,state)!=(job['print_status'],job.get('print_state')):
+            job.update(print_status=status,print_state=state)
+            if status=='printed': job['printed_at']=datetime.now().isoformat()
+            save(job)
+        return job
 def print_job(jid,printer):
     with LOCK:
         job=get_job(jid)
         if job['status']!='ready': raise ValueError('作品文件尚未准备好')
-        if job['print_status'] in ['submitted','submitting','uncertain']: return job
+        if job['print_status'] in ['submitted','submitting','uncertain','printing','printed']: return job
         if not printer or printer not in printers(): raise ValueError('打印机未连接或未添加，请先在系统中添加纸张打印机')
         job.update(print_status='submitting',printer=printer); save(job)
+        if DIRECT_PRINT and submit_direct(job,printer): save(job); return job
+        # Fallback: CUPS rasterizes the PDF proof and queues it; slower, but it waits out a busy printer.
+        job['print_path']='cups'
         try:
             r=subprocess.run(['lp','-d',printer,'-t',jid,str(ROOT/'jobs'/jid/'artwork.pdf')],capture_output=True,text=True,timeout=12,env={**os.environ,'LC_ALL':'C'})
             if r.returncode: job.update(print_status='failed',print_error=r.stderr.strip())
             else:
-                found=re.search(r'request id is (\S+)',r.stdout)
-                job.update(print_status='submitted',cups_job_id=found.group(1) if found else r.stdout.strip())
+                # `lp` wording is localized too; the CUPS job id itself is always <printer>-<number>.
+                found=re.search(re.escape(printer)+r'-\d+',r.stdout)
+                job.update(print_status='submitted',cups_job_id=found.group(0) if found else r.stdout.strip())
         except subprocess.TimeoutExpired: job.update(print_status='uncertain',print_error='提交超时；先在系统打印队列核实，不要重复发送')
         except FileNotFoundError: job.update(print_status='failed',print_error='系统没有 CUPS 打印命令')
         save(job); return job
@@ -163,9 +220,9 @@ class Handler(SimpleHTTPRequestHandler):
         path=urlparse(self.path).path
         try:
             if path=='/api/printers': return self.send_json({'printers':printers()})
-            if path=='/api/health': return self.send_json({'ok':True,'generator':'local_garden','style_version':STYLE['version'],'style_scale':STYLE['scale'],'ai_image_provider':False})
+            if path=='/api/health': return self.send_json({'ok':True,'generator':'local_garden','style_version':STYLE['version'],'style_scale':STYLE['scale'],'ai_image_provider':False,'direct_print':DIRECT_PRINT})
             if path=='/api/dice': return self.send_json(dice_state())
-            if path.startswith('/api/jobs/'): return self.send_json(get_job(path.split('/')[3]))
+            if path.startswith('/api/jobs/'): return self.send_json(refresh_print(get_job(path.split('/')[3])))
             # The site root is a git checkout: never serve dotfiles, the job database or server code.
             plain=unquote(path)
             if any(part.startswith('.') for part in plain.split('/')) or plain.endswith(('.sqlite3','.py','.pyc','.log')): return self.send_error(403)

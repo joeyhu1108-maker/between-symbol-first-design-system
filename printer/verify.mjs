@@ -36,6 +36,14 @@ let oneJob;
 for(let i=0;i<60;i++){oneJob=await fetch(root+'/api/jobs/'+one.id).then(r=>r.json());if(oneJob.status!=='generating')break;await new Promise(r=>setTimeout(r,100));}
 assert.equal(oneJob.status,'ready');assert.equal((await fetch(root+oneJob.image)).status,200);
 
+// Direct printing sends an A4 JPEG page rendered with every new artwork.
+const fresh=await post('/api/jobs',{cards:[1],seed:99,request_id:'verify-print-page-'+Date.now()}).then(r=>r.json());
+let freshJob;
+for(let i=0;i<60;i++){freshJob=await fetch(root+'/api/jobs/'+fresh.id).then(r=>r.json());if(freshJob.status!=='generating')break;await new Promise(r=>setTimeout(r,100));}
+assert.equal(freshJob.status,'ready');assert.ok(freshJob.print_image,'ready jobs carry a print page');
+const printPage=await fetch(root+freshJob.print_image);assert.equal(printPage.status,200);assert.match(printPage.headers.get('content-type')||'',/jpeg/);
+const pageBytes=(await printPage.arrayBuffer()).byteLength;assert.ok(pageBytes>50_000&&pageBytes<3_000_000,`print page ${pageBytes} bytes`);
+
 // Dice relay from hardware/dice_push.py.
 assert.equal((await post('/api/dice',{values:[7]})).status,400);
 const dice=await post('/api/dice',{values:[2,5]}).then(r=>r.json());assert.deepEqual(dice.values,[2,5]);assert.equal(dice.live,true);

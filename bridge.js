@@ -22,6 +22,27 @@ export async function waitForJob(id,onPoll){
   }
 }
 
+// Print the artwork: the server sends the JPEG page straight to the printer over IPP and falls back to CUPS.
+// Prefers the Mi printer; ?printer=NAME overrides. The server never resubmits a job that is already out.
+export async function submitPrint(job){
+  const {printers}=await json('/api/printers');
+  const wanted=new URLSearchParams(location.search).get('printer');
+  const printer=wanted&&printers.includes(wanted)?wanted:printers.find(p=>/^mi[_ ]|xiaomi|小米/i.test(p))??printers[0];
+  if(!printer)return {print_status:'no_printer'};
+  return json(`/api/jobs/${encodeURIComponent(job.id)}/print`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({printer})});
+}
+
+// Direct IPP jobs report printing → printed from the printer itself; CUPS fallback jobs stay at submitted.
+export async function waitForPaper(jobId,timeoutMs=45000){
+  const end=Date.now()+timeoutMs;let job;
+  do{
+    job=await json('/api/jobs/'+encodeURIComponent(jobId));
+    if(job.print_path!=='ipp-direct'||!['submitted','printing'].includes(job.print_status))return job;
+    await new Promise(resolve=>setTimeout(resolve,1000));
+  }while(Date.now()<end);
+  return job;
+}
+
 // The 3D printer scene runs in a same-origin iframe (it uses its own Three.js build) and reports progress by postMessage.
 // parent must share the HUD's stacking context so the HUD stays above the scene.
 export function mountPrinterScene(job,{parent=document.body,onProgress,onComplete,onError}={}){
