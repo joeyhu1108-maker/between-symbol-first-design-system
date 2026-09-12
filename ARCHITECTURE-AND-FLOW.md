@@ -79,3 +79,25 @@ flowchart TB
 
 原型已把“发送到小米打印机”作为独立动作，打印内容来自预生成缓存。真实部署时只需替换打印适配层：把 `imageUrl` 转成小米打印机 SDK 或局域网协议需要的图片格式，并回传 `queued / printing / done / error` 状态；上层状态机不变。
 
+## 接入打印后端后（`printer/`）
+
+上面的状态机不变，`bridge.js` 只替换三个适配点；没有 `printer/server.py`（例如只跑 `node server.mjs`）时自动退回上面的模拟实现。
+
+| 适配点 | 模拟实现 | 接入后 |
+| --- | --- | --- |
+| `roll()` 骰子 | `Math.random` | `GET /api/dice`：RDK X5 识别结果经 `hardware/dice_push.py` 推送，左骰成长、右骰关系 |
+| `preGenerateArtwork()` | Canvas data URL | `POST /api/jobs {cards}`：本地生成花园作品与编号 PDF，`generation.imageUrl` 换成真实图片 |
+| `startPrint()` | 8.5 秒进度 | 嵌入 `printer/` 的 3D 打印机场景（iframe，postMessage 回传进度）；小米打印机仍待接入，作品只归档 |
+
+作品算法需要两个模态数 m、n：钥匙卡为 m，n 由种子随机抽取；主控台以 `?card=NN` 打开时（主游戏抽到的卡），两张卡共同决定 m、n。
+
+```mermaid
+flowchart TB
+  STATE[prototype-3d.js] --> BRIDGE[bridge.js]
+  BRIDGE -->|/api/dice · /api/jobs| SERVER[printer/server.py\n端口 8765]
+  BRIDGE -->|iframe ?embed=1| SCENE[printer/index.html\n3D 打印机 · Three r165]
+  DICE[RDK X5 dice_recognizer] -->|SSH + dice_push.py| SERVER
+  SERVER --> JOBS[printer/jobs/\nartwork.png · artwork.pdf]
+  SERVER -.->|print 待接入| PRINT[小米打印机]
+```
+
