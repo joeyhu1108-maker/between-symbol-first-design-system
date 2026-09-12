@@ -1,0 +1,111 @@
+@font-face{font-family:LocalSerif;src:local("Baskerville");font-display:swap}
+:root{--void:#f5f0e9;--ink:#34313a;--muted:#8e8692;--line:rgba(126,111,132,.24);--cyan:#76b6c8;--ember:#e78a91;--serif:LocalSerif,"Songti SC","Times New Roman",serif;--sans:"PingFang SC","Hiragino Sans GB",sans-serif}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--void);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}button{font:inherit;color:inherit;cursor:pointer}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+#experience{position:relative;width:100%;height:100%;min-height:560px;background:#f5f0e9;isolation:isolate}#seed-film{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.025;filter:saturate(.7) contrast(.9);mix-blend-mode:multiply;pointer-events:none;z-index:0}#universe{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:crosshair;z-index:0;opacity:.82}#model3d{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:1}.veil{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 53% 45%,rgba(255,255,255,.18) 0%,rgba(255,255,255,.02) 55%,rgba(135,120,130,.1) 100%);z-index:2}
+.masthead,.title-block,.readout,.question,.footer{position:absolute;z-index:3}.masthead{top:30px;left:4.5%;right:4.5%;display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:10px;letter-spacing:2.2px}.mark{display:flex;align-items:center;gap:10px;color:var(--ink);font:18px var(--serif);letter-spacing:1px}.mark-dot{width:7px;height:7px;border-radius:50%;background:var(--ember);box-shadow:0 0 14px rgba(231,138,145,.6)}.edition{font-size:9px;letter-spacing:2.3px}
+.title-block{left:5%;top:22%;max-width:340px}.eyebrow{margin:0 0 20px;color:var(--cyan);font-size:10px;letter-spacing:3px}.title-block h1{font:clamp(52px,6vw,96px)/.92 var(--serif);font-weight:400;letter-spacing:-4px;margin:0 0 28px;text-shadow:0 0 30px rgba(153,216,255,.18)}.title-block h1 em{font-style:italic;color:#d7ebff}.dek{font-size:13px;line-height:2;color:var(--muted);letter-spacing:.9px}
+.readout{right:5%;top:23%;width:210px;color:var(--muted);font-size:10px;letter-spacing:1.3px}.readout-top{display:flex;justify-content:space-between;color:var(--cyan);font-size:9px}.meter{height:1px;background:rgba(162,208,255,.18);margin:13px 0 11px;overflow:hidden}.meter i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--cyan),var(--ember));box-shadow:0 0 13px var(--ember);transition:width .2s ease}.readout p{margin:0;font-size:10px;line-height:1.7;color:var(--muted)}
+.question{left:50%;bottom:13%;transform:translateX(-50%);font:18px var(--serif);font-style:italic;letter-spacing:2px;color:rgba(215,235,255,.72);opacity:0;transition:opacity 1s ease;white-space:nowrap}.question.visible{opacity:1}.footer{left:4.5%;right:4.5%;bottom:28px;padding-top:16px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:9px;letter-spacing:1px}.footer button{border:0;background:none;padding:0;color:var(--muted);font-size:10px;letter-spacing:1px}.footer button:hover{color:var(--cyan)}
+.loading{position:absolute;inset:0;z-index:4;display:flex;align-items:center;justify-content:center;flex-direction:column;background:#f5f0e9;color:var(--muted);transition:opacity .7s ease}.loading.done{opacity:0;pointer-events:none}.loading span{width:22px;height:22px;border:1px solid rgba(126,111,132,.25);border-top-color:var(--ember);border-radius:50%;animation:spin 1.2s linear infinite}.loading p{font-size:10px;letter-spacing:2px;margin-top:18px}@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:760px){.masthead{top:20px}.title-block{top:18%;left:7%}.title-block h1{font-size:52px}.dek{font-size:12px}.readout{top:auto;bottom:18%;left:7%;right:auto;width:185px}.question{bottom:10%;font-size:14px}.footer{bottom:18px;left:7%;right:7%;font-size:8px}.footer span:nth-child(2){display:none}}
+@media(prefers-reduced-motion:reduce){.loading span{animation:none}.question,.meter i{transition:none}}
+
+/* The light drafting-paper palette keeps the conceptual question legible on the new ivory ground. */
+.question{color:rgba(98,77,111,.74)}
+.title-block h1 em{color:#8b6da5;text-shadow:none}
+
+/* A tabletop constellation: physical cards and the screen share one numbered map. */
+body[data-game-mode]{--wheel-size:min(43vw,60vh);--card-accent:#957da9}
+body[data-game-mode] .masthead{top:28px}
+body[data-game-mode] .title-block{left:4.5%;top:23%;max-width:268px}
+body[data-game-mode] .title-block h1{font-size:clamp(52px,5.1vw,78px);line-height:1.06;letter-spacing:-3px;margin-bottom:23px}
+body[data-game-mode] .eyebrow{font-size:9px;letter-spacing:2px;color:#88758d;margin-bottom:23px}
+body[data-game-mode] .dek{font-size:12px;line-height:2;letter-spacing:.3px;color:#827985}
+body[data-game-mode] #universe{opacity:.26;transition:opacity 800ms ease}
+body[data-game-mode] #model3d{opacity:.36;transform:scale(.72);transition:opacity 800ms ease,transform 1000ms cubic-bezier(.22,.68,0,1)}
+body[data-game-mode] .question{display:none}
+.draw-actions{margin-top:34px;max-width:242px}
+.primary-action{width:100%;min-height:49px;border:1px solid #907b9d;background:#e9dfeb;color:#584562;display:flex;align-items:center;justify-content:space-between;padding:0 18px;gap:12px;font-size:12px;letter-spacing:1.1px;transition:background .2s,transform .2s,border-color .2s}
+.primary-action:hover:not(:disabled){background:#ded0e4;border-color:#7f688e;transform:translateY(-2px)}
+.primary-action:disabled{cursor:default;background:transparent;border-color:#d8cfd8;color:#a59ba7}
+.primary-action:focus-visible,.text-action:focus-visible,.fate-node:focus-visible,.card-scan-link:focus-visible,.footer button:focus-visible{outline:2px solid #6c8f91;outline-offset:5px}
+.primary-action>span:last-child{font-size:19px;font-family:var(--serif)}
+.draw-note{font-size:9px;line-height:1.7;color:#918693;letter-spacing:.3px;margin:12px 0 0}
+.roulette-stage{position:absolute;z-index:3;left:50%;top:47%;width:var(--wheel-size);height:var(--wheel-size);transform:translate(-50%,-50%);pointer-events:none}
+.orbit-engraving{position:absolute;inset:0;border:1px solid rgba(143,127,147,.24);border-radius:50%;background:radial-gradient(circle,transparent 34%,rgba(245,240,233,.18) 64%,rgba(245,240,233,.4) 80%)}
+.orbit-engraving:before,.orbit-engraving:after{content:"";position:absolute;background:rgba(151,137,154,.13)}
+.orbit-engraving:before{left:-6%;right:-6%;height:1px;top:50%}
+.orbit-engraving:after{top:-6%;bottom:-6%;width:1px;left:50%}
+.orbit-engraving i{position:absolute;inset:7%;border:1px solid rgba(143,127,147,.22);border-radius:50%}
+.orbit-engraving i:nth-child(2){inset:15%;border-style:dashed;border-color:rgba(143,127,147,.13)}
+.orbit-engraving i:nth-child(3){inset:28%;border-color:rgba(143,127,147,.09)}
+.orbit-axis{position:absolute;inset:-28px 0;display:flex;flex-direction:column;justify-content:space-between;align-items:center;font:8px var(--serif);letter-spacing:2px;color:#aea0b0}
+.orbit-caption{position:absolute;top:63%;left:50%;width:70%;transform:translateX(-50%);text-align:center;color:#968598;pointer-events:none}
+.orbit-caption span{display:block;font-size:7px;letter-spacing:2.1px}
+.orbit-caption strong{display:block;font:12px var(--serif);font-weight:400;letter-spacing:2px;margin-top:8px}
+#fate-nodes{position:absolute;inset:0}
+.fate-node{position:absolute;display:flex;flex-direction:column;align-items:center;justify-content:center;width:54px;height:54px;border:1px solid #cfbdd4;border-radius:50%;background:#f4ecf5;color:#786482;transform:translate(-50%,-50%);pointer-events:auto;font-family:var(--serif);font-size:18px;box-shadow:0 5px 0 rgba(205,188,210,.27);transition:background .25s,border-color .25s,box-shadow .25s,opacity .25s}
+.fate-node:nth-child(3n+2){border-color:#b4c9bf;background:#eef3e9;color:#6f8777;box-shadow:0 5px 0 rgba(180,201,191,.24)}
+.fate-node:nth-child(3n){border-color:#b6ccd2;background:#eaf1f4;color:#6c8b96;box-shadow:0 5px 0 rgba(182,204,210,.24)}
+.fate-node:hover{border-color:#90769d;box-shadow:0 5px 0 rgba(179,153,191,.35),0 0 0 5px rgba(211,192,222,.18)}
+.fate-node .node-number{font:16px var(--serif);line-height:1}
+.fate-node .node-name{font:9px var(--sans);letter-spacing:.5px;line-height:1;margin-top:5px}
+.fate-node.active,.fate-node.selected,.fate-node.current{background:#d8c3e6;border-color:#987bac;box-shadow:0 5px 0 #c5b0d2,0 0 0 6px rgba(206,178,223,.25);color:#574264}
+.fate-node.passing{background:#e7ced4;border-color:#c496a4;box-shadow:0 5px 0 #d2b8c0,0 0 0 6px rgba(214,167,188,.16)}
+.fate-node.visited:after,.fate-node.completed:after{content:"";position:absolute;right:0;top:0;width:8px;height:8px;border-radius:50%;background:#86a593;border:2px solid var(--void)}
+#roulette-ball{position:absolute;z-index:3;width:14px;height:14px;transform:translate(-50%,-50%);border:1px solid #fff9f2;border-radius:50%;background:#d68a79;box-shadow:0 3px 4px rgba(149,103,106,.2),0 0 0 5px rgba(214,138,121,.12),0 0 20px rgba(214,138,121,.5);pointer-events:none}
+.game-card-panel{position:absolute;right:4.5%;top:20%;z-index:3;width:235px}
+.panel-heading{display:flex;justify-content:space-between;align-items:center;font-size:9px;letter-spacing:1.2px;color:#8b7b90;margin-bottom:13px}
+.small-cross{font:17px var(--serif);font-weight:400}
+.fate-card{position:relative;padding:17px 20px 14px;min-height:324px;background:rgba(253,249,242,.86);border:1px solid #cfc1d3;color:#7b6388;box-shadow:5px 6px 0 rgba(220,208,223,.35);isolation:isolate}
+.fate-card:before{content:"";position:absolute;inset:7px;border:1px solid rgba(154,131,164,.2);pointer-events:none;z-index:-1}
+.card-topline,.card-bottomline{display:flex;align-items:center;justify-content:space-between;font-size:8px;letter-spacing:1px}
+.card-topline>span:first-child{font:11px var(--serif);letter-spacing:1.4px}
+#card-number{font:18px var(--serif)}
+.card-seed-mark{display:block;width:105px;height:135px;margin:7px auto 0;color:#aa8ab5}
+.card-category{display:block;text-align:center;font-size:6px;letter-spacing:1.7px;color:#ac9bb0}
+.fate-card h2{font:25px var(--serif);font-weight:400;text-align:center;margin:9px 0 10px;letter-spacing:2px}
+.fate-card>p{font-size:10px;line-height:1.85;text-align:center;margin:0 0 18px;color:#88738e;min-height:36px;letter-spacing:.3px}
+.card-bottomline{padding-top:12px;border-top:1px solid rgba(154,131,164,.22);font-size:7px;color:#a390aa}
+.card-task{margin:19px 0 13px;font-size:10px;line-height:1.8;letter-spacing:.2px;color:#897a8d}
+.enter-action{min-height:42px;font-size:10px;background:#eee5ef}
+.card-scan-link{display:block;margin-top:11px;font-size:9px;color:#8f7a99;text-decoration:underline;text-underline-offset:3px;line-height:1.6}
+[hidden]{display:none!important}
+.journey-status{position:absolute;z-index:3;left:50%;bottom:23%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;max-width:42%;text-align:center;color:#907d96}
+.journey-status p{font-size:10px;letter-spacing:.6px;line-height:1.7;margin:0}
+.status-light{width:5px;height:5px;flex-shrink:0;border-radius:50%;background:#b49bbc}
+.physical-journey{position:absolute;z-index:3;left:50%;bottom:11%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:27px;white-space:nowrap}
+.physical-journey>div{display:flex;gap:10px;align-items:flex-start}
+.physical-journey>div>span{font:18px var(--serif);color:#b7a6bb;margin-top:3px}
+.physical-journey p{font-size:10px;line-height:1.7;letter-spacing:.7px;color:#796b7f;margin:0}
+.physical-journey small{display:block;font-size:8px;color:#a398a7;letter-spacing:.3px}
+.physical-journey i{font-style:normal;font-size:12px;color:#c4b5c8}
+body[data-game-mode] .readout{display:none}
+.playing-intro{display:none;margin-top:32px;color:#89788f}
+.section-label{font-size:8px;letter-spacing:1.5px}
+.playing-intro p{font-size:12px;line-height:1.9;margin:12px 0 24px}
+.text-action{border:0;border-bottom:1px solid #cabbce;padding:0 0 7px;background:none;font-size:10px;color:#876c94;letter-spacing:.4px}
+.node-completion{margin-top:28px;padding-top:16px;border-top:1px solid var(--line)}
+.node-completion>div{display:flex;justify-content:space-between;font-size:9px;color:#88718f;margin-bottom:10px}
+#node-progress{appearance:none;display:block;width:100%;height:3px;border:none;background:#ded3e0}
+#node-progress::-webkit-progress-bar{background:#ded3e0}
+#node-progress::-webkit-progress-value{background:#a489b1}
+#node-progress::-moz-progress-bar{background:#a489b1}
+.game-result{position:absolute;z-index:4;left:50%;bottom:20%;transform:translateX(-50%);width:min(450px,60vw);padding:23px 28px;background:rgba(250,246,239,.94);border-top:1px solid #b6a1c0;border-bottom:1px solid #d7cadc;color:#806a88;text-align:center;font-size:12px;line-height:1.9;box-shadow:0 12px 40px rgba(94,75,100,.08)}
+.game-result h2,.game-result h3{font:25px var(--serif);letter-spacing:1px;margin:0 0 12px;font-weight:400}
+.game-result p{margin:7px 0}
+body[data-game-mode="drawing"] .status-light{animation:status-pulse .8s ease-in-out infinite alternate}
+body[data-game-mode="drawing"] .fate-node{pointer-events:none}
+body[data-game-mode="revealed"] .fate-card{border-color:#ad8aba;box-shadow:5px 6px 0 #dfd1e5,0 14px 45px rgba(151,124,163,.13)}
+body[data-game-mode="playing"] .roulette-stage,body[data-game-mode="complete"] .roulette-stage,body[data-game-mode="playing"] .game-card-panel,body[data-game-mode="complete"] .game-card-panel,body[data-game-mode="playing"] .draw-actions,body[data-game-mode="complete"] .draw-actions,body[data-game-mode="playing"] .physical-journey,body[data-game-mode="complete"] .physical-journey{display:none}
+body[data-game-mode="playing"] .playing-intro,body[data-game-mode="complete"] .playing-intro{display:block}
+body[data-game-mode="playing"] #universe,body[data-game-mode="complete"] #universe{opacity:.82}
+body[data-game-mode="playing"] #model3d,body[data-game-mode="complete"] #model3d{opacity:1;transform:scale(1)}
+body[data-game-mode="playing"] .readout,body[data-game-mode="complete"] .readout{display:block;top:24%;width:205px}
+body[data-game-mode="playing"] .journey-status,body[data-game-mode="complete"] .journey-status{bottom:12%;max-width:60%}
+body[data-game-mode="playing"] .question{display:block;bottom:19%}
+@keyframes status-pulse{to{opacity:.3;transform:scale(.65)}}
+@media(max-height:760px) and (min-width:761px){body[data-game-mode] .title-block{top:19%}.game-card-panel{top:15%;width:212px}.fate-card{min-height:285px;padding:14px 17px 12px}.card-seed-mark{width:83px;height:103px}.fate-card h2{font-size:23px}.card-task{margin:14px 0 10px;font-size:9px}.draw-actions{margin-top:22px}.physical-journey{bottom:12%;gap:21px}.journey-status{bottom:24%}}
+@media(min-width:761px) and (max-width:1100px){body[data-game-mode]{--wheel-size:43vw}body[data-game-mode] .title-block{max-width:215px;left:3.5%}body[data-game-mode] .title-block h1{font-size:58px}.game-card-panel{width:195px;right:3.5%}.card-seed-mark{height:100px}.fate-card{min-height:280px;padding:14px 16px}.fate-card h2{font-size:22px}.fate-node{width:46px;height:46px}.fate-node .node-number{font-size:14px}.fate-node .node-name{font-size:8px}.physical-journey{gap:17px}.physical-journey small{font-size:7px}.draw-actions{max-width:190px}}
+@media(max-width:760px){html,body{overflow-y:auto}body[data-game-mode]{--wheel-size:min(82vw,410px)}body[data-game-mode] #experience{min-height:1330px}body[data-game-mode] .edition{font-size:6px;letter-spacing:1px}body[data-game-mode] .title-block{left:8%;right:8%;top:95px;max-width:none}body[data-game-mode] .title-block h1{font-size:43px;letter-spacing:-2px;line-height:1.1;margin-bottom:15px}body[data-game-mode] .title-block h1 br{display:none}body[data-game-mode] .eyebrow{margin-bottom:13px}body[data-game-mode] .dek{font-size:11px}.draw-actions{margin-top:20px;max-width:250px}.draw-note{font-size:8px}.roulette-stage{top:530px}.fate-node{width:46px;height:46px}.fate-node .node-number{font-size:15px}.fate-node .node-name{font-size:8px}.game-card-panel{top:820px;right:8%;left:8%;width:auto}.fate-card{min-height:245px;padding:17px 23px}.card-seed-mark{position:absolute;left:25px;top:55px;width:90px;height:115px}.card-category,.fate-card h2,.fate-card>p{margin-left:95px}.card-category{margin-top:30px}.fate-card h2{font-size:23px}.fate-card>p{min-height:55px}.card-bottomline{margin-top:22px}.card-task{font-size:10px}.journey-status{top:755px;bottom:auto;max-width:85%;width:85%;justify-content:center}.physical-journey{display:none}.footer{bottom:22px}body[data-game-mode] #model3d{top:300px;height:450px;transform:scale(.8);opacity:.28}body[data-game-mode] #universe{pointer-events:none}.orbit-caption strong{font-size:10px}body[data-game-mode="playing"] #experience,body[data-game-mode="complete"] #experience{min-height:760px;height:100svh}body[data-game-mode="playing"] .title-block,body[data-game-mode="complete"] .title-block{top:85px}.playing-intro{margin-top:12px}.playing-intro p,.playing-intro .section-label{display:none}body[data-game-mode="playing"] #model3d,body[data-game-mode="complete"] #model3d{top:70px;height:100%;transform:scale(.7)}body[data-game-mode="playing"] #universe,body[data-game-mode="complete"] #universe{pointer-events:auto}body[data-game-mode="playing"] .readout,body[data-game-mode="complete"] .readout{top:auto;bottom:140px;left:8%;width:84%}.node-completion{margin-top:16px;padding-top:12px}body[data-game-mode="playing"] .journey-status,body[data-game-mode="complete"] .journey-status{top:auto;bottom:84px;max-width:84%}.game-result{bottom:280px;width:84%;padding:18px;font-size:11px}body[data-game-mode="playing"] .question{display:none}}
+@media(prefers-reduced-motion:reduce){body[data-game-mode] #model3d,body[data-game-mode] #universe,.primary-action,.fate-node{transition:none}body[data-game-mode="drawing"] .status-light{animation:none}}
