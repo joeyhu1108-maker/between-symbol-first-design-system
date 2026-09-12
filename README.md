@@ -4,10 +4,39 @@
 
 ## 运行
 
+完整体验（主游戏、符号主控台、花园作品生成、3D 打印机）由一个本地 Python 服务提供：
+
 ```sh
-node seed-universe/server.mjs
+./start.command
+# 或：python3 printer/server.py（依赖见 printer/requirements.txt：numpy、Pillow、reportlab）
 ```
 
-打开 <http://127.0.0.1:4187>。无需网络、模型 API 或素材请求。可用鼠标、触控和空格键点击式互动；`nutrient` 自定义事件为后续 Arduino/传感器桥留出接口。声音由本地 Web Audio 生成，可静音。
+- <http://127.0.0.1:8765/>：主游戏（种子宇宙、十二节点轮盘）。
+- <http://127.0.0.1:8765/prototype-3d.html>：符号主控台 `◒ → ✦ → ◇ → ◉ / ↯ → ▧ → ⟶ → ✓`。
+- `prototype-3d.html?card=07`：带着主游戏抽到的卡进入，作品由这张卡与钥匙卡共同生成。
+
+只看前端时仍可 `node server.mjs`，打开 <http://127.0.0.1:4187>。此时没有 `/api`，主控台自动退回原来的占位作品与模拟打印。无需网络、模型 API 或素材请求。可用鼠标、触控和空格键点击式互动；`nutrient` 自定义事件为后续 Arduino/传感器桥留出接口。声音由本地 Web Audio 生成，可静音。
 
 符号设计规则见 [`SYMBOL-DESIGN-SYSTEM.md`](./SYMBOL-DESIGN-SYSTEM.md)，完整用户流程、状态机和手机/NFC/小米打印机技术边界见 [`ARCHITECTURE-AND-FLOW.md`](./ARCHITECTURE-AND-FLOW.md)。
+
+## 打印后端（printer/）
+
+`bridge.js` 把主控台接到 `printer/server.py`。视觉与交互仍以 `SYMBOL-DESIGN-SYSTEM.md` 为准。
+
+| 符号 | 接入后 |
+| --- | --- |
+| `◒` `⋔` | 读取 RDK X5 骰子识别（`/api/dice`，左骰为成长，右骰为关系）；没有板子时仍是随机 |
+| `✦` | 立即 `POST /api/jobs`，在本地生成花园作品与编号 PDF |
+| `▧` | 显示真实作品，后台预载 3D 打印机场景 |
+| `⟶` | 播放 3D 打印机组装与出纸；纸张打印机尚未接入，作品只归档、不送印 |
+
+作品算法需要两个模态数 m、n。一张卡时这张卡是 m，n 由种子随机抽取且不同于 m；两张卡时按两张卡。相同种子可复现同一个 n 与混合系数。卡片编号与名称以 `game-cards.js` 为准。
+
+骰子：板子上运行识别，经 SSH 转给本机服务。
+
+```sh
+ssh sunrise@<board-ip> 'python3 ~/dice/dice_recognizer.py --camera 0 --stereo auto --json --no-window' \
+  | python3 hardware/dice_push.py
+```
+
+服务启动后运行 `node printer/verify.mjs` 做接口回归。更多细节见 `printer/README.md`。
