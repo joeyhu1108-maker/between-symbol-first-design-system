@@ -46,8 +46,12 @@ async function readJSON(request, maximum = 4096) {
 function validateInput(value) {
   if (!value || Array.isArray(value) || typeof value !== 'object' || Object.keys(value).some(key => !['cards','request_id'].includes(key))) return false;
   const {cards, request_id:key} = value;
+  // EntrySessions uses 18 random bytes encoded as a 24-character URL-safe token.
+  const randomKey = typeof key === 'string' && !/\s/.test(key) && (
+    /^(?:[a-f0-9]{32}|[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12})$/i.test(key)
+    || /^entry-[A-Za-z0-9_-]{24}$/.test(key));
   return Array.isArray(cards) && cards.length === 2 && cards.every(card => Number.isInteger(card) && card >= 1 && card <= 12) && cards[0] !== cards[1]
-    && typeof key === 'string' && /^(?:[a-f0-9]{32}|[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12})$/i.test(key);
+    && randomKey;
 }
 
 function newIdentity() {
@@ -60,7 +64,7 @@ function newIdentity() {
 async function createJob(request, env) {
   if (!(request.headers.get('Content-Type') || '').toLowerCase().startsWith('application/json')) return json({error:'请使用 application/json。'}, 415);
   const input = await readJSON(request);
-  if (!validateInput(input)) return json({error:'需要两张不同的 1–12 号卡，以及随机 UUID v4 或 32 位十六进制 request_id。'}, 400);
+  if (!validateInput(input)) return json({error:'需要两张不同的 1–12 号卡，以及有效的随机作品编号。'}, 400);
   const now = Date.now(), identity = newIdentity(), cards = JSON.stringify(input.cards);
   // The count and insert share one atomic D1 statement; concurrent submissions
   // cannot oversubscribe the bounded queue. Existing keys remain retrievable.

@@ -1,9 +1,9 @@
-import {mountGlyph,mountSymbolState,mountSymbolLoading,actionGlyph,stageGlyph,mountMainInterface} from './symbol-interface.js?v=physical-symbol-2';
+import {mountGlyph,mountSymbolState,mountSymbolLoading,actionGlyph,stageGlyph,mountMainInterface} from './symbol-interface.js?v=physical-symbol-3';
 import * as THREE from './vendor/three.module.min.js';
 import {CARDS} from './game-cards.js';
 import {backendReady,createJob,waitForJob,mountPrinterScene} from './bridge.js?v=card-fusion-3d-1';
 import {mountScanEntry} from './entry-display.js?v=physical-symbol-2';
-import {armNfc,nfcEnabled,stationMode} from './nfc-session.js';
+import {armNfc,triggerNfcFallback,nfcEnabled,stationMode} from './nfc-session.js';
 const $=id=>document.getElementById(id);
 // PDF pages 1/2, 3/4 ... are one physical card: illustration / seed.
 const cardFace=(card,side='seed')=>`./assets/print-cards/${card.id}-${side}.webp`;
@@ -325,12 +325,35 @@ function showPrintProgress(p,phase){
   $('percentText').textContent=`${Math.round(state.progress*100)}%`;
   mountGlyph($('layerText'),state.progress<1?'12':'08');$('layerText').setAttribute('aria-label',state.progress<1?'3D 打印预演':'预演完成');
 }
+function updatePaperPrint(){
+  const generation=state.generation,button=$('paperPrint');
+  button.hidden=!nfcEnabled||generation.status!=='ready';
+  button.disabled=['sending','confirmed'].includes(generation.paperPrint);
+  button.setAttribute('aria-busy',String(generation.paperPrint==='sending'));
+  button.setAttribute('aria-label',generation.paperPrint==='sending'?'正在确认打印':generation.paperPrint==='confirmed'?'打印已确认，请到设备取作品':'打印这件作品');
+}
+async function printPaper(){
+  const generation=state.generation,job=generation.job,card=CARDS[state.growth-1];
+  if(!nfcEnabled||!state.paired||generation.status!=='ready'||!job||!card||!['printing','done'].includes(state.stage)||$('restart').disabled||['sending','confirmed'].includes(generation.paperPrint))return;
+  const current=()=>state.generation===generation&&generation.job===job&&state.growth===Number(card.id)&&!$('restart').disabled;
+  generation.paperPrint='sending';$('paperPrintError').hidden=true;updatePaperPrint();
+  try{
+    const run=await triggerNfcFallback(job,card.id);
+    if(!current())return;
+    if(!run)throw Error('打印连接尚未准备好，请稍后重试。');
+    generation.paperPrint='confirmed';
+    syncPhone('print-confirmed',{job:job.id});
+  }catch(error){
+    if(!current())return;
+    generation.paperPrint='idle';$('paperPrintError').textContent=error.message;$('paperPrintError').hidden=false;
+  }finally{if(current())updatePaperPrint();}
+}
 function finishPrint(){
   if(!state.printStarted||state.stage!=='printing')return;
   setStage('done');showPrintProgress(1);
   mountGlyph($('printTitle'),'08');$('printTitle').setAttribute('aria-busy','false');$('printTitle').setAttribute('aria-label','作品已保存，3D 预演完成');
   $('printCopy').textContent=nfcEnabled?'3D 预演完成。实体打印状态见 NFC 联调记录，请到设备确认出纸。':'作品与 PDF 已保存。3D 预演完成，尚未送往纸张打印机。';
-  $('artworkActions').hidden=false;$('restart').hidden=false;
+  $('artworkActions').hidden=false;$('restart').hidden=false;updatePaperPrint();
   syncPhone('preview-complete',{job:state.job,image:state.generation.job.image,pdf:state.generation.job.pdf});
 }
 function preparePrinterScene(){
@@ -357,7 +380,7 @@ function updatePrintReady(){
   $('printTitle').setAttribute('aria-label',ready?'作品已就绪，开始 3D 预演':'等待作品生成');
   $('printArt').src=generation.imageUrl||'';$('printArt').hidden=!ready;
   $('printArt').alt=`作品 ${state.job||''}`;
-  $('artworkActions').hidden=!ready;
+  $('artworkActions').hidden=!ready;updatePaperPrint();
   $('startPrintButton').hidden=false;
   $('startPrintButton').disabled=generation.status==='generating';
   const action=generation.status==='failed'?'重新生成作品':state.printerFailed?'重试 3D 预演':'开始 3D 打印预演';
@@ -380,6 +403,7 @@ function startPrint(){
   state.printerFailed=false;preparePrinterScene();
   if(!state.printerView)return;
   state.printStarted=true;document.body.dataset.previewRunning='true';$('printCopy').classList.remove('is-error');
+  if(state.paired)printPaper();
   document.body.dataset.printerPhase='loading';
   setSymbolLoading('printTitle',selectedSymbols(),true);$('printTitle').setAttribute('aria-label','正在播放 3D 打印预演');
   $('printCopy').textContent='同一件作品正在 3D 打印机中成形。';
@@ -398,7 +422,7 @@ window.addEventListener('message',event=>{
   const data=event.data||{};
   if(data.type==='between:phone-card')confirmHumanCard(data.cardId);
 });
-$('lockInput').onclick=confirmSelectedCard;$('startPrintButton').onclick=startPrint;$('restart').onclick=restartExperience;$('startShuffle').onclick=startShuffle;document.querySelectorAll('.shuffle-mode').forEach(button=>button.onclick=()=>{if(state.shuffling||state.growth!==null)return;state.shuffleMode=button.dataset.shuffleMode;document.querySelectorAll('.shuffle-mode').forEach(item=>{item.classList.toggle('is-active',item===button);item.setAttribute('aria-pressed',String(item===button))})});renderSeedDeck();setStage('input');
+$('lockInput').onclick=confirmSelectedCard;$('startPrintButton').onclick=startPrint;$('paperPrint').onclick=printPaper;$('restart').onclick=restartExperience;$('startShuffle').onclick=startShuffle;document.querySelectorAll('.shuffle-mode').forEach(button=>button.onclick=()=>{if(state.shuffling||state.growth!==null)return;state.shuffleMode=button.dataset.shuffleMode;document.querySelectorAll('.shuffle-mode').forEach(item=>{item.classList.toggle('is-active',item===button);item.setAttribute('aria-pressed',String(item===button))})});renderSeedDeck();setStage('input');
 const incomingCard=new URLSearchParams(location.search).get('card');
 if(incomingCard){
   const index=CARDS.findIndex(card=>card.id===incomingCard.padStart(2,'0'));

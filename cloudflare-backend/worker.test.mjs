@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
 import {DatabaseSync} from 'node:sqlite';
+import {execFileSync} from 'node:child_process';
 
 // Model workerd's fixed-length stream contract, which Node does not provide.
 const streamLengths = new WeakMap();
@@ -146,6 +147,77 @@ test('same request_id is idempotent under concurrent POSTs and rejects changed o
   assert.equal(new Set((await Promise.all(responses.map(response => response.json()))).map(job => job.id)).size, 1);
   assert.equal((await worker.fetchHandler(post({...data, cards:[12,1]}), env)).status, 409);
   assert.equal((await env.DB.prepare('SELECT COUNT(*) AS count FROM jobs').first()).count, 1);
+});
+
+test('actual Python NFC session request IDs survive phone handoff and reach the cloud worker', async t => {
+  const {env} = bindings(t);
+  // Exercise the producer, not a reimplementation of secrets.token_urlsafe(18).
+  const sessions = JSON.parse(execFileSync(process.env.PYTHON || 'python3', ['-B', '-c', `
+import json
+from entry_sessions import EntrySessions
+store = EntrySessions()
+results = []
+for participant in ('phone-test-one', 'phone-test-two'):
+    created = store.create('127.0.0.1', 8765)
+    sid, owner = created['id'], created['owner_token']
+    snapshots = [created, store.join(sid, participant, 6), store.select(sid, participant, 6),
+                 store.cards(sid, participant, [6], handoff_required=True),
+                 store.handoff(sid, participant), store.ack(sid, owner)]
+    results.append({'id': sid, 'request_ids': [snapshot['request_id'] for snapshot in snapshots],
+                    'status': snapshots[-1]['status'], 'handoff_ready': snapshots[-1]['handoff_ready'],
+                    'cards': [snapshots[-1]['selected_card'], snapshots[-1]['ai_card']]})
+print(json.dumps(results))
+`], {cwd:new URL('../printer/', import.meta.url), encoding:'utf8'}));
+  const jobs = [];
+  for (const session of sessions) {
+    assert.match(session.id, /^[A-Za-z0-9_-]{24}$/);
+    assert.deepEqual(session.request_ids, Array(6).fill(`entry-${session.id}`));
+    assert.equal(session.status, 'accepted'); assert.equal(session.handoff_ready, true);
+    assert.equal(session.cards[0], 6); assert.notEqual(session.cards[1], 6);
+    const job = await create(env, {cards:session.cards, request_id:session.request_ids[0]});
+    assert.equal((await row(env, job.id)).request_id, session.request_ids[0]);
+    jobs.push(job);
+  }
+  assert.notEqual(sessions[0].id, sessions[1].id);
+  assert.notEqual(jobs[0].id, jobs[1].id);
+});
+
+test('entry request [6,5] is stable across concurrent retries and separate from other sessions', async t => {
+  const {env} = bindings(t);
+  const data = {cards:[6,5], request_id:'entry-pPFcwzLxzG_MF6mTbVQAedNa'};
+  const responses = await Promise.all(Array.from({length:30}, () => worker.fetchHandler(post(data), env)));
+  assert.equal(responses.filter(response => response.status === 201).length, 1);
+  assert.equal(responses.filter(response => response.status === 200).length, 29);
+  const jobs = await Promise.all(responses.map(response => response.json()));
+  assert.equal(new Set(jobs.map(job => job.id)).size, 1);
+  const first = await row(env, jobs[0].id);
+  assert.equal(first.request_id, data.request_id);
+  assert.deepEqual(JSON.parse(first.cards_json), [6,5]);
+  const repeated = await worker.fetchHandler(post(data), env);
+  assert.equal(repeated.status, 200); assert.equal((await repeated.json()).id, first.id);
+  assert.equal((await row(env, first.id)).seed, first.seed);
+  for (const cards of [[5,6], [6,4]]) {
+    assert.equal((await worker.fetchHandler(post({...data, cards}), env)).status, 409);
+  }
+  const next = await create(env, {...data, request_id:'entry-_PFcwzLxzG-MF6mTbVQAedNb'});
+  assert.notEqual(next.id, first.id);
+  assert.equal((await env.DB.prepare('SELECT COUNT(*) AS count FROM jobs').first()).count, 2);
+});
+
+test('entry request IDs require exact prefix, 24 base64url characters, and no surrounding whitespace', async t => {
+  const {env} = bindings(t), suffix = 'pPFcwzLxzG_MF6mTbVQAedNa';
+  for (const request_id of [
+    `Entry-${suffix}`, `ENTRY-${suffix}`, `entries-${suffix}`, suffix,
+    'entry-', `entry-${suffix.slice(1)}`, `entry-${suffix}a`,
+    `entry-${suffix.slice(1)}+`, `entry-${suffix.slice(1)}/`, `entry-${suffix.slice(1)}=`,
+    `entry-${suffix.slice(1)}中`, ` entry-${suffix}`, `entry-${suffix} `, `entry-${suffix}\n`
+  ]) {
+    assert.equal((await worker.fetchHandler(post({cards:[6,5], request_id}), env)).status, 400, JSON.stringify(request_id));
+  }
+  assert.equal((await env.DB.prepare('SELECT COUNT(*) AS count FROM jobs').first()).count, 0);
+  const uuid = await create(env, {cards:[6,5], request_id:crypto.randomUUID()});
+  const hex = await create(env, {cards:[6,5], request_id:'09a4bf8e37cd41829440e5248f1a2376'});
+  assert.notEqual(uuid.id, hex.id);
 });
 
 test('512 pending jobs are an atomic ceiling while existing keys and completed slots remain usable', async t => {

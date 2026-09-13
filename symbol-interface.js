@@ -4,6 +4,7 @@ import {createSymbol} from './motion/player.mjs';
 const controlIcons={
   handoff:'<rect x="5" y="7" width="13" height="25" rx="2"/><path d="m10 19 2-3 2 3-2 3Z"/><path class="control-shift" d="M23 20h11m-5-5 5 5-5 5"/>',
   restart:'<path class="control-shift" d="M9 12a13 13 0 1 1-2 13M9 5v8H2"/><path class="control-accent" d="M20 27v-7m0 2c-5 0-7-3-7-6 5 0 7 2 7 6Zm0-3c0-4 3-6 7-6 0 4-3 6-7 6Z"/>',
+  print:'<path d="M12 13V5h16v8M12 28H6V14h28v14h-6"/><path class="control-shift" d="M12 23h16v12H12zM16 28h8m-8 3h8"/><circle class="control-accent" cx="28" cy="18" r="1"/>',
   back:'<path class="control-shift" d="M24 12 16 20l8 8M16 20h17"/><path d="M10 9v22"/>',
   hand:'<g class="control-fan-left"><rect x="8" y="12" width="13" height="20" rx="2" transform="rotate(-18 14.5 22)"/></g><g class="control-fan-right"><rect x="19" y="12" width="13" height="20" rx="2" transform="rotate(18 25.5 22)"/></g><rect x="13.5" y="8" width="13" height="21" rx="2" fill="var(--paper)"/><path class="control-accent" d="M18 23h4"/>',
   slot:'<rect x="6" y="9" width="28" height="23" rx="3"/><path d="M15.5 10v21m9-21v21"/><g class="control-reels"><path d="M9 16h3m6 9h4m6-10h3"/><path class="control-accent" d="M18 20h4"/></g><path d="M11 5h18"/>',
@@ -49,7 +50,7 @@ export function mountGlyph(host,id,{ambient=false,interactive=false,intro=false}
 }
 export function actionGlyph(host,id){
   if(!host)return;host.classList.add('symbol-action');
-  const control={startShuffle:'shuffle',localEntry:'hand',retryEntry:'shuffle',lockInput:'handoff',restart:'restart'}[host.id]||host.dataset.shuffleMode;
+  const control={startShuffle:'shuffle',localEntry:'hand',retryEntry:'shuffle',lockInput:'handoff',restart:'restart',paperPrint:'print'}[host.id]||host.dataset.shuffleMode;
   if(control&&controlIcons[control])mountControlIcon(host,control);
   else mountGlyph(host,id,{interactive:true});
 }
@@ -106,7 +107,7 @@ export function mountMainInterface(){
   mountControlIcon(document.querySelector('.brand'),'back');
   mountGlyph($('openingGlyph'),'01',{ambient:true});
   mountGlyph($('entryGlyph'),'01');
-  const actions={retryEntry:'10',localEntry:'06',startShuffle:'06',lockInput:'07',retryGeneration:'06',openCards:'08',scanCard:'02',manualCard:'08',pairButton:'08',startPrintButton:'12',restart:'10',downloadArtwork:'04',openPrinter:'05'};
+  const actions={retryEntry:'10',localEntry:'06',startShuffle:'06',lockInput:'07',retryGeneration:'06',openCards:'08',scanCard:'02',manualCard:'08',pairButton:'08',startPrintButton:'12',paperPrint:'12',restart:'10',downloadArtwork:'04',openPrinter:'05'};
   Object.entries(actions).forEach(([id,glyph])=>actionGlyph($(id),glyph));
   document.querySelectorAll('.shuffle-mode').forEach(button=>{
     actionGlyph(button);

@@ -25,7 +25,7 @@ body:not([data-ready]) .app{visibility:hidden}
 </style>
 <link rel="stylesheet" href="./prototype-3d.css?v=physical-symbol-2">
 <link rel="stylesheet" href="./entry-garden.css">
-<link rel="stylesheet" href="./symbol-interface.css?v=mobile-pairing-1">
+<link rel="stylesheet" href="./symbol-interface.css?v=physical-symbol-3">
 
 </head>
 <body>
@@ -85,7 +85,8 @@ body:not([data-ready]) .app{visibility:hidden}
     <img id="printArt" class="generated-art print-art" alt="即将打印的预生成作品" hidden>
     <div class="progress"><i id="printProgress"></i></div><div class="print-meta"><span id="layerText">等待启动</span><span id="percentText">0%</span></div>
     <button id="startPrintButton" class="primary print-button" aria-label="开始 3D 打印预演" title="开始 3D 打印预演">⟶</button>
-    <div id="artworkActions" class="artwork-actions" hidden><a id="downloadArtwork" aria-label="下载作品 PDF" title="下载作品 PDF" download>⇩</a><a id="openPrinter" aria-label="打开作品与纸张打印" title="打开作品与纸张打印" target="_blank" rel="noopener">▧ ↗</a></div>
+    <div id="artworkActions" class="artwork-actions" hidden><button id="paperPrint" type="button" aria-label="打印这件作品" hidden></button><a id="downloadArtwork" aria-label="下载作品 PDF" title="下载作品 PDF" download>⇩</a><a id="openPrinter" aria-label="打开作品与纸张打印" title="打开作品与纸张打印" target="_blank" rel="noopener">▧ ↗</a></div>
+    <p id="paperPrintError" role="alert" hidden></p>
     <button id="restart" class="ghost" aria-label="再来一次，换人体验">↺</button>
   </section>
   <footer hidden><span id="jobText"></span></footer>
@@ -94,10 +95,10 @@ body:not([data-ready]) .app{visibility:hidden}
 <script type="module">
 let releaseLogo;
 try{
-  const {mountSymbolLoading,unmountGlyph}=await import('./symbol-interface.js?v=physical-symbol-2');
+  const {mountSymbolLoading,unmountGlyph}=await import('./symbol-interface.js?v=physical-symbol-3');
   const logo=document.querySelector('#bootGlyph');
   mountSymbolLoading(logo);releaseLogo=()=>unmountGlyph(logo);
-  await Promise.all([import('./entry-garden.js?v=card-fusion-3d-1'),import('./prototype-3d.js?v=physical-symbol-2')]);
+  await Promise.all([import('./entry-garden.js?v=card-fusion-3d-1'),import('./prototype-3d.js?v=physical-symbol-3')]);
   releaseLogo();
   document.querySelector('.app').inert=false;
   document.body.dataset.ready='true';

@@ -62,7 +62,8 @@ body[data-stage="input"] .left-panel:has(.seed-deck:not(.is-started)) h1{positio
 .app #openCards{width:68px;height:68px}.app #retryGeneration{width:48px;height:48px;margin:0}
 .app #openCards.symbol-action{padding:2px!important;background:transparent;border-color:transparent}
 .app .print-panel h2{display:flex;align-items:center;min-height:64px}.app #printTitle.has-glyph{width:74px;height:74px}.app .print-meta #layerText.has-glyph{width:24px;height:24px}
-.app .artwork-actions a.symbol-action{width:54px;height:54px;font-size:0;text-decoration:none}
+.app .artwork-actions .symbol-action{width:54px;height:54px;font-size:0;text-decoration:none}
+.app #paperPrintError{position:absolute;right:0;bottom:100%;width:min(340px,calc(100vw - 32px));padding:12px 16px;margin:0 0 12px;background:var(--paper);border:1px solid var(--line);color:var(--ink);font-size:13px;line-height:1.6;overflow-wrap:anywhere}
 .app .print-panel .symbol-action{margin-top:16px}.app .generated-art{border-color:var(--line);box-shadow:0 10px 26px #14191712}
 .app #scanStatus:after{color:var(--symbol-blue)}.app .status,.app .kicker{color:var(--muted)}
 .app .fusion-field>i{display:none}
