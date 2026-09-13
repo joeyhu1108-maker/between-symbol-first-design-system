@@ -2,11 +2,11 @@ import * as THREE from 'three';
 import { GLTFLoader } from './vendor/loaders/GLTFLoader.js';
 import { RoomEnvironment } from './vendor/RoomEnvironment.js';
 import { mergeGeometries } from './vendor/utils/BufferGeometryUtils.js';
-import { timeline, smooth, clamp } from './timeline.js';
+import { timeline, smooth, clamp } from './timeline.js?v=spring-long-20260913';
 import { makeUniverse,themeAt } from './garden_universe.js';
 import { rarityFor } from './rarity.js';
-import { FrontPrinterEffects } from './printer_effects.js?v=rear-corners-20260913';
-import { addPrinterMechanics } from './printer_mechanics.js?v=rear-corners-20260913';
+import { FrontPrinterEffects } from './printer_effects.js?v=spring-long-20260913';
+import { addPrinterMechanics } from './printer_mechanics.js?v=spring-long-20260913';
 
 const $=id=>document.getElementById(id), query=new URLSearchParams(location.search);
 // Card ids and names follow ../game-cards.js, the twelve BETWEEN relationship cards.
@@ -29,7 +29,7 @@ $('cardA').textContent=cardIds[params.m-1]; $('cardB').textContent=cardIds[param
 $('cardNames').textContent=names[params.m-1]+' · '+names[params.n-1];
 $('modes').textContent=`${params.m.toString().padStart(2,'0')} / ${params.n.toString().padStart(2,'0')}`;
 $('seed').textContent=(params.seed>>>0).toString(16).toUpperCase().padStart(8,'0');
-$('modeLabel').textContent=state.mode==='live'?'真实生成时序':'25 秒完整预演';
+$('modeLabel').textContent=state.mode==='live'?'真实生成时序':'25 秒创作预演';
 if(query.has('debug')) $('lab').hidden=false;
 $('timing').value=state.mode;
 
@@ -163,53 +163,37 @@ for(let j=0;j<=rows;j++)for(let i=0;i<=cols;i++){
 }
 paperGeometry.computeVertexNormals();paperGeometry.setDrawRange(0,0);
 const output=new THREE.Mesh(paperGeometry,new THREE.MeshBasicMaterial({color:0xffffff,side:THREE.DoubleSide,toneMapped:false}));scene.add(output);
-const printerFx=new FrontPrinterEffects({renderer,scene,camera,assembly,pieces,owners,localSamples,splatPhases,modelColors,gardenColors,universe,sg,sp,splats,splatMaterial,output,paperGeometry,floor,halo,points,rails});
+const printerFx=new FrontPrinterEffects({renderer,scene,camera,assembly,pieces,owners,localSamples,splatPhases,modelColors,gardenColors,universe,sg,sp,splats,splatMaterial,output,paperGeometry,floor,halo,points,rails,params});
 
 function resize(){const w=viewport.clientWidth,h=viewport.clientHeight;renderer.setSize(w,h);camera.aspect=w/h;camera.updateProjectionMatrix();}
 new ResizeObserver(resize).observe(viewport);resize();
 state.loaded=true;$('loading').style.display='none';$('start').disabled=false;
 $('motion').textContent=state.reduced?'恢复完整动态':'减少动态';
-$('status').textContent='输入已载入 · 模型与生成器已准备好';
+$('status').textContent='底座已就位 · 点击开始快速装配';
 
 function soundNote(phase){
  if(!state.sound)return;
  audioContext ||= new AudioContext();audioContext.resume();
- const tones={receive:220,unfold:330,grow:440,gather:550,print:660,complete:880};
+ const tones={receive:220,assembly:220,assembled:330,creating:440,print:660,complete:880};
  const o=audioContext.createOscillator(),g=audioContext.createGain();o.type='sine';o.frequency.value=tones[phase]||220;
  g.gain.setValueAtTime(0,audioContext.currentTime);g.gain.linearRampToValueAtTime(.025,audioContext.currentTime+.06);g.gain.exponentialRampToValueAtTime(.0001,audioContext.currentTime+.7);
  o.connect(g).connect(audioContext.destination);o.start();o.stop(audioContext.currentTime+.72);
 }
 const copy={
- cosmos:['01 / 04','一颗种子，<br>一个未定的宇宙。','所有可能性混在一起。你的两种模态，让这片立体粒子场持续旋转、彼此牵引。'],
- coalesce:['02 / 04','宇宙开始，<br>借用一种形状。','同一批色粒沿着各自的轨迹聚拢，一台半透明的打印机渐渐显现。'],
- printer:['02 / 04','形状，<br>只是短暂的停留。','粒子暂时成为机器。它已经承接你的种子，也准备再次改变自己。'],
- garden:['03 / 04','让偶然，<br>长成一座花园。','结构重新流动。色域交叠、线条游走，种子进入一片没有既定形状的花园。'],
- print:['04 / 04','这座花园，<br>只在此刻发生。','抽象的色彩关系落到纸上。留下编号，保存这次由你开始的相遇。'],
- complete:['04 / 04','你的种子，<br>已经落进花园。','作品与输入变量已一同归档，可以保存文件，或在连接纸张打印机后继续打印。'],
- failed:['—','这次生长，<br>暂时停了一下。','种子和输入仍然保留。你可以重试，不必重新选择。']
+ assembly:['01 / 04','每个部分，<br>找到自己的位置。','底座接住传动机构，齿轮轻转，机身随扣合轻轻回弹。最后一片上盖缓缓落下，轻颤收稳。'],
+ assembled:['02 / 04','安静一拍，<br>等第一笔发生。','机器已就位。作品准备好后，符号才会进入纸路；等待本身也留在这段相遇里。'],
+ creating:['03 / 04','先是一笔，<br>再成为一座花园。','断环、分叉与游走的线，从这次输入的模态场而来。它们靠近、试探，在纸上逐渐显影。'],
+ print:['04 / 04','让最后一笔，<br>慢慢落定。','符号退去，留下这次输入生成的完整作品。纸上画面与保存文件来自同一张图。'],
+ complete:['04 / 04','这一次相遇，<br>已经留在纸上。','作品与输入已归档。可以保存这张图和编号 PDF，也可以回放同一件作品的显影过程。'],
+ failed:['—','这次生长，<br>暂时停了一下。','输入仍然保留。你可以重试，不必重新选择。']
 };
-const rarityCopy={
- origin:{cosmos:['01 / 04','极少的相遇，<br>从一点开始。','合为 3。极值花园从少量色粒展开，给尚未发生的生长留下大片空白。'],garden:['03 / 04','让尚未长成的，<br>保持空白。','这一次只留下少量粉紫残片、细微磨损和柔软的空域。稀少本身成为作品的一部分。']},
- palimpsest:{cosmos:['01 / 04','许多可能，<br>同时抵达。','合为 23。更密集的粒子与层叠轨道汇聚，形成这次极值的丰盛结构。'],garden:['03 / 04','盛放之后，<br>痕迹仍在生长。','粉紫色域反复覆盖，颜料破损处露出旧层。密集的花园，保存积累与消退的痕迹。']},
- rare:{garden:['03 / 04','一次偏离，<br>让花园不同。','一处断裂、一个偏移的色岛，改变原来的生长方向。它属于较少出现的和数区间。']}
-};
-const phaseCopy=phase=>phase==='garden'&&state.job?.story?['03 / 04',state.job.story.screen_title,state.job.story.screen_line]:rarityCopy[rarity.kind]?.[phase]||copy[phase];
+const phaseCopy=phase=>copy[phase];
 function narrate(tl){
- if(query.has('fxreview')){
-  const phase=printerFx.state.phase;
-  const c={assembly:['01 / 04','零件靠近，<br>结构逐层归位。','底盘、传动与外壳依次对齐扣合。拖动可从不同角度观察装配。'],assembled:['02 / 04','结构已就位，<br>等待第一笔。','齿轮、压纸轴与切刀，在半透明外壳内组成一条真实的纸路。'],printing:['03 / 04','机械运转，<br>颜色开始流动。','高斯色粒进入打印状态，近处清晰饱满，远处柔和淡去。'],complete:['04 / 04','纸张落下，<br>留下这次相遇。','作品已出纸。拖动继续查看，双击回到正面。']}[phase];
-  if(c&&lastChapter!==phase){lastChapter=phase;$('chapter').textContent=c[0];$('title').innerHTML=c[1];$('description').textContent=c[2];}
-  const active={assembly:0,assembled:1,printing:2,complete:3}[phase];
-  document.querySelectorAll('[data-step]').forEach((el,i)=>{el.classList.toggle('active',i===active);el.classList.toggle('done',i<active)});
-  $('elapsed').textContent=tl.complete?'PRINT / 完成':`${Math.floor(tl.elapsed).toString().padStart(2,'0')} s · 25 秒机械预演`;
-  return;
- }
-
  if(lastChapter!==tl.phase){lastChapter=tl.phase;state.phase=tl.phase;soundNote(tl.phase);const c=phaseCopy(tl.phase);if(c){$('chapter').textContent=c[0];$('title').innerHTML=c[1];$('description').textContent=c[2];}}
- const active={cosmos:0,coalesce:1,printer:1,garden:2,print:3,complete:3}[tl.phase];
+ const active={assembly:0,assembled:1,creating:2,print:3,complete:3}[tl.phase];
  document.querySelectorAll('[data-step]').forEach((el,i)=>{el.classList.toggle('active',i===active);el.classList.toggle('done',i<active)});
- if(tl.overdue)$('status').textContent='花园仍在生成 · 种子已保存，无需重新提交';
- $('elapsed').textContent=tl.complete?'GARDEN / 已归档':`${Math.floor(tl.elapsed).toString().padStart(2,'0')} s · ${state.mode==='rehearsal'?'25 秒完整预演':'按实际生成状态推进'}`;
+ if(tl.overdue)$('status').textContent='作品仍在生成 · 输入已保存，准备好后继续显影';
+ $('elapsed').textContent=tl.complete?'GARDEN / 已归档':`${Math.floor(tl.elapsed).toString().padStart(2,'0')} s · ${tl.phase==='assembled'&&state.readyAt===null?'等待作品生成':state.mode==='rehearsal'?'25 秒创作预演':'按实际生成状态推进'}`;
 }
 function pose(t,tl){
  printerFx.update(t,tl,{reduced:state.reduced,hasArtwork:!!texture&&state.readyAt!==null&&state.job?.status==='ready',clock:state.running?universePhase+t:performance.now()/1000,density:rarity.density});
@@ -222,7 +206,9 @@ async function adoptJob(job){
  if(job.generator==='ai_imagegen')$('modeLabel').textContent='花园 / AI 风格样张';
  particleData=await(await fetch(job.particles)).json();
  const next=await new THREE.TextureLoader().loadAsync(job.image);next.colorSpace=THREE.SRGBColorSpace;next.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
- texture?.dispose();texture=next;sampleGardenColors(next.image);output.material.map=texture;output.material.needsUpdate=true;
+ texture?.dispose();texture=next;sampleGardenColors(next.image);output.material.map=texture;output.material.needsUpdate=true;printerFx.setArtwork(texture,job,particleData);
+ $('sourceNote').textContent=job.generator==='ai_imagegen'?'已归档 AI 作品 · 正在重演显影':'本次输入实时规则生成 · 显影为创作过程的视觉演绎';
+ $('imageDownload').href=job.image;
  if(job.story){const s=job.story;$('storyTitle').textContent=s.title;$('storyBody').textContent=s.story;$('storyQuestion').textContent=s.question;$('storyClues').textContent=s.cards.map(c=>c.index+' · '+c.name+'：'+c.wish).join('；')+'。'+s.perspective+'；'+s.relation+'。本次留下：'+s.signature+'。';}
  $('download').href=job.pdf;sessionStorage.setItem('seed-press-job',job.id);
 }
@@ -233,18 +219,18 @@ async function poll(jid,mode){
   if(job.status==='failed')throw Error(job.error);
   if(job.status==='ready'&&!(mode==='slow'&&state.elapsed<40)&&mode!=='failure'){
     await adoptJob(job);state.readyAt=(performance.now()-startClock)/1000;
-    $('status').textContent=state.mode==='rehearsal'?'作品文件已准备好 · 正在播放完整重组过程':'作品文件已准备好 · 正在收束并交付';return;
+    $('status').textContent=state.mode==='rehearsal'?'这次输入的作品已生成 · 正在演绎逐笔显影':'作品已生成 · 正在演绎逐笔显影';return;
   }
   setTimeout(()=>poll(jid,mode),650);
  }catch(e){showError(e.message);}
 }
-function begin(){printerFx.resetView();state.running=true;state.failed=false;state.elapsed=0;forcedTime=null;orbitOffset=0;universePhase=performance.now()/1000;startClock=performance.now();lastChapter='';document.body.classList.remove('has-result');$('result').hidden=true;$('storyPanel').hidden=true;$('start').disabled=true;$('start').textContent='花园正在发生';$('status').classList.remove('failed');}
+function begin(){printerFx.resetView({cinematic:true});state.running=true;state.failed=false;state.elapsed=0;forcedTime=null;orbitOffset=0;universePhase=performance.now()/1000;startClock=performance.now();lastChapter='';document.body.classList.remove('has-result');$('result').hidden=true;$('storyPanel').hidden=true;$('start').disabled=true;$('start').textContent='花园正在发生';$('status').classList.remove('failed');}
 async function start(){
  if(!state.loaded||state.running)return;
  if(state.job?.status==='ready'&&!state.failed){begin();state.readyAt=0;$('status').textContent='正在回放已归档作品';return;}
  state.readyAt=null;state.job=null;begin();
  try{
-  state.mode=query.has('debug')?$('timing').value:state.mode;$('modeLabel').textContent=state.mode==='rehearsal'?'25 秒完整预演':state.mode==='live'?'真实生成时序':'时序验证';
+  state.mode=query.has('debug')?$('timing').value:state.mode;$('modeLabel').textContent=state.mode==='rehearsal'?'25 秒创作预演':state.mode==='live'?'真实生成时序':'时序验证';
   state.job=await api('/api/jobs',{...params,request_id:crypto.randomUUID()});$('sceneSerial').textContent=state.job.id;
   $('status').textContent='种子已保存 · 正在计算显影图与编号打印文件';poll(state.job.id,state.mode);
  }catch(e){showError(e.message);}
@@ -267,18 +253,18 @@ function animate(now){requestAnimationFrame(animate);frameCount++;if(now-fpsCloc
  if(state.running)state.elapsed=forcedTime??(now-startClock)/1000;
  const tl=state.running||state.phase==='complete'?timeline(state.elapsed,{mode:state.mode,readyAt:state.readyAt,failed:state.failed}):{form:0,bloom:0,landing:0,print:0,phase:'idle'};
  pose(state.elapsed,tl);printerFx.render();
- if(state.running){narrate(tl);if(embed&&now-lastPost>200){lastPost=now;notifyHost('progress',{phase:tl.phase,progress:tl.complete?1:Math.min(.99,tl.elapsed/(tl.reveal+7))});}if(tl.complete){state.running=false;state.phase='complete';document.body.classList.add('has-result');$('result').hidden=false;$('storyPanel').hidden=!state.job?.story;$('start').disabled=false;$('start').textContent='再走进一次花园 ↗';$('status').textContent='作品已生成并保存 · 等待连接纸张打印机';refreshPrinters();notifyHost('complete',{job:state.job?.id});}}
+ if(state.running){narrate(tl);if(embed&&now-lastPost>200){lastPost=now;notifyHost('progress',{phase:tl.phase,progress:tl.complete?1:Math.min(.99,tl.elapsed/tl.finishAt)});}if(tl.complete){state.running=false;state.phase='complete';document.body.classList.add('has-result');$('result').hidden=false;$('storyPanel').hidden=!state.job?.story;$('start').disabled=false;$('start').textContent='再走进一次花园 ↗';$('status').textContent='作品已生成并保存 · 等待连接纸张打印机';refreshPrinters();notifyHost('complete',{job:state.job?.id});}}
  if(film){if(query.has('fxreview'))printerFx.drawReviewFrame(film);else drawFilm(film,tl);}lastFrame=now;
 }
 requestAnimationFrame(animate);
 function drawFilm(c,tl){
- const ctx=c.getContext('2d'),theme=themeAt(tl.form??0);ctx.fillStyle=`rgb(${theme.bg})`;ctx.fillRect(0,0,1280,720);
+ const ctx=c.getContext('2d'),theme=themeAt(1);ctx.fillStyle=`rgb(${theme.bg})`;ctx.fillRect(0,0,1280,720);
  const src=renderer.domElement,scale=Math.min(870/src.width,650/src.height);ctx.drawImage(src,20,35,src.width*scale,src.height*scale);
  ctx.fillStyle=`rgb(${theme.muted})`;ctx.font='12px Georgia';ctx.fillText('GARDEN / A SEED BECOMES A WORLD',880,110);
  ctx.fillStyle=`rgb(${theme.accent})`;ctx.font='40px Georgia';ctx.fillText(cardIds[params.m-1]+' × '+cardIds[params.n-1],880,175);
- const lines=phaseCopy(tl.phase)?.[1].split('<br>')||['一颗种子','一个未定的宇宙。'];ctx.fillStyle=`rgb(${theme.ink})`;ctx.font='33px "Songti SC",serif';lines.forEach((v,i)=>ctx.fillText(v,880,275+i*49));
+ const lines=phaseCopy(tl.phase)?.[1].split('<br>')||['一次相遇','正在发生。'];ctx.fillStyle=`rgb(${theme.ink})`;ctx.font='33px "Songti SC",serif';lines.forEach((v,i)=>ctx.fillText(v,880,275+i*49));
  ctx.fillStyle=`rgb(${theme.muted})`;ctx.font='13px sans-serif';ctx.fillText(rarity.label,880,407);ctx.fillText('SUM '+rarity.sum+' / '+rarity.ways+'/66 ('+rarity.percent+'%)',880,443);
- ctx.strokeStyle='#d2bca9';ctx.beginPath();ctx.moveTo(70,650);ctx.lineTo(1210,650);ctx.stroke();ctx.font='12px sans-serif';ctx.fillStyle=`rgb(${theme.muted})`;ctx.fillText('01 宇宙     02 凝形     03 花园     04 落纸',70,685);
+ ctx.strokeStyle='#d2bca9';ctx.beginPath();ctx.moveTo(70,650);ctx.lineTo(1210,650);ctx.stroke();ctx.font='12px sans-serif';ctx.fillStyle=`rgb(${theme.muted})`;ctx.fillText('01 装配     02 蓄势     03 显影     04 落纸',70,685);
  ctx.font='10px monospace';ctx.fillText(state.job?.id||'',880,595);
 }
 async function record(){
@@ -293,15 +279,15 @@ async function record(){
  const blob=new Blob(chunks,{type:mime});const response=await fetch('/api/recording',{method:'POST',body:blob});if(!response.ok)throw Error('录像保存失败');film=null;return {seconds:25,bytes:blob.size};
 }
 window.experience={state,params,rarity,start,record,errors,debug:{scene,camera,renderer,pieces,printerFx,mechanicsReport},seek(t){state.running=true;forcedTime=t;state.elapsed=t;startClock=performance.now()-t*1000;$('result').hidden=true;document.body.classList.remove('has-result');},resume(){forcedTime=null;startClock=performance.now()-state.elapsed*1000;},stats(){return {fps:state.fps,drawCalls:renderer.info.render.calls,triangles:renderer.info.render.triangles,meshes:pieces.length,gaussianSplats:owners.length,visibleSplats:sg.drawRange.count,rarity:rarity.kind,printerEffect:printerFx.state,phase:state.phase}}};
-if(query.has('job')){try{const j=await api('/api/jobs/'+query.get('job'));if(j.status==='ready'&&(j.style_version?.startsWith('garden-v1')||query.has('fxreview'))){await adoptJob(j);state.readyAt=0;state.elapsed=0;state.mode=query.get('mode')==='live'?'live':'rehearsal';state.running=false;state.phase='idle';$('status').textContent='花园样张已载入 · 点击让种子落下';notifyHost('ready',{job:j.id});}else{$('status').textContent='当前是旧版样张，点击开始生成新的花园';notifyHost('error',{message:'作品尚未就绪'});}}catch(e){$('status').textContent=e.message;notifyHost('error',{message:e.message});}}
+if(query.has('job')){try{const j=await api('/api/jobs/'+query.get('job'));if(j.status==='ready'&&(j.style_version?.startsWith('garden-v1')||query.has('fxreview'))){await adoptJob(j);state.readyAt=0;state.elapsed=0;state.mode=query.get('mode')==='live'?'live':'rehearsal';state.running=false;state.phase='idle';$('status').textContent='作品已载入 · 点击查看快速装配';notifyHost('ready',{job:j.id});}else{$('status').textContent='当前是旧版样张，点击开始生成新的花园';notifyHost('error',{message:'作品尚未就绪'});}}catch(e){$('status').textContent=e.message;notifyHost('error',{message:e.message});}}
 if(embed)addEventListener('message',e=>{if(e.source===parent&&e.origin===location.origin&&e.data?.type==='between-printer-start')start();});
 
 if(query.has('fxreview')){
- document.title='花园 · 打印机机械剧场';
+ document.title='花园 · 打印机创作剧场';
  $('modeLabel').textContent='3D 结构与打印效果';
  $('chapter').textContent='00 / 04';$('title').innerHTML='从外壳，<br>看到内部。';
  $('description').textContent='拖动旋转视角，滚轮靠近或远离，双击回到正面。让齿轮、弹簧与纸路逐层重组，进入一次打印。';
  $('status').textContent='机械结构已载入 · 拖动查看或开始播放';
  $('start').innerHTML='开始重组打印 <span>↗</span>';
- ['分层装配','结构就位','显影运转','作品落纸'].forEach((label,i)=>document.querySelector(`[data-step="${i}"]`).innerHTML=`<b>0${i+1}</b> ${label}`);
+ ['错峰装配','安静一拍','符号显影','作品落纸'].forEach((label,i)=>document.querySelector(`[data-step="${i}"]`).innerHTML=`<b>0${i+1}</b> ${label}`);
 }

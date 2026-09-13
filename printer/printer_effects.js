@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-import {modulePlan,modulePose,depthCue} from './printer_motion.js?v=rear-corners-20260913';
+import {modulePlan,modulePose,depthCue,cameraPose,assemblyResponse,gearTurn} from './printer_motion.js?v=spring-long-20260913';
+import {PrinterCreation} from './printer_creation.js?v=spring-long-20260913';
 const clamp=x=>Math.max(0,Math.min(1,x));
 const smooth=(a,b,t)=>{const q=clamp((t-a)/(b-a));return q*q*(3-2*q)};
 
@@ -53,79 +54,89 @@ export class FrontPrinterEffects {
   attr.needsUpdate=true;this.paperGeometry.computeVertexNormals();
   this.output.material.depthTest=false;this.output.material.depthWrite=false;this.output.material.side=THREE.FrontSide;
   this.paperBack=new THREE.Mesh(this.paperGeometry,new THREE.MeshBasicMaterial({color:0xf1e8dc,side:THREE.BackSide,depthTest:false,depthWrite:false,toneMapped:false}));this.paperScene.add(this.paperBack);
-  this.paperUniforms={sceneDepth:{value:this.target.depthTexture},viewportSize:{value:new THREE.Vector2(1,1)},nearPlane:{value:this.camera.near},farPlane:{value:this.camera.far}};
+  this.paperUniforms={paperFeed:{value:0},sceneDepth:{value:this.target.depthTexture},viewportSize:{value:new THREE.Vector2(1,1)},nearPlane:{value:this.camera.near},farPlane:{value:this.camera.far}};
   for(const material of [this.output.material,this.paperBack.material]){
    material.onBeforeCompile=shader=>{
     Object.assign(shader.uniforms,this.paperUniforms);
+    shader.vertexShader=shader.vertexShader.replace('#include <common>', '#include <common>\nvarying float vPaperProgress;').replace('#include <begin_vertex>', '#include <begin_vertex>\nvPaperProgress=1.-uv.y;');
     shader.fragmentShader=shader.fragmentShader.replace('#include <common>',`#include <common>
-uniform sampler2D sceneDepth;uniform vec2 viewportSize;uniform float nearPlane,farPlane;float linearPaperDepth(float d){float z=d*2.-1.;return 2.*nearPlane*farPlane/(farPlane+nearPlane-z*(farPlane-nearPlane));}`);
+varying float vPaperProgress;uniform float paperFeed;uniform sampler2D sceneDepth;uniform vec2 viewportSize;uniform float nearPlane,farPlane;float linearPaperDepth(float d){float z=d*2.-1.;return 2.*nearPlane*farPlane/(farPlane+nearPlane-z*(farPlane-nearPlane));}`);
     shader.fragmentShader=shader.fragmentShader.replace('#include <clipping_planes_fragment>',`#include <clipping_planes_fragment>
-if(linearPaperDepth(gl_FragCoord.z)>linearPaperDepth(texture2D(sceneDepth,gl_FragCoord.xy/viewportSize).r)+.002)discard;`);
+if(vPaperProgress>paperFeed)discard;\nif(linearPaperDepth(gl_FragCoord.z)>linearPaperDepth(texture2D(sceneDepth,gl_FragCoord.xy/viewportSize).r)+.002)discard;`);
    };
-   material.customProgramCacheKey=()=> 'occluded-paper-v1';material.needsUpdate=true;
+   material.customProgramCacheKey=()=> 'continuous-paper-v2';material.needsUpdate=true;
   }
+  this.creation=new PrinterCreation({scene:this.overlay,output:this.output,params:this.params,depthUniforms:this.paperUniforms});
  }
  installOrbitControls(){
-  this.orbit={yaw:0,pitch:0,radius:.85};const canvas=this.renderer.domElement;canvas.style.cursor='grab';canvas.style.touchAction='none';let drag=null;
-  canvas.addEventListener('pointerdown',e=>{if(e.button!==0)return;drag=[e.clientX,e.clientY];canvas.setPointerCapture(e.pointerId);canvas.style.cursor='grabbing';});
+  this.orbit={yaw:0,pitch:0,radius:.85};this.autoCamera=true;const canvas=this.renderer.domElement;canvas.style.cursor='grab';canvas.style.touchAction='none';let drag=null;
+  canvas.addEventListener('pointerdown',e=>{if(e.button!==0)return;this.takeCamera();drag=[e.clientX,e.clientY];canvas.setPointerCapture(e.pointerId);canvas.style.cursor='grabbing';});
   canvas.addEventListener('pointermove',e=>{if(!drag)return;this.orbit.yaw-=(e.clientX-drag[0])*.006;this.orbit.pitch=Math.max(-.55,Math.min(.72,this.orbit.pitch+(e.clientY-drag[1])*.004));drag=[e.clientX,e.clientY];});
   const stop=()=>{drag=null;canvas.style.cursor='grab';};canvas.addEventListener('pointerup',stop);canvas.addEventListener('pointercancel',stop);
-  canvas.addEventListener('wheel',e=>{e.preventDefault();this.orbit.radius=Math.max(.58,Math.min(1.35,this.orbit.radius*Math.exp(e.deltaY*.001)));},{passive:false});
+  canvas.addEventListener('wheel',e=>{e.preventDefault();this.takeCamera();this.orbit.radius=Math.max(.58,Math.min(1.35,this.orbit.radius*Math.exp(e.deltaY*.001)));},{passive:false});
   canvas.addEventListener('dblclick',()=>this.resetView());
-  canvas.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home'].includes(e.key)){e.preventDefault();if(e.key==='Home')this.resetView();else if(e.key==='ArrowLeft')this.orbit.yaw-=.12;else if(e.key==='ArrowRight')this.orbit.yaw+=.12;else this.orbit.pitch=Math.max(-.55,Math.min(.72,this.orbit.pitch+(e.key==='ArrowUp'?.08:-.08)));}});
+  canvas.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Home'].includes(e.key)){e.preventDefault();this.takeCamera();if(e.key==='Home')this.resetView();else if(e.key==='ArrowLeft')this.orbit.yaw-=.12;else if(e.key==='ArrowRight')this.orbit.yaw+=.12;else this.orbit.pitch=Math.max(-.55,Math.min(.72,this.orbit.pitch+(e.key==='ArrowUp'?.08:-.08)));}});
  }
- resetView(){this.orbit.yaw=0;this.orbit.pitch=0;this.orbit.radius=.85;}
+ takeCamera(){if(!this.autoCamera)return;const current=this.state.camera;if(current){this.orbit.yaw=current.yaw;this.orbit.pitch=current.pitch;this.orbit.radius=current.radius;}this.autoCamera=false;}
+ resetView({cinematic=false}={}){this.orbit.yaw=0;this.orbit.pitch=0;this.orbit.radius=cinematic?.85:.85+.095*smooth(.58,1,this.state.print??0);this.autoCamera=cinematic;}
+ setArtwork(texture,job,field){this.creation.setArtwork(texture,job,field);}
  update(time,tl,options){
-  const idle=tl.phase==='idle',t=idle?0:time,assemblyTime=idle?12:t+5.6;
-  const active=!idle&&!tl.complete&&t>=8&&options.hasArtwork;
-  const mist=active?smooth(8,9.4,t)*(1-smooth(23.0,24.5,t)):0;
-  this.state={idle,phase:idle?'assembled':t<6.4?'assembly':active?'printing':tl.complete?'complete':'assembled',gaussian:mist>0,time:t};
-  this.assembly.rotation.set(0,0,0);this.assembly.scale.set(1,1,1);
+  const idle=tl.phase==='idle',t=idle?0:time;
+  const age=t-(tl.creationStart??Infinity),printing=!idle&&!tl.complete&&tl.phase!=='failed'&&age>=0&&options.hasArtwork;
+  const print=options.hasArtwork?(tl.complete?1:tl.print??0):0;
+  const active=printing&&print<1;
+  const mist=active&&!options.reduced?smooth(1.6,3.1,age)*(1-smooth(.80,1,print)):0;
+  this.state={idle,phase:idle?'ready':tl.phase,gaussian:mist>.001,time:t,print,creationAge:age};
+  const reaction=assemblyResponse(idle?0:t,options.reduced);
+  this.assembly.position.set(reaction.x,reaction.y,reaction.z);this.assembly.rotation.set(reaction.pitch,0,reaction.roll);this.assembly.scale.set(1,1,1);this.state.reaction=reaction;
   let locked=0;
   this.pieces.forEach((p,i)=>{
-   const pose=modulePose(this.plans[i],assemblyTime,options.reduced);p.pivot.visible=pose.visible&&!p.name.includes('Blank input');
-   p.pivot.position.copy(p.base).add(new THREE.Vector3(...pose.offset));p.pivot.rotation.set(...pose.rotation);p.pivot.scale.set(1,1,1);
+   const pose=modulePose(this.plans[i],idle?0:t,options.reduced);
+   p.pivot.visible=pose.visible&&!p.name.includes('Blank input');
+   p.pivot.position.set(p.base.x+pose.offset[0],p.base.y+pose.offset[1],p.base.z+pose.offset[2]);
+   p.pivot.rotation.set(...pose.rotation);p.pivot.scale.set(1,1,1);
    const acrylic=p.mesh.material.name.startsWith('Acrylic');
-   p.mesh.material.opacity=p.baseOpacity*(acrylic?1-.22*mist:1);p.mesh.material.depthWrite=!acrylic;
+   p.mesh.material.opacity=p.baseOpacity*pose.opacity*(acrylic?1-.10*mist:1);p.mesh.material.depthWrite=!acrylic&&pose.opacity>.98;
+   p.mesh.children.forEach(child=>{if(child.isLineSegments)child.material.opacity=.24*pose.opacity;});
    if(pose.locked)locked++;
-   if(active&&/Platen rubber roller|Idler transport|Paper supply roll/.test(p.name))p.pivot.rotation.x=(t-8)*3.2;
-   if(active&&/Thermal printhead housing/.test(p.name))p.pivot.position.x+=Math.sin(t*26)*.0006;
+   // Rollers follow actual feed distance, so they do not snap back when printing ends.
+   if(/Platen roller|White paper roll/.test(p.name))p.pivot.rotation.x-=print*18;
    const motion=p.mesh.userData.mechanicalMotion;
-   if(active&&motion?.type==='rotate')p.pivot.rotation[motion.axis]=(t-8)*motion.speed;
-   if(motion?.type==='cutter'){const q=smooth(.93,1,tl.print??0);p.pivot.position.y-=Math.sin(q*Math.PI)*(motion.stroke??.012);}
+   if(motion?.type==='rotate'){
+    const testTurn=idle||options.reduced?0:gearTurn(t,this.plans[i].contact)*motion.speed/6.3;
+    p.pivot.rotation[motion.axis]+=testTurn+print*motion.speed*12;
+   }
+   if(motion?.type==='cutter'){const q=smooth(.965,1,print);p.pivot.position.y-=Math.sin(q*Math.PI)*(motion.stroke??.012);}
   });
   this.state.lockedModules=locked;this.assembly.updateMatrixWorld(true);
   this.cosmos.visible=false;
-  this.splats.visible=mist>.001;this.splatMaterial.uniforms.uOpacity.value=.9*mist;
+  this.splats.visible=mist>.001;this.splatMaterial.uniforms.uOpacity.value=.55*mist;
   this.splatMaterial.uniforms.uHeight.value=this.renderer.domElement.height;
-  const colors=this.sg.attributes.color.array;
-  this.sg.setDrawRange(0,this.owners.length);
-  if(this.splats.visible)for(let i=0;i<this.owners.length;i++){
-   const k=i*3,p=this.owners[i],m=p.pivot.matrixWorld.elements,x=this.localSamples[k],y=this.localSamples[k+1],z=this.localSamples[k+2],phase=this.splatPhases[i];
-   if(i%5===0){
-    const u=((t-8)*.27+phase/6.283185)%1,v=u*u*(3-2*u),r=(1-v)*.068+.015;
-    this.sp[k]=Math.cos(phase+u*6.283)*r+(this.universe.uv[i*2]-.5)*.012;
-    this.sp[k+1]=.104+Math.sin(phase*1.3+u*3.1415)*.025*(1-v)+(this.universe.uv[i*2+1]-.5)*.009;
-    this.sp[k+2]=.225-.265*v+Math.sin(i*.618)*.007;
-    colors[k]=this.gardenColors[k];colors[k+1]=this.gardenColors[k+1];colors[k+2]=this.gardenColors[k+2];
-   }else{
-    const vibration=options.reduced?0:.0009*Math.sin(t*7+phase);
-    this.sp[k]=m[0]*x+m[4]*y+m[8]*z+m[12]+vibration;
-    this.sp[k+1]=m[1]*x+m[5]*y+m[9]*z+m[13];this.sp[k+2]=m[2]*x+m[6]*y+m[10]*z+m[14];
-    for(let d=0;d<3;d++)colors[k+d]=this.modelColors[k+d]*.75+this.gardenColors[k+d]*.25;
-   }
-  }
-  this.sg.attributes.position.needsUpdate=true;this.sg.attributes.color.needsUpdate=true;
-  const lead=active?.14*smooth(8,11,t):0,print=options.hasArtwork?(tl.complete?1:Math.max(lead,(tl.print??0)>0?.14+.86*tl.print:0)):0;
-  this.paperGeometry.setDrawRange(0,Math.floor(print*80)*12*6);
-  const orbit=this.orbit,targetY=.13-.077*print,cp=Math.cos(orbit.pitch);
-  this.camera.position.set(orbit.radius*cp*Math.sin(orbit.yaw),targetY+orbit.radius*Math.sin(orbit.pitch),orbit.radius*cp*Math.cos(orbit.yaw));
-  this.camera.up.set(0,1,0);this.camera.lookAt(0,targetY,0);
-  this.camera.fov=idle?29:34-7*smooth(0,2.4,t)+4*smooth(20,24,t);this.camera.updateProjectionMatrix();
-  this.postMaterial.uniforms.focusNear.value=orbit.radius-.07;this.postMaterial.uniforms.focusFar.value=orbit.radius+.17;
-  this.splatMaterial.uniforms.uFocusNear.value=orbit.radius-.12;this.splatMaterial.uniforms.uFocusFar.value=orbit.radius+.15;
-  this.state.camera={x:this.camera.position.x,yaw:orbit.yaw,pitch:orbit.pitch,radius:orbit.radius};
-  this.state.nearCue=depthCue(orbit.radius-.11,orbit.radius);this.state.farCue=depthCue(orbit.radius+.15,orbit.radius);
+  // Local pigment streams instead of glitter across the entire machine.
+  const colors=this.sg.attributes.color.array,count=1800;
+  this.sg.setDrawRange(0,this.splats.visible?count:0);
+  if(this.splats.visible){for(let i=0;i<count;i++){
+   const k=i*3,source=(i*17)%this.owners.length,phase=this.splatPhases[source];
+   const u=((age*.22+phase/6.283185)%1+1)%1,v=u*u*(3-2*u),side=i%2?1:-1;
+   this.sp[k]=side*(.12+.025*Math.sin(phase))*(1-v)+(this.universe.uv[source*2]-.5)*.10*v;
+   this.sp[k+1]=.13+.05*Math.sin(phase)*(1-v)-.061*v;
+   this.sp[k+2]=.14+.035*Math.cos(phase)*(1-v)-.045*v;
+   for(let d=0;d<3;d++)colors[k+d]=this.gardenColors[source*3+d];
+  }this.sg.attributes.position.needsUpdate=true;this.sg.attributes.color.needsUpdate=true;}
+  // Fragment clipping moves continuously between geometry rows (formerly 80 visible steps).
+  this.paperGeometry.setDrawRange(0,print>0?80*12*6:0);this.paperUniforms.paperFeed.value=print;
+  const shot=cameraPose(t,{print,idle,reduced:options.reduced}),orbit=this.orbit;
+  const yaw=orbit.yaw+(this.autoCamera?shot.yaw:0),pitch=orbit.pitch+(this.autoCamera?shot.pitch:0);
+  const radius=orbit.radius+(this.autoCamera?shot.radius-.85:0),cp=Math.cos(pitch);
+  this.camera.position.set(radius*cp*Math.sin(yaw),shot.targetY+radius*Math.sin(pitch),radius*cp*Math.cos(yaw));
+  this.camera.up.set(0,1,0);this.camera.lookAt(0,shot.targetY,0);
+  this.camera.fov=shot.fov;this.camera.updateProjectionMatrix();
+  this.postMaterial.uniforms.focusNear.value=radius-.055;this.postMaterial.uniforms.focusFar.value=radius+.20;
+  this.splatMaterial.uniforms.uFocusNear.value=radius-.12;this.splatMaterial.uniforms.uFocusFar.value=radius+.15;
+  this.state.camera={x:this.camera.position.x,yaw,pitch,radius,automatic:this.autoCamera&&!options.reduced};
+  this.state.nearCue=depthCue(radius-.11,radius);this.state.farCue=depthCue(radius+.15,radius);
+  this.creation.update(t,tl,{active,reduced:options.reduced,height:this.renderer.domElement.height});
+  this.state.creation=this.creation.evidence;
   const marker=this.state.phase+':'+this.state.gaussian;
   if(marker!==this.lastMarker){
    this.lastMarker=marker;this.renderer.domElement.dataset.printerPhase=this.state.phase;
@@ -140,12 +151,12 @@ if(linearPaperDepth(gl_FragCoord.z)>linearPaperDepth(texture2D(sceneDepth,gl_Fra
   const cosmosVisible=this.cosmos.visible;this.cosmos.visible=false;this.scene.overrideMaterial=this.depthOnly;
   r.setRenderTarget(this.focusTarget);r.render(this.scene,this.camera);this.scene.overrideMaterial=null;this.cosmos.visible=cosmosVisible;
   r.setRenderTarget(null);r.render(this.postScene,this.postCamera);
-  r.autoClear=false;r.clearDepth();if(this.splats.visible)r.render(this.overlay,this.camera);r.render(this.paperScene,this.camera);r.autoClear=true;
+  r.autoClear=false;r.clearDepth();if(this.splats.visible||this.creation.marks.visible)r.render(this.overlay,this.camera);r.render(this.paperScene,this.camera);r.autoClear=true;
  }
  drawReviewFrame(canvas){
   const ctx=canvas.getContext('2d');ctx.fillStyle='#f4eee3';ctx.fillRect(0,0,1280,720);
   const src=this.renderer.domElement,scale=Math.min(820/src.width,640/src.height);ctx.drawImage(src,35,25,src.width*scale,src.height*scale);
-  const labels={assembly:['定位 · 对齐','逐件扣合'],assembled:['结构归位','等待打印'],printing:['正在打印','近实 · 远虚'],complete:['出纸完成','机械结构预览']};
+  const labels={assembly:['定位 · 对齐','逐件扣合'],assembled:['结构归位','等待打印'],creating:['符号汇聚','逐笔显影'],print:['完成落笔','作品落纸'],complete:['出纸完成','机械结构预览']};
   const lines=labels[this.state.phase]||labels.assembled;
   ctx.fillStyle='#a17783';ctx.font='12px Georgia';ctx.fillText('MECHANICAL PRINTER / 3D STUDY',865,120);
   ctx.fillStyle='#6e5c57';ctx.font='34px "Songti SC",serif';lines.forEach((v,i)=>ctx.fillText(v,865,245+i*53));
