@@ -1,4 +1,4 @@
-import {receivePhoneCard,cancelCardHandoff} from './card-handoff.js';
+import {receivePhoneCard,cancelCardHandoff} from './card-handoff.js?v=instant-handoff-1';
 import {mountWaitingShuffle} from './waiting-shuffle.js?v=front-first-1';
 const STORAGE='between-screen-session';
 const $=id=>document.getElementById(id);
@@ -66,7 +66,7 @@ export function mountScanEntry(onCard,onLocal,onSelect,{online=false}={}){
         }
       }
     }catch(e){if(current()){if((e.status===404||e.status===410)&&!applied){expire();return;}error(e.message);}}
-    if(current())timer=setTimeout(()=>poll(version),900);
+    if(current())timer=setTimeout(()=>poll(version),250);
   }
   function start(){
     if(!startup)startup=startSession().finally(()=>{startup=null;});

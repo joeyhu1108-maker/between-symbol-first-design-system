@@ -2,7 +2,7 @@ import {mountGlyph,mountSymbolState,mountSymbolLoading,actionGlyph,stageGlyph,mo
 import * as THREE from './vendor/three.module.min.js';
 import {CARDS} from './game-cards.js';
 import {backendReady,createJob,waitForJob,mountPrinterScene} from './bridge.js?v=card-fusion-3d-1';
-import {mountScanEntry} from './entry-display.js?v=physical-symbol-2';
+import {mountScanEntry} from './entry-display.js?v=instant-handoff-1';
 import {armNfc,triggerNfcFallback,nfcEnabled,stationMode} from './nfc-session.js';
 const $=id=>document.getElementById(id);
 // PDF pages 1/2, 3/4 ... are one physical card: illustration / seed.

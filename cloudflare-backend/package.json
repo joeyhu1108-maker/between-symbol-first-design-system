@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test worker.test.mjs bridge.test.mjs pregeneration.test.mjs",
+    "test": "node --test worker.test.mjs bridge.test.mjs pregeneration.test.mjs phone-handoff.test.mjs",
     "check": "wrangler deploy --dry-run",
     "deploy": "wrangler deploy",
     "db:local": "wrangler d1 execute DB --local --file schema.sql",

@@ -16,10 +16,10 @@ export async function receivePhoneCard(cardId){
     if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
       layer.animate([{opacity:0},{opacity:1}],{duration:200,fill:'both'});
       await card.animate([
-        {transform:'translate3d(0,80vh,-300px) scale(.48) rotateX(28deg)',opacity:0,offset:0},
+        {transform:'translate3d(0,38vh,-180px) scale(.48) rotateX(28deg)',opacity:1,offset:0},
         {transform:'translate3d(0,30vh,-80px) scale(.8) rotateX(12deg)',opacity:1,offset:.42},
         {transform:'translate3d(0,0,0) scale(1) rotateX(0deg)',opacity:1,offset:1}
-      ],{duration:1100,delay:220,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'}).finished;
+      ],{duration:700,easing:'cubic-bezier(.22,1,.36,1)',fill:'both'}).finished;
     }
   }catch{}finally{layer.remove();if(active===layer)active=null;}
 }

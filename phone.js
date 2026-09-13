@@ -256,9 +256,16 @@ async function syncSelection(card,afterSync){
 async function submit(){
   if(state.submitting||state.selecting||(!nfcEntry&&!state.previewSynced)||state.uncertain||!validCard(state.selected)||state.view!=='ready'||!state.joined||state.stopped)return;
   state.submitting=true;state.submitAttempted=true;state.revision++;clearError();setView('sending');showChosen();persist();
+  const revision=state.revision,current=()=>!state.stopped&&state.revision===revision;
   announce('正在发送卡片，请稍候。');
-  try{const confirmed=await request('/cards',{participant_id:participantId,cards:[state.selected],handoff_required:true});await departCard();applySession(confirmed);}
+  // A confirmed submission releases the desktop immediately; departure is only visual.
+  try{
+    const confirmed=await request('/cards',{participant_id:participantId,cards:[state.selected],handoff_required:false});
+    if(!current())return;
+    await departCard();if(current())applySession(confirmed);
+  }
   catch(error){
+    if(!current())return;
     if(error.status===404||error.status===410){stopSession('expired');}
     else if(error.status===403){stopSession('busy');}
     else{
