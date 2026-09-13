@@ -261,14 +261,16 @@ test('next participant waits for session cleanup, ignores duplicate clicks and p
     ['station with NFC', true, true, '/prototype-3d.html?mode=station&nfc=1']
   ]) {
     await t.test(label, async () => {
-      const cleanup = deferred(), events = [], restartButton = { disabled: false, setAttribute() {} };
+      const cleanup = deferred(), events = [], clearedTimers = [], restartButton = { disabled: false, setAttribute() {} };
+      const generation = { status: 'ready', paperPrint: 'idle', paperRetryTimer: 42 };
       const initial = 'https://between.zone-y.com/prototype-3d.html?card=01&local=1&mode=station&nfc=1&v=old';
       let href = initial;
       const context = vm.createContext({
         stationMode, nfcEnabled,
         $: id => { assert.equal(id, 'restart'); return restartButton; },
         mountSymbolLoading: button => { assert.equal(button, restartButton); events.push('loading'); },
-        state: { printerView: { close: () => events.push('printer-close') } },
+        state: { generation, printerView: { close: () => events.push('printer-close') } },
+        clearTimeout: id => clearedTimers.push(id),
         entryController: { reset: () => { events.push('reset'); return cleanup.promise; } },
         location: { get href() { return href; }, set href(value) { href = new URL(value, initial).href; events.push('navigate'); } }
       });
@@ -276,6 +278,8 @@ test('next participant waits for session cleanup, ignores duplicate clicks and p
       const first = context.restart();
       await context.restart();
       assert.equal(restartButton.disabled, true);
+      assert.equal(generation.paperPrintStopped, true, 'the old round cannot submit while session cleanup is pending');
+      assert.deepEqual(clearedTimers, [42], 'the pending paper retry is cancelled exactly once');
       assert.deepEqual(events, ['loading', 'printer-close', 'reset'], 'duplicate clicks must not repeat cleanup or close the printer again');
       assert.equal(href, initial, 'navigation must wait for the old session to close');
       cleanup.resolve(); await first;

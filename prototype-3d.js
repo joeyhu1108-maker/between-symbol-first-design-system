@@ -334,8 +334,9 @@ function updatePaperPrint(){
 }
 async function printPaper(){
   const generation=state.generation,job=generation.job,card=CARDS[state.growth-1];
-  if(!nfcEnabled||!state.paired||generation.status!=='ready'||!job||!card||!['printing','done'].includes(state.stage)||$('restart').disabled||['sending','confirmed'].includes(generation.paperPrint))return;
-  const current=()=>state.generation===generation&&generation.job===job&&state.growth===Number(card.id)&&!$('restart').disabled;
+  if(!nfcEnabled||!state.paired||generation.status!=='ready'||!job||!card||!['printing','done'].includes(state.stage)||$('restart').disabled||generation.paperPrintStopped||['sending','confirmed'].includes(generation.paperPrint))return;
+  const current=()=>state.generation===generation&&generation.job===job&&state.growth===Number(card.id)&&!$('restart').disabled&&!generation.paperPrintStopped;
+  clearTimeout(generation.paperRetryTimer);generation.paperRetryUntil??=Date.now()+120000;
   generation.paperPrint='sending';$('paperPrintError').hidden=true;updatePaperPrint();
   try{
     const run=await triggerNfcFallback(job,card.id);
@@ -346,6 +347,11 @@ async function printPaper(){
   }catch(error){
     if(!current())return;
     generation.paperPrint='idle';$('paperPrintError').textContent=error.message;$('paperPrintError').hidden=false;
+    $('artworkActions').hidden=false;
+    // The NFC adapter retains the original run/event identity, including when a reply was lost.
+    if(Date.now()<generation.paperRetryUntil)generation.paperRetryTimer=setTimeout(()=>{
+      if(current()&&generation.paperPrint==='idle')printPaper();
+    },2000);
   }finally{if(current())updatePaperPrint();}
 }
 function finishPrint(){
@@ -413,6 +419,7 @@ function startPrint(){
 async function restartExperience(){
   if($('restart').disabled)return;
   $('restart').disabled=true;$('restart').setAttribute('aria-label','正在开始下一轮');
+  state.generation.paperPrintStopped=true;clearTimeout(state.generation.paperRetryTimer);
   mountSymbolLoading($('restart'));state.printerView?.close();
   await entryController?.reset();
   location.href=stationMode?'./prototype-3d.html?mode=station'+(nfcEnabled?'&nfc=1':''):'./';
@@ -435,6 +442,6 @@ else if(!new URLSearchParams(location.search).has('local')){
 if(!stationMode)$('openPrinter').hidden=true;
 // Labels remain available to assistive technology without visible instructions.
 document.querySelectorAll('[title]').forEach(node=>node.removeAttribute('title'));
-window.addEventListener('pagehide',()=>{state.printerView?.close();shuffleAnimations.forEach(animation=>animation.cancel());cancelDraw?.();});
+window.addEventListener('pagehide',()=>{state.generation.paperPrintStopped=true;clearTimeout(state.generation.paperRetryTimer);state.printerView?.close();shuffleAnimations.forEach(animation=>animation.cancel());cancelDraw?.();});
 window.addEventListener('resize',()=>{shuffleAnimations.forEach(animation=>animation.cancel());cancelDraw?.();});
 function loop(now){if(renderer&&!document.hidden&&['printing','done'].includes(state.stage)){printer.rotation.y=Math.sin(now*.0004)*.02;wall.rotation.y=Math.sin(now*.00025)*.025;printObj.rotation.y+=.006;renderer.render(scene,camera)}requestAnimationFrame(loop)}requestAnimationFrame(loop);

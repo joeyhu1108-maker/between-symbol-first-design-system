@@ -98,7 +98,7 @@ try{
   const {mountSymbolLoading,unmountGlyph}=await import('./symbol-interface.js?v=physical-symbol-3');
   const logo=document.querySelector('#bootGlyph');
   mountSymbolLoading(logo);releaseLogo=()=>unmountGlyph(logo);
-  await Promise.all([import('./entry-garden.js?v=card-fusion-3d-1'),import('./prototype-3d.js?v=instant-handoff-1')]);
+  await Promise.all([import('./entry-garden.js?v=card-fusion-3d-1'),import('./prototype-3d.js?v=print-recovery-1')]);
   releaseLogo();
   document.querySelector('.app').inert=false;
   document.body.dataset.ready='true';
