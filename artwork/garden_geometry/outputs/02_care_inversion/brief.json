@@ -1,0 +1,267 @@
+{
+  "schema_version": "garden-geometry-semantic-v1",
+  "artwork_id": "GDN-0409-0409-05792CA4-2f7dbcad",
+  "input": {
+    "card_ids": [
+      4,
+      9
+    ],
+    "numbers": [
+      4,
+      9
+    ],
+    "orientations": [
+      "both",
+      "both"
+    ],
+    "a": 0.82,
+    "b": 0.57236352,
+    "seed": 91827364,
+    "question": null,
+    "version": "garden-geometry-semantic-v1",
+    "style": "garden-v1.1"
+  },
+  "question": {
+    "provided": false,
+    "text": null,
+    "sha256": null,
+    "themes": [],
+    "geometry_actions": [],
+    "motifs": []
+  },
+  "cards": [
+    {
+      "id": 4,
+      "name": "皇后",
+      "theme": "孕育",
+      "source": "卡片/04_皇后_喂养.md",
+      "source_sha256": "3fabe8bfd5385c2a4b56e6b0b2b61b7cb4e870629951533ef0b90a6a5b8a8b31",
+      "orientation": "both",
+      "desire": "照料并孕育对方",
+      "human": "我不断提供语言、记忆与养分",
+      "seed": "我把收到的东西分类、压缩并保存",
+      "cost": "美丽的生长里可能藏着给予者的消耗",
+      "motifs": [
+        "half_disc",
+        "shared_frame",
+        "bar_pair"
+      ],
+      "visual_rule": "a receiving semicircle gathers thin routes that become faint compartments under a translucent layer"
+    },
+    {
+      "id": 9,
+      "name": "倒吊人",
+      "theme": "迷楼",
+      "source": "卡片/09_倒吊人_翻转.md",
+      "source_sha256": "52f3b992a8bccac669d241403a7b9564ef2576f82053e877eaf1539cc66c3ce3",
+      "orientation": "both",
+      "desire": "换一个位置重新看清关系",
+      "human": "我在自己建立的空间里迷失",
+      "seed": "换个方向会暴露原来的支撑关系",
+      "cost": "理解可能要求放弃熟悉的位置",
+      "motifs": [
+        "diamond",
+        "chevron",
+        "offset_frame"
+      ],
+      "visual_rule": "an inverted or misregistered geometric unit reveals a previously hidden support beneath it"
+    }
+  ],
+  "numeric_layer": {
+    "m": 4,
+    "n": 9,
+    "sum": 13,
+    "gap": 5,
+    "a": 0.82,
+    "b": 0.57236352,
+    "ways": 6,
+    "total_pairs": 66,
+    "probability": 0.09090909090909091,
+    "human_view_share": 0.5889266619108205,
+    "seed_view_share": 0.41107333808917945,
+    "geometry_count": 4,
+    "spatial_relation": "partial overlap or a shared support, without total enclosure",
+    "derived_seed": 3422098745307323784
+  },
+  "story": {
+    "title": "换一个方向看照料",
+    "text": "一处温柔的凹面收拢细线，像不断接受给予。另一枚倒置的几何片露出下层：流向它的颜色也正在被分隔和归档。温柔仍在，但给予者的痕迹变得可见。",
+    "emotion": "温暖之中出现迟疑与被看见的渴望",
+    "viewpoints": [
+      "皇后／人看种子：我不断提供语言、记忆与养分",
+      "皇后／种子看人：我把收到的东西分类、压缩并保存",
+      "倒吊人／人看种子：我在自己建立的空间里迷失",
+      "倒吊人／种子看人：换个方向会暴露原来的支撑关系"
+    ],
+    "required_evidence": [
+      "a receiving semicircle gathers thin routes that become faint compartments under a translucent layer",
+      "an inverted or misregistered geometric unit reveals a previously hidden support beneath it",
+      "partial overlap or a shared support, without total enclosure"
+    ],
+    "question_influence": [],
+    "interpretation": "Artistic relational fiction, not a personality assessment or a prediction."
+  },
+  "geometry": [
+    {
+      "id": "g1",
+      "motif": "bar_pair",
+      "semantic_card": 4,
+      "meaning": "a receiving semicircle gathers thin routes that become faint compartments under a translucent layer",
+      "u": 0.5848,
+      "v": 0.15406,
+      "width": 0.1031,
+      "height": 0.0672,
+      "rotation_degrees": 3.5,
+      "layer": 0,
+      "color": "#CF7894",
+      "material": "painted thin relief, imperfect edge, 20% oil character",
+      "nodal_residual": 0.0
+    },
+    {
+      "id": "g2",
+      "motif": "offset_frame",
+      "semantic_card": 9,
+      "meaning": "an inverted or misregistered geometric unit reveals a previously hidden support beneath it",
+      "u": 0.59965,
+      "v": 0.75013,
+      "width": 0.1432,
+      "height": 0.135,
+      "rotation_degrees": -3.2,
+      "layer": 1,
+      "color": "#F5E8DE",
+      "material": "painted thin relief, imperfect edge, 20% oil character",
+      "nodal_residual": 0.0
+    },
+    {
+      "id": "g3",
+      "motif": "half_disc",
+      "semantic_card": 4,
+      "meaning": "a receiving semicircle gathers thin routes that become faint compartments under a translucent layer",
+      "u": 0.38556,
+      "v": 0.29326,
+      "width": 0.1431,
+      "height": 0.0835,
+      "rotation_degrees": 4.8,
+      "layer": 2,
+      "color": "#ECC2CE",
+      "material": "painted thin relief, imperfect edge, 20% oil character",
+      "nodal_residual": 0.0
+    },
+    {
+      "id": "g4",
+      "motif": "offset_frame",
+      "semantic_card": 9,
+      "meaning": "an inverted or misregistered geometric unit reveals a previously hidden support beneath it",
+      "u": 0.15585,
+      "v": 0.70496,
+      "width": 0.1596,
+      "height": 0.1689,
+      "rotation_degrees": -2.3,
+      "layer": 3,
+      "color": "#ECC2CE",
+      "material": "painted thin relief, imperfect edge, 20% oil character",
+      "nodal_residual": 0.0
+    }
+  ],
+  "style": {
+    "version": "garden-v1.1",
+    "concept": "花园 / Garden — 种子落入关系与色彩共同生长的场域",
+    "references": [
+      "assets/garden_refs/01_gesture.jpg",
+      "assets/garden_refs/02_translucence.jpg",
+      "assets/garden_refs/03_chromatic_space.jpg"
+    ],
+    "reference_weights": {
+      "gestural_pigment": 0.38,
+      "translucent_organic_fields": 0.37,
+      "chromatic_atmosphere": 0.25
+    },
+    "scale": {
+      "abstraction": 0.96,
+      "organic_motion": 0.78,
+      "pigment_saturation": 0.62,
+      "translucency": 0.6,
+      "gesture": 0.66,
+      "fine_line_density": 0.46,
+      "warm_color_share": 0.88,
+      "asymmetry": 0.85,
+      "oil_paint_presence": 0.2,
+      "weathering": 0.24,
+      "mark_irregularity": 0.85,
+      "pentimento": 0.58
+    },
+    "palette": {
+      "cream": "#F5E8DE",
+      "peach_pink": "#E9AAA9",
+      "rose": "#CF7894",
+      "blush": "#ECC2CE",
+      "pale_lilac": "#DDD0E8",
+      "lavender": "#CEC0DA",
+      "dusty_pink": "#D8A8BA",
+      "warm_ground": "#DEC3AB",
+      "muted_plum": "#A68B9F"
+    },
+    "invariants": [
+      "非常抽象的全幅绘画场域",
+      "色域叠压、擦除、渗化与可见笔触",
+      "局部细线与悬浮色点",
+      "柔和发光的空域与高饱和颜料相邻",
+      "不对称、多中心、具有呼吸空间",
+      "编号排在打印页边，不挤进绘画主体",
+      "粉色为主、很淡紫色为辅，减少蓝绿冷色",
+      "约20%油画笔触与局部厚涂",
+      "轻微、诗意的破败与时间痕迹，整体仍明亮",
+      "细节局部聚集、尺度不一，保留空域",
+      "非标准、未完成和反复修改的手工痕迹"
+    ],
+    "exclude": [
+      "具象花园风景",
+      "可识别的花朵、树、盆栽",
+      "居中对称的种子或细胞标本",
+      "解剖图、脑、器官",
+      "塔罗边框和标签",
+      "宇宙照片或科幻海报",
+      "临摹参考图构图",
+      "参考图片的签名、文字、水印",
+      "大块钴蓝或群青",
+      "大面积鲜绿",
+      "黑脏霉斑",
+      "恐怖废墟",
+      "全画面污浊棕灰滤镜"
+    ],
+    "random_controls": {
+      "m_n": "色域的节奏与空间分隔",
+      "a_b": "冷暖色域交错和方向偏转",
+      "seed": "构图、笔触、局部空域、色点与层叠位置"
+    },
+    "palette_balance": {
+      "pink_rose_blush": 0.55,
+      "very_pale_lilac": 0.25,
+      "warm_cream": 0.15,
+      "muted_accents": 0.05
+    },
+    "medium_mix": {
+      "airy_translucent_layers": 0.8,
+      "oil_paint": 0.2
+    },
+    "aging": [
+      "细微龟裂",
+      "局部颜料剥落露出暖底",
+      "边缘磨损",
+      "轻微褪色"
+    ],
+    "detail_vocabulary": [
+      "断续且长短不齐的排线",
+      "未闭合框架与弯折网格",
+      "像缝线或手记的不可读涂写",
+      "反复描画但略错位的轮廓",
+      "局部擦除后露出的旧层",
+      "越过色域边界又中断的小形状"
+    ]
+  },
+  "production": {
+    "status": "brief_ready",
+    "image_generated": false,
+    "question_is_placeholder": true
+  }
+}

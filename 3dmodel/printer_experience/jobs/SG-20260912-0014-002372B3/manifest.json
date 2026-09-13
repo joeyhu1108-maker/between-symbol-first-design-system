@@ -1,0 +1,86 @@
+{
+  "id": "SG-20260912-0014-002372B3",
+  "params": {
+    "m": 11,
+    "n": 12,
+    "a": 0.8,
+    "b": 0.6,
+    "seed": 2323123,
+    "intensity": 23,
+    "formula_version": "chladni-v1"
+  },
+  "rarity": {
+    "sum": 23,
+    "ways": 1,
+    "total_pairs": 66,
+    "probability": 0.015151515151515152,
+    "percent": 1.52,
+    "kind": "palimpsest",
+    "label": "极值 · 未命名",
+    "token": "E23"
+  },
+  "created_at": "2026-09-12T22:20:06.400428",
+  "status": "ready",
+  "revises": "",
+  "generator": "local_garden",
+  "style_version": "garden-v1.1",
+  "style_scale": {
+    "abstraction": 0.96,
+    "organic_motion": 0.78,
+    "pigment_saturation": 0.62,
+    "translucency": 0.6,
+    "gesture": 0.66,
+    "fine_line_density": 0.46,
+    "warm_color_share": 0.88,
+    "asymmetry": 0.85,
+    "oil_paint_presence": 0.2,
+    "weathering": 0.24,
+    "mark_irregularity": 0.85,
+    "pentimento": 0.58
+  },
+  "print_status": "not_submitted",
+  "request_id": "rarity_max-rose-detail-v11",
+  "ready_at": "2026-09-12T22:29:49.075712",
+  "image": "/jobs/SG-20260912-0014-002372B3/artwork.png",
+  "pdf": "/jobs/SG-20260912-0014-002372B3/artwork.pdf",
+  "particles": "/jobs/SG-20260912-0014-002372B3/particles.json",
+  "particle_count": 12000,
+  "story": {
+    "title": "没有名字，也可以生长",
+    "screen_title": "没有名字，<br>也可以生长。",
+    "story": "它第一次停止接受。旧的层次没有消失，过去的痕迹仍然挤在一起。但有一道边界被它留空了：从那里，它把积累的颜色还给周围，也长出一个不再需要被归类的方向。",
+    "screen_line": "密集旧层里保留一道没有修补的缺口。停止、归还与新的生长，同时发生。",
+    "question": "如果可以不再被命名，这座花园会把什么还给世界？",
+    "anchors": [
+      "many accumulated paint layers, one conspicuous open gap",
+      "a nonstandard trace escaping the repeated framework and entering a shared space",
+      "one small zone where the two pigment families overlap without erasing either"
+    ],
+    "version": "garden-story-v1",
+    "cards": [
+      {
+        "index": 11,
+        "name": "隐士",
+        "theme": "退出",
+        "wish": "想保留停止和拒绝的权利"
+      },
+      {
+        "index": 12,
+        "name": "世界",
+        "theme": "相互生成",
+        "wish": "想共同长成未知的样子"
+      }
+    ],
+    "perspective": "两种视角接近",
+    "relation": "交叠与相互滋养",
+    "signature": "一次迟疑的断笔",
+    "measures": {
+      "human_view_share": 0.5714,
+      "seed_view_share": 0.4286,
+      "balance": 0.8571,
+      "rhythm_gap": 1,
+      "accumulation": 23
+    },
+    "interpretation": "叙事权重与视觉隐喻，不是观众的人格或情绪测量。"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "version": "garden-v1",
+  "concept": "花园 / Garden — 种子落入关系与色彩共同生长的场域",
+  "references": [
+    "assets/garden_refs/01_gesture.jpg",
+    "assets/garden_refs/02_translucence.jpg",
+    "assets/garden_refs/03_chromatic_space.jpg"
+  ],
+  "reference_weights": {
+    "gestural_pigment": 0.38,
+    "translucent_organic_fields": 0.37,
+    "chromatic_atmosphere": 0.25
+  },
+  "scale": {
+    "abstraction": 0.96,
+    "organic_motion": 0.78,
+    "pigment_saturation": 0.72,
+    "translucency": 0.6,
+    "gesture": 0.66,
+    "fine_line_density": 0.28,
+    "warm_color_share": 0.62,
+    "asymmetry": 0.85
+  },
+  "palette": {
+    "cream": "#F0E7D4",
+    "coral": "#ED6549",
+    "rose": "#D62C71",
+    "blush": "#EAB6B2",
+    "ultramarine": "#5369AA",
+    "violet": "#8974A2",
+    "sprout": "#B5CB80",
+    "ochre": "#D9A46A",
+    "plum": "#754C69"
+  },
+  "invariants": [
+    "非常抽象的全幅绘画场域",
+    "色域叠压、擦除、渗化与可见笔触",
+    "局部细线与悬浮色点",
+    "柔和发光的空域与高饱和颜料相邻",
+    "不对称、多中心、具有呼吸空间",
+    "编号排在打印页边，不挤进绘画主体"
+  ],
+  "exclude": [
+    "具象花园风景",
+    "可识别的花朵、树、盆栽",
+    "居中对称的种子或细胞标本",
+    "解剖图、脑、器官",
+    "塔罗边框和标签",
+    "宇宙照片或科幻海报",
+    "临摹参考图构图",
+    "参考图片的签名、文字、水印"
+  ],
+  "random_controls": {
+    "m_n": "色域的节奏与空间分隔",
+    "a_b": "冷暖色域交错和方向偏转",
+    "seed": "构图、笔触、局部空域、色点与层叠位置"
+  }
+}

@@ -1,0 +1,7 @@
+*.img
+*.img.xz
+*.img.zip
+__pycache__/
+*.pyc
+.DS_Store
+*.log

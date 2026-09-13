@@ -1,0 +1,11 @@
+test_bank_complete (__main__.CaptionTests) ... ok
+test_caption_does_not_rearrange_painting (__main__.CaptionTests) ... ok
+test_invalid_override (__main__.CaptionTests) ... ok
+test_output_question_is_not_player_question (__main__.CaptionTests) ... ok
+test_panel_adapter_exposes_override (__main__.CaptionTests) ... ok
+test_stable_selection (__main__.CaptionTests) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.102s
+
+OK

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>BETWEEN · 碰卡</title>
+<style>
+:root{--card-color:#9e86c7;--ink:#202126;--muted:#71727a}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0;height:100%;overflow:hidden;background:#fff;color:var(--ink);font-family:"PingFang SC","Hiragino Sans GB",sans-serif}
+.tap{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px 20px calc(24px + env(safe-area-inset-bottom))}
+.card-stage{position:relative;perspective:900px}
+.card{position:relative;width:min(58vw,240px);aspect-ratio:.7;border:1px solid #c7b9df;border-radius:14px;overflow:hidden;
+  background:radial-gradient(circle at 58% 38%,rgba(215,183,255,.5),transparent 38%),linear-gradient(155deg,#fffefa,#f4effa 58%,#eee7f8);
+  background:radial-gradient(circle at 58% 38%,color-mix(in srgb,var(--card-color) 48%,transparent),transparent 40%),linear-gradient(155deg,#fffefa,#f4effa 58%,#eee7f8);
+  box-shadow:inset 0 0 0 5px rgba(255,255,255,.72),inset 0 0 26px rgba(174,148,219,.22),0 18px 36px rgba(103,77,135,.18)}
+.card:before{content:"";position:absolute;inset:9px;border:1px solid rgba(148,124,183,.62);border-radius:9px}
+.card:after{content:"";position:absolute;inset:-35% 18%;background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.85) 49%,rgba(197,174,245,.3) 53%,transparent 62%);transform:translateX(-120%) rotate(10deg);animation:sheen 1.1s ease .2s both}
+.num{position:absolute;left:18px;top:16px;font:18px Baskerville,Georgia,serif;color:#5e4b76}
+.symbol{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:clamp(64px,20vw,96px) Baskerville,Georgia,serif;color:#765b9c;text-shadow:0 0 22px rgba(198,164,255,.75)}
+.glyph{margin:10px 0 0;min-height:34px;font:28px Baskerville,Georgia,serif;color:#8f6da4}
+.copy{margin:0;max-width:22em;font-size:14px;line-height:1.7;color:var(--muted);text-align:center}
+.pair{display:flex;align-items:center;gap:22px;font:40px Baskerville,Georgia,serif;color:#765b9c;animation:pop .6s cubic-bezier(.2,1.4,.3,1) both}
+.pair span{display:flex;flex-direction:column;align-items:center;gap:6px}
+.pair i{font:9px monospace;letter-spacing:.3em;font-style:normal;color:var(--muted)}
+.pair em{font-style:normal;font-size:20px;color:#c8b9d1}
+.retry{width:52px;height:52px;border:1px solid #22232a;border-radius:50%;background:#22232a;color:#fff;font-size:24px;cursor:pointer}
+.tap[data-state=sending] .card{animation:breathe 1.4s ease-in-out infinite}
+/* The card leaves through the top of the phone, toward the big screen. */
+.tap[data-state=sent] .card{animation:send-up .85s cubic-bezier(.55,0,.8,.2) forwards}
+.tap[data-state=sent] .card-stage:after{content:"";position:absolute;left:20%;right:20%;bottom:0;height:140%;background:linear-gradient(to top,rgba(169,137,219,.5),transparent);filter:blur(12px);transform-origin:bottom;animation:trail .85s ease forwards}
+.tap[data-state=wrong] .card{animation:shake .45s}
+.tap[data-state=wrong] .glyph{color:#b66b69}
+@keyframes sheen{to{transform:translateX(120%) rotate(10deg)}}
+@keyframes breathe{50%{transform:translateY(-6px);box-shadow:inset 0 0 0 5px rgba(255,255,255,.72),0 26px 44px rgba(103,77,135,.24)}}
+@keyframes send-up{18%{transform:translateY(14px) scale(.97)}100%{transform:translateY(-120vh) rotateX(35deg) scale(.7);opacity:.3}}
+@keyframes trail{0%{opacity:0;transform:scaleY(.2)}40%{opacity:1}100%{opacity:0;transform:scaleY(1.6) translateY(-40%)}}
+@keyframes shake{20%,60%{transform:translateX(-10px)}40%,80%{transform:translateX(10px)}}
+@keyframes pop{from{opacity:0;transform:scale(.4)}}
+@media(prefers-reduced-motion:reduce){.card,.card:after,.card-stage:after,.pair{animation-duration:.01s!important;animation-iteration-count:1!important}}
+</style>
+</head>
+<body>
+<main class="tap" id="tap" data-state="sending">
+  <div class="card-stage" id="cardStage"><div class="card" id="card"><span class="num" id="num">—</span><span class="symbol" id="symbol" aria-hidden="true">◌</span></div></div>
+  <p class="glyph" id="glyph" aria-hidden="true">◌</p>
+  <p class="copy" id="copy" aria-live="polite">正在连接大屏…</p>
+  <div class="pair" id="pair" hidden><span><b id="youSymbol">—</b><i>YOU</i></span><em>×</em><span><b id="aiSymbol">—</b><i>AI</i></span></div>
+  <button type="button" class="retry" id="retry" aria-label="再试一次" hidden>↻</button>
+</main>
+<script type="module">
+// Opened by the NFC tag on a physical card (/t/NN); ?card=NN also works for testing.
+import {getCard} from '/game-cards.js';
+const $=id=>document.getElementById(id);
+const id=location.pathname.match(/^\/t\/(\d{1,2})\/?$/)?.[1]??new URLSearchParams(location.search).get('card');
+const card=getCard(id);
+function show(state,copy,glyph){$('tap').dataset.state=state;$('copy').textContent=copy;$('glyph').textContent=glyph}
+async function send(){
+  show('sending','正在连接大屏…','◌');$('retry').hidden=true;
+  let ack;
+  try{const r=await fetch('/api/relay/tap',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({card:card.id})});ack=await r.json()}
+  catch{ack={status:'network'}}
+  if(ack.status==='matched'){
+    show('sent','','');
+    const ai=getCard(ack.ai);
+    setTimeout(()=>{$('cardStage').hidden=true;show('sent','已送到大屏，看大屏。','↑');if(ai){$('youSymbol').textContent=card.symbol;$('aiSymbol').textContent=ai.symbol;$('pair').hidden=false}},900);
+  }
+  else if(ack.status==='wrong')show('wrong','不是大屏上那张卡。看一眼大屏，再碰对应的卡。','×');
+  else if(ack.status==='idle'){show('idle','大屏还没到找卡这一步，稍等再碰一次。','◌');$('retry').hidden=false}
+  else{show('offline','大屏暂时没有连上。请工作人员在电脑上点 ↯ 确认。','⌁');$('retry').hidden=false}
+}
+if(!card)show('error','这张卡无法识别，请换一张再碰。','×');
+else{
+  document.documentElement.style.setProperty('--card-color',card.color);
+  $('num').textContent=card.id;$('symbol').textContent=card.symbol;$('card').setAttribute('aria-label',`实体卡 ${card.id} ${card.name}`);
+  $('retry').onclick=send;send();
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+[
+  {
+    "part": "base",
+    "material": "dark_steel",
+    "faces": 3744,
+    "watertight": true,
+    "size_mm": [
+      207.9,
+      247.9,
+      7.0
+    ]
+  },
+  {
+    "part": "shell",
+    "material": "shell",
+    "faces": 14794,
+    "watertight": true,
+    "size_mm": [
+      202.8,
+      241.4,
+      170.0
+    ]
+  },
+  {
+    "part": "girdle",
+    "material": "steel",
+    "faces": 1436,
+    "watertight": true,
+    "size_mm": [
+      199.6,
+      113.2,
+      14.9
+    ]
+  },
+  {
+    "part": "core",
+    "material": "black",
+    "faces": 76616,
+    "watertight": true,
+    "size_mm": [
+      78.4,
+      67.5,
+      63.9
+    ]
+  },
+  {
+    "part": "core_ring",
+    "material": "steel",
+    "faces": 2880,
+    "watertight": true,
+    "size_mm": [
+      55.2,
+      55.2,
+      15.1
+    ]
+  },
+  {
+    "part": "trim",
+    "material": "steel",
+    "faces": 24,
+    "watertight": true,
+    "size_mm": [
+      130.4,
+      13.3,
+      10.0
+    ]
+  },
+  {
+    "part": "card",
+    "material": "paper",
+    "faces": 12,
+    "watertight": true,
+    "size_mm": [
+      72.0,
+      53.0,
+      78.2
+    ]
+  },
+  {
+    "part": "roll",
+    "material": "paper",
+    "faces": 192,
+    "watertight": true,
+    "size_mm": [
+      88.0,
+      80.0,
+      80.0
+    ]
+  },
+  {
+    "part": "roll_core",
+    "material": "rose",
+    "faces": 112,
+    "watertight": true,
+    "size_mm": [
+      94.0,
+      22.0,
+      22.0
+    ]
+  },
+  {
+    "part": "roller",
+    "material": "graphite",
+    "faces": 128,
+    "watertight": true,
+    "size_mm": [
+      128.0,
+      19.0,
+      19.0
+    ]
+  },
+  {
+    "part": "head",
+    "material": "steel",
+    "faces": 12,
+    "watertight": true,
+    "size_mm": [
+      124.0,
+      13.0,
+      8.0
+    ]
+  },
+  {
+    "part": "pcb",
+    "material": "sage",
+    "faces": 12,
+    "watertight": true,
+    "size_mm": [
+      108.0,
+      84.0,
+      2.4
+    ]
+  },
+  {
+    "part": "paper",
+    "material": "paper",
+    "faces": 1916,
+    "watertight": true,
+    "size_mm": [
+      62.0,
+      144.5,
+      152.7
+    ]
+  },
+  {
+    "part": "indicator",
+    "material": "vermillion",
+    "faces": 96,
+    "watertight": true,
+    "size_mm": [
+      3.0,
+      7.2,
+      7.2
+    ]
+  }
+]

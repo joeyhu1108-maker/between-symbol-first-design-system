@@ -1,0 +1,14 @@
+test_all_66_draws (__main__.CompositionTests) ... ok
+test_invalid_inputs (__main__.CompositionTests) ... ok
+test_no_invented_orientation (__main__.CompositionTests) ... ok
+test_numbers_and_cards_remain_separate (__main__.CompositionTests) ... ok
+test_probability_extremes (__main__.CompositionTests) ... ok
+test_question_changes_semantics_and_randomness (__main__.CompositionTests) ... ok
+test_repeatability (__main__.CompositionTests) ... ok
+test_returned_style_is_not_shared_mutable_state (__main__.CompositionTests) ... ok
+test_same_sum_different_card_meaning (__main__.CompositionTests) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 1.148s
+
+OK

@@ -1,0 +1,40 @@
+{
+  "title": "回赠与流经",
+  "screen_title": "两种愿望，<br>开始改变彼此。",
+  "story": "一条痕迹想在停止供给后仍被回应，另一条痕迹想让养分流过而不被占有。它们在同一片色域中靠近，也留下各自的修改痕迹。最后，一段空白没有被任何一方完全覆盖。",
+  "screen_line": "想在停止供给后仍被回应，也想让养分流过而不被占有。两种愿望改变了彼此的边界，却仍保留一处没有被覆盖的空白。",
+  "question": "你愿意把哪一处空白，留给尚未发生的关系？",
+  "anchors": [
+    "a low layered ground wash that gives colour back upward",
+    "a meandering translucent band passing through without ending",
+    "a boundary kept visibly open"
+  ],
+  "version": "between-story-v1",
+  "cards": [
+    {
+      "index": 3,
+      "id": "03",
+      "name": "土壤",
+      "theme": "回赠",
+      "wish": "想在停止供给后仍被回应"
+    },
+    {
+      "index": 5,
+      "id": "05",
+      "name": "河流",
+      "theme": "流经",
+      "wish": "想让养分流过而不被占有"
+    }
+  ],
+  "perspective": "种子／AI 视角更明显",
+  "relation": "牵制与保留边界",
+  "signature": "一次迟疑的断笔",
+  "measures": {
+    "human_view_share": 0.2229,
+    "seed_view_share": 0.7771,
+    "balance": 0.4459,
+    "rhythm_gap": 2,
+    "accumulation": 8
+  },
+  "interpretation": "叙事权重与视觉隐喻，不是观众的人格或情绪测量。"
+}

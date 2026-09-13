@@ -1,0 +1,7 @@
+# Complete artwork pipeline, pinned to versions verified for this handoff.
+# Use Python 3.9–3.12 (NumPy 2.0 does not support Python 3.13+).
+numpy==2.0.2
+Pillow==11.3.0
+reportlab==5.0.1
+PyMuPDF==1.26.5
+charset-normalizer==3.5.1

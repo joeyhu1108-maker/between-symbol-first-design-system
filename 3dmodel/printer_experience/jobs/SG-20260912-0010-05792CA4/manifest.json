@@ -1,0 +1,40 @@
+{
+  "id": "SG-20260912-0010-05792CA4",
+  "params": {
+    "m": 4,
+    "n": 9,
+    "a": 0.82,
+    "b": 0.57236352,
+    "seed": 91827364,
+    "intensity": 13,
+    "formula_version": "chladni-v1"
+  },
+  "created_at": "2026-09-12T21:32:36.371729",
+  "status": "ready",
+  "generator": "ai_imagegen",
+  "style_version": "garden-v1",
+  "style_scale": {
+    "abstraction": 0.96,
+    "organic_motion": 0.78,
+    "pigment_saturation": 0.72,
+    "translucency": 0.6,
+    "gesture": 0.66,
+    "fine_line_density": 0.28,
+    "warm_color_share": 0.62,
+    "asymmetry": 0.85
+  },
+  "print_status": "not_submitted",
+  "request_id": "garden-variant-v1",
+  "ready_at": "2026-09-12T21:32:39.140446",
+  "image": "/jobs/SG-20260912-0010-05792CA4/ai_original.png",
+  "pdf": "/jobs/SG-20260912-0010-05792CA4/artwork.pdf",
+  "particles": "/jobs/SG-20260912-0010-05792CA4/particles.json",
+  "particle_count": 7000,
+  "source_guide": "/jobs/SG-20260912-0010-05792CA4/guide.png",
+  "ai_provenance": {
+    "provider": "built-in imagegen",
+    "mode": "offline_generated_sample",
+    "attached_at": "2026-09-12T21:35:19.555630",
+    "source_image": "exec-296a8695-bd1a-4a63-96d0-3ef7c3047c6a.png"
+  }
+}

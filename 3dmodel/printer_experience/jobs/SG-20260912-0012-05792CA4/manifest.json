@@ -1,0 +1,93 @@
+{
+  "id": "SG-20260912-0012-05792CA4",
+  "params": {
+    "m": 4,
+    "n": 9,
+    "a": 0.82,
+    "b": 0.57236352,
+    "seed": 91827364,
+    "intensity": 13,
+    "formula_version": "chladni-v1"
+  },
+  "rarity": {
+    "sum": 13,
+    "ways": 6,
+    "total_pairs": 66,
+    "probability": 0.09090909090909091,
+    "percent": 9.09,
+    "kind": "common",
+    "label": "常见 · 共生花园",
+    "token": "C"
+  },
+  "created_at": "2026-09-12T22:20:02.101121",
+  "status": "ready",
+  "revises": "SG-20260912-0010-05792CA4",
+  "generator": "ai_imagegen",
+  "style_version": "garden-v1.1",
+  "style_scale": {
+    "abstraction": 0.96,
+    "organic_motion": 0.78,
+    "pigment_saturation": 0.62,
+    "translucency": 0.6,
+    "gesture": 0.66,
+    "fine_line_density": 0.46,
+    "warm_color_share": 0.88,
+    "asymmetry": 0.85,
+    "oil_paint_presence": 0.2,
+    "weathering": 0.24,
+    "mark_irregularity": 0.85,
+    "pentimento": 0.58
+  },
+  "print_status": "not_submitted",
+  "request_id": "garden_variant-rose-detail-v11",
+  "ready_at": "2026-09-12T22:29:44.432627",
+  "image": "/jobs/SG-20260912-0012-05792CA4/ai_original.png",
+  "pdf": "/jobs/SG-20260912-0012-05792CA4/artwork.pdf",
+  "particles": "/jobs/SG-20260912-0012-05792CA4/particles.json",
+  "particle_count": 7000,
+  "story": {
+    "title": "照料的方向",
+    "screen_title": "照料，<br>也需要回应。",
+    "story": "最先伸出去的那一笔，一直在把颜色交给别处。换一个方向看，才发现那些淡下去的地方也需要被托住。后来，一条很细的痕迹折返回来，停在它曾经付出的边缘。",
+    "screen_line": "一片颜色不断向外给予；换个方向，一条细线折返，托住最先伸出去的那一笔。",
+    "question": "照料会流向哪里，又是否有人看见给予者的空白？",
+    "anchors": [
+      "a translucent wash giving pigment toward another territory",
+      "an inverted returning thread reaching back toward a faded edge",
+      "one small zone where the two pigment families overlap without erasing either"
+    ],
+    "version": "garden-story-v1",
+    "cards": [
+      {
+        "index": 4,
+        "name": "皇后",
+        "theme": "孕育",
+        "wish": "想照料对方"
+      },
+      {
+        "index": 9,
+        "name": "倒吊人",
+        "theme": "翻转",
+        "wish": "想换个位置重新看见"
+      }
+    ],
+    "perspective": "两种视角接近",
+    "relation": "交叠与相互滋养",
+    "signature": "一处没有补上的缝",
+    "measures": {
+      "human_view_share": 0.5889,
+      "seed_view_share": 0.4111,
+      "balance": 0.8221,
+      "rhythm_gap": 5,
+      "accumulation": 13
+    },
+    "interpretation": "叙事权重与视觉隐喻，不是观众的人格或情绪测量。"
+  },
+  "source_guide": "/jobs/SG-20260912-0012-05792CA4/guide.png",
+  "ai_provenance": {
+    "provider": "built-in imagegen",
+    "mode": "offline_generated_sample",
+    "attached_at": "2026-09-12T22:29:51.399404",
+    "source_image": "exec-f75f76ee-d1fc-491b-a31e-7635a9f25267.png"
+  }
+}

@@ -1,0 +1,4686 @@
+{
+  "source_root_label": "art-hackathon workspace",
+  "files": [
+    {
+      "source": "SHAWN-NFC-TEST-结果.md",
+      "path": "SHAWN-NFC-TEST-结果.md",
+      "sha256": "a31c9479db98b7e359ce3bc0340e349946365374946997c868eda494e292a3d4",
+      "size": 4830,
+      "method": "byte-copy"
+    },
+    {
+      "source": "Codex 图像 2026年9月12日 17_56_04.png",
+      "path": "Codex 图像 2026年9月12日 17_56_04.png",
+      "sha256": "ebb9260a1a3597d9abd1608cc81b8e40b9da8bbab27d0884c20ceb334b3dcc71",
+      "size": 1592409,
+      "method": "byte-copy"
+    },
+    {
+      "source": "星环中的萌生.md",
+      "path": "星环中的萌生.md",
+      "sha256": "1d1ffccdd2b5950681e881495d6f02d0b4d6134ec6cafdb286bc08e4c4f4bf51",
+      "size": 10513,
+      "method": "byte-copy"
+    },
+    {
+      "source": "SHAWN-NFC-TEST.md",
+      "path": "SHAWN-NFC-TEST.md",
+      "sha256": "d5ba476921bf53ddd7f71b6a7fa7c12427833aaf9754738ba6db84982bd98aad",
+      "size": 3857,
+      "method": "byte-copy"
+    },
+    {
+      "source": "AGENTS.md",
+      "path": "archive/project-instructions/AGENTS.md",
+      "sha256": "e401f79554a8d79671dd71dfbb59d2ee1d001dcabe0764f98b32d9d1455aa4c3",
+      "size": 297,
+      "method": "byte-copy"
+    },
+    {
+      "source": "CLAUDE.md",
+      "path": "archive/project-instructions/CLAUDE.md",
+      "sha256": "074d6b42b583729aa35b26199def8fac0debb5266978c642bac104d428ec163e",
+      "size": 395,
+      "method": "byte-copy"
+    },
+    {
+      "source": "video/iShot_2026-09-13_01.58.39.mp4",
+      "path": "video/iShot_2026-09-13_01.58.39.mp4",
+      "sha256": "a9b1f789ac2c214a9ae5d70a8310723465ffa8e54bb701b402cacd98ca866f29",
+      "size": 1724316,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/11_隐士_拒绝.md",
+      "path": "卡片/11_隐士_拒绝.md",
+      "sha256": "93ab5c79e6ec2b616e7534e0094a5084f5240bba0b7c91a619f88f9729af577d",
+      "size": 4515,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/03_恋人_诱惑.md",
+      "path": "卡片/03_恋人_诱惑.md",
+      "sha256": "e3933a32d6ef9bcf90bc60f9618753b0f9b0f7e25bf6e945ac64992d91a59727",
+      "size": 4532,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/00_共用规则.md",
+      "path": "卡片/00_共用规则.md",
+      "sha256": "4b65b86d710ee52f91f462388b487f111b90ef6af65275e8d2b2f53d4850cab7",
+      "size": 6124,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/05_皇帝_加冕.md",
+      "path": "卡片/05_皇帝_加冕.md",
+      "sha256": "c89c60725c1cbc2fb5b0d02a7465541fdaed53e4b040b1ef5cb2c51b936a2bfa",
+      "size": 4790,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/02_魔术师_工具.md",
+      "path": "卡片/02_魔术师_工具.md",
+      "sha256": "40246aa73b6d1d1b573a7757e80e661cdb89462ffd758512ee116c520ed45099",
+      "size": 4591,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/04_皇后_喂养.md",
+      "path": "卡片/04_皇后_喂养.md",
+      "sha256": "3fabe8bfd5385c2a4b56e6b0b2b61b7cb4e870629951533ef0b90a6a5b8a8b31",
+      "size": 4999,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/06_教皇_传道.md",
+      "path": "卡片/06_教皇_传道.md",
+      "sha256": "caf0d8ef31d6045eafdabd7bb8cd33a834d011e9b2bd79324411a93fedadfcb1",
+      "size": 4762,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/07_战车_对抗.md",
+      "path": "卡片/07_战车_对抗.md",
+      "sha256": "3f63ecd4eb73884d1911256be365f81e4a6ec00aeda9a493aaaf41a0c447efbc",
+      "size": 4858,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/10_死神_替换.md",
+      "path": "卡片/10_死神_替换.md",
+      "sha256": "a4d8cc7ea56ec599634f5e4727709e57860210c8322e071cfe1267e45458b741",
+      "size": 5214,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/08_命运之轮_交换.md",
+      "path": "卡片/08_命运之轮_交换.md",
+      "sha256": "d7e26e12b600b30abe0b9cb65d50f5c42f96c278de0ad829e05e1f7c9758291f",
+      "size": 4396,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/种子显影台.html",
+      "path": "卡片/种子显影台.html",
+      "sha256": "5030a76233e9e2c4369213a3317f8430f94388620276051d9bedbc660f68dfb0",
+      "size": 17480,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/12_世界_未命名.md",
+      "path": "卡片/12_世界_未命名.md",
+      "sha256": "b9adbf6b7f30ae82fc94087bcc612eb3c0bea264959a785dc818541882a6c5e0",
+      "size": 5574,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/一物两态.html",
+      "path": "卡片/一物两态.html",
+      "sha256": "27362c3c00d9849d0c0b88c5ea881badb519c19af38653326644c799517878bd",
+      "size": 37330,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/09_倒吊人_翻转.md",
+      "path": "卡片/09_倒吊人_翻转.md",
+      "sha256": "52f3b992a8bccac669d241403a7b9564ef2576f82053e877eaf1539cc66c3ce3",
+      "size": 5574,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/01_愚者_坠落.md",
+      "path": "卡片/01_愚者_坠落.md",
+      "sha256": "6397d8dc3c52aa33f0c3a196e7483bd8f2dcca941d690e2dc722d1bb5b26e5db",
+      "size": 4716,
+      "method": "byte-copy"
+    },
+    {
+      "source": "卡片/卡片设计/植物视觉塔罗 · 参考图符号版 · 无页眉.pdf",
+      "path": "卡片/卡片设计/植物视觉塔罗 · 参考图符号版 · 无页眉.pdf",
+      "sha256": "8da7a08733906031122faff6b03f29280fb4f0a6fce28743ad2099bdb78bb0a2",
+      "size": 61923402,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/test_compose.py",
+      "path": "artwork/garden_geometry/test_compose.py",
+      "sha256": "d9d06e4be158c389e26c8f3710fe01af106eed25d7ed96718acbacb24ed150b8",
+      "size": 2751,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/caption_questions.json",
+      "path": "artwork/garden_geometry/caption_questions.json",
+      "sha256": "13f713f66fad6dae1ed25f1e106d3b099aaedb7f19a02d64395c4fb133a971d2",
+      "size": 4395,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/render_guide.py",
+      "path": "artwork/garden_geometry/render_guide.py",
+      "sha256": "e81376b95c2d52976de91ed11da9d83125785c6e11f3573ce2c0df6862424bd0",
+      "size": 2196,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/compose.py",
+      "path": "artwork/garden_geometry/compose.py",
+      "sha256": "df56a08ee9cfeb6fd463fe58b3c8c2067929970681454b7b5697a84b5b4083b0",
+      "size": 13857,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/test_results.txt",
+      "path": "artwork/garden_geometry/test_results.txt",
+      "sha256": "01243f17a7c5fef8d2c0c096fed78c4f097cac76a122ef819b2f7c11d42354c9",
+      "size": 696,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/style_snapshot.json",
+      "path": "artwork/garden_geometry/style_snapshot.json",
+      "sha256": "19a21db3e41e195a4ce1e82bc6f1defb84164e05bfd576980094932834b18e0d",
+      "size": 2830,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/card_sources.json",
+      "path": "artwork/garden_geometry/card_sources.json",
+      "sha256": "bebadb760c553788fab0ea549a9474e3e51cf600921130b3f2bea6c8b2246f32",
+      "size": 11167,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/samples.json",
+      "path": "artwork/garden_geometry/samples.json",
+      "sha256": "adf54855ec9999579836e149d017206e448df8e79a7ad5a55f3f4af7cd77f236",
+      "size": 1808,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/prepare_samples.py",
+      "path": "artwork/garden_geometry/prepare_samples.py",
+      "sha256": "5d658ef3b6a3145a68854fb86c3f4c8124e34d69d02c292cb1712a2e6b08c9c7",
+      "size": 1081,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/__init__.py",
+      "path": "artwork/garden_geometry/__init__.py",
+      "sha256": "d479ed50b4a632dc7f8c91366e5251669c38fccf52ec0bad3bd7079950a93a9a",
+      "size": 152,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/card_roles.json",
+      "path": "artwork/garden_geometry/card_roles.json",
+      "sha256": "e570dae69ef93cd17ea3f313ddc252a112c326233b495f71f32158f752decea4",
+      "size": 4182,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/README.md",
+      "path": "artwork/garden_geometry/README.md",
+      "sha256": "1494f35840b904d0e4f459a3fe76f43ffa51d2bdb6f6615ab3146e3dad922c70",
+      "size": 6625,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/gallery.html",
+      "path": "artwork/garden_geometry/gallery.html",
+      "sha256": "8a34b7945d05f391d3c579299295065de678df4beedcf4d46d6a5bb1c37c6185",
+      "size": 4362,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/presentation.py",
+      "path": "artwork/garden_geometry/presentation.py",
+      "sha256": "c914a3bbfcd74f3d6469d7ba47a82fb5bd5ea42ad4922f0b8b9465f42708e692",
+      "size": 1691,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/A4_verification.json",
+      "path": "artwork/garden_geometry/A4_verification.json",
+      "sha256": "95438fbc9b759ae9e6f030426a99c6e939a34fe0f40e85e8e37ee252771e4a71",
+      "size": 815,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/caption_test_results.txt",
+      "path": "artwork/garden_geometry/caption_test_results.txt",
+      "sha256": "6c1da2543f0bd175c8a6b7aa2825113ce0ce777ad7e83bbbc257cbddf62b39c0",
+      "size": 468,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/captions.py",
+      "path": "artwork/garden_geometry/captions.py",
+      "sha256": "51cedd0fb2f6ddd803ee8543f1f991c2e4b45b694930dd2d304a490aedb51bec",
+      "size": 2179,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/layout_a4.py",
+      "path": "artwork/garden_geometry/layout_a4.py",
+      "sha256": "bedadefb715a3b8b35772ebe8304016e07f6c408c780a30440d0c40852700a18",
+      "size": 2893,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/test_captions.py",
+      "path": "artwork/garden_geometry/test_captions.py",
+      "sha256": "f3d27681f63a0361ca10d8fe4443f85ca2199613a0e03357101b0c09695cc9e9",
+      "size": 1503,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/assets/geometry_reference.jpg",
+      "path": "artwork/garden_geometry/assets/geometry_reference.jpg",
+      "sha256": "cd94f0011ed4c75e99179613165c5d1f9b3c038143ffece3d29633f45c3fba14",
+      "size": 365430,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/assets/caption_reference.jpg",
+      "path": "artwork/garden_geometry/assets/caption_reference.jpg",
+      "sha256": "d30d0a3b7877bd5e969a2d44ab8960dcf543989fa98cfce55c70c5bfdbaf123e",
+      "size": 957227,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/assets/base_care_inversion.png",
+      "path": "artwork/garden_geometry/assets/base_care_inversion.png",
+      "sha256": "9062b342027a671738d7cbc394e010ac41b5c61e04439287f2c1ae4fb8d351eb",
+      "size": 3241625,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/assets/base_attraction_power.png",
+      "path": "artwork/garden_geometry/assets/base_attraction_power.png",
+      "sha256": "ed22918e39e38daccfca13d2c0346abd309240e4275dd9be0be57173c3c69ad6",
+      "size": 3311980,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/assets/oak_frame_source.png",
+      "path": "artwork/garden_geometry/assets/oak_frame_source.png",
+      "sha256": "f01b06a63235b2a3613e32ff36419b77dc2a5550e4a4e91b42290f5d70ad0a28",
+      "size": 2344965,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/request.json",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/request.json",
+      "sha256": "91e1f5ecd2e55ad0bad81643a28dc8c7e077d8035eee51796d6e4466c1ab048e",
+      "size": 142,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/geometry_guide.png",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/geometry_guide.png",
+      "sha256": "97b5c18f90af3a87f6dbc52fa55898ce4204875788d92939fab964a143762228",
+      "size": 9499,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/caption_oneline_prompt.txt",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/caption_oneline_prompt.txt",
+      "sha256": "da5ffdf9d4b488f4c3d24713cc1d22216f83f9948f391ce41f03e94c8dd3daf7",
+      "size": 1143,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/brief.json",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/brief.json",
+      "sha256": "be05f4b5b4788132c05d86fad33dca3efcf1fa25232417a52f80af00389cbe1c",
+      "size": 8524,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/caption_prompt.txt",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/caption_prompt.txt",
+      "sha256": "5853bb4b7c038f46bcc17442d3a686a9513c6386793c13c6669a33d4990f29d4",
+      "size": 1140,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/mounting_border_prompt.txt",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/mounting_border_prompt.txt",
+      "sha256": "da87137df5b5beb4aa6deb50fedf7861ad9166f2292f9f00a04e255adad6d342",
+      "size": 1336,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/caption.json",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/caption.json",
+      "sha256": "da269eef9ab7ebd4f90768de76b98f7119ff700fc864cc8ca544d871e8874db0",
+      "size": 902,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/artwork_A4.png",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/artwork_A4.png",
+      "sha256": "0c4fc27208912a2fcae2ed4ca8183e04fc631abff7771ac4d6baa6d3ef92f7e5",
+      "size": 5759330,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/prompt.txt",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/prompt.txt",
+      "sha256": "fa158d42ade55ecdfef411e60397b248470cfbf4aacbc1234e7474a73ef6f038",
+      "size": 4055,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/annotation_prompt.txt",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/annotation_prompt.txt",
+      "sha256": "88702d8496b767f43602ab623b80d67e28aca8ebb71ce122c56d3cbdf62366a1",
+      "size": 2010,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/artwork_captioned.png",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/artwork_captioned.png",
+      "sha256": "3fdde032afe5495a4370a192aa5af734f6e92583b5921cee9a451866aace39c9",
+      "size": 2737619,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/artwork_A4.pdf",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/artwork_A4.pdf",
+      "sha256": "51d8506fb8738dca8282f04436c0d432c513991abc872c9429619e9e390946f1",
+      "size": 9928435,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/artwork_annotated.png",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/artwork_annotated.png",
+      "sha256": "5dd8b897872ef4d71605a20ea30ce43d6f92c4ad8151a14ebf2b92ab9f2865c9",
+      "size": 3444406,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/layout_A4.json",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/layout_A4.json",
+      "sha256": "d42de324d3b40c556487c53f7ca77cac23bf2fa89d7d8403045dfd40f59e0111",
+      "size": 992,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/artwork_captioned_oneline.png",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/artwork_captioned_oneline.png",
+      "sha256": "5e2d96847d699ab040daad065fc1e8f3719771231bb98c5d17c22b0777b861ce",
+      "size": 2406452,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/manifest.json",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/manifest.json",
+      "sha256": "d9223ffd7341794f3471112a10be8a14699d2b8c19cd34e92c6e9c003b8e84fb",
+      "size": 12213,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/story.md",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/story.md",
+      "sha256": "41795fb3931cf8a5caf6cf0231cbbcd7fc37f139b492264b77b2435a10036aa1",
+      "size": 554,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/artwork.png",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/artwork.png",
+      "sha256": "268a5599a7a6813aff759accd074c40c3c5e8027366eb188179f042c15ff96b6",
+      "size": 2992054,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/02_care_inversion/artwork_mounting_border.png",
+      "path": "artwork/garden_geometry/outputs/02_care_inversion/artwork_mounting_border.png",
+      "sha256": "3809e4ffdce05d187b5c5c6c4bd7293f585f273d492bcd418c179cdf2ccc53d2",
+      "size": 2413277,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/request.json",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/request.json",
+      "sha256": "a0d8069e135f193bbc7cc1f080c26571c5ca1794fba9feda2cd1595173564539",
+      "size": 167,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/geometry_guide.png",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/geometry_guide.png",
+      "sha256": "05fe53cf83f3d8e80002725a5f77ec8089a9fa6db813568ac781f69fff74e1be",
+      "size": 9472,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/caption_oneline_prompt.txt",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/caption_oneline_prompt.txt",
+      "sha256": "b1c870d14f45ec07c71e492128c004dc34e2e7d8fa921a974ed46526fe03eed6",
+      "size": 1132,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/brief.json",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/brief.json",
+      "sha256": "3a6ebd0381e2ff796faa6d276a809b4103ec10c4e862cb3a458b83f40fd4896a",
+      "size": 8072,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/caption_prompt.txt",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/caption_prompt.txt",
+      "sha256": "ef2eee525a47709570f1fd49a071ce6161762e97c185e10bdb74d74d53067f21",
+      "size": 1129,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/mounting_border_prompt.txt",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/mounting_border_prompt.txt",
+      "sha256": "5ad54d40b4c78c2a4cb82d739366506848e5c6403a4834625a57b795a86c37e4",
+      "size": 1325,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/caption.json",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/caption.json",
+      "sha256": "ef197c29acc305f6bcf89e39a27275c5bcbf1937d2f81775df9c26b5e822ee1c",
+      "size": 891,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/artwork_A4.png",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/artwork_A4.png",
+      "sha256": "ca5418aac9774fc18b05fd1e2e9619241dd786e11008193549ea5882b045c109",
+      "size": 5703977,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/prompt.txt",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/prompt.txt",
+      "sha256": "08c5bbc970f7a49292aec7c93074e1953ffd70937ca8c06d072fc31a618b030b",
+      "size": 3712,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/annotation_prompt.txt",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/annotation_prompt.txt",
+      "sha256": "75728897c60b5bd186efe287f2b300b1b857b762d6b7caa944d41e74f2f6b5f4",
+      "size": 1996,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/artwork_captioned.png",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/artwork_captioned.png",
+      "sha256": "e846c3c149c95decb01643f6e4d8569cf0525a2c43b957d88b7405a89ff02237",
+      "size": 2937609,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/artwork_A4.pdf",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/artwork_A4.pdf",
+      "sha256": "5d9ab3183324bc06bc241e5d4247e1bcef77a1b8c32ad03365f4e8fa1b6c5fd7",
+      "size": 9903512,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/artwork_annotated.png",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/artwork_annotated.png",
+      "sha256": "d360d8f6d001c88549acd832aef720f30d76aa102624601ebd8a42bd152ca62a",
+      "size": 3197649,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/layout_A4.json",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/layout_A4.json",
+      "sha256": "6cf99ce6bfd2215939faf0d14a09a015eda1883f485363067b8683d9c46ae83f",
+      "size": 994,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/artwork_captioned_oneline.png",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/artwork_captioned_oneline.png",
+      "sha256": "c66de7656bd654694916c6b3aa1f00308b94386b6253311a6604a526112485d9",
+      "size": 2627855,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/manifest.json",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/manifest.json",
+      "sha256": "781da0607791fa2724a7ca7f4067c5576c4d734bc6669e0560ae9959fac3d0c9",
+      "size": 11790,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/story.md",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/story.md",
+      "sha256": "26955d29003f60d4f0c942a24450f70da59ed1116247347639e7f12117cfe782",
+      "size": 512,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/artwork.png",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/artwork.png",
+      "sha256": "c4014d631548b4b5c7421504b3f378073ccbfd783e5343681c01e6be9532af2d",
+      "size": 3104851,
+      "method": "byte-copy"
+    },
+    {
+      "source": "artwork/garden_geometry/outputs/01_attraction_power/artwork_mounting_border.png",
+      "path": "artwork/garden_geometry/outputs/01_attraction_power/artwork_mounting_border.png",
+      "sha256": "cbad0a79671da62f1bb89c055ed314d247cf4396e2a4bca4f637e45facca2b91",
+      "size": 2522115,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_orbit/seed_orbit_keyframe.png",
+      "path": "output/tapnow_seed_orbit/seed_orbit_keyframe.png",
+      "sha256": "aa7359c9f068aac2e7561b66b11ba0a4934c0477f2932e76c0dd93a3336ebb64",
+      "size": 6045007,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_orbit/循环播放.html",
+      "path": "output/tapnow_seed_orbit/循环播放.html",
+      "sha256": "60238ae1d249cd5e995ac342b2b510a565040ef24af7dc37595649328d6d8c6b",
+      "size": 826,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_orbit/制作要求.md",
+      "path": "output/tapnow_seed_orbit/制作要求.md",
+      "sha256": "cc65cf11dba1800f772a27c545a3ef7571c2e91a1984392ddc5890ead6fac722",
+      "size": 1641,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/pdf/数字符号对调/植物视觉塔罗 · 数字符号对调版.pdf",
+      "path": "output/pdf/数字符号对调/植物视觉塔罗 · 数字符号对调版.pdf",
+      "sha256": "ca7f19520be67a1f4bf5a3f8c1ff4db4c4a13e570c2a5f2c24d1eb7e153cfcc5",
+      "size": 61908082,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/pdf/数字符号对调/植物视觉塔罗 · 24个卡面无页眉版.pdf",
+      "path": "output/pdf/数字符号对调/植物视觉塔罗 · 24个卡面无页眉版.pdf",
+      "sha256": "9a5fe6045ce4e958990db50ccfce2ca17d319a8fc8ed72728aa86504ee98c8a8",
+      "size": 61898650,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/pdf/数字符号对调/24个卡面对调后预览.png",
+      "path": "output/pdf/数字符号对调/24个卡面对调后预览.png",
+      "sha256": "75bda293f3dc3a1f761171d003d24bc5e3dcb432ebd97b94125ef2b8ad92f914",
+      "size": 4886923,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/pdf/参考图符号版/12个种子面预览.png",
+      "path": "output/pdf/参考图符号版/12个种子面预览.png",
+      "sha256": "002a2b1718c94ba6b6f24d09e45eb49eeea31c33b82573b11ab27cdca0a44c13",
+      "size": 2368969,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/pdf/参考图符号版/植物视觉塔罗 · 参考图符号版 · 无页眉.pdf",
+      "path": "output/pdf/参考图符号版/植物视觉塔罗 · 参考图符号版 · 无页眉.pdf",
+      "sha256": "8da7a08733906031122faff6b03f29280fb4f0a6fce28743ad2099bdb78bb0a2",
+      "size": 61923402,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/pdf/参考图符号版/符号细节检查.png",
+      "path": "output/pdf/参考图符号版/符号细节检查.png",
+      "sha256": "18d2c7789ebabc472809e9ce8456236a495ee6dabe0994e466ca3052784b671a",
+      "size": 423582,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/pdf/参考图符号版/植物视觉塔罗 · 参考图符号版.pdf",
+      "path": "output/pdf/参考图符号版/植物视觉塔罗 · 参考图符号版.pdf",
+      "sha256": "7356d1d38d267e129d4afdacbcf58c89b574145850de96859bb7fdb345940f40",
+      "size": 61948516,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/循环播放.html",
+      "path": "output/tapnow_seed_planet/循环播放.html",
+      "sha256": "0a4aa12f954cb226b7c1a728e05641f3f68e02df5dc962bc7d180fc10ec7a564",
+      "size": 833,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/验证.json",
+      "path": "output/tapnow_seed_planet/验证.json",
+      "sha256": "ca80aceacca9a413e5d1ef7a4237ee440c74a7074f88d92ed3cbaeb0f3d91a8b",
+      "size": 461,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/seed_planet_micro.mp4",
+      "path": "output/tapnow_seed_planet/seed_planet_micro.mp4",
+      "sha256": "9cbc82a0383211e58639e03fa5c6e0187716097dcd28711e783b08f38aa0e11c",
+      "size": 21632051,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/seed_planet_micro_keyframe.png",
+      "path": "output/tapnow_seed_planet/seed_planet_micro_keyframe.png",
+      "sha256": "5702d2744925d7c418d4d153a6c6c57283ff8cd5c4218950706771db04297414",
+      "size": 5779807,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/现场循环播放包-种子星球.zip",
+      "path": "output/tapnow_seed_planet/现场循环播放包-种子星球.zip",
+      "sha256": "159a42a528b5acc479fe53ea149a22e5afb53f308ced8826d2d2a49cfaf48f1b",
+      "size": 27122961,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/制作要求.md",
+      "path": "output/tapnow_seed_planet/制作要求.md",
+      "sha256": "65b93a25f8a0eaf25b73374e006c752f2c4fe12300366dae000448d77b49fd90",
+      "size": 2557,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/seed_planet_keyframe.png",
+      "path": "output/tapnow_seed_planet/seed_planet_keyframe.png",
+      "sha256": "fd5406eecd9323ea6c1c163df72de2582d347cce44196a51658305df0bb5edc8",
+      "size": 6071494,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/video_contact_sheet.jpg",
+      "path": "output/tapnow_seed_planet/video_contact_sheet.jpg",
+      "sha256": "09c2411528aaa07855bd3c22a002922c0f62c79e72966f62778d9edc4e7e6f8a",
+      "size": 322026,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/seam_characters.jpg",
+      "path": "output/tapnow_seed_planet/seam_characters.jpg",
+      "sha256": "d1e05b702427715c707e35be80fe3e905aa51e9243b2928946543c0939a8a5db",
+      "size": 80510,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部追逐加强版/草稿-种子错误开裂.mp4",
+      "path": "output/tapnow_seed_planet/中部追逐加强版/草稿-种子错误开裂.mp4",
+      "sha256": "f8ba88eee7eb3ae7edf1efb109f1addee475110d7fb4273a1ff6c64292e204b7",
+      "size": 15715311,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部追逐加强版/larger_sprint_contact_sheet.jpg",
+      "path": "output/tapnow_seed_planet/中部追逐加强版/larger_sprint_contact_sheet.jpg",
+      "sha256": "8632ba59e0ca2e66bfe3314b026656332241ced97c5f5a96d348270cddeb99fa",
+      "size": 258475,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部追逐加强版/草稿-放大过度且面孔错误.png",
+      "path": "output/tapnow_seed_planet/中部追逐加强版/草稿-放大过度且面孔错误.png",
+      "sha256": "160c68a8dab7e6b38c14b853d1ce580cf79e4031d7415c54be4a20af5bf6936f",
+      "size": 5206983,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部追逐加强版/草稿-开裂视频抽帧.jpg",
+      "path": "output/tapnow_seed_planet/中部追逐加强版/草稿-开裂视频抽帧.jpg",
+      "sha256": "bbf40b1c448c4222e726cbb06ceda9d487180a1614c814ccb106f3d095bffd33",
+      "size": 401952,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部追逐加强版/循环播放.html",
+      "path": "output/tapnow_seed_planet/中部追逐加强版/循环播放.html",
+      "sha256": "a75de8a2096798a7cc4992f4e122933dc2704951b6d70f5229f5f7124e81caf3",
+      "size": 853,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部追逐加强版/final_motion_comparison.jpg",
+      "path": "output/tapnow_seed_planet/中部追逐加强版/final_motion_comparison.jpg",
+      "sha256": "fc2aa085e7a9bc657f3bb4fa731c5b85850d0c06238605cb79c12f41b4879962",
+      "size": 149963,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部追逐加强版/seed_planet_identity_keyframe.png",
+      "path": "output/tapnow_seed_planet/中部追逐加强版/seed_planet_identity_keyframe.png",
+      "sha256": "a6b6377449147d58cc4cf6bc8221b41cc93431e971106e219084ce5f33cc3d1e",
+      "size": 5293225,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部追逐加强版/character_motion_comparison.jpg",
+      "path": "output/tapnow_seed_planet/中部追逐加强版/character_motion_comparison.jpg",
+      "sha256": "768d8e04ee22a34b43895a98bcc8149ed69af296dad69a570ae58fff24427f9a",
+      "size": 124512,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部追逐加强版/现场循环播放包-追逐加强版.zip",
+      "path": "output/tapnow_seed_planet/中部追逐加强版/现场循环播放包-追逐加强版.zip",
+      "sha256": "a86068c2ef17c68bb1c5865b59d8355ee11783122d118bac107b223bcb473bd6",
+      "size": 25372265,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部追逐加强版/制作要求.md",
+      "path": "output/tapnow_seed_planet/中部追逐加强版/制作要求.md",
+      "sha256": "a55fe8c60e841b2476c7eec07618163faf0d517d6ebe1d4c96284d52673b5dc0",
+      "size": 3267,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部追逐加强版/seed_planet_larger_sprint_v2.mp4",
+      "path": "output/tapnow_seed_planet/中部追逐加强版/seed_planet_larger_sprint_v2.mp4",
+      "sha256": "2fb38fb286e19fe839afea881b3d8fbaff006c2a29bde4fe65daf68916672aa1",
+      "size": 25233862,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部追逐加强版/video_contact_sheet.jpg",
+      "path": "output/tapnow_seed_planet/中部追逐加强版/video_contact_sheet.jpg",
+      "sha256": "3f81040ae2b456133ffce049741633ef9f7b275d121eb426ed9ddccd9dd1c13b",
+      "size": 358702,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部追逐加强版/最终验证.json",
+      "path": "output/tapnow_seed_planet/中部追逐加强版/最终验证.json",
+      "sha256": "ca0257025aab6947c894bfe53d4c63941481c63948cfed83611681dfb5d7a368",
+      "size": 684,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部追逐加强版/seed_planet_preserved_fast.mp4",
+      "path": "output/tapnow_seed_planet/中部追逐加强版/seed_planet_preserved_fast.mp4",
+      "sha256": "07711eb97ed3e241113dd4839195000c33433c1783221ab2cbacc791ec3dfa8a",
+      "size": 27316797,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/点线面构图版/循环播放.html",
+      "path": "output/tapnow_seed_planet/点线面构图版/循环播放.html",
+      "sha256": "fa99e3f9894a1fc121e9753cbb3de3f0f19ce684a27b223f5e757880181bca73",
+      "size": 834,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/点线面构图版/seed_point_line_plane_keyframe.png",
+      "path": "output/tapnow_seed_planet/点线面构图版/seed_point_line_plane_keyframe.png",
+      "sha256": "1bb734d73dc1ac2b5458bbc9cbd9168e068671324680c3daf934b6f714107f58",
+      "size": 5604199,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/点线面构图版/320px远看检查.png",
+      "path": "output/tapnow_seed_planet/点线面构图版/320px远看检查.png",
+      "sha256": "52154901fc02a673e25a05b42fb10035ededefa63e0efdb952c8aa06bb68ffbb",
+      "size": 76670,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/点线面构图版/制作要求.md",
+      "path": "output/tapnow_seed_planet/点线面构图版/制作要求.md",
+      "sha256": "b0082075272e340f0233857b974a470ac046f0768b7502a4e339ba7b95d4f1c8",
+      "size": 1594,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/红框上移版/现场循环播放包-红框上移版.zip",
+      "path": "output/tapnow_seed_planet/红框上移版/现场循环播放包-红框上移版.zip",
+      "sha256": "fe90a2a29cb500d22d65c68114a11391541d4c1cb1397dec87b904dc2a838b34",
+      "size": 16106353,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/红框上移版/验证.json",
+      "path": "output/tapnow_seed_planet/红框上移版/验证.json",
+      "sha256": "1edce5cf50186f46894c32370348b06bd7a1e446c7623a7f018758b675dc5c4e",
+      "size": 563,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/红框上移版/循环播放_种子.html",
+      "path": "output/tapnow_seed_planet/红框上移版/循环播放_种子.html",
+      "sha256": "0a0f8bc3b8996bb504721426fb5d18623b0114b866e6b824ea69078aba83247d",
+      "size": 837,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/红框上移版/seed_top_arc_keyframe.png",
+      "path": "output/tapnow_seed_planet/红框上移版/seed_top_arc_keyframe.png",
+      "sha256": "9f1e89657b52f4a21147e494bbe0664598478d3bf0598785e98cb19a349b7597",
+      "size": 5788593,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/红框上移版/seed_top_arc_chase.mp4",
+      "path": "output/tapnow_seed_planet/红框上移版/seed_top_arc_chase.mp4",
+      "sha256": "d91c5ffa07764aa18b08243f896d7a6b544d05bb07bd83e741ce026e5e0c7a64",
+      "size": 10610123,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/红框上移版/用户红框参考.png",
+      "path": "output/tapnow_seed_planet/红框上移版/用户红框参考.png",
+      "sha256": "892ee67affed6070f77af5e1b77fb7e1a9fd932d341b775f670c7885d9bc6559",
+      "size": 1112085,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/红框上移版/制作要求.md",
+      "path": "output/tapnow_seed_planet/红框上移版/制作要求.md",
+      "sha256": "77ab5877dce8af512b5d1fc21de0ec951441d74275849b168d8dce5460c8f605",
+      "size": 1884,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/红框上移版/video_contact_sheet.jpg",
+      "path": "output/tapnow_seed_planet/红框上移版/video_contact_sheet.jpg",
+      "sha256": "8652d7a227af62d3a9a7778ecb2505b13997ae0b41b124c4c3cc36063f3b9c3f",
+      "size": 177197,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/红框上移版/远看预览.png",
+      "path": "output/tapnow_seed_planet/红框上移版/远看预览.png",
+      "sha256": "c557210b806dcd108861ec35be3c192e00edca1169f01b5a8881dd4e0e80e066",
+      "size": 180742,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部纬度带版/seed_planet_midlatitude.mp4",
+      "path": "output/tapnow_seed_planet/中部纬度带版/seed_planet_midlatitude.mp4",
+      "sha256": "eed9a1d1efc76a448a21d5071ab9c6c54453a7c3a541d2662858dbf6aee7c735",
+      "size": 18029161,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部纬度带版/循环播放.html",
+      "path": "output/tapnow_seed_planet/中部纬度带版/循环播放.html",
+      "sha256": "0d3a50cd9cdfa826c5ae7a8ebd63da1b3ada0934c807d4f9e19c748607a7ebd2",
+      "size": 848,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部纬度带版/验证.json",
+      "path": "output/tapnow_seed_planet/中部纬度带版/验证.json",
+      "sha256": "cfd411d178857c7dae70d33af86daa51ad47bd74e0d74929d892fe25defb265a",
+      "size": 618,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部纬度带版/seed_planet_midlatitude_keyframe.png",
+      "path": "output/tapnow_seed_planet/中部纬度带版/seed_planet_midlatitude_keyframe.png",
+      "sha256": "e9ce48a20a5e93bddd8617274cb70ae979fe0ff5b385cb5cf9f0537401b4e995",
+      "size": 5580218,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部纬度带版/制作要求.md",
+      "path": "output/tapnow_seed_planet/中部纬度带版/制作要求.md",
+      "sha256": "8a7f90bf26016f1400458e470704408ffc4a831aeb801265e80dd68b30bd0135",
+      "size": 1921,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部纬度带版/video_contact_sheet.jpg",
+      "path": "output/tapnow_seed_planet/中部纬度带版/video_contact_sheet.jpg",
+      "sha256": "5d27d7a14b7cc8c886a0ead5670746266b318e7826c75539ba274aeabefbdb65",
+      "size": 332389,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_seed_planet/中部纬度带版/现场循环播放包-中部纬度带.zip",
+      "path": "output/tapnow_seed_planet/中部纬度带版/现场循环播放包-中部纬度带.zip",
+      "sha256": "615a9b1573e7556274b06f01ec78bc543c61786971504cafc163dc7da3c19f4c",
+      "size": 23296626,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/mobius_keyframe.png",
+      "path": "output/tapnow_mobius/mobius_keyframe.png",
+      "sha256": "fbd293d2bfa18203b2bb335831662168a0444c2ea4cfda7b77bcf991cffeb47f",
+      "size": 5499098,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/循环播放.html",
+      "path": "output/tapnow_mobius/循环播放.html",
+      "sha256": "bde89f56463298c99a8dfc9f4175cab90e9e574ece7c0c1ff033d72aedf09d4b",
+      "size": 880,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/人物卡牌参考.png",
+      "path": "output/tapnow_mobius/人物卡牌参考.png",
+      "sha256": "1b6952a0850c1a1062dfac614eafeb5b2643f87670bf04cb57f156b70430208f",
+      "size": 2366366,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/现场循环播放包-淡紫色版.zip",
+      "path": "output/tapnow_mobius/现场循环播放包-淡紫色版.zip",
+      "sha256": "5bd696fe67e6a8d4b87b96ed39ee389a8229b4c0edacba6a22963e25e2ff29c9",
+      "size": 19027003,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/莫比乌斯构图参考.jpg",
+      "path": "output/tapnow_mobius/莫比乌斯构图参考.jpg",
+      "sha256": "5cf7fd1bc6116e31184f7b72a63c4d47f75432a75742c2dbe150d6f54c547971",
+      "size": 74388,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/卡牌抽象人物截取.png",
+      "path": "output/tapnow_mobius/卡牌抽象人物截取.png",
+      "sha256": "03a434b13196df34b1d50d3c75b4de53012192756e795ccc889c3b2942df9bde",
+      "size": 387302,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/制作要求.md",
+      "path": "output/tapnow_mobius/制作要求.md",
+      "sha256": "aae38046c47f8993586e8b9d3968e5443fa9a415319b497e2ca8a3e09b67edf5",
+      "size": 1576,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/video_contact_sheet.jpg",
+      "path": "output/tapnow_mobius/video_contact_sheet.jpg",
+      "sha256": "3ea69d86ac5f33bb2ff6829310ec8de3d4a256674a917c49b4ae5704b2b20652",
+      "size": 357573,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/mobius_cat_human_tapnow.mp4",
+      "path": "output/tapnow_mobius/mobius_cat_human_tapnow.mp4",
+      "sha256": "d16d84d60bb32a00f98a1d77867f53d3a63168bbd173047fbbe1aca5c7cc1394",
+      "size": 8551293,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/卡牌猫截取.png",
+      "path": "output/tapnow_mobius/卡牌猫截取.png",
+      "sha256": "e33f0390aebe7515c44cee5067a02d258c4cf944b6a3703e3b10333a5ee61f03",
+      "size": 309290,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/现场循环播放包.zip",
+      "path": "output/tapnow_mobius/现场循环播放包.zip",
+      "sha256": "e97c7cd9b668164c3b71663f56de83a1036f4efbc13515148212807dfa6f6918",
+      "size": 14025191,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/现场循环播放包-V2灵动悬空试验版.zip",
+      "path": "output/tapnow_mobius/现场循环播放包-V2灵动悬空试验版.zip",
+      "sha256": "a708d42efad6f10a4aa37c11b459ab79353ada59315a98ef85278c3879c65580",
+      "size": 24715298,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/淡紫色版/mobius_keyframe_lavender.png",
+      "path": "output/tapnow_mobius/淡紫色版/mobius_keyframe_lavender.png",
+      "sha256": "79b9ea8354f496055cd71bee119620e8d138c09c1c9fb0f9349088880c9bb9ff",
+      "size": 5331146,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/淡紫色版/mobius_cat_human_lavender.mp4",
+      "path": "output/tapnow_mobius/淡紫色版/mobius_cat_human_lavender.mp4",
+      "sha256": "83e08666e8801a0ab6a8e817786cfd8b887ce7760f51f484c651077fe0b12eae",
+      "size": 13718411,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/淡紫色版/视频检查.jpg",
+      "path": "output/tapnow_mobius/淡紫色版/视频检查.jpg",
+      "sha256": "c2b1f610ca3cddf260a3b22081bcd29896d85adb33189d1b9a10d8cb0c87256e",
+      "size": 120153,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/淡紫色版/说明.txt",
+      "path": "output/tapnow_mobius/淡紫色版/说明.txt",
+      "sha256": "58e840bd0e92b44177560d7bcf7954f3c8ee619a532f7c17b7349499459d7ceb",
+      "size": 554,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/淡紫色版/循环播放_莫比.html",
+      "path": "output/tapnow_mobius/淡紫色版/循环播放_莫比.html",
+      "sha256": "0de6441fdb8ee9bb3cc7bd4726c6392ac567f0c4934b9a5d780aabb243abf2ac",
+      "size": 885,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/淡紫色V2-灵动悬空版/mobius_lavender_v2_airborne.mp4",
+      "path": "output/tapnow_mobius/淡紫色V2-灵动悬空版/mobius_lavender_v2_airborne.mp4",
+      "sha256": "3cdda82e019aeca5f859b0c48ea909275ef6b4854fcebb62c8522e2f4c91184b",
+      "size": 7426914,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/淡紫色V2-灵动悬空版/原版与V2对比.html",
+      "path": "output/tapnow_mobius/淡紫色V2-灵动悬空版/原版与V2对比.html",
+      "sha256": "0383442a29dc82802311e1f335e6f6a8fe3f95333c73c09ac52ef4135e7e7f42",
+      "size": 1570,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/淡紫色V2-灵动悬空版/原版保留校验.json",
+      "path": "output/tapnow_mobius/淡紫色V2-灵动悬空版/原版保留校验.json",
+      "sha256": "7926b13e0ff67a9dc9ebae555154d33036dd5438e0ab4cbd029ce299f317a277",
+      "size": 275,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/淡紫色V2-灵动悬空版/优化说明.txt",
+      "path": "output/tapnow_mobius/淡紫色V2-灵动悬空版/优化说明.txt",
+      "sha256": "11335f6dd21f854eb54d2f471981f6465ce525043507773cb6b06046c9bc7a3b",
+      "size": 1194,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/淡紫色V2-灵动悬空版/循环播放.html",
+      "path": "output/tapnow_mobius/淡紫色V2-灵动悬空版/循环播放.html",
+      "sha256": "b504e1778616ec1905291e21afffaab4ebf5f36aa5aa1c349cd20b6e4f122a0e",
+      "size": 870,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/淡紫色V2-灵动悬空版/original_lavender_preserved.mp4",
+      "path": "output/tapnow_mobius/淡紫色V2-灵动悬空版/original_lavender_preserved.mp4",
+      "sha256": "83e08666e8801a0ab6a8e817786cfd8b887ce7760f51f484c651077fe0b12eae",
+      "size": 13718411,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/淡紫色V2-灵动悬空版/mobius_lavender_v2_airborne_keyframe.png",
+      "path": "output/tapnow_mobius/淡紫色V2-灵动悬空版/mobius_lavender_v2_airborne_keyframe.png",
+      "sha256": "07edbaf1a169c8ff1e9a48477d535dce48bce99bfe95f4e8893f85ce03b46f8f",
+      "size": 4122511,
+      "method": "byte-copy"
+    },
+    {
+      "source": "output/tapnow_mobius/淡紫色V2-灵动悬空版/V2视频逐秒检查.jpg",
+      "path": "output/tapnow_mobius/淡紫色V2-灵动悬空版/V2视频逐秒检查.jpg",
+      "sha256": "f7f8311175c5adfcc64ea7ae8d2cff745ebf1008b764363eefcf0b6a414dab94",
+      "size": 312008,
+      "method": "byte-copy"
+    },
+    {
+      "source": "rdk-x5/README.md",
+      "path": "rdk-x5/README.md",
+      "sha256": "c3b0812340b51143574fa96df78d110ef8c3f1e3028af0c71435ccf4f78d540a",
+      "size": 1973,
+      "method": "byte-copy"
+    },
+    {
+      "source": "rdk-x5/.gitignore",
+      "path": "rdk-x5/.gitignore",
+      "sha256": "98024258d945e653af5feab123236b9564b0e770ff958056dbf697a9bf000835",
+      "size": 60,
+      "method": "byte-copy"
+    },
+    {
+      "source": "rdk-x5/deploy/requirements.txt",
+      "path": "rdk-x5/deploy/requirements.txt",
+      "sha256": "09aea82eb2cb95723436f39eb455cee736d3e43d3b732798fdac11c02a7fa406",
+      "size": 260,
+      "method": "byte-copy"
+    },
+    {
+      "source": "rdk-x5/deploy/install_on_board.sh",
+      "path": "rdk-x5/deploy/install_on_board.sh",
+      "sha256": "eec0f0c5562424e7cefdc72605eac8baf5338dc6a320a5507d033498575ad1a4",
+      "size": 1150,
+      "method": "byte-copy"
+    },
+    {
+      "source": "rdk-x5/deploy/dice_recognizer.py",
+      "path": "rdk-x5/deploy/dice_recognizer.py",
+      "sha256": "3d6c83478e60d1ad84bf5197b3f8746af4ab2a4e7bc47ec9667bcf38075d0737",
+      "size": 13320,
+      "method": "byte-copy"
+    },
+    {
+      "source": "rdk-x5/deploy/push_to_board.sh",
+      "path": "rdk-x5/deploy/push_to_board.sh",
+      "sha256": "f4a5139e7d885f7c6e1b7c7eb1637f44a05b8904521cf20822eea4e7f8519573",
+      "size": 704,
+      "method": "byte-copy"
+    },
+    {
+      "source": "rdk-x5/deploy/testdata/example.jpg",
+      "path": "rdk-x5/deploy/testdata/example.jpg",
+      "sha256": "4bd3034695ccac8978577921aff405e898e27f9cbf82ee1f52b158f3d88241df",
+      "size": 200544,
+      "method": "byte-copy"
+    },
+    {
+      "source": "rdk-x5/deploy/models/die_classification.tflite",
+      "path": "rdk-x5/deploy/models/die_classification.tflite",
+      "sha256": "85b3d6f7b8092ffcf103db085036794fa391d6df72b175994143b8e3c58e73ae",
+      "size": 24384065,
+      "method": "byte-copy"
+    },
+    {
+      "source": "rdk-x5/deploy/models/labels.txt",
+      "path": "rdk-x5/deploy/models/labels.txt",
+      "sha256": "6743b3eca37f2fda1ba138edcab5f463b99ce49411ef94b24d7e533c3630bc56",
+      "size": 28,
+      "method": "byte-copy"
+    },
+    {
+      "source": "rdk-x5/deploy/models/die_detection.tflite",
+      "path": "rdk-x5/deploy/models/die_detection.tflite",
+      "sha256": "e142725ed5bb8bee572a9466464408872d6f8738ac630c2ec8f16a1ba8f6fb81",
+      "size": 11734354,
+      "method": "byte-copy"
+    },
+    {
+      "source": "rdk-x5/scripts/flash_ubuntu.sh",
+      "path": "rdk-x5/scripts/flash_ubuntu.sh",
+      "sha256": "fd6e5677b85c5e0c1c0fba3aa5c97fa13a9ee674116113cf76d8c072e4dc32d6",
+      "size": 2881,
+      "method": "byte-copy"
+    },
+    {
+      "source": "rdk-x5/scripts/wait_for_board.sh",
+      "path": "rdk-x5/scripts/wait_for_board.sh",
+      "sha256": "2f994e079ee2e9715f4f46c9cc6db2adf701e9233ccc44fb0184e9edd4a9d214",
+      "size": 1222,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2_complete.zip",
+      "path": "3dmodel/printer_v2_complete.zip",
+      "sha256": "e3169dda3e9437aac65cbb539d61ee1bb9707411dcb91e15cbc46d8e3d2d4529",
+      "size": 12867037,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/build_report.json",
+      "path": "3dmodel/build_report.json",
+      "sha256": "dcff32f3e2f32823a733ccda565b3a7bc820b6cbb2e21a2215fe7c8322a3aecc",
+      "size": 288,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience_complete.zip",
+      "path": "3dmodel/printer_experience_complete.zip",
+      "sha256": "d9d165c9fe67d81e3eeb996e24b28b774460b594b0021b6735e7b700a067ef5d",
+      "size": 19339882,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/npr_render.py",
+      "path": "3dmodel/npr_render.py",
+      "sha256": "5c5d7ba5b428d23cddcb7d3fbb2155c5f10724ada47c996871acc87d641ee393",
+      "size": 16420,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_report.json",
+      "path": "3dmodel/printer_report.json",
+      "sha256": "b6ccb8a96138a43c6a8ffa1a83c1f61405c84291a844377a5ef90a36aa21a52d",
+      "size": 2199,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/stroke_render.py",
+      "path": "3dmodel/stroke_render.py",
+      "sha256": "5bbdf3cdba8c3110f9fab6eda9d36251da21984521f65d3f7c20549fe26d9b45",
+      "size": 16063,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/make_viewer.py",
+      "path": "3dmodel/make_viewer.py",
+      "sha256": "e9fe87aff075810ce82f8bf8d09dee721978b5b019f54f8a39aed0fe68d1060e",
+      "size": 3061,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_effects_delivery.zip",
+      "path": "3dmodel/printer_effects_delivery.zip",
+      "sha256": "72868f199338515c95e7e9bb46c42f4e5e0360193d05445e396135373125b1a1",
+      "size": 1699069,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/.gitignore",
+      "path": "3dmodel/.gitignore",
+      "sha256": "e2519db511894dff6dfa7118cc63331d97b2c864f877843446a08d1645ba1457",
+      "size": 116,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/STYLE.md",
+      "path": "3dmodel/STYLE.md",
+      "sha256": "918d9194457fe8de3c07957179df400a47a39350af46361566d14ecf036692c5",
+      "size": 2334,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/render_plates.py",
+      "path": "3dmodel/render_plates.py",
+      "sha256": "2692175fa3d72e0884f9fa6579ade4b4b67d623b97ec52c72837abf03e539837",
+      "size": 3303,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/generate_seeds.py",
+      "path": "3dmodel/generate_seeds.py",
+      "sha256": "e4c474fab75f69c4b811e640e0307c3cff80aa3b1f7ab5b855e83e0f47c47c41",
+      "size": 16402,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/garden_complete.zip",
+      "path": "3dmodel/garden_complete.zip",
+      "sha256": "ccbde78c83839f1934e26f0bb5dde559a89b11130df0e770ea90d02ad0f37b2e",
+      "size": 71132029,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_model.py",
+      "path": "3dmodel/printer_model.py",
+      "sha256": "53d4f6e362c13ccaa58ab3315dff4d2e31c45cfa76b1f0c4b25c65ad90bda2a4",
+      "size": 26941,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/rarity.js",
+      "path": "3dmodel/printer_experience/rarity.js",
+      "sha256": "aa7256c19ba5c6c96b9b0feb5f8e1a2e4ad065af01a382bc6b620495fc338f4e",
+      "size": 570,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/recomposition.mp4",
+      "path": "3dmodel/printer_experience/recomposition.mp4",
+      "sha256": "5321d5f465f04a2840b29fac3eec1a16281b2308cf8233a7641480b357c67b74",
+      "size": 6330232,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_light.png",
+      "path": "3dmodel/printer_experience/garden_light.png",
+      "sha256": "14ad8de605b51f0ae3d2628694010b40d56c9eb019b03d9c5fa1cf495eb70146",
+      "size": 368173,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_style.json",
+      "path": "3dmodel/printer_experience/garden_style.json",
+      "sha256": "19a21db3e41e195a4ce1e82bc6f1defb84164e05bfd576980094932834b18e0d",
+      "size": 2830,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_review_assembly.png",
+      "path": "3dmodel/printer_experience/printer_review_assembly.png",
+      "sha256": "feea28afdcc5966da3997a591d80c4530d42ac4f8d22ceb40046d886ed1dd856",
+      "size": 90674,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_creation.js",
+      "path": "3dmodel/printer_experience/printer_creation.js",
+      "sha256": "5c08774760e43d258db75112936045f9707e6f503049798a1af4724aae1b755e",
+      "size": 6916,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/story.py",
+      "path": "3dmodel/printer_experience/story.py",
+      "sha256": "265f0337f5f115fe4a2c423496b11c9774e42018776d90c70923d4a4a394c75a",
+      "size": 6494,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_film_print.png",
+      "path": "3dmodel/printer_experience/garden_film_print.png",
+      "sha256": "b5bced2e9f5cbd466ba95bb5ae95db2b62342c050a8c85040b8ed722dfab7d2c",
+      "size": 222974,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_video_report.json",
+      "path": "3dmodel/printer_experience/garden_video_report.json",
+      "sha256": "a9a99ee49cee5f739110537107b32d337002e48f019f06948d1a6bad46d791c8",
+      "size": 72,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/server.py",
+      "path": "3dmodel/printer_experience/server.py",
+      "sha256": "cdb87b7987d15d35b44e48c99f0e85e9b3e8e98c559b54502af84e6de8365159",
+      "size": 11345,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/index.html",
+      "path": "3dmodel/printer_experience/index.html",
+      "sha256": "0efee15882e402dba67b4d0a1928fb2f2a54e1cd67a26e7cae3c9dc0795d2d8b",
+      "size": 3851,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_complete.png",
+      "path": "3dmodel/printer_experience/garden_complete.png",
+      "sha256": "fc6c9b2c9a04ce221ff8550565b0ad0f7b0a9e7665ea373fd168bc00f38d4d0d",
+      "size": 187013,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_cosmos.png",
+      "path": "3dmodel/printer_experience/garden_cosmos.png",
+      "sha256": "0cbe2e380b51fa29461fca91c9475e38be2f3ae00014e24f0b3a9b00ec09948a",
+      "size": 390190,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_front_effect.webm",
+      "path": "3dmodel/printer_experience/printer_front_effect.webm",
+      "sha256": "2af2ad351c17222fc5b0f80ebee4d1aaec62de1a2a2a0b99de481f2491d85c67",
+      "size": 5923673,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_mechanical_orbit.png",
+      "path": "3dmodel/printer_experience/printer_mechanical_orbit.png",
+      "sha256": "5517629214b7137ee97eb203cfcda45bf6921c1495040bd456d2985d7f02a6cc",
+      "size": 170745,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_style.py",
+      "path": "3dmodel/printer_experience/garden_style.py",
+      "sha256": "1619c1fa6f974a42b6ac2de7a867a2b110187593133bb7263550cba5fdcf4d6c",
+      "size": 7099,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_spring_assembly.mp4",
+      "path": "3dmodel/printer_experience/printer_spring_assembly.mp4",
+      "sha256": "901b1c474ffb98f593b3631de7e27a543e1b39eebb16802e90bc564a953aeea6",
+      "size": 730186,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_rear_complete.png",
+      "path": "3dmodel/printer_experience/printer_rear_complete.png",
+      "sha256": "94e96982e1228cc5097aa8996c77d088e33a9a2c67276d3d615fc2f9754ce9bf",
+      "size": 196852,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/front_printing.png",
+      "path": "3dmodel/printer_experience/front_printing.png",
+      "sha256": "03a74c6ca377384cae85bbaf67e389ab7412d1d0a3358d182cb5e5e783362bb6",
+      "size": 186329,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_effect_report.json",
+      "path": "3dmodel/printer_experience/printer_effect_report.json",
+      "sha256": "e17f329f551ef3d8712398adacbfbea972ed3d8209c7a0f55887756f9cce3251",
+      "size": 383,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/start.command",
+      "path": "3dmodel/printer_experience/start.command",
+      "sha256": "39cfc717534135e057ec9c7554f6c195a4a3cf76dfc690d837fc5822cb6d63f6",
+      "size": 230,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_mechanical_assembly.png",
+      "path": "3dmodel/printer_experience/printer_mechanical_assembly.png",
+      "sha256": "d586830c1c490cdbca3e4413d1fd219897555425f5ce39ef5532bede57efecaa",
+      "size": 145793,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_mechanical_effect.mp4",
+      "path": "3dmodel/printer_experience/printer_mechanical_effect.mp4",
+      "sha256": "11f32eec39ee8d35ceefa50de5707f403c598a8bb2384bd4831a59920323ce0e",
+      "size": 1905121,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_rear_corners.mp4",
+      "path": "3dmodel/printer_experience/printer_rear_corners.mp4",
+      "sha256": "737c3123ddd0cd2af86ae61ac71e20cfe15081963b4d5fc0b495a105a8d2b6af",
+      "size": 1503024,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_film_printer.png",
+      "path": "3dmodel/printer_experience/garden_film_printer.png",
+      "sha256": "9c87ea6749f910cd081f0d8a570db3c714ce125a1af040fde0c4ce132f4dfe96",
+      "size": 197623,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_film_cosmos.png",
+      "path": "3dmodel/printer_experience/garden_film_cosmos.png",
+      "sha256": "c94e27b7ddeda364b826037930e035e175cdf1e9b95b92ac941be4dfac054ad5",
+      "size": 450824,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/preview_mobile.png",
+      "path": "3dmodel/printer_experience/preview_mobile.png",
+      "sha256": "d876120df5eadfda82a8afc30d2d39c09b78ff82ad80eb3b0a736ce6ee04f677",
+      "size": 193469,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_film.mp4",
+      "path": "3dmodel/printer_experience/garden_film.mp4",
+      "sha256": "5321d5f465f04a2840b29fac3eec1a16281b2308cf8233a7641480b357c67b74",
+      "size": 6330232,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/rarity_max.json",
+      "path": "3dmodel/printer_experience/rarity_max.json",
+      "sha256": "8f8eaeac10162bf2b1ead825349c1ed4ba05ff004398946d2562057481e39ccd",
+      "size": 329,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/rarity.py",
+      "path": "3dmodel/printer_experience/rarity.py",
+      "sha256": "4b957c0088eaeaabc4f090ca4b0dfaa2fb2d302ce39d88fe4cbd9dd9663ae411",
+      "size": 2031,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_mechanics.js",
+      "path": "3dmodel/printer_experience/printer_mechanics.js",
+      "sha256": "39d5cf09966d950cd143ecbe34ecf5e0956370423c07c532ebde6cb12feff7be",
+      "size": 14678,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_spring_contact.jpg",
+      "path": "3dmodel/printer_experience/printer_spring_contact.jpg",
+      "sha256": "8247a56dce61866485b54c304a03c80062c3672a4b87c82a2b49e526633a9f3d",
+      "size": 28699,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/rarity_min.json",
+      "path": "3dmodel/printer_experience/rarity_min.json",
+      "sha256": "3f84c78aa1adc59df350d883d79014a2b036a102bd8ee34912a7a0f0bd104dfa",
+      "size": 316,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/video_start.png",
+      "path": "3dmodel/printer_experience/video_start.png",
+      "sha256": "1f1d04baf535cd8546a0edf67e2405b5b11b319def4bf14e55a8888576f4ccbc",
+      "size": 150901,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/debug_frame.png",
+      "path": "3dmodel/printer_experience/debug_frame.png",
+      "sha256": "29eae45c46526e5185024974499f1f7638ca0d472e58c03c782ec09ff7882f9a",
+      "size": 386662,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_style_v1.json",
+      "path": "3dmodel/printer_experience/garden_style_v1.json",
+      "sha256": "b81bc6596ad036f73d6f2d6cf3f74e71c2402399ef70c45b828d126ba950b875",
+      "size": 1680,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/preview_complete.png",
+      "path": "3dmodel/printer_experience/preview_complete.png",
+      "sha256": "e797e92ec768003345b1c0b93e9bb980fdc3205c42a7b739595496e041850e5d",
+      "size": 473078,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/timeline.js",
+      "path": "3dmodel/printer_experience/timeline.js",
+      "sha256": "d627e266aac826604a4e56df86b0027a8b98744568cba8b5041e97cdfbbf6fda",
+      "size": 1232,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_effects.js",
+      "path": "3dmodel/printer_experience/printer_effects.js",
+      "sha256": "531c838af16a398a663817077462111be37327ba2a5fb7645081c2793ff7aa8d",
+      "size": 15359,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/front_complete.png",
+      "path": "3dmodel/printer_experience/front_complete.png",
+      "sha256": "b7a84894083b189fd5e58ca61d0b323eb72aa6784e8fc8b8ebeb8eba139d5c69",
+      "size": 211152,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/verify.mjs",
+      "path": "3dmodel/printer_experience/verify.mjs",
+      "sha256": "265fbd85940b516ecfe6bb73e59cb692ffcac8ad04e577bcdeae42f2e9f3bc1e",
+      "size": 2470,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_cinematic.mp4",
+      "path": "3dmodel/printer_experience/printer_cinematic.mp4",
+      "sha256": "ea0e4609c17f6594348b673ee63a8dcf259aac44a61960201880dcb765d12954",
+      "size": 1632712,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_verification.json",
+      "path": "3dmodel/printer_experience/garden_verification.json",
+      "sha256": "4f51cdcfb0ea0753367c1736fc27d4e6d23517be4ff8a568ec202ff4a168fec2",
+      "size": 682,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_rear_effect.mp4",
+      "path": "3dmodel/printer_experience/printer_rear_effect.mp4",
+      "sha256": "252b91a7ad7f1bf4c0f6811668e8f780bad3529f917567af41d72f798596abc4",
+      "size": 1605790,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/attach_ai_artwork.py",
+      "path": "3dmodel/printer_experience/attach_ai_artwork.py",
+      "sha256": "c9d0c79aac0111d49e17f77a1f2d8b3dc694768916c0edffbccb25b83fea5778",
+      "size": 2312,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_mechanical_effect.webm",
+      "path": "3dmodel/printer_experience/printer_mechanical_effect.webm",
+      "sha256": "962a433a75e859bb6b47be7ee8da1aea367a972856c6ffba483f521ecddd535b",
+      "size": 6143312,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/README.md",
+      "path": "3dmodel/printer_experience/README.md",
+      "sha256": "a5b4a975d009bb8415322f6fc1a74eff357f56a658fa6d3c24e3e4ecafb6586b",
+      "size": 4067,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/STORY_RULES.md",
+      "path": "3dmodel/printer_experience/STORY_RULES.md",
+      "sha256": "71c56a61d7fe780d2c4181c4e3fc2074a4748f47d18ac00c05fab8e0bda7144b",
+      "size": 4061,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_rear_corners.png",
+      "path": "3dmodel/printer_experience/printer_rear_corners.png",
+      "sha256": "57785e4e61fcb27276a75b264e0f457de5ac4ed6e77c8f97ae13331126263949",
+      "size": 191694,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/verify_printer_effects.mjs",
+      "path": "3dmodel/printer_experience/verify_printer_effects.mjs",
+      "sha256": "6f2e1888225f59ed7f5212320a5f6964f56d4a53febf91a2aa6b4b833bd0b84b",
+      "size": 3856,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_motion.js",
+      "path": "3dmodel/printer_experience/printer_motion.js",
+      "sha256": "6d8a6334a4381edda91c96ef9f93d62672ccd1283dd1e4d611d3d8073298b8b2",
+      "size": 4403,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/PRINTER_EFFECTS.md",
+      "path": "3dmodel/printer_experience/PRINTER_EFFECTS.md",
+      "sha256": "ceef315e18b38da724ad53f08ff6629a77957e43bc4707b5ef3d7f933e2ee909",
+      "size": 4525,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/export_garden_video.py",
+      "path": "3dmodel/printer_experience/export_garden_video.py",
+      "sha256": "b5a84f8fcbb876b870b3d4fff6b948d8939823f2119b84be0bd539c5958b4302",
+      "size": 1208,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/build_gallery.py",
+      "path": "3dmodel/printer_experience/build_gallery.py",
+      "sha256": "06dd64880471dd35e93060176cd73dae81fdaaea9a30742b6bfeffaf6fba6198",
+      "size": 3337,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_integration.patch",
+      "path": "3dmodel/printer_experience/printer_integration.patch",
+      "sha256": "f1daeec0fb0a90cd65b3c100c8041602c60285c87c80701358970c1d070db770",
+      "size": 18603,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/video_final.png",
+      "path": "3dmodel/printer_experience/video_final.png",
+      "sha256": "87ad7cc08aea1ab69d397e3bb93d06bfb96b60b1f3dc7eb01810fd391f828786",
+      "size": 179909,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_mechanical_complete.png",
+      "path": "3dmodel/printer_experience/printer_mechanical_complete.png",
+      "sha256": "6df57c456d0f919ab5926ff42499659610c7db557f35d98cdbe8650e9c3b6126",
+      "size": 248230,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/GARDEN_STYLE.md",
+      "path": "3dmodel/printer_experience/GARDEN_STYLE.md",
+      "sha256": "365778b7f063b7248e0b1d3699889c67a0f5da4ef24e3c6ac97558780c4f931a",
+      "size": 3284,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_review_printing.png",
+      "path": "3dmodel/printer_experience/printer_review_printing.png",
+      "sha256": "ec59cf6203ced241f659dbdf40b26d87015ccfbc6f648c27fcf4ad77f146d009",
+      "size": 158952,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_mechanical_report.json",
+      "path": "3dmodel/printer_experience/printer_mechanical_report.json",
+      "sha256": "5188c8e20d291e102b9de1a638569fd855d06858e12341e44908dd5c1fb8692c",
+      "size": 18060,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_transform.png",
+      "path": "3dmodel/printer_experience/garden_transform.png",
+      "sha256": "553e2891a258be5d3c9290b766f4e7b0970a7bd06d37a2f01fcdc25a7b6d84ae",
+      "size": 209351,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/front_assembly.png",
+      "path": "3dmodel/printer_experience/front_assembly.png",
+      "sha256": "fca14b52c7086ae06ce3418c71c03104fda463b964b67c51f2b9c19dfdbbf746",
+      "size": 99710,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_front_effect.mp4",
+      "path": "3dmodel/printer_experience/printer_front_effect.mp4",
+      "sha256": "503541f0c01de6d74b3bf2ca7cc29cd121c419cf4b87b85c43d5b452d195bb12",
+      "size": 5268544,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/style.css",
+      "path": "3dmodel/printer_experience/style.css",
+      "sha256": "47114de150fef248016dd35bcdcec5eb82c502c5efa65b4f166f95f23448fd54",
+      "size": 7572,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_cinematic_contact.jpg",
+      "path": "3dmodel/printer_experience/printer_cinematic_contact.jpg",
+      "sha256": "bf151bdd69d395bd9bbdf6e999b37e7b33aa84f4b5b47f53493e561376816e8a",
+      "size": 66136,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_film_growth.png",
+      "path": "3dmodel/printer_experience/garden_film_growth.png",
+      "sha256": "3f49575fed619bb453b8ffec55b18d8767423ab3c6aa3b9b4dc03ec8dc5ba6f5",
+      "size": 306396,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/CINEMATIC_NOTES.md",
+      "path": "3dmodel/printer_experience/CINEMATIC_NOTES.md",
+      "sha256": "0d5633fb0a96113e81f4db8163f55da17e7093987ee31a4f81f052d8283f850e",
+      "size": 4805,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/verification.json",
+      "path": "3dmodel/printer_experience/verification.json",
+      "sha256": "6ccd927b1622288ca25cf35929cda78b0639478037cc7d29291737b722ff96fb",
+      "size": 937,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/video_midpoint.png",
+      "path": "3dmodel/printer_experience/video_midpoint.png",
+      "sha256": "510ca3023d14501054b3a8d64237075a8de608b3b4c5bc642b8220d1844a7844",
+      "size": 254040,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/AGENTS.md",
+      "path": "3dmodel/printer_experience/AGENTS.md",
+      "sha256": "ad4df04d0a8cec5fe3036507d49d562c86f4665cbddc6e54dd27610f5bcad7f3",
+      "size": 1363,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/preview_gaussian.png",
+      "path": "3dmodel/printer_experience/preview_gaussian.png",
+      "sha256": "97b995ed8233eeb88465e34d4b6a9a5244e2c0f11409a4f916c5b6a906ddd769",
+      "size": 526823,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_universe.js",
+      "path": "3dmodel/printer_experience/garden_universe.js",
+      "sha256": "c95f01c6780f8337e9a99a6311327f122677acd872e9b502f75ead1e4aca16b3",
+      "size": 1192,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_review_complete.png",
+      "path": "3dmodel/printer_experience/printer_review_complete.png",
+      "sha256": "2897cb6ad335a0eb367c949975d778039ee442f37d1d3733446392345a516d2d",
+      "size": 193841,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/printer_cinematic_report.json",
+      "path": "3dmodel/printer_experience/printer_cinematic_report.json",
+      "sha256": "2d511eba15cff97b498fbc07ca9f69b0b700a9468da6b3086b34549464fd1338",
+      "size": 519,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_default.json",
+      "path": "3dmodel/printer_experience/garden_default.json",
+      "sha256": "06a074646fa865c124ab7a847fd02e93c30dc098d0522d9d925c5955590b4992",
+      "size": 354,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_variant.json",
+      "path": "3dmodel/printer_experience/garden_variant.json",
+      "sha256": "1047d4bd27dbc7c1dcb7e77bcdf5d84f6398c0db1da38c13e402d2cab608f93e",
+      "size": 332,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/app.js",
+      "path": "3dmodel/printer_experience/app.js",
+      "sha256": "b708934779914fb5bab4de610164272e5fa0658b0e6ce53cdf8c1b876b915020",
+      "size": 28640,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/RARITY.md",
+      "path": "3dmodel/printer_experience/RARITY.md",
+      "sha256": "52f9aec56bf594e0c56d4768ace21b034d05699616f07baa2fd72fab1d2a843e",
+      "size": 1040,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_printer.png",
+      "path": "3dmodel/printer_experience/garden_printer.png",
+      "sha256": "9dadacf026c7ef1725d122088db06c6486fc87e919a0aef05f937689eb20b271",
+      "size": 154988,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/recomposition.webm",
+      "path": "3dmodel/printer_experience/recomposition.webm",
+      "sha256": "3660a6457b21dd9c03622b22770ebdc8e5857e4aba8477290465033028402f66",
+      "size": 2492750,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/rose_story_complete.png",
+      "path": "3dmodel/printer_experience/rose_story_complete.png",
+      "sha256": "202174c124033d04226b3cbf300f175c6d05442994da77c1affee5dc56cef710",
+      "size": 256255,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/preview_recomposition.png",
+      "path": "3dmodel/printer_experience/preview_recomposition.png",
+      "sha256": "526367eb51f59f0e0467f194c6cbfc0122a7d0a0a14db945bba08508d1f9f4a5",
+      "size": 500242,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/garden_style.html",
+      "path": "3dmodel/printer_experience/garden_style.html",
+      "sha256": "2a61d7c76c3b510ff17bea9603099dc28232287950e668536fdd169ca159e437",
+      "size": 6045,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_v1/recomposition.mp4",
+      "path": "3dmodel/printer_experience/archive_v1/recomposition.mp4",
+      "sha256": "4d0a5de618d79255afdb09d52ca42f6819db1ef359719a37cbeffe4bbf722af2",
+      "size": 2668813,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_v1/app_before_front_effects.js",
+      "path": "3dmodel/printer_experience/archive_v1/app_before_front_effects.js",
+      "sha256": "919b1334e623087af801f821943b08d51e8c7f1f18f6537dd5b0f8a8a7242023",
+      "size": 31145,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_v1/timeline.js",
+      "path": "3dmodel/printer_experience/archive_v1/timeline.js",
+      "sha256": "65a114a01bbdc04f38908437afd75bd372362ae834d8ba9a74abf9a12979f169",
+      "size": 935,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_v1/printer_effects_fixed_front.js",
+      "path": "3dmodel/printer_experience/archive_v1/printer_effects_fixed_front.js",
+      "sha256": "f620455fc1ab0edf95847b26f547495f733f76b952278c6501e852fe64a870d2",
+      "size": 11716,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_v1/app.js",
+      "path": "3dmodel/printer_experience/archive_v1/app.js",
+      "sha256": "d382cf1700bcd6e85e2d8062e124ceec4e728ac87c8afb47b745e479cbce19ca",
+      "size": 27670,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_cinematic_v1/index.html",
+      "path": "3dmodel/printer_experience/archive_cinematic_v1/index.html",
+      "sha256": "576faa5a63a019c8a1af2d0b0ffa013ac30622365fa5b250d61f8026b5b18524",
+      "size": 3846,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_cinematic_v1/timeline.js",
+      "path": "3dmodel/printer_experience/archive_cinematic_v1/timeline.js",
+      "sha256": "d4b76a4186e40b4ece9ae4bd54a6f89acc112e46a15c976f75f513f7f23bd3bb",
+      "size": 1233,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_cinematic_v1/printer_effects.js",
+      "path": "3dmodel/printer_experience/archive_cinematic_v1/printer_effects.js",
+      "sha256": "becdc100945c4ac0dc0fffada17ffb4bd3a2148a06ecaa196ab02f5481a59fc5",
+      "size": 15037,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_cinematic_v1/verify_printer_effects.mjs",
+      "path": "3dmodel/printer_experience/archive_cinematic_v1/verify_printer_effects.mjs",
+      "sha256": "04713a428e5d956f346853f75e86ddcb4ba5197e59f3f52ecc8114399aed8992",
+      "size": 3021,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_cinematic_v1/printer_motion.js",
+      "path": "3dmodel/printer_experience/archive_cinematic_v1/printer_motion.js",
+      "sha256": "dce2e4f6fb139af4b7a5dafee9cff18cdbd55c8a19d7034da96fadd64337e910",
+      "size": 3459,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_cinematic_v1/app.js",
+      "path": "3dmodel/printer_experience/archive_cinematic_v1/app.js",
+      "sha256": "bab63fd1e891a4fae6d02376e9418ef9c5d2b68bf9c58dc8595b6ef5825fd943",
+      "size": 28616,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/exploration/README.md",
+      "path": "3dmodel/printer_experience/exploration/README.md",
+      "sha256": "f338115e00720f70e3e7a0efd5b4656510c5ebcfc03eb2e14b50253cb6be2045",
+      "size": 237,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/exploration/lsystem_ai_study.png",
+      "path": "3dmodel/printer_experience/exploration/lsystem_ai_study.png",
+      "sha256": "ddc00c62213c16868393bb42428ac74a056a57c9bd6cc3ef96ec748e5539f74f",
+      "size": 2627920,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/archive.sqlite3",
+      "path": "3dmodel/printer_experience/jobs/archive.sqlite3",
+      "sha256": "934d16a733d0ff960f71aeff42b1ee68d95d14e99d6cb07c3229af8952a2d294",
+      "size": 73728,
+      "method": "sqlite-consistent-backup"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/guide.png",
+      "sha256": "f8fdd467d471671cd3608409b270c3c535ca4085662e48b49bf571b3ce095514",
+      "size": 85589,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/ai_prompt.txt",
+      "sha256": "191deee5eb0751e80c1ae3d5b5d91eff468248d7bcd316b054b5cfc823f859cb",
+      "size": 3405,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/story.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/story.json",
+      "sha256": "a7d5bc65e578c0505109933c5e11487431706f950364f74f5cf8a5b3133a8f9f",
+      "size": 1385,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/particles.json",
+      "sha256": "b1e112716561a7b349c9cda377b9f93880a75081120d9c742870ac28d0cfbc70",
+      "size": 92698,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/story.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/story.txt",
+      "sha256": "7c63b9680b4566e34b02fe2f8ec149ad6ec3feed5d2bf5959879e00bfd125bfa",
+      "size": 301,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/manifest.json",
+      "sha256": "421e6072e8303db4cbd5e2cb366379cc9aec15c788997fa44213df5126df8e2f",
+      "size": 2739,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/artwork.pdf",
+      "sha256": "d850ea7bd871aa18c8aa5dcb63c44ca8c07572ee465faaf4348d6b9d9d0dc870",
+      "size": 5454845,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0016-13DE61CD/artwork.png",
+      "sha256": "ec9ee266f18f5cb87ff2b402b52cee962f3f9b08c17746328a780408e6afe969",
+      "size": 2852782,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/guide.png",
+      "sha256": "ac5fbec16293ad751dcafa38e2b674fe835218de9883e5e286ba2bad05705be1",
+      "size": 85576,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/ai_prompt.txt",
+      "sha256": "191deee5eb0751e80c1ae3d5b5d91eff468248d7bcd316b054b5cfc823f859cb",
+      "size": 3405,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/story.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/story.json",
+      "sha256": "a7d5bc65e578c0505109933c5e11487431706f950364f74f5cf8a5b3133a8f9f",
+      "size": 1385,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/particles.json",
+      "sha256": "b1e112716561a7b349c9cda377b9f93880a75081120d9c742870ac28d0cfbc70",
+      "size": 92698,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/story.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/story.txt",
+      "sha256": "7c63b9680b4566e34b02fe2f8ec149ad6ec3feed5d2bf5959879e00bfd125bfa",
+      "size": 301,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/manifest.json",
+      "sha256": "0566b2456afc3ec0cccd586e133988f44025a47f63cfa74e96a3f2edbb5ce9b8",
+      "size": 2739,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/artwork.pdf",
+      "sha256": "9e649b69ab8c021bdc4479b624e6fb38380aff917c1e46707325d44cfd194715",
+      "size": 5454846,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0019-13DE61CD/artwork.png",
+      "sha256": "ec9ee266f18f5cb87ff2b402b52cee962f3f9b08c17746328a780408e6afe969",
+      "size": 2852782,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0002-006F8E4E/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0002-006F8E4E/particles.json",
+      "sha256": "e60c1fa7d0c152a7f321e2634747beaf2f6ffe6d578885f5ed77618dacc83742",
+      "size": 92440,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0002-006F8E4E/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0002-006F8E4E/manifest.json",
+      "sha256": "3ccc680ce4afa96c6501096d108c9dc0164495d6d80c5eed24c8fe085274269b",
+      "size": 626,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0002-006F8E4E/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0002-006F8E4E/artwork.pdf",
+      "sha256": "38cf2a318b4d7abfb3b791dd3783877ed0a9eaa74443533297817b98fd4e459f",
+      "size": 90679,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0002-006F8E4E/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0002-006F8E4E/artwork.png",
+      "sha256": "e4979074e8518041677569219fa22ddbe629f91f145db93a56ec3ebc33e1f793",
+      "size": 82952,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/guide.png",
+      "sha256": "339db76f8c6bc214112dda6e00e8c28ba242d62973df5518962e96e0a460a0f4",
+      "size": 83485,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/ai_prompt.txt",
+      "sha256": "198ec8ac458ed56e82e598cbbe083e6eb8971de2730a60998e3c89c939a0c673",
+      "size": 3416,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/story.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/story.json",
+      "sha256": "3913bad19fca4f55a90ae8a80ffb63f6374b5c691d0f014e027fdf9bd172b5af",
+      "size": 1430,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/particles.json",
+      "sha256": "e60c1fa7d0c152a7f321e2634747beaf2f6ffe6d578885f5ed77618dacc83742",
+      "size": 92440,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/story.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/story.txt",
+      "sha256": "7c63b9680b4566e34b02fe2f8ec149ad6ec3feed5d2bf5959879e00bfd125bfa",
+      "size": 301,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/manifest.json",
+      "sha256": "b0c71f1f5d18d1028bfbd4eafbdffab88dab4213bfe969a96d7a1324caea9d3b",
+      "size": 2750,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/artwork.pdf",
+      "sha256": "174c76c37b787d01f8e6d214441146d7fca3b8cd65e41d3f986eb60f54b49840",
+      "size": 5390480,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0017-006F8E4E/artwork.png",
+      "sha256": "99777c250f2b32029c4cd040b5ed30d24d3480d6293e5cc2377028adec916f44",
+      "size": 2856953,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/guide.png",
+      "sha256": "876bb84cae11e08f0d57ce3c1dce2af115833d9a51010aea9c7155633e5bf10e",
+      "size": 83336,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/ai_prompt.txt",
+      "sha256": "198ec8ac458ed56e82e598cbbe083e6eb8971de2730a60998e3c89c939a0c673",
+      "size": 3416,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/story.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/story.json",
+      "sha256": "3913bad19fca4f55a90ae8a80ffb63f6374b5c691d0f014e027fdf9bd172b5af",
+      "size": 1430,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/particles.json",
+      "sha256": "e60c1fa7d0c152a7f321e2634747beaf2f6ffe6d578885f5ed77618dacc83742",
+      "size": 92440,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/story.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/story.txt",
+      "sha256": "7c63b9680b4566e34b02fe2f8ec149ad6ec3feed5d2bf5959879e00bfd125bfa",
+      "size": 301,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/manifest.json",
+      "sha256": "7f131f90dff964a4be501e39d6baff20b2328f462e290651550d1db731d33e0e",
+      "size": 2750,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/artwork.pdf",
+      "sha256": "bf6adcb287e2615a9a0ebcfec1bbb333a12f676b6f8d8300b96df51280d17638",
+      "size": 5390480,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0022-006F8E4E/artwork.png",
+      "sha256": "99777c250f2b32029c4cd040b5ed30d24d3480d6293e5cc2377028adec916f44",
+      "size": 2856953,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/ai_original.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/ai_original.png",
+      "sha256": "ed22918e39e38daccfca13d2c0346abd309240e4275dd9be0be57173c3c69ad6",
+      "size": 3311980,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/guide.png",
+      "sha256": "1c40fcfa9d10efef6b27c9b30aaf39eb0c2d19b0f08bd80d32591dda548b427a",
+      "size": 85574,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/guide.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/guide.pdf",
+      "sha256": "d33fed0318f4303a9278b20b028c6eb8c9814f77869856844dd1d59803210e52",
+      "size": 5454844,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/ai_prompt.txt",
+      "sha256": "191deee5eb0751e80c1ae3d5b5d91eff468248d7bcd316b054b5cfc823f859cb",
+      "size": 3405,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/story.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/story.json",
+      "sha256": "a7d5bc65e578c0505109933c5e11487431706f950364f74f5cf8a5b3133a8f9f",
+      "size": 1385,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/particles.json",
+      "sha256": "b1e112716561a7b349c9cda377b9f93880a75081120d9c742870ac28d0cfbc70",
+      "size": 92698,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/story.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/story.txt",
+      "sha256": "7c63b9680b4566e34b02fe2f8ec149ad6ec3feed5d2bf5959879e00bfd125bfa",
+      "size": 301,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/manifest.json",
+      "sha256": "1c54e0a620551d5fa1b1192b993bfc171e6a77e29128f24bd9639ea77e16f695",
+      "size": 3044,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/artwork.pdf",
+      "sha256": "34c7d2db571a97d34dc79ca823da6f6e76493fb2ab3749aaeaf850f2fcec528d",
+      "size": 5376895,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0011-13DE61CD/artwork.png",
+      "sha256": "ec9ee266f18f5cb87ff2b402b52cee962f3f9b08c17746328a780408e6afe969",
+      "size": 2852782,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/ai_original.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/ai_original.png",
+      "sha256": "9062b342027a671738d7cbc394e010ac41b5c61e04439287f2c1ae4fb8d351eb",
+      "size": 3241625,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/guide.png",
+      "sha256": "efbd9a05df66bfa3faf00ec4993759134d5c4698a4cd659031915859ad01d99c",
+      "size": 111988,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/guide.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/guide.pdf",
+      "sha256": "f17eb8a775e2b08debc857dbdd9501ff633610cc8420aa1008529ea76feda3a8",
+      "size": 5541407,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/ai_prompt.txt",
+      "sha256": "b987a90fc2e18869bfca9c74e5faa8ec8c093173ce7d3a72f0a94db02fb3f784",
+      "size": 3397,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/story.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/story.json",
+      "sha256": "245b7717078ca9d2f78862de26ca0a9654aa511817e3b9dc61a85459280e4c5e",
+      "size": 1418,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/particles.json",
+      "sha256": "cd10e8937a6205577d3b8b631e888673233757445ccfd76344b543de3a384b90",
+      "size": 94898,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/story.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/story.txt",
+      "sha256": "2f8a60ea87a8302b9af623d0442ffd44b52d296588d5b9831df495a54d75e162",
+      "size": 301,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/manifest.json",
+      "sha256": "19eccdff87cc0c41419da06caa9c5b7ef522b20992f0ff21121b450b16e1749f",
+      "size": 3055,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/artwork.pdf",
+      "sha256": "758592bebc408f0f168db4fd00caf32e8917146154b215dbd6815c08624d7251",
+      "size": 5306935,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0012-05792CA4/artwork.png",
+      "sha256": "d1c1cc41475ee6942c652fb80189b02547c863f6278ddf1228fc28c58767f623",
+      "size": 2894267,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0001-006F8E4E/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0001-006F8E4E/particles.json",
+      "sha256": "e60c1fa7d0c152a7f321e2634747beaf2f6ffe6d578885f5ed77618dacc83742",
+      "size": 92440,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0001-006F8E4E/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0001-006F8E4E/manifest.json",
+      "sha256": "0172e9bfbf6d9136ccc4f2ea071b72d7dcf807b2b374e7c83cb2fafdee83b0f7",
+      "size": 608,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0001-006F8E4E/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0001-006F8E4E/artwork.pdf",
+      "sha256": "f90665aa049edb15c1ac0cba6d146fd341aac79b9c4a9834c0fda1311f94fc75",
+      "size": 90720,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0001-006F8E4E/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0001-006F8E4E/artwork.png",
+      "sha256": "94fbef78af8dfe3faf08e6a169b458759635fd709f1505d4846eb236ced1f8e9",
+      "size": 82965,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/ai_original.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/ai_original.png",
+      "sha256": "66d4c2570f5699a3e855b666cb57b86f5cefc7f39c7cc8ff90aef271e3c706d3",
+      "size": 2769088,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/guide.png",
+      "sha256": "1bcd34b1fa052030f6bfb67455bc77afdf2c54c86b50441303bfb84c92a5c1e3",
+      "size": 85899,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/guide.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/guide.pdf",
+      "sha256": "1ef3a3aa703309578fb80d30990c89d1acf4dd6e858ffd29b7cca65185a86616",
+      "size": 5860738,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/ai_prompt.txt",
+      "sha256": "e5736e4a2fa6ad63f75d820b8e98174b11338809eebfc4d92dbae44d5606b06e",
+      "size": 1519,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/particles.json",
+      "sha256": "b1e112716561a7b349c9cda377b9f93880a75081120d9c742870ac28d0cfbc70",
+      "size": 92698,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/manifest.json",
+      "sha256": "06aa76c1ce4fda810abd3a828f664a522a51df3e6b9ad43e5b190453269b518a",
+      "size": 1195,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/artwork.pdf",
+      "sha256": "caae875edffca7571d2c76720c4783aca73ab94a53105417dd20e0572db9d0e3",
+      "size": 5492569,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0008-13DE61CD/artwork.png",
+      "sha256": "da00ef15e973fcc0575b201dec9899aa838974c7b50ac30a00ea13165fbabcd3",
+      "size": 2776320,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0009-13DE61CD/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0009-13DE61CD/guide.png",
+      "sha256": "be48d3ac2129a62ae1031535ef16eccb933543a9802b169bda64b01f03250c2e",
+      "size": 85573,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0009-13DE61CD/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0009-13DE61CD/ai_prompt.txt",
+      "sha256": "e5736e4a2fa6ad63f75d820b8e98174b11338809eebfc4d92dbae44d5606b06e",
+      "size": 1519,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0009-13DE61CD/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0009-13DE61CD/particles.json",
+      "sha256": "b1e112716561a7b349c9cda377b9f93880a75081120d9c742870ac28d0cfbc70",
+      "size": 92698,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0009-13DE61CD/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0009-13DE61CD/manifest.json",
+      "sha256": "c1c30de6826d6723520069b2bec1f8d166ecc11f8e6d78a2568e4a1af2a5e17a",
+      "size": 927,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0009-13DE61CD/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0009-13DE61CD/artwork.pdf",
+      "sha256": "60a1cf76ea6c28452783d2113a1110fc055b82fe9f0111e5fec861534eb29604",
+      "size": 5860738,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0009-13DE61CD/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0009-13DE61CD/artwork.png",
+      "sha256": "da00ef15e973fcc0575b201dec9899aa838974c7b50ac30a00ea13165fbabcd3",
+      "size": 2776320,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/guide.png",
+      "sha256": "e58236599f997e8d23b4f855e751dbae66c1a15b89c266b942e1109eb173655d",
+      "size": 83340,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/ai_prompt.txt",
+      "sha256": "198ec8ac458ed56e82e598cbbe083e6eb8971de2730a60998e3c89c939a0c673",
+      "size": 3416,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/story.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/story.json",
+      "sha256": "3913bad19fca4f55a90ae8a80ffb63f6374b5c691d0f014e027fdf9bd172b5af",
+      "size": 1430,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/particles.json",
+      "sha256": "e60c1fa7d0c152a7f321e2634747beaf2f6ffe6d578885f5ed77618dacc83742",
+      "size": 92440,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/story.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/story.txt",
+      "sha256": "7c63b9680b4566e34b02fe2f8ec149ad6ec3feed5d2bf5959879e00bfd125bfa",
+      "size": 301,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/manifest.json",
+      "sha256": "2160b05d7acf934eba10de30bb691035caf78c3ede992f83a098096a69594c4e",
+      "size": 2750,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/artwork.pdf",
+      "sha256": "c8be46ca2e466a1427182c58cfc32c6a4373a4570f1aad82feecf8b5ce03ff8e",
+      "size": 5390480,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0018-006F8E4E/artwork.png",
+      "sha256": "99777c250f2b32029c4cd040b5ed30d24d3480d6293e5cc2377028adec916f44",
+      "size": 2856953,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0003-13DE61CD/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0003-13DE61CD/particles.json",
+      "sha256": "b1e112716561a7b349c9cda377b9f93880a75081120d9c742870ac28d0cfbc70",
+      "size": 92698,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0003-13DE61CD/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0003-13DE61CD/manifest.json",
+      "sha256": "d3a71d674e7bd31a309942e2693f7ab0399174b1589bc300947b5074f7f4dcce",
+      "size": 660,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0003-13DE61CD/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0003-13DE61CD/artwork.pdf",
+      "sha256": "8d5db8286ac20f4ca995d051c5b8c4572c3b1bbcc884a2246f66e27da0ee473c",
+      "size": 94213,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0003-13DE61CD/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0003-13DE61CD/artwork.png",
+      "sha256": "d5b157286a233197ca2503adb4030673023291800050000c6250828d3813e9e4",
+      "size": 85561,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0015-13DE61CD/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0015-13DE61CD/guide.png",
+      "sha256": "05b9d6fe4bf01dfa2fe62387c6ed6c027f462fcbd1e2f20838fbaaa1de111470",
+      "size": 85851,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0015-13DE61CD/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0015-13DE61CD/ai_prompt.txt",
+      "sha256": "90574e1f2155f1434812e579f268d6f4b8c290c779ac4447f453bd4163619371",
+      "size": 2523,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0015-13DE61CD/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0015-13DE61CD/particles.json",
+      "sha256": "b1e112716561a7b349c9cda377b9f93880a75081120d9c742870ac28d0cfbc70",
+      "size": 92698,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0015-13DE61CD/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0015-13DE61CD/manifest.json",
+      "sha256": "c51343e2bfe17f49ccdd4aaee337343573942702acfdc4cedfbcc62828e5b4c9",
+      "size": 1267,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0015-13DE61CD/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0015-13DE61CD/artwork.pdf",
+      "sha256": "446ac0943f242683266ab4355f8a63219376f2472e5d4890456e72ffc3f1be63",
+      "size": 5365518,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0015-13DE61CD/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0015-13DE61CD/artwork.png",
+      "sha256": "17d2db3941aa8d05e6e1efcd2899f001af960bbae72d855be322f4b46bb0ad30",
+      "size": 2838690,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/ai_original.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/ai_original.png",
+      "sha256": "89a72fd2654e059d7b851be7b6a08e828e2c72dd8cfe1569ce4f83645880667b",
+      "size": 2756152,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/guide.png",
+      "sha256": "453a9a9af7f0210945ec09d694c4906444a6510b336967f593aced5e55916381",
+      "size": 112037,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/guide.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/guide.pdf",
+      "sha256": "6962f62913291fb4757242262fd75fe11a9c7cd234f699e746de84f5dc9cef60",
+      "size": 6410729,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/ai_prompt.txt",
+      "sha256": "fd3937dedb143f96875ddf3e3b38cf1140270249d550af330eb8b43c44aa054d",
+      "size": 1494,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/particles.json",
+      "sha256": "cd10e8937a6205577d3b8b631e888673233757445ccfd76344b543de3a384b90",
+      "size": 94898,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/manifest.json",
+      "sha256": "b30422ed31ccf0986332a6a18908bd3493656f70c2dd62481b6d3f0aaf5430b2",
+      "size": 1172,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/artwork.pdf",
+      "sha256": "8d7fb119f8835e89ee0a0256755a3e53c5158d32eeb09c068f99d30c013e9a7f",
+      "size": 5358017,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0010-05792CA4/artwork.png",
+      "sha256": "1191f82134fc6c8c06360c190a9b7e81b0fe7bacd1431399bd3203590d67bd4c",
+      "size": 2851779,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/guide.png",
+      "sha256": "67cdad8ee3a310f2fd56832aea2ee0a0b192d1d6dd837e2b9a07ec9b80bea749",
+      "size": 155145,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/ai_prompt.txt",
+      "sha256": "fa40170b186b537334b5754aaefd0df1a2c3e5cf10b21e6db1a4404080f75835",
+      "size": 3623,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/story.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/story.json",
+      "sha256": "48a1321d8c35df2d39150019f8be985cadcc23ab7493366bf997188db6367c1f",
+      "size": 1479,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/particles.json",
+      "sha256": "c8e5e93749e6a0f75e7778226f289e4b780f112f62d792d7a3465683ea42fc12",
+      "size": 94943,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/story.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/story.txt",
+      "sha256": "2a1ecaa3382ace34e2eb9bbda75333734916985c4efe527e26f3e89290699675",
+      "size": 325,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/manifest.json",
+      "sha256": "6fc69b0ad0bfd3fa511d1778d831e0983f014f4c9f67d9ffc8204deb1266d169",
+      "size": 2799,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/artwork.pdf",
+      "sha256": "169b3ccb76f8783c227cc5945d99fafa80bca8f81ebf64cffae5e3f3a5835014",
+      "size": 5592971,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0014-002372B3/artwork.png",
+      "sha256": "d0914eb1c171a295bfd4a6cd4b8a34c5a2c7c5e2f0f808431fb85119a67eb360",
+      "size": 3022665,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/guide.png",
+      "sha256": "01584a167009d1686b0bd341b985e67d1701a6aa665e81ef199f0aab1faf1e91",
+      "size": 54608,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/ai_prompt.txt",
+      "sha256": "74ea0ce9dba81dd995306a67c39ac910b0be1ba3ead90dceeaf85f47d0e7363b",
+      "size": 3487,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/story.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/story.json",
+      "sha256": "d003ca72592f7ae8715ea989934b58a78bc9addcbda7478718ec871cf5c0d256",
+      "size": 1358,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/particles.json",
+      "sha256": "c86f5246220c7f049bf41b7b4746e7c9adf83c47f13f5e1418381bd3d2c0b187",
+      "size": 79145,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/story.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/story.txt",
+      "sha256": "01ec8545d71583bc1c7ae70b8f69c53cd802d68839fbf0c7115886ceea6503c6",
+      "size": 268,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/manifest.json",
+      "sha256": "ef944c7965eb38eb55fad4cf550156b05bfd04f6a80b499d19868a30ce482488",
+      "size": 2664,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/artwork.pdf",
+      "sha256": "4ec19189f2c0195e36d24186a08bc9d25a7be47309e75c711aeee09f8db77666",
+      "size": 3010473,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0013-0000300D/artwork.png",
+      "sha256": "9cdc92e635240cadc1b7429283f6f5a43863fda53bfed009c2096aa7d63a5d28",
+      "size": 1898745,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/guide.png",
+      "sha256": "2eec117a5c179180bc12df7dfcb7d57e5c5c7bd910a99e4264bdb3eaa8dc39cf",
+      "size": 83319,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/ai_prompt.txt",
+      "sha256": "198ec8ac458ed56e82e598cbbe083e6eb8971de2730a60998e3c89c939a0c673",
+      "size": 3416,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/story.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/story.json",
+      "sha256": "3913bad19fca4f55a90ae8a80ffb63f6374b5c691d0f014e027fdf9bd172b5af",
+      "size": 1430,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/particles.json",
+      "sha256": "e60c1fa7d0c152a7f321e2634747beaf2f6ffe6d578885f5ed77618dacc83742",
+      "size": 92440,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/story.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/story.txt",
+      "sha256": "7c63b9680b4566e34b02fe2f8ec149ad6ec3feed5d2bf5959879e00bfd125bfa",
+      "size": 301,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/manifest.json",
+      "sha256": "236ba039221f8c211f2f42806e4eff802d5cc5d160cd3692d5ef78c330995198",
+      "size": 2750,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/artwork.pdf",
+      "sha256": "0b51b292d54f01048f21269e22df67942d7003509f0afdb9cdd93c4825efa755",
+      "size": 5390480,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0021-006F8E4E/artwork.png",
+      "sha256": "99777c250f2b32029c4cd040b5ed30d24d3480d6293e5cc2377028adec916f44",
+      "size": 2856953,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/guide.png",
+      "sha256": "85b7dbe07bd770a411ef814e743fc9bfc898a685fd19bd63f826beb11e55a32d",
+      "size": 83327,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/ai_prompt.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/ai_prompt.txt",
+      "sha256": "198ec8ac458ed56e82e598cbbe083e6eb8971de2730a60998e3c89c939a0c673",
+      "size": 3416,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/story.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/story.json",
+      "sha256": "3913bad19fca4f55a90ae8a80ffb63f6374b5c691d0f014e027fdf9bd172b5af",
+      "size": 1430,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/particles.json",
+      "sha256": "e60c1fa7d0c152a7f321e2634747beaf2f6ffe6d578885f5ed77618dacc83742",
+      "size": 92440,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/story.txt",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/story.txt",
+      "sha256": "7c63b9680b4566e34b02fe2f8ec149ad6ec3feed5d2bf5959879e00bfd125bfa",
+      "size": 301,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/manifest.json",
+      "sha256": "f1333f75f2dbb14fa9f3f3cd81733627cccd17454db8ed29de0669b3960d2e11",
+      "size": 2750,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/artwork.pdf",
+      "sha256": "32506ca30efec3b4ac18021d80269ebcb8194ca8dce35a54222fd89ef82d46c4",
+      "size": 5390480,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260913-0020-006F8E4E/artwork.png",
+      "sha256": "99777c250f2b32029c4cd040b5ed30d24d3480d6293e5cc2377028adec916f44",
+      "size": 2856953,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0006-006F8E4E/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0006-006F8E4E/particles.json",
+      "sha256": "e60c1fa7d0c152a7f321e2634747beaf2f6ffe6d578885f5ed77618dacc83742",
+      "size": 92440,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0006-006F8E4E/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0006-006F8E4E/manifest.json",
+      "sha256": "56e42c05e16693d042c15101ab83ee3ef2e55371f638f5481d3720edf31c475f",
+      "size": 626,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0006-006F8E4E/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0006-006F8E4E/artwork.pdf",
+      "sha256": "c7908f07d3e749fa6d45b60e9fb779b707ea4438a69bb3ba5f1b4a12404af799",
+      "size": 90713,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0006-006F8E4E/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0006-006F8E4E/artwork.png",
+      "sha256": "73b66e12676ccb94dad638489044174c86d21358f38cc34173b74cb10c7a2edf",
+      "size": 82975,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0007-006F8E4E/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0007-006F8E4E/particles.json",
+      "sha256": "e60c1fa7d0c152a7f321e2634747beaf2f6ffe6d578885f5ed77618dacc83742",
+      "size": 92440,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0007-006F8E4E/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0007-006F8E4E/manifest.json",
+      "sha256": "723b13d152c00ba52db8308a28d2463b646784b5e136ccbdf83f47e11f87b8c4",
+      "size": 626,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0007-006F8E4E/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0007-006F8E4E/artwork.pdf",
+      "sha256": "55334a52a54519c485e23cfca9e9aebce9eaacffe0b349d43e900290ff215f32",
+      "size": 90868,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0007-006F8E4E/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0007-006F8E4E/artwork.png",
+      "sha256": "a22eeb4a5012ddc3835058a9febbf5ae0bafe83ec10181d0b24a872a6bfd2497",
+      "size": 83153,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0005-13DE61CD/ai_original.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0005-13DE61CD/ai_original.png",
+      "sha256": "c757b3447986b64fca77714b0b147cadcb5f86052c28aaebcc7cb8d1e1443fdd",
+      "size": 2381821,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0005-13DE61CD/guide.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0005-13DE61CD/guide.png",
+      "sha256": "04634115950e0374be1cc62dc9cf9725dde99c1ba8ab2d04ae85bbce9844720e",
+      "size": 85830,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0005-13DE61CD/guide.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0005-13DE61CD/guide.pdf",
+      "sha256": "af37e37b6ab23e55137e745badbd1f9ef16c065ef54aab5c4c09b2842c771d37",
+      "size": 94447,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0005-13DE61CD/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0005-13DE61CD/particles.json",
+      "sha256": "b1e112716561a7b349c9cda377b9f93880a75081120d9c742870ac28d0cfbc70",
+      "size": 92698,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0005-13DE61CD/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0005-13DE61CD/manifest.json",
+      "sha256": "a0e63c9dbd5e0a9933968443ac64a877ecdc6f00caf01174d934a2c4eb7d2a6e",
+      "size": 935,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0005-13DE61CD/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0005-13DE61CD/artwork.pdf",
+      "sha256": "d23688eef11a644e48caf69c8b16bbca0af4b05bdb2d18bf05294e57efc31a90",
+      "size": 3592200,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0005-13DE61CD/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0005-13DE61CD/artwork.png",
+      "sha256": "04634115950e0374be1cc62dc9cf9725dde99c1ba8ab2d04ae85bbce9844720e",
+      "size": 85830,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0004-13DE61CD/particles.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0004-13DE61CD/particles.json",
+      "sha256": "b1e112716561a7b349c9cda377b9f93880a75081120d9c742870ac28d0cfbc70",
+      "size": 92698,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0004-13DE61CD/manifest.json",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0004-13DE61CD/manifest.json",
+      "sha256": "5e143db0b9ffb3c6688e51a7dc0c2195956c99c51a95262bbfb4a9101dccba6b",
+      "size": 651,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0004-13DE61CD/artwork.pdf",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0004-13DE61CD/artwork.pdf",
+      "sha256": "03b40974872518abbf7334ab5b016460465fa041540f8b1bdf2fcaa14401cfce",
+      "size": 94302,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/jobs/SG-20260912-0004-13DE61CD/artwork.png",
+      "path": "3dmodel/printer_experience/jobs/SG-20260912-0004-13DE61CD/artwork.png",
+      "sha256": "0f687dfb09c07ccb6d2880c9ff8d55bb270e6b96fe2928237b4f47dfe19caa83",
+      "size": 85698,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/assets/printer.glb",
+      "path": "3dmodel/printer_experience/assets/printer.glb",
+      "sha256": "d17e7ff768a563da11ef4f96093baaa4dd082bd163ec3bb63c6387ed40249e0e",
+      "size": 3658396,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/assets/garden_refs/03_chromatic_space.jpg",
+      "path": "3dmodel/printer_experience/assets/garden_refs/03_chromatic_space.jpg",
+      "sha256": "ae9a7d70a58f2aa521f2c2f50ed7a72285d9ed15a61f194197dd32d05c0b6000",
+      "size": 583175,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/assets/garden_refs/02_translucence.jpg",
+      "path": "3dmodel/printer_experience/assets/garden_refs/02_translucence.jpg",
+      "sha256": "538e22e3e33c27d187c25014218a9c776cd27b066a187b57980b0bf5222b9fe3",
+      "size": 235649,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/assets/garden_refs/01_gesture.jpg",
+      "path": "3dmodel/printer_experience/assets/garden_refs/01_gesture.jpg",
+      "sha256": "55af78e1e266b834b4cc1a3b0cfe3d580b030b54db68799c88e625554524239b",
+      "size": 335764,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_cinematic_before/index.html",
+      "path": "3dmodel/printer_experience/archive_cinematic_before/index.html",
+      "sha256": "6ed8e67a8c84c9d6afe4e4acab1e441c6c4e9fd08ce465cc2c3da0b844def777",
+      "size": 3684,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_cinematic_before/timeline.js",
+      "path": "3dmodel/printer_experience/archive_cinematic_before/timeline.js",
+      "sha256": "83a8a8f24da35a2e66268e698fa62d02b83ff6cedce794beaa7c1acae4261da6",
+      "size": 993,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_cinematic_before/printer_effects.js",
+      "path": "3dmodel/printer_experience/archive_cinematic_before/printer_effects.js",
+      "sha256": "4f3c60f506ef72edc461b1d9d4b9dd1cfdc43b60d9d65ecd1d9a3227f94c218c",
+      "size": 13919,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_cinematic_before/verify_printer_effects.mjs",
+      "path": "3dmodel/printer_experience/archive_cinematic_before/verify_printer_effects.mjs",
+      "sha256": "bab808da7e203b6c721c5a1dfece1f288663eea9c15fc597ad3ffc6b8d3ca308",
+      "size": 1604,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_cinematic_before/printer_motion.js",
+      "path": "3dmodel/printer_experience/archive_cinematic_before/printer_motion.js",
+      "sha256": "505b1e71ff4d1578fe16c317a5c217bea5c5c56a365ac141848f1c0e618f39a1",
+      "size": 2235,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_cinematic_before/PRINTER_EFFECTS.md",
+      "path": "3dmodel/printer_experience/archive_cinematic_before/PRINTER_EFFECTS.md",
+      "sha256": "21b16008aa42562a74bdf17dfe40864e66e3c8e043e62adaa244c6576656227a",
+      "size": 4345,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/archive_cinematic_before/app.js",
+      "path": "3dmodel/printer_experience/archive_cinematic_before/app.js",
+      "sha256": "155eb52321bc8560e8d70d27c25a66fc64aab21024b58c10596343f1768838b5",
+      "size": 30540,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/vendor/three.module.js",
+      "path": "3dmodel/printer_experience/vendor/three.module.js",
+      "sha256": "5916c8dfb5f4e3eede312de305345868d4a0a8105383b080c6985565d6e79b46",
+      "size": 1284652,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/vendor/RoomEnvironment.js",
+      "path": "3dmodel/printer_experience/vendor/RoomEnvironment.js",
+      "sha256": "e1b92c4dd2d89752293546790bfda9828a630a79700c66f5b736fad7a88cb7e4",
+      "size": 3623,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/vendor/LICENSE.three.txt",
+      "path": "3dmodel/printer_experience/vendor/LICENSE.three.txt",
+      "sha256": "4c40a1ef62450b857c3b2aaf294936304cd552d965fbcd9d32d4c5bcf4ba4454",
+      "size": 1081,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/vendor/utils/BufferGeometryUtils.js",
+      "path": "3dmodel/printer_experience/vendor/utils/BufferGeometryUtils.js",
+      "sha256": "c25b7930e570e9ec56173cd3b866ec8d2e10016630db3937efb439daf1cedbf6",
+      "size": 31768,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_experience/vendor/loaders/GLTFLoader.js",
+      "path": "3dmodel/printer_experience/vendor/loaders/GLTFLoader.js",
+      "sha256": "32e8ea1535e3016302dec82371beccd60e9cd371ee09fd8daee2ac45e8148a56",
+      "size": 109831,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_trim.stl",
+      "path": "3dmodel/out/printer_trim.stl",
+      "sha256": "b165c7cbbfa35f25d8643ebcbe21c92ffbe449fcb7f5ae8643e8642ad094fe3f",
+      "size": 1284,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_core_ring.stl",
+      "path": "3dmodel/out/printer_core_ring.stl",
+      "sha256": "a6caf788c5a16a07df47bdae2497034e6a2b7ddfdee5823e7c2f57b33fabb99a",
+      "size": 144084,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_roll_core.stl",
+      "path": "3dmodel/out/printer_roll_core.stl",
+      "sha256": "3aa7248bde8a9810fa35e635127e1c3d7db8ecf6bdded6c9c0c3ff18654d4611",
+      "size": 5684,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_roller.stl",
+      "path": "3dmodel/out/printer_roller.stl",
+      "sha256": "aa74fc0fd13238c09ebc9983f6cb5837b2af6b0171883c426dd4e106291e2277",
+      "size": 6484,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_paper.stl",
+      "path": "3dmodel/out/printer_paper.stl",
+      "sha256": "9c0b6b2603f84da5a598a19f92cd8a1905e265ff388e7ef8028c303864399ff0",
+      "size": 95884,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_indicator.stl",
+      "path": "3dmodel/out/printer_indicator.stl",
+      "sha256": "5436ddfe7d1de389988917c38c4f8d9021b674bbd3e6543b2ab1f809a0b9f405",
+      "size": 4884,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_card_frame.stl",
+      "path": "3dmodel/out/printer_card_frame.stl",
+      "sha256": "3b9e811f891d713884980ebe27eacc63779b435c100f53ce2475eb39bddf16ed",
+      "size": 1684,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/_parts.pkl",
+      "path": "3dmodel/out/_parts.pkl",
+      "sha256": "4283ca15e4a4381e2bcba5a7d30ae2bec09e14fdc70c73a747598a75c0a65155",
+      "size": 24330493,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer.glb",
+      "path": "3dmodel/out/printer.glb",
+      "sha256": "e36f93d6effc1cd77fe4842e948552fbdd8d8eb4929b985d9aa8f1c3a31bbb7a",
+      "size": 1844980,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_shell.stl",
+      "path": "3dmodel/out/printer_shell.stl",
+      "sha256": "6f6c51c834017a0e72e364a41d4f85ce170b9a59b2a22b0a5e7e008afdb34104",
+      "size": 739784,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_card.stl",
+      "path": "3dmodel/out/printer_card.stl",
+      "sha256": "15f2fa65f35afd7ca82a56481f72a675bd6540be204372666d6e24b46bc576b1",
+      "size": 684,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_belt.stl",
+      "path": "3dmodel/out/printer_belt.stl",
+      "sha256": "d2dc63e2af234c6caf47007d3426410a25792733a514104915f8f380c140cdc7",
+      "size": 102484,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_pcb.stl",
+      "path": "3dmodel/out/printer_pcb.stl",
+      "sha256": "c4ba802f8765ea95be9af627df5717e872a004531a0ffc5c526b6895993e7d64",
+      "size": 684,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_core.stl",
+      "path": "3dmodel/out/printer_core.stl",
+      "sha256": "99ddf8f8e521813f84b8cddc161b241dbf303abb104f9650f6f80cc6067ab32f",
+      "size": 3830884,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_pylons.stl",
+      "path": "3dmodel/out/printer_pylons.stl",
+      "sha256": "d2e266032c769dc72047c7c47c13214f68d27e57e5cbe6475c05e2bad83f4d50",
+      "size": 9684,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_tray.stl",
+      "path": "3dmodel/out/printer_tray.stl",
+      "sha256": "e0b5625283b51e3977acbcb138eb92d0a924bf87f8f8262d4bf098ba780e3c9d",
+      "size": 1884,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/viewer.html",
+      "path": "3dmodel/out/viewer.html",
+      "sha256": "922ecc3459f696ef7545a50f0ccc7fd454c833cb9d9de7059e56e43d4489f151",
+      "size": 2462565,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_glyph.stl",
+      "path": "3dmodel/out/printer_glyph.stl",
+      "sha256": "b5e767b688ce82905daf4cd0e1b10a6b259240d1943085f8ee99f8a435b47b50",
+      "size": 10284,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_base.stl",
+      "path": "3dmodel/out/printer_base.stl",
+      "sha256": "d55b688d433c6af112aaae9b79ca9cf906fec9f9263b2c409b78a1cf16b09bc8",
+      "size": 187284,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_head.stl",
+      "path": "3dmodel/out/printer_head.stl",
+      "sha256": "370cb8dacb2705561bf895f807fb9487f3d2db712b9c364c8c3c35376cdcd27a",
+      "size": 684,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_roll.stl",
+      "path": "3dmodel/out/printer_roll.stl",
+      "sha256": "4539ced2da8699314f28a1ed51e31b2576a7a078981351bb32f36dbfc180b19b",
+      "size": 9684,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_girdle.stl",
+      "path": "3dmodel/out/printer_girdle.stl",
+      "sha256": "6ec2d6cb2f0efd44f98ca6a20ca70cf05022b5e6483374ab997201ed1c06e21c",
+      "size": 71884,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/out/printer_fins.stl",
+      "path": "3dmodel/out/printer_fins.stl",
+      "sha256": "cb91c82904ace199581f64f3d8b2ed0b4d507dd1bf3bd6dedd31d8b27d778495",
+      "size": 13884,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/archive_fdm/result.json",
+      "path": "3dmodel/archive_fdm/result.json",
+      "sha256": "390b33faef3f4c0737b44778aadf0a5b9208278f39bdd103ca6fbf807dc58a12",
+      "size": 204,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/archive_fdm/slice.py",
+      "path": "3dmodel/archive_fdm/slice.py",
+      "sha256": "eaea13b00fb3691f6ac166907fb7226bef7717325eb2073d3641051652850e0b",
+      "size": 6916,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/archive_fdm/verify_print.py",
+      "path": "3dmodel/archive_fdm/verify_print.py",
+      "sha256": "517c026149f6042dde4adfc53a0a09180a03b4bcb0832ddfcefe93a797858a5f",
+      "size": 6234,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/archive_fdm/slice_report.json",
+      "path": "3dmodel/archive_fdm/slice_report.json",
+      "sha256": "49959756cb89b185cf8dd58b54caf2cff63c5013c4f1b46859fd87cfe61ebef2",
+      "size": 271,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/archive_fdm/bambu.py",
+      "path": "3dmodel/archive_fdm/bambu.py",
+      "sha256": "33eeea28d012d7f510427da151abfcdcfbc6c79a005a6b6c33b828d60b47b496",
+      "size": 25556,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/archive_fdm/make_token.py",
+      "path": "3dmodel/archive_fdm/make_token.py",
+      "sha256": "3d6383c11e4bacc41fa10e797127733b3469963cc8bd82f4c17f3512d636a224",
+      "size": 2843,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/archive_fdm/state_dump.json",
+      "path": "3dmodel/archive_fdm/state_dump.json",
+      "sha256": "541c0a40023bcc29239959df5dd7fc7a802953fdeb750da5bd79eabe717c3be5",
+      "size": 8134,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/archive_fdm/.env.example",
+      "path": "3dmodel/archive_fdm/.env.example",
+      "sha256": "7bbf7366c00ff21a12941183642b88f4bdd6e941d6a65774e011a92736ebcdfa",
+      "size": 326,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/archive_fdm/out/plate_1.gcode",
+      "path": "3dmodel/archive_fdm/out/plate_1.gcode",
+      "sha256": "55cad223358bd55b26e3cf3b046c524bb901090ec8efdf18954e6ba8c59f8e58",
+      "size": 4818727,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/archive_fdm/out/seed_01.gcode.3mf",
+      "path": "3dmodel/archive_fdm/out/seed_01.gcode.3mf",
+      "sha256": "f628929bfe5b92d8d4636807fe553a36e7c9b6b451afbe1c6af5424ee564818b",
+      "size": 4348189,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/archive_fdm/out/token.gcode.3mf",
+      "path": "3dmodel/archive_fdm/out/token.gcode.3mf",
+      "sha256": "be16148c82b26825dac15b288fe19acc58a20f3d8a5984f6f48c63077ec43f09",
+      "size": 1170460,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/archive_fdm/slice/plate_1.png",
+      "path": "3dmodel/archive_fdm/slice/plate_1.png",
+      "sha256": "5691fef1a7eeab928ca9487c377b4bcf4ee5c1d15190618c12c97d828100ef0b",
+      "size": 35698,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/archive_fdm/presets/seed_support.json",
+      "path": "3dmodel/archive_fdm/presets/seed_support.json",
+      "sha256": "cb34d705530f53e9eb00e38e32943c206c54fbd92a83a0ed4f9daff628e86000",
+      "size": 3083,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/stl/token.stl",
+      "path": "3dmodel/stl/token.stl",
+      "sha256": "c4c982796a9eebeaaa2e6b080a30b61a218f12d513ff515d7948d87ee3da0375",
+      "size": 5943084,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/stl/seed_02.stl",
+      "path": "3dmodel/stl/seed_02.stl",
+      "sha256": "2d894592f67f070ade660dd83e425e0f4a81b5873c8f15d037c4ffdc1754057a",
+      "size": 2848784,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/stl/seed_03.stl",
+      "path": "3dmodel/stl/seed_03.stl",
+      "sha256": "a6d520e031f6d8839ba98c68d05185358f0660e8e61883c886a841512169bad1",
+      "size": 3401484,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/stl/seed_01.stl",
+      "path": "3dmodel/stl/seed_01.stl",
+      "sha256": "4a8bf57fc9b137f9a02bd57af0664303cb1d1cb1310676305de397620c0361b4",
+      "size": 12898684,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/stl/seed_04.stl",
+      "path": "3dmodel/stl/seed_04.stl",
+      "sha256": "1e7711540ba0d0c1c2eb3d332154f46088d99fcf766a55ae20d6277c41c16595",
+      "size": 3275084,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/stl/seed_05.stl",
+      "path": "3dmodel/stl/seed_05.stl",
+      "sha256": "9d9b8005ed9af2423b3039eaf482feb333888da9dd1254bdafb945cf25762a82",
+      "size": 4189884,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/stl/ring.stl",
+      "path": "3dmodel/stl/ring.stl",
+      "sha256": "43779cedeb8847dfa57c398fe53471583ccb9a43d10cd67f074e8beb53f1c57a",
+      "size": 9445284,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/hand_top.png",
+      "path": "3dmodel/preview/hand_top.png",
+      "sha256": "8a871c00360342606ec93c78b756d9e06388d69639521fce6a5d1f6a0d95641b",
+      "size": 584323,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/printer_side.png",
+      "path": "3dmodel/preview/printer_side.png",
+      "sha256": "dde685c2c63e3e45b8d554cd2b2db2b8a8c23abf6d30fa850a713abfa0d63c24",
+      "size": 290785,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/hand_front.png",
+      "path": "3dmodel/preview/hand_front.png",
+      "sha256": "f79915d7199cc8f6ef2c11d065c0e99d1878f7b8d87e59292868a77d1f7f612c",
+      "size": 506816,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/hand_side.png",
+      "path": "3dmodel/preview/hand_side.png",
+      "sha256": "49844d6d90f459bfb1c1c7cde5619988e88f6004662cf3bdef1debcdbd94b672",
+      "size": 532391,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/seed_02.png",
+      "path": "3dmodel/preview/seed_02.png",
+      "sha256": "fd4541adf8a3ce77ff6eb7a9adc9ad91f966dfe0cfafbad8c6c1f4bbc8208c46",
+      "size": 12697,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/hand_hero.png",
+      "path": "3dmodel/preview/hand_hero.png",
+      "sha256": "c501f263fafbbbc22f480a556810a042a129a70d0a6c5252dcbe006e8af1e168",
+      "size": 572029,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/hand_detail.png",
+      "path": "3dmodel/preview/hand_detail.png",
+      "sha256": "87194efb6e96e252efcc1e9d8354393a07479d7db883fa4fb512054b3c11fc91",
+      "size": 562800,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/seed_03.png",
+      "path": "3dmodel/preview/seed_03.png",
+      "sha256": "70a8db98a0480b55a3129c08a9a2e29612f1b1b34200823059ad6de6dfcd84ac",
+      "size": 12374,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/seed_01.png",
+      "path": "3dmodel/preview/seed_01.png",
+      "sha256": "e19f4817c10c6d3c04a893f7a2fe0097cb44c3c94a386d4de41ec0212387da2f",
+      "size": 29828,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/printer_hero.png",
+      "path": "3dmodel/preview/printer_hero.png",
+      "sha256": "cf0f1fb63a5647ee7ee7b61152a6952edcef244411524188c3bfd463fac1af50",
+      "size": 335422,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/seed_04.png",
+      "path": "3dmodel/preview/seed_04.png",
+      "sha256": "85f02865eb254f3b725181434f1ce670a7deecadb3a54393ab129a435bf7fdd8",
+      "size": 11227,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/seed_05.png",
+      "path": "3dmodel/preview/seed_05.png",
+      "sha256": "6b511379dd3ccd46b8148558099b17675a82b27644b186adbad65a9f30029b8b",
+      "size": 12919,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/ring.png",
+      "path": "3dmodel/preview/ring.png",
+      "sha256": "bf0765889fa9921532366307d9f650ccf02ff94b7e4c3575fd37c2db4f5d0ae4",
+      "size": 5162,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/printer_top.png",
+      "path": "3dmodel/preview/printer_top.png",
+      "sha256": "4bab4491dab6ae154b1a2a75d4d5fc0d298743157e9a516616d31a41cffaf21a",
+      "size": 458279,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/printer_front.png",
+      "path": "3dmodel/preview/printer_front.png",
+      "sha256": "2517a18eee73e388fbf603cd1d9203b3ff4a401e23d8df9291fc428065147b86",
+      "size": 322176,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/preview/printer_front34.png",
+      "path": "3dmodel/preview/printer_front34.png",
+      "sha256": "65563942f7c983d62fb85090eb74996950298a661f4940acb3902b4a0b947d5e",
+      "size": 217260,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/preview_front.png",
+      "path": "3dmodel/printer_v2/preview_front.png",
+      "sha256": "a8391b3deefaf560adbbd5a3290dc5be09000e6dabbc13585bc67b4393a5be33",
+      "size": 2141965,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/preview_detail.png",
+      "path": "3dmodel/printer_v2/preview_detail.png",
+      "sha256": "2bc3ebc82e210c6185d01da066ced0cab69c6c439fea31dc59db6c8f7618b1a9",
+      "size": 2315791,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/printer_atelier.glb",
+      "path": "3dmodel/printer_v2/printer_atelier.glb",
+      "sha256": "d17e7ff768a563da11ef4f96093baaa4dd082bd163ec3bb63c6387ed40249e0e",
+      "size": 3658396,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/printer_atelier.blend1",
+      "path": "3dmodel/printer_v2/printer_atelier.blend1",
+      "sha256": "b34de53a63db375a00a0675f681f918ccd99e99e2e9140aa99d2d1fa8c46ef07",
+      "size": 294416,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/render_illustrated.py",
+      "path": "3dmodel/printer_v2/render_illustrated.py",
+      "sha256": "ad1ebfd12113f4d05144a64fabced32e1430d56b9f26b15e2e47f8b2cb905dd5",
+      "size": 6005,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/printer_atelier.blend",
+      "path": "3dmodel/printer_v2/printer_atelier.blend",
+      "sha256": "ec6e7c9c7691a99d8993c702de298e14379802cf38e62fa3f8309331810c4ba9",
+      "size": 295028,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/preview_rear.png",
+      "path": "3dmodel/printer_v2/preview_rear.png",
+      "sha256": "4bdbdf29f6e180d78faff3f6744f19d3696535805585aa5088c6509d59fafcfa",
+      "size": 2222235,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/README.md",
+      "path": "3dmodel/printer_v2/README.md",
+      "sha256": "7a6e25b67eaf1766a30266ee32c84f240df203592c9d95b1281ce9d2b05c0165",
+      "size": 2448,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/model_report.json",
+      "path": "3dmodel/printer_v2/model_report.json",
+      "sha256": "979a1dff807d5f4b1b7efac0b05e8e7a1aef885c921a5b11d8c7b9bed0bf928b",
+      "size": 623,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/preview_illustrated.png",
+      "path": "3dmodel/printer_v2/preview_illustrated.png",
+      "sha256": "368d7356c2640d7fa94548ffb12393fb98b84baa3fc57436916c10d3f19e739f",
+      "size": 2226839,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/printer_illustrated.blend",
+      "path": "3dmodel/printer_v2/printer_illustrated.blend",
+      "sha256": "d699ae42a005d87d8230bf75be1cc63b34d54ae65acf117d8a060c99474797bd",
+      "size": 316767,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/printer_illustrated.blend1",
+      "path": "3dmodel/printer_v2/printer_illustrated.blend1",
+      "sha256": "4b64885ff0adb0e148607510b3eabbfa351f5d0aa4997a06fec12ca8718eb21c",
+      "size": 317497,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/build_printer.py",
+      "path": "3dmodel/printer_v2/build_printer.py",
+      "sha256": "74b52fd7ebbca193bee2084f65ba31a809316885c9b951520b2be39e90496a22",
+      "size": 17669,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/preview_hero.png",
+      "path": "3dmodel/printer_v2/preview_hero.png",
+      "sha256": "98e54706f40185b62135028298bb3aecfd6ecf5497c9cc2b1ca0e451a461d14c",
+      "size": 2521472,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/export_validation.json",
+      "path": "3dmodel/printer_v2/export_validation.json",
+      "sha256": "84ca140c784cfb012f5d2b55f987be19bca5613bf8daf0a88ee7caec3a8ff391",
+      "size": 267,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/render_views.py",
+      "path": "3dmodel/printer_v2/render_views.py",
+      "sha256": "6af9dff0187158b80ab862ba6988bebebe607c04a2bc75a69fa7ea64737516b5",
+      "size": 1622,
+      "method": "byte-copy"
+    },
+    {
+      "source": "3dmodel/printer_v2/geometry_validation.json",
+      "path": "3dmodel/printer_v2/geometry_validation.json",
+      "sha256": "46900068b098fc1e615261c532f35e8a860a3c6bd409e32e1db8f13c69b366d1",
+      "size": 85,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/exec-5f699f80-17d0-4999-8d04-444c0e5ea879.png",
+      "path": "photo/exec-5f699f80-17d0-4999-8d04-444c0e5ea879.png",
+      "sha256": "9da2e5c17ed5b5403b412bf4c9841a9f66b298b67d89d83d1c10ce6c88b18f93",
+      "size": 1611044,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/printer.png",
+      "path": "photo/printer.png",
+      "sha256": "bd8995aa9aa6581e8fbd6324586b92bb219ad0ea3c0f5d5b5a9828e885e091eb",
+      "size": 442237,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/04-IV.png",
+      "path": "photo/猫咪细线罗马数字版/04-IV.png",
+      "sha256": "f4d0b733d8166b7ccb8321b7ec5e9a19fd45210776a081bc2b2e873ce51c8497",
+      "size": 2222560,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/总览.jpg",
+      "path": "photo/猫咪细线罗马数字版/总览.jpg",
+      "sha256": "8c1f6e2eca3825f1f7842e0baf6c4ae0b68ffce07a0f6198fe4c2c82c1eca464",
+      "size": 309249,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/03-III.png",
+      "path": "photo/猫咪细线罗马数字版/03-III.png",
+      "sha256": "d5fca09b8f30f7c1b50d369c7a413ae0555e1b42eb7d3b977ced76357ffbb1f4",
+      "size": 2297338,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/01-I.png",
+      "path": "photo/猫咪细线罗马数字版/01-I.png",
+      "sha256": "efe733cebad205f2ff9b3d79b8b73eba061e7ceffa376fd7b6540f081a21d975",
+      "size": 2484553,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/09-IX.png",
+      "path": "photo/猫咪细线罗马数字版/09-IX.png",
+      "sha256": "3689c7b23072109c5080df192387c00d76a73c3dd4b6e1b01d8d3630edf2d7af",
+      "size": 2218154,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/02-II.png",
+      "path": "photo/猫咪细线罗马数字版/02-II.png",
+      "sha256": "517e011b955d206871b754645e1e810e9beea379ae6e716a6d4ea101df9547b0",
+      "size": 2313570,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/11-XI.png",
+      "path": "photo/猫咪细线罗马数字版/11-XI.png",
+      "sha256": "71a8d066b5018966a48ffa5fc26147e8f0117f8e9171bbc6daae9ccd77395c02",
+      "size": 2378214,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/08-VIII.png",
+      "path": "photo/猫咪细线罗马数字版/08-VIII.png",
+      "sha256": "ffed4413849a1d972d6e012219f89ed365eda438ba0fdc38cb1d695b8da6678f",
+      "size": 2334869,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/12-XII.png",
+      "path": "photo/猫咪细线罗马数字版/12-XII.png",
+      "sha256": "b594ad6e229a861c1247cb1251f08ff6fd7b34d7f62daf42b0f714a2b085c9fc",
+      "size": 2372522,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/05-V.png",
+      "path": "photo/猫咪细线罗马数字版/05-V.png",
+      "sha256": "e13ceef23bd1c730417ed228a5b59d8d511ec5de28db990292e379e4d4fa3345",
+      "size": 2349827,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/06-VI.png",
+      "path": "photo/猫咪细线罗马数字版/06-VI.png",
+      "sha256": "fb010e0a594cc4a5aa8ecceac178a8e37fd1295579efd1fd19ff42ee38208596",
+      "size": 2278538,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/生成说明.md",
+      "path": "photo/猫咪细线罗马数字版/生成说明.md",
+      "sha256": "fb0b0bd516e4b1da2e25a2dfed0c3a4df0c446b21b08fbed753f6fd5567045fc",
+      "size": 4837,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/10-X.png",
+      "path": "photo/猫咪细线罗马数字版/10-X.png",
+      "sha256": "4535fee4da7b51e30380607f8b23876c76954cf639f19b93ca2a1a2f0080b05f",
+      "size": 2352952,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/07-VII.png",
+      "path": "photo/猫咪细线罗马数字版/07-VII.png",
+      "sha256": "de6bbb7de69fb89983cdc6d8d2e1b4fdba83105e7762e1cfb657cb5f58a47e26",
+      "size": 2178204,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/猫咪细线罗马数字版/合成VII.py",
+      "path": "photo/猫咪细线罗马数字版/合成VII.py",
+      "sha256": "1b57d9df3d562241d1d00689446b556023199945d1bc966c4eea5fbe5ab3dd6c",
+      "size": 1967,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/原版种子/freelivingunarmo00kofouoft_0583.jp2",
+      "path": "photo/原版种子/freelivingunarmo00kofouoft_0583.jp2",
+      "sha256": "ef394b1fca810661be56afad5034f0a115a40cab7197ae6a69b0929fd8098e5a",
+      "size": 298610,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/原版种子/ChatGPT Image 2026年9月12日 17_33_18 (4).png",
+      "path": "photo/原版种子/ChatGPT Image 2026年9月12日 17_33_18 (4).png",
+      "sha256": "7066de5b089a014ea4c8fae029913959e589117d9a53ea86ac6ed478455f4ca7",
+      "size": 2105745,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/原版种子/ChatGPT Image 2026年9月12日 17_33_21 (7).png",
+      "path": "photo/原版种子/ChatGPT Image 2026年9月12日 17_33_21 (7).png",
+      "sha256": "a3c565de5d86699128ff6884b82692a1c10925c270a9eac6ef9adb95d9cd0942",
+      "size": 2168421,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/原版种子/ChatGPT Image 2026年9月12日 17_33_15 (2).png",
+      "path": "photo/原版种子/ChatGPT Image 2026年9月12日 17_33_15 (2).png",
+      "sha256": "5ced681b09d10c9c2b7cb877faac747c9b0a724d5b7a8a793df16c8081236746",
+      "size": 2238138,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/原版种子/ChatGPT Image 2026年9月12日 17_33_16 (3).png",
+      "path": "photo/原版种子/ChatGPT Image 2026年9月12日 17_33_16 (3).png",
+      "sha256": "0ba756b10a6129a99241c83b84b2bb81425a5a961352c5b4f7ceadef51e2db2d",
+      "size": 2150015,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/原版种子/ChatGPT Image 2026年9月12日 17_33_23 (8).png",
+      "path": "photo/原版种子/ChatGPT Image 2026年9月12日 17_33_23 (8).png",
+      "sha256": "dc8efaa5dc7fcb3f12f2ed0ca270eca4fca8b0199f84ceb265a56d8da6108066",
+      "size": 2091356,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/原版种子/freelivingunarmo00kofouoft_0595 拷贝.jpg",
+      "path": "photo/原版种子/freelivingunarmo00kofouoft_0595 拷贝.jpg",
+      "sha256": "de5723bfe3f0af14022f500d82364baaa6418fe523d3d2c1ad89a3d2ee40396d",
+      "size": 200527,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/粉色统一版/ChatGPT Image 2026年9月12日 17_33_26 (9).png",
+      "path": "photo/粉色统一版/ChatGPT Image 2026年9月12日 17_33_26 (9).png",
+      "sha256": "a670297eecb305d54f1ca1454d091bfa86a56b26191372d149602638affd47e6",
+      "size": 2170652,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/粉色统一版/ChatGPT Image 2026年9月12日 17_33_19 (5).png",
+      "path": "photo/粉色统一版/ChatGPT Image 2026年9月12日 17_33_19 (5).png",
+      "sha256": "8eba6a67267c1408ed5294b25dda8d8fb5e4d1610fda95b17955ad7989abebfb",
+      "size": 2217874,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/粉色统一版/调色说明.md",
+      "path": "photo/粉色统一版/调色说明.md",
+      "sha256": "2d881f5fa17c7e67352f53fb0998ba8fdf301c22f6321d924730125bb37264af",
+      "size": 6553,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/粉色统一版/07-粉色统一.png",
+      "path": "photo/粉色统一版/07-粉色统一.png",
+      "sha256": "462b97d68a95c79d60bffa8af3e5397737bbe573180f68c31611157c22b27b94",
+      "size": 2046599,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/粉色统一版/粉色统一版-5张.zip",
+      "path": "photo/粉色统一版/粉色统一版-5张.zip",
+      "sha256": "e2e52e6f7224967ddc00c23a1ea7c79b7148bf44a128de76019dff0218035bb9",
+      "size": 10164954,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/粉色统一版/ChatGPT Image 2026年9月12日 17_36_48 (1).png",
+      "path": "photo/粉色统一版/ChatGPT Image 2026年9月12日 17_36_48 (1).png",
+      "sha256": "0ae4dae46020b622e04d772dce8571b0e607fe628abc7a004a62e5bb7977fa8b",
+      "size": 2296000,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/粉色统一版/ChatGPT Image 2026年9月12日 17_33_14 (1).png",
+      "path": "photo/粉色统一版/ChatGPT Image 2026年9月12日 17_33_14 (1).png",
+      "sha256": "844ad3cf5297f08db60ce4b87d2d8b6945cf74acfcbb95adea527e638c332fc3",
+      "size": 2346370,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/粉色统一版/08-粉色统一.png",
+      "path": "photo/粉色统一版/08-粉色统一.png",
+      "sha256": "5865d90de9860414934e81f4fba7bfeb3dec991687325002466590f208d7e4d8",
+      "size": 2011554,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/粉色统一版/02-粉色统一.png",
+      "path": "photo/粉色统一版/02-粉色统一.png",
+      "sha256": "a5e4812e1f291a6c2c86aa2930177859893d84722d4b9a9dc9088778d06532a5",
+      "size": 2106522,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/粉色统一版/03-粉色统一.png",
+      "path": "photo/粉色统一版/03-粉色统一.png",
+      "sha256": "e8db46acf234aedef6867b3095797d84d97741f4f9f0b05b6824d90569174a5d",
+      "size": 2071899,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/粉色统一版/ChatGPT Image 2026年9月12日 17_36_50 (3).png",
+      "path": "photo/粉色统一版/ChatGPT Image 2026年9月12日 17_36_50 (3).png",
+      "sha256": "eaee62eaed347b7bd1d0a4b44e0cb08eb3d393eb0089d4a3363f11d42ee9ebe6",
+      "size": 2329955,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/粉色统一版/ChatGPT Image 2026年9月12日 17_36_49 (2).png",
+      "path": "photo/粉色统一版/ChatGPT Image 2026年9月12日 17_36_49 (2).png",
+      "sha256": "5081f2c70b9e972af39d58de3b358c5dfc417ee4694b453c41c568d5e7410c6b",
+      "size": 2331079,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/粉色统一版/ChatGPT Image 2026年9月12日 17_33_19 (6).png",
+      "path": "photo/粉色统一版/ChatGPT Image 2026年9月12日 17_33_19 (6).png",
+      "sha256": "1c892b4a43a98c11a54cbd526c2f68855047dd2cffb038634b4c1b2e09f27386",
+      "size": 2142680,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/粉色统一版/04-粉色统一.png",
+      "path": "photo/粉色统一版/04-粉色统一.png",
+      "sha256": "6f552db0c1fb42c959258c00ddc291b1b12296d4e45858b89026091642e0f7d0",
+      "size": 1993902,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/打印版本/002.png",
+      "path": "photo/打印版本/002.png",
+      "sha256": "66d7c3acd543ff3aa3741f9975a36434e7ec5b2e1ae855646da6c0fc9f5b0be3",
+      "size": 2371653,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/打印版本/003.png",
+      "path": "photo/打印版本/003.png",
+      "sha256": "2566eac09028f49c377e1cf380582bc135e4fd1a629fb867af810f67350ff5cc",
+      "size": 2315938,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/打印版本/001.png",
+      "path": "photo/打印版本/001.png",
+      "sha256": "f967c1253076b7674416c1b3939a7beb7764f06a43f342669be711ad6a8868e8",
+      "size": 2439200,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/打印版本/010.png",
+      "path": "photo/打印版本/010.png",
+      "sha256": "76f039520ec3beefd69437ebd2cdd28258ea04731d29afee09fbcd0271cf4cf0",
+      "size": 2395860,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/打印版本/004.png",
+      "path": "photo/打印版本/004.png",
+      "sha256": "68253dc40b1bfc466c02c85ba064a3f36dd394658c84dc4c922b0d2c5e187953",
+      "size": 2309463,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/打印版本/005.png",
+      "path": "photo/打印版本/005.png",
+      "sha256": "42f9350805d295f434312228948c79b7e732227479a8a80fd9482628852a8980",
+      "size": 2408037,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/打印版本/011.png",
+      "path": "photo/打印版本/011.png",
+      "sha256": "f769712ea642a2fcbb105b6269400d8f0c9422fbb9014d0e93a9282c89a895fe",
+      "size": 2425256,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/打印版本/007.png",
+      "path": "photo/打印版本/007.png",
+      "sha256": "c4557646a9e6c0a1616d27ac6f52f0936eb0e6fac8bd39452ce02cb9c5900868",
+      "size": 2430912,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/打印版本/012.png",
+      "path": "photo/打印版本/012.png",
+      "sha256": "25a299c06d0df2320fd31ab0735fb9df860d929331651d9b1b310b9b790a085a",
+      "size": 2423836,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/打印版本/006.png",
+      "path": "photo/打印版本/006.png",
+      "sha256": "661190c8b7a881767f279f9c7a2e64ae1d4a932a67fb38e0cd344e9dee35ab6b",
+      "size": 2348852,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/打印版本/008.png",
+      "path": "photo/打印版本/008.png",
+      "sha256": "7803566f56ee2b19aaffd6f8b0b83a228087c6bc90d7b6c6b31af6f21f18d796",
+      "size": 2378406,
+      "method": "byte-copy"
+    },
+    {
+      "source": "photo/打印版本/009.png",
+      "path": "photo/打印版本/009.png",
+      "sha256": "76149aa939b955c54d7493217df564ac7c94742c364533cdb0bf2e3dbe2165a9",
+      "size": 2341352,
+      "method": "byte-copy"
+    },
+    {
+      "source": "nfc-print-agent-fix/nfc-print-agent.patch",
+      "path": "nfc-print-agent-fix/nfc-print-agent.patch",
+      "sha256": "f0d870678347e34ce79095942b1bf482fc5588b8ac7f3001a0fe6bdb5f8d2a7f",
+      "size": 3702,
+      "method": "byte-copy"
+    },
+    {
+      "source": "nfc-print-agent-fix/nfc-print-agent.py",
+      "path": "nfc-print-agent-fix/nfc-print-agent.py",
+      "sha256": "105ac324afe72ebe79c2320dbd0bab105e655c15797eb9d6e4f68bd371aeeb36",
+      "size": 9979,
+      "method": "byte-copy"
+    },
+    {
+      "source": "nfc-print-agent-fix/给服务器Codex的提示词.md",
+      "path": "nfc-print-agent-fix/给服务器Codex的提示词.md",
+      "sha256": "0932f964cb361ce060d6717e9b8e0e0905877edc34104031708c31b73e04a7df",
+      "size": 6928,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0001-13DE61CD/ai_prompt.txt",
+      "path": "archive/between-jobs/SG-20260913-0001-13DE61CD/ai_prompt.txt",
+      "sha256": "75ef4e509961f6b8c03bc031b18fdafd8b0d1065ec8d28d2dc70f91b2cd199d3",
+      "size": 3423,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0001-13DE61CD/artwork.pdf",
+      "path": "archive/between-jobs/SG-20260913-0001-13DE61CD/artwork.pdf",
+      "sha256": "103297590b94bd1dcd0bfa342126127db8db475535e3bee3894e2fa2c68faf61",
+      "size": 5454713,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0001-13DE61CD/artwork.png",
+      "path": "archive/between-jobs/SG-20260913-0001-13DE61CD/artwork.png",
+      "sha256": "ec9ee266f18f5cb87ff2b402b52cee962f3f9b08c17746328a780408e6afe969",
+      "size": 2852782,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0001-13DE61CD/guide.png",
+      "path": "archive/between-jobs/SG-20260913-0001-13DE61CD/guide.png",
+      "sha256": "208a2ed82a97f1e54669c3aceff78fa21aacf990cd45248e90201aef79e90770",
+      "size": 85562,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0001-13DE61CD/manifest.json",
+      "path": "archive/between-jobs/SG-20260913-0001-13DE61CD/manifest.json",
+      "sha256": "9f1e103a03a820c57aba6727287cb360c56cc0cbc31ed959c09a8030185a98ca",
+      "size": 2876,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0001-13DE61CD/particles.json",
+      "path": "archive/between-jobs/SG-20260913-0001-13DE61CD/particles.json",
+      "sha256": "b1e112716561a7b349c9cda377b9f93880a75081120d9c742870ac28d0cfbc70",
+      "size": 92698,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0001-13DE61CD/story.json",
+      "path": "archive/between-jobs/SG-20260913-0001-13DE61CD/story.json",
+      "sha256": "66b26dcc56a0252497a051e4caaf77079615335d52ed260cb98aed8ace7c821a",
+      "size": 1494,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0001-13DE61CD/story.txt",
+      "path": "archive/between-jobs/SG-20260913-0001-13DE61CD/story.txt",
+      "sha256": "7c846690f2dc923a57e2b2678ae4d9add2981bdec82c43e0e3b651f0756555b3",
+      "size": 304,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0002-00067932/ai_prompt.txt",
+      "path": "archive/between-jobs/SG-20260913-0002-00067932/ai_prompt.txt",
+      "sha256": "dba95464e4f624f9a96a867643601b90d555df6bb2df6c19601e12e0176cbefd",
+      "size": 3455,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0002-00067932/artwork.pdf",
+      "path": "archive/between-jobs/SG-20260913-0002-00067932/artwork.pdf",
+      "sha256": "eed63775380e276403513b2b348850013dbe1aba36c1ef0664e8e3335e77aaee",
+      "size": 5330105,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0002-00067932/artwork.png",
+      "path": "archive/between-jobs/SG-20260913-0002-00067932/artwork.png",
+      "sha256": "ce06706c51c231477fa3e1fa2325127775359e6ca79a7ad576882b5b27dbbaed",
+      "size": 2869514,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0002-00067932/guide.png",
+      "path": "archive/between-jobs/SG-20260913-0002-00067932/guide.png",
+      "sha256": "0a097c5d588cb1f61fecde0642b1856f3ef287aece57f43c766d444c19ecae3e",
+      "size": 136263,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0002-00067932/manifest.json",
+      "path": "archive/between-jobs/SG-20260913-0002-00067932/manifest.json",
+      "sha256": "d2230ac579c36dd54339a2ba21f903ffd242f3e1330117455968f01dafbbb574",
+      "size": 2938,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0002-00067932/particles.json",
+      "path": "archive/between-jobs/SG-20260913-0002-00067932/particles.json",
+      "sha256": "4b0e82526b76bde9ab9034e968ee69be50f92aaa07ac804d71b097ad0dfd5734",
+      "size": 94960,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0002-00067932/story.json",
+      "path": "archive/between-jobs/SG-20260913-0002-00067932/story.json",
+      "sha256": "6ecf52d910f6325e30d9b8e9e3c9ecbb82ce9741af232e375982a5e8867114b4",
+      "size": 1521,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0002-00067932/story.txt",
+      "path": "archive/between-jobs/SG-20260913-0002-00067932/story.txt",
+      "sha256": "e9cb0bcfa111dd2b8885dbcc6c03dafd34544b466d5363ae2d1fb40de9b82d43",
+      "size": 301,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0003-00067932/ai_prompt.txt",
+      "path": "archive/between-jobs/SG-20260913-0003-00067932/ai_prompt.txt",
+      "sha256": "dba95464e4f624f9a96a867643601b90d555df6bb2df6c19601e12e0176cbefd",
+      "size": 3455,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0003-00067932/artwork.pdf",
+      "path": "archive/between-jobs/SG-20260913-0003-00067932/artwork.pdf",
+      "sha256": "9486de5fc35a340d57d3a79a0b7a258e0453e3ad91b97ce49c28bfaf5a1ad50e",
+      "size": 5330105,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0003-00067932/artwork.png",
+      "path": "archive/between-jobs/SG-20260913-0003-00067932/artwork.png",
+      "sha256": "ce06706c51c231477fa3e1fa2325127775359e6ca79a7ad576882b5b27dbbaed",
+      "size": 2869514,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0003-00067932/guide.png",
+      "path": "archive/between-jobs/SG-20260913-0003-00067932/guide.png",
+      "sha256": "bed36a53c2e1f9cb6b47023d18e6f9100f76abd8ba86932c56fb7639432d5339",
+      "size": 136255,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0003-00067932/manifest.json",
+      "path": "archive/between-jobs/SG-20260913-0003-00067932/manifest.json",
+      "sha256": "3cff55ac87c5d29c7646e8e53d9909dfec3542dad816e8a970347c19029e631a",
+      "size": 2945,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0003-00067932/particles.json",
+      "path": "archive/between-jobs/SG-20260913-0003-00067932/particles.json",
+      "sha256": "4b0e82526b76bde9ab9034e968ee69be50f92aaa07ac804d71b097ad0dfd5734",
+      "size": 94960,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0003-00067932/story.json",
+      "path": "archive/between-jobs/SG-20260913-0003-00067932/story.json",
+      "sha256": "6ecf52d910f6325e30d9b8e9e3c9ecbb82ce9741af232e375982a5e8867114b4",
+      "size": 1521,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0003-00067932/story.txt",
+      "path": "archive/between-jobs/SG-20260913-0003-00067932/story.txt",
+      "sha256": "e9cb0bcfa111dd2b8885dbcc6c03dafd34544b466d5363ae2d1fb40de9b82d43",
+      "size": 301,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0004-00000007/ai_prompt.txt",
+      "path": "archive/between-jobs/SG-20260913-0004-00000007/ai_prompt.txt",
+      "sha256": "6cc370bbc4ebcb20c709c1c2ba0991113381e61133a54371a09d9ae9e08cd1e0",
+      "size": 3425,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0004-00000007/artwork.pdf",
+      "path": "archive/between-jobs/SG-20260913-0004-00000007/artwork.pdf",
+      "sha256": "d79103a777488a43164a5870b27b496328fcaef15a46849a1a3457e80ad519df",
+      "size": 5225673,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0004-00000007/artwork.png",
+      "path": "archive/between-jobs/SG-20260913-0004-00000007/artwork.png",
+      "sha256": "e6c27a3a966d0148e26e42557f74f435e9326f89c1c93d3567033f406d422d4a",
+      "size": 2835088,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0004-00000007/guide.png",
+      "path": "archive/between-jobs/SG-20260913-0004-00000007/guide.png",
+      "sha256": "935d93582cda0304e8dfe10201b5399a9f185c7ce4438ba52823b835732087cf",
+      "size": 119841,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0004-00000007/manifest.json",
+      "path": "archive/between-jobs/SG-20260913-0004-00000007/manifest.json",
+      "sha256": "4331f42b4398fe7d9a82d7217fce50f1e2b41ef9f0b93aa34bdb417f0be062c1",
+      "size": 2939,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0004-00000007/particles.json",
+      "path": "archive/between-jobs/SG-20260913-0004-00000007/particles.json",
+      "sha256": "565bb49a3fcf6c18b6990f81bc99a4d8d68dc53119516c0b86543507715eceda",
+      "size": 95000,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0004-00000007/story.json",
+      "path": "archive/between-jobs/SG-20260913-0004-00000007/story.json",
+      "sha256": "38270a5b700a717092492e1d669aff4ec2a6aafbb570199e245347711804540c",
+      "size": 1519,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0004-00000007/story.txt",
+      "path": "archive/between-jobs/SG-20260913-0004-00000007/story.txt",
+      "sha256": "3132630ec5fbd33864ec72dad7da2753a808454b76cc80dac4f0b2ec9e6d8ee5",
+      "size": 298,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0005-763B9AE4/ai_prompt.txt",
+      "path": "archive/between-jobs/SG-20260913-0005-763B9AE4/ai_prompt.txt",
+      "sha256": "81ca2f2684be4b5d8a5a7e76926e40775e896423669390fb71059f3f85d82f6e",
+      "size": 3390,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0005-763B9AE4/artwork.pdf",
+      "path": "archive/between-jobs/SG-20260913-0005-763B9AE4/artwork.pdf",
+      "sha256": "a498934f30981e7e23bfeba929fb095fe7c7f8cdbe5661c53091302a23f20b0a",
+      "size": 5398489,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0005-763B9AE4/artwork.png",
+      "path": "archive/between-jobs/SG-20260913-0005-763B9AE4/artwork.png",
+      "sha256": "7934a82e9ff1c990a6dbd0196d5c8d08c2c5b0a61a76dcdf44083262d5fcbad4",
+      "size": 2846659,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0005-763B9AE4/guide.png",
+      "path": "archive/between-jobs/SG-20260913-0005-763B9AE4/guide.png",
+      "sha256": "9937162327b160df3839acafd0120765eaa86d6c0be64247a37b468636534ce5",
+      "size": 103667,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0005-763B9AE4/manifest.json",
+      "path": "archive/between-jobs/SG-20260913-0005-763B9AE4/manifest.json",
+      "sha256": "6ab0fd712d5fd93d9ce2265bc45a9b9acca70e783352b85a87989d9eb0d1b667",
+      "size": 2915,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0005-763B9AE4/particles.json",
+      "path": "archive/between-jobs/SG-20260913-0005-763B9AE4/particles.json",
+      "sha256": "0dba2d2b5df4d3a94466316b56529702a47957ccaab496c3cb0520903205314d",
+      "size": 94956,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0005-763B9AE4/story.json",
+      "path": "archive/between-jobs/SG-20260913-0005-763B9AE4/story.json",
+      "sha256": "a3578ba967d068e605daf6b5cf38bcf72d544cc47fe3f58e28e6e79da6d347bf",
+      "size": 1474,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0005-763B9AE4/story.txt",
+      "path": "archive/between-jobs/SG-20260913-0005-763B9AE4/story.txt",
+      "sha256": "0708c9117188c034873333400561ce3c2efd8284806db761ba9d4e42680d8d60",
+      "size": 298,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0006-020F68DD/ai_prompt.txt",
+      "path": "archive/between-jobs/SG-20260913-0006-020F68DD/ai_prompt.txt",
+      "sha256": "c9bb823404a4abb9a1b12214935f18c042a0daa07deb3f361fd372f60aab4d7e",
+      "size": 3408,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0006-020F68DD/artwork.pdf",
+      "path": "archive/between-jobs/SG-20260913-0006-020F68DD/artwork.pdf",
+      "sha256": "69b667b85ef6ddad52b101224df7c4fc0ec32b8d299416a369cc12e31962f238",
+      "size": 5068839,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0006-020F68DD/artwork.png",
+      "path": "archive/between-jobs/SG-20260913-0006-020F68DD/artwork.png",
+      "sha256": "48a0ef3d84711e24adf0a6316477dd8bdce0724f39e476d9ae989566e8998ae8",
+      "size": 2845785,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0006-020F68DD/guide.png",
+      "path": "archive/between-jobs/SG-20260913-0006-020F68DD/guide.png",
+      "sha256": "96ccf4d386c8ad98e736cbed89fe4f213c03e40ac7f5626db303dc71b901c39e",
+      "size": 107378,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0006-020F68DD/manifest.json",
+      "path": "archive/between-jobs/SG-20260913-0006-020F68DD/manifest.json",
+      "sha256": "82bb921ed2caece4b5995ef9dce93cbc445a225fd71c8934f0c9281844ebe1b4",
+      "size": 2924,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0006-020F68DD/particles.json",
+      "path": "archive/between-jobs/SG-20260913-0006-020F68DD/particles.json",
+      "sha256": "94bb64eb94479eb9ad2899028039cf23c76506c8aa94019137b281dc73224d24",
+      "size": 94943,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0006-020F68DD/story.json",
+      "path": "archive/between-jobs/SG-20260913-0006-020F68DD/story.json",
+      "sha256": "2e525e37183843479a948f8753534e1e38508464344237694d948a5243cec8df",
+      "size": 1499,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0006-020F68DD/story.txt",
+      "path": "archive/between-jobs/SG-20260913-0006-020F68DD/story.txt",
+      "sha256": "861f1d6bd9c425ad525ea0aab217a4db24ae93bc4f313d0aad7eb795209499c8",
+      "size": 304,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0007-F18ABF9D/ai_prompt.txt",
+      "path": "archive/between-jobs/SG-20260913-0007-F18ABF9D/ai_prompt.txt",
+      "sha256": "03aed9c574e3068b17612de5229f20a1ee8346beff0cdbb3fb74424285a8a513",
+      "size": 3576,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0007-F18ABF9D/artwork.pdf",
+      "path": "archive/between-jobs/SG-20260913-0007-F18ABF9D/artwork.pdf",
+      "sha256": "bf921ae90cb0b3fa7c161e115b956d67c24ff7467edd6ae01a66d97d0c6ad7fd",
+      "size": 3518281,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0007-F18ABF9D/artwork.png",
+      "path": "archive/between-jobs/SG-20260913-0007-F18ABF9D/artwork.png",
+      "sha256": "a2aaf2b8481483fb037e7aec939eabe9bf92b62ef1c05baff56c4b8d437edd0a",
+      "size": 2150114,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0007-F18ABF9D/guide.png",
+      "path": "archive/between-jobs/SG-20260913-0007-F18ABF9D/guide.png",
+      "sha256": "17fadff90d6b29d6f516a37fc1e520a504c1718328960f6a7d5ba91322e69c9d",
+      "size": 57436,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0007-F18ABF9D/manifest.json",
+      "path": "archive/between-jobs/SG-20260913-0007-F18ABF9D/manifest.json",
+      "sha256": "d51c47920d9cb19836c5223a797645451dfafa4cbda9682d15e8702b8f2813f0",
+      "size": 2954,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0007-F18ABF9D/particles.json",
+      "path": "archive/between-jobs/SG-20260913-0007-F18ABF9D/particles.json",
+      "sha256": "7374eaf588e2ae0cc6e72884ee8090ea01c29e0f38276c304095c15fcc334874",
+      "size": 79144,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0007-F18ABF9D/story.json",
+      "path": "archive/between-jobs/SG-20260913-0007-F18ABF9D/story.json",
+      "sha256": "8fdd2c838df3398552820a5b9cc022f11f9f475a4667fb8bd0bedb012347277d",
+      "size": 1514,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0007-F18ABF9D/story.txt",
+      "path": "archive/between-jobs/SG-20260913-0007-F18ABF9D/story.txt",
+      "sha256": "0cb2d254c22a7d98b75f4cd0e9006c31a9b7e5374660abb838886a856ac4eb87",
+      "size": 292,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0008-00000063/ai_prompt.txt",
+      "path": "archive/between-jobs/SG-20260913-0008-00000063/ai_prompt.txt",
+      "sha256": "8792c1de6c46823777149afd85e1cc28bf0fcff8c295207c51a822b1b5cb5d66",
+      "size": 3366,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0008-00000063/artwork.pdf",
+      "path": "archive/between-jobs/SG-20260913-0008-00000063/artwork.pdf",
+      "sha256": "7cd09dcc923598234ad376d99349d82b9d7609b0365eddad61c9731dc48579e5",
+      "size": 5440145,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0008-00000063/artwork.png",
+      "path": "archive/between-jobs/SG-20260913-0008-00000063/artwork.png",
+      "sha256": "c787feee926333fcbcca686bf24339572881cfef75945d9c6107f760954e6988",
+      "size": 2846098,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0008-00000063/guide.png",
+      "path": "archive/between-jobs/SG-20260913-0008-00000063/guide.png",
+      "sha256": "8a65102d99bd68249580d61d0d49b863fe6a5aec7797da20680b04cf1dfd379f",
+      "size": 92462,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0008-00000063/manifest.json",
+      "path": "archive/between-jobs/SG-20260913-0008-00000063/manifest.json",
+      "sha256": "96af293d074b33bebf17a6c53b4d67abcfd1660231875d058c96aabbc5dd2e60",
+      "size": 2953,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0008-00000063/particles.json",
+      "path": "archive/between-jobs/SG-20260913-0008-00000063/particles.json",
+      "sha256": "7109042fe91a246faefb6112cf097ece079edaa6162552cc70ec7fdfb9bd92fc",
+      "size": 94879,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0008-00000063/print.jpg",
+      "path": "archive/between-jobs/SG-20260913-0008-00000063/print.jpg",
+      "sha256": "7c95990d22fe70038a042784aca5416d1c3bee00167ccb5886da5d7e06660340",
+      "size": 676163,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0008-00000063/story.json",
+      "path": "archive/between-jobs/SG-20260913-0008-00000063/story.json",
+      "sha256": "86b1c43be5d4d803c7ee419157f82ac16feccdd29e393d15daed4c8756ec080e",
+      "size": 1457,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/SG-20260913-0008-00000063/story.txt",
+      "path": "archive/between-jobs/SG-20260913-0008-00000063/story.txt",
+      "sha256": "d5bbbb85e8c5232d4ebfa67a9f55cd9bb5e32a2be94225b9c0465e49e32c2be2",
+      "size": 298,
+      "method": "byte-copy"
+    },
+    {
+      "source": "between/printer/jobs/archive.sqlite3",
+      "path": "archive/between-jobs/archive.sqlite3",
+      "sha256": "c003a99184e2bb0b0d6a1e8a5e96e049988256940f262c2dc3c3078856c54058",
+      "size": 53248,
+      "method": "sqlite-consistent-backup"
+    },
+    {
+      "source": "personal-skill/organic-data-annotation/SKILL.md",
+      "path": ".agents/skills/organic-data-annotation/SKILL.md",
+      "sha256": "01bd13a94eb45057de296e53fc1c05b6e6bcdf8cedfda875c4c71a26bedbc692",
+      "size": 5483,
+      "method": "byte-copy"
+    },
+    {
+      "source": "personal-skill/organic-data-annotation/agents/openai.yaml",
+      "path": ".agents/skills/organic-data-annotation/agents/openai.yaml",
+      "sha256": "8f9c54baf56b3d7e19f520e4eb37e85e589774b491dcb0d391a6a2b1ab2c60c6",
+      "size": 296,
+      "method": "byte-copy"
+    },
+    {
+      "source": "personal-skill/organic-data-annotation/references/approved-example.png",
+      "path": ".agents/skills/organic-data-annotation/references/approved-example.png",
+      "sha256": "e5740e61c2c743c439d62a19aa593f207990a5e920579bd93d1298b6c84c98c4",
+      "size": 3055607,
+      "method": "byte-copy"
+    },
+    {
+      "source": "personal-skill/organic-data-annotation/references/example-prompt.md",
+      "path": ".agents/skills/organic-data-annotation/references/example-prompt.md",
+      "sha256": "b78058dc28befa3d08edb26d0e20048c97ca6144844175a9e376d1d9efdee144",
+      "size": 3155,
+      "method": "byte-copy"
+    },
+    {
+      "source": "personal-skill/organic-data-annotation/references/source-artwork.png",
+      "path": ".agents/skills/organic-data-annotation/references/source-artwork.png",
+      "sha256": "c4014d631548b4b5c7421504b3f378073ccbfd783e5343681c01e6be9532af2d",
+      "size": 3104851,
+      "method": "byte-copy"
+    }
+  ],
+  "excluded": [
+    {
+      "path": ".cursor/",
+      "reason": "local environment, index, cache or editor configuration"
+    },
+    {
+      "path": ".claude/",
+      "reason": "local environment, index, cache or editor configuration"
+    },
+    {
+      "path": ".codex/",
+      "reason": "local environment, index, cache or editor configuration"
+    },
+    {
+      "path": ".venv/",
+      "reason": "local environment, index, cache or editor configuration"
+    },
+    {
+      "path": ".wolf/",
+      "reason": "local environment, index, cache or editor configuration"
+    },
+    {
+      "path": ".codegraph/",
+      "reason": "local environment, index, cache or editor configuration"
+    },
+    {
+      "path": ".DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "卡片/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "卡片/卡片设计/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "artwork/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "artwork/garden_geometry/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "artwork/garden_geometry/outputs/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "output/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "output/pdf/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "output/tapnow_seed_planet/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "output/tapnow_seed_planet/红框上移版/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "output/tapnow_mobius/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "output/tapnow_mobius/淡紫色版/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "3dmodel/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "3dmodel/printer_experience/server.log",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "3dmodel/archive_fdm/.env",
+      "reason": "credential"
+    },
+    {
+      "path": "3dmodel/printer_v2/illustrated.log",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "3dmodel/printer_v2/views.log",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "3dmodel/printer_v2/build.log",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "photo/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "photo/猫咪细线罗马数字版/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    },
+    {
+      "path": "photo/粉色统一版/.DS_Store",
+      "reason": "machine metadata, log or transient file"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "glb_version": 2,
+  "file_length_valid": true,
+  "mesh_count": 371,
+  "materials": 13,
+  "extensions": [
+    "KHR_materials_transmission",
+    "KHR_materials_ior"
+  ],
+  "external_buffers": [],
+  "roundtrip_loaded_with_trimesh": true,
+  "finite_vertices": true
+}

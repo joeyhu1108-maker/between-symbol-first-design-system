@@ -1,0 +1,33 @@
+{
+  "timeline_cases": 8,
+  "idempotent_creation": true,
+  "exact_input_transfer": true,
+  "artifact_files": true,
+  "invalid_input_rejected": true,
+  "missing_printer_not_submitted": true,
+  "cross_origin_write_rejected": true,
+  "job": "SG-20260912-0009-13DE61CD",
+  "style": {
+    "version": "garden-v1",
+    "shared_scale": true,
+    "distinct_ai_outputs": true,
+    "samples": [
+      "SG-20260912-0008-13DE61CD",
+      "SG-20260912-0010-05792CA4"
+    ]
+  },
+  "browser": {
+    "cosmos_fps": 30,
+    "printer_fps": 30,
+    "gaussian_points": 24410,
+    "script_errors": []
+  },
+  "video": {
+    "size": [
+      1280,
+      720
+    ],
+    "fps": 30.0,
+    "duration": 25.0
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "version": "garden-v1.1",
+  "concept": "花园 / Garden — 种子落入关系与色彩共同生长的场域",
+  "references": [
+    "assets/garden_refs/01_gesture.jpg",
+    "assets/garden_refs/02_translucence.jpg",
+    "assets/garden_refs/03_chromatic_space.jpg"
+  ],
+  "reference_weights": {
+    "gestural_pigment": 0.38,
+    "translucent_organic_fields": 0.37,
+    "chromatic_atmosphere": 0.25
+  },
+  "scale": {
+    "abstraction": 0.96,
+    "organic_motion": 0.78,
+    "pigment_saturation": 0.62,
+    "translucency": 0.6,
+    "gesture": 0.66,
+    "fine_line_density": 0.46,
+    "warm_color_share": 0.88,
+    "asymmetry": 0.85,
+    "oil_paint_presence": 0.2,
+    "weathering": 0.24,
+    "mark_irregularity": 0.85,
+    "pentimento": 0.58
+  },
+  "palette": {
+    "cream": "#F5E8DE",
+    "peach_pink": "#E9AAA9",
+    "rose": "#CF7894",
+    "blush": "#ECC2CE",
+    "pale_lilac": "#DDD0E8",
+    "lavender": "#CEC0DA",
+    "dusty_pink": "#D8A8BA",
+    "warm_ground": "#DEC3AB",
+    "muted_plum": "#A68B9F"
+  },
+  "invariants": [
+    "非常抽象的全幅绘画场域",
+    "色域叠压、擦除、渗化与可见笔触",
+    "局部细线与悬浮色点",
+    "柔和发光的空域与高饱和颜料相邻",
+    "不对称、多中心、具有呼吸空间",
+    "编号排在打印页边，不挤进绘画主体",
+    "粉色为主、很淡紫色为辅，减少蓝绿冷色",
+    "约20%油画笔触与局部厚涂",
+    "轻微、诗意的破败与时间痕迹，整体仍明亮",
+    "细节局部聚集、尺度不一，保留空域",
+    "非标准、未完成和反复修改的手工痕迹"
+  ],
+  "exclude": [
+    "具象花园风景",
+    "可识别的花朵、树、盆栽",
+    "居中对称的种子或细胞标本",
+    "解剖图、脑、器官",
+    "塔罗边框和标签",
+    "宇宙照片或科幻海报",
+    "临摹参考图构图",
+    "参考图片的签名、文字、水印",
+    "大块钴蓝或群青",
+    "大面积鲜绿",
+    "黑脏霉斑",
+    "恐怖废墟",
+    "全画面污浊棕灰滤镜"
+  ],
+  "random_controls": {
+    "m_n": "色域的节奏与空间分隔",
+    "a_b": "冷暖色域交错和方向偏转",
+    "seed": "构图、笔触、局部空域、色点与层叠位置"
+  },
+  "palette_balance": {
+    "pink_rose_blush": 0.55,
+    "very_pale_lilac": 0.25,
+    "warm_cream": 0.15,
+    "muted_accents": 0.05
+  },
+  "medium_mix": {
+    "airy_translucent_layers": 0.8,
+    "oil_paint": 0.2
+  },
+  "aging": [
+    "细微龟裂",
+    "局部颜料剥落露出暖底",
+    "边缘磨损",
+    "轻微褪色"
+  ],
+  "detail_vocabulary": [
+    "断续且长短不齐的排线",
+    "未闭合框架与弯折网格",
+    "像缝线或手记的不可读涂写",
+    "反复描画但略错位的轮廓",
+    "局部擦除后露出的旧层",
+    "越过色域边界又中断的小形状"
+  ]
+}

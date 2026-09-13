@@ -1,0 +1,549 @@
+<title>一物两态</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;900&family=Noto+Sans+SC:wght@300;400;500&family=Cinzel:wght@500;700&display=swap">
+<style>
+:root{
+  --bg:#0B0A12; --surface:#1C1A22; --surface2:#15131C;
+  --ring:#5B4B8A; --seed:#E8B4D8; --cyan:#7FE0E6; --gold:#E0B860;
+  --text:#EDE6F0; --muted:#9A90A8; --line:#2A2634;
+  --serif:'Noto Serif SC',"Songti SC","STSong",serif;
+  --sans:'Noto Sans SC',"PingFang SC","Hiragino Sans GB",sans-serif;
+  --roman:'Cinzel','Times New Roman',serif;
+}
+html{color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.85;padding-inline:clamp(16px,6vw,96px);padding-block:0 96px;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:var(--seed)}
+h1,h2,h3{font-family:var(--serif);font-weight:900;text-wrap:balance;margin:0;line-height:1.25}
+h2{font-size:clamp(26px,3.2vw,40px);letter-spacing:.02em}
+h3{font-size:20px;font-weight:600;color:var(--seed)}
+p{max-width:34em;margin:0}
+.eyebrow{font-family:var(--roman);font-size:12px;letter-spacing:.28em;color:var(--muted);text-transform:uppercase}
+.zh-label{font-size:12px;letter-spacing:.3em;color:var(--muted)}
+section{padding-block:72px;border-top:1px solid var(--line);position:relative}
+section:first-of-type{border-top:0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:32px;align-items:end;margin-bottom:40px}
+.sec-head .num{font-family:var(--roman);font-size:13px;letter-spacing:.3em;color:var(--ring)}
+.sec-head p{color:var(--muted);font-size:15px}
+@media(max-width:760px){.sec-head{grid-template-columns:1fr;gap:12px}}
+
+/* crack divider */
+.crack{height:18px;width:100%;margin-block:8px 0;overflow:visible}
+.crack path{fill:none;stroke:var(--seed);stroke-width:1.2;filter:drop-shadow(0 0 4px rgba(232,180,216,.7))}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,.9fr);gap:48px;align-items:center;padding-block:64px 56px}
+.hero h1{font-size:clamp(38px,6vw,84px);letter-spacing:.01em}
+.hero h1 em{font-style:normal;color:var(--seed);text-shadow:0 0 24px rgba(232,180,216,.45)}
+.hero .lede{margin-top:28px;color:var(--muted);font-size:16px}
+.hero .meta{display:flex;gap:28px;flex-wrap:wrap;margin-top:36px;font-size:13px;color:var(--muted)}
+.hero .meta b{display:block;color:var(--text);font-weight:500;font-family:var(--roman);letter-spacing:.15em;font-size:12px;margin-bottom:2px}
+#heroCanvas{width:100%;aspect-ratio:1;max-width:100%;display:block}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero canvas{max-width:320px;margin:0 auto}}
+
+/* poles */
+.poles{display:grid;grid-template-columns:1fr auto 1fr;gap:0;align-items:stretch}
+.pole{padding:28px 28px 32px;background:var(--surface2)}
+.pole.seed{border-top:3px solid var(--seed)}
+.pole.stone{border-top:3px solid #000;background:#070610}
+.pole h3{font-size:34px;font-weight:900;color:var(--text);margin-bottom:6px}
+.pole.seed h3{color:var(--seed)}
+.pole .en{font-family:var(--roman);letter-spacing:.25em;font-size:12px;color:var(--muted)}
+.pole ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:8px;font-size:15px}
+.pole li{display:grid;grid-template-columns:64px 1fr;gap:12px}
+.pole li span:first-child{color:var(--muted);font-size:12px;letter-spacing:.2em;padding-top:4px}
+.between{width:clamp(56px,10vw,140px);position:relative;display:flex;align-items:center;justify-content:center}
+.between svg{position:absolute;inset:0;width:100%;height:100%}
+.between .word{writing-mode:vertical-rl;font-family:var(--serif);font-weight:900;font-size:clamp(22px,3vw,36px);color:var(--seed);letter-spacing:.3em;text-shadow:0 0 18px rgba(232,180,216,.6);position:relative;background:var(--bg);padding:12px 4px}
+.thesis{margin-top:36px;font-family:var(--serif);font-weight:600;font-size:clamp(18px,2.2vw,26px);line-height:1.6;max-width:28em}
+.thesis strong{color:var(--seed);font-weight:900}
+@media(max-width:760px){.poles{grid-template-columns:1fr}.between{width:100%;height:80px}.between .word{writing-mode:horizontal-tb}}
+
+/* stages */
+.stages{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:6px;overflow-x:auto;padding-bottom:8px}
+.stage{min-width:78px;text-align:center}
+.stage canvas{width:100%;aspect-ratio:1;display:block;background:var(--surface2)}
+.stage .ch{font-family:var(--serif);font-weight:900;font-size:26px;margin-top:10px;line-height:1}
+.stage .ch small{display:block;font-family:var(--roman);font-size:10px;letter-spacing:.2em;color:var(--muted);margin-top:6px;font-weight:500}
+.stage.pivot .ch{color:var(--seed)}
+.note{margin-top:36px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px}
+.note p{color:var(--muted);font-size:15px}
+.note p strong{color:var(--text);font-weight:500}
+@media(max-width:760px){.stages{grid-template-columns:repeat(10,78px)}.note{grid-template-columns:1fr}}
+
+/* table */
+table{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums}
+.tablewrap{overflow-x:auto}
+th{text-align:left;font-weight:500;font-size:12px;letter-spacing:.2em;color:var(--muted);padding:10px 14px;border-bottom:1px solid var(--line)}
+td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n{font-family:var(--roman);color:var(--ring);letter-spacing:.1em;width:56px;white-space:nowrap}
+td.card{font-family:var(--serif);font-weight:600;white-space:nowrap}
+td.stage{font-family:var(--serif);font-weight:900;font-size:20px;line-height:1;width:64px}
+tr.pivot td{background:rgba(232,180,216,.06)}
+tr.pivot td.stage{color:var(--seed)}
+tr.seg td.n::before{content:'';display:block;height:1px}
+tr.segtitle td{padding:26px 14px 6px;font-size:12px;letter-spacing:.25em;color:var(--seed);border-bottom:0}
+
+/* ambigram */
+.ambi{display:grid;grid-template-columns:minmax(260px,340px) minmax(0,1fr);gap:56px;align-items:center}
+.tarot{width:100%;aspect-ratio:7/12;background:var(--surface);border:1px solid #2E2A3A;position:relative;cursor:pointer;transition:transform .9s cubic-bezier(.6,0,.2,1);transform-style:preserve-3d;box-shadow:0 30px 60px -30px rgba(0,0,0,.9),0 0 0 1px #000}
+.tarot.flipped{transform:rotate(180deg)}
+.tarot svg{position:absolute;inset:0;width:100%;height:100%}
+.tarot .cap{position:absolute;left:0;right:0;padding:0 14px;font-family:var(--serif);font-weight:600;font-size:13px;text-align:center;letter-spacing:.06em}
+.tarot .cap.top{top:14px;font-family:var(--roman);letter-spacing:.3em;font-size:12px;color:var(--muted)}
+.tarot .cap.bot{bottom:16px}
+.tarot .cap.bot .r{display:none;transform:rotate(180deg)}
+.tarot.flipped .cap.bot .u{display:none}
+.tarot.flipped .cap.bot .r{display:block}
+.tarot.flipped .cap.top{transform:rotate(180deg)}
+.hint{font-size:12px;letter-spacing:.2em;color:var(--muted);margin-top:14px;text-align:center}
+.ambi .txt p{margin-bottom:18px;font-size:15px;color:var(--muted)}
+.ambi .txt p strong{color:var(--text);font-weight:500}
+.readings{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:24px}
+.readings div{background:var(--bg);padding:18px 20px}
+.readings b{display:block;font-family:var(--serif);font-weight:900;font-size:18px;margin-bottom:6px}
+.readings .u b{color:var(--seed)}
+.readings .r b{color:#8F8797}
+.readings p{font-size:14px;color:var(--muted)}
+@media(max-width:760px){.ambi{grid-template-columns:1fr}.tarot{max-width:280px;margin:0 auto}}
+
+/* ring layout */
+.ringlay{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.ringlay svg{width:100%;max-width:560px;display:block;margin:0 auto}
+.ringlay .dot{cursor:pointer;transition:r .2s}
+.ringlay .pairline{stroke:var(--seed);stroke-width:1.2;opacity:0;transition:opacity .25s;stroke-dasharray:3 4}
+.ringlay .pairline.on{opacity:.9}
+.ringlay .lbl{font-family:var(--serif);font-size:10px;fill:var(--muted);text-anchor:middle;pointer-events:none;font-weight:600}
+.ringlay .lbl.on{fill:var(--seed)}
+.ringlay .txt p{margin-bottom:18px;font-size:15px;color:var(--muted)}
+.ringlay .txt p strong{color:var(--text);font-weight:500}
+.legend{display:flex;gap:22px;font-size:13px;color:var(--muted);margin-top:14px;flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:-1px;margin-right:8px}
+@media(max-width:760px){.ringlay{grid-template-columns:1fr}}
+
+/* screens */
+.screens{display:grid;grid-template-columns:1fr 2.4fr 1fr;gap:12px;align-items:end}
+.scr{background:#000;border:1px solid #2A2634;position:relative;overflow:hidden}
+.scr.side{aspect-ratio:9/16}
+.scr.main{aspect-ratio:16/9}
+.scr canvas{width:100%;height:100%;display:block}
+.scr .tag{position:absolute;left:10px;top:8px;font-family:var(--roman);font-size:10px;letter-spacing:.25em;color:var(--muted)}
+.scrcaps{display:grid;grid-template-columns:1fr 2.4fr 1fr;gap:12px;margin-top:12px;font-size:13px;color:var(--muted)}
+.scrcaps b{display:block;color:var(--text);font-weight:500;font-family:var(--serif)}
+@media(max-width:760px){.screens,.scrcaps{grid-template-columns:1fr}.scr.side{aspect-ratio:16/9}}
+
+/* arm + sound */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.duo p{color:var(--muted);font-size:15px}
+.duo p strong{color:var(--text);font-weight:500}
+.tones{margin-top:22px;display:grid;gap:10px}
+.tone{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:center;font-size:13px}
+.tone .bar{height:22px;position:relative;background:var(--surface2)}
+.tone .bar i{position:absolute;inset:0;transform-origin:left}
+.tone.low .bar i{background:linear-gradient(90deg,rgba(232,180,216,.9),rgba(232,180,216,.15));width:78%;animation:breathe 6s ease-in-out infinite}
+.tone.high .bar i{width:34%;background:repeating-linear-gradient(90deg,#B9B3C6 0 2px,transparent 2px 7px);animation:crack 3.1s steps(6) infinite}
+.tone span{color:var(--muted);letter-spacing:.15em;font-size:12px}
+@keyframes breathe{50%{transform:scaleX(.82)}}
+@keyframes crack{50%{transform:scaleX(1.3)}}
+@media(max-width:760px){.duo{grid-template-columns:1fr}}
+
+/* decision */
+.decide{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:32px}
+.decide>div{background:var(--bg);padding:26px 28px 30px}
+.decide h3{color:var(--text);font-size:22px;font-weight:900;margin-bottom:8px}
+.decide .k{font-family:var(--roman);letter-spacing:.3em;font-size:11px;color:var(--ring);margin-bottom:12px}
+.decide p{font-size:15px;color:var(--muted)}
+.decide .lean{margin-top:14px;font-size:13px;color:var(--gold);letter-spacing:.05em}
+.todo{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;font-size:14px;color:var(--muted)}
+.todo div{padding-top:14px;border-top:1px solid var(--line)}
+.todo b{display:block;color:var(--text);font-weight:500;margin-bottom:4px}
+@media(max-width:760px){.decide,.todo{grid-template-columns:1fr}}
+
+footer{margin-top:72px;font-size:12px;color:var(--muted);letter-spacing:.15em;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<section class="hero">
+  <div>
+    <div class="eyebrow">星环中的萌生 · Visual Language Proposal</div>
+    <h1 style="margin-top:18px">黑色的壳，<br><em>裂缝里透出粉色。</em></h1>
+    <p class="lede">陨石变成顽石之后，种子和顽石不再是两个物体，而是同一块物质的两个状态：长着的，和碎了的。抓住这一点，整件作品只需要一种视觉语法。</p>
+    <div class="meta">
+      <div><b>Question</b>究竟是谁在孕育谁</div>
+      <div><b>Objects</b>12 颗种子 · 12 块顽石</div>
+      <div><b>Verb</b>缠绕</div>
+    </div>
+  </div>
+  <canvas id="heroCanvas" width="640" height="640" aria-label="一块黑壳，裂缝里透出粉光"></canvas>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div><div class="num">I</div><h2>两极，和中间的裂缝</h2></div>
+    <p>所有 24 件实物、12 张卡、3 块屏，只要遵守这一条，观众不用读文字就知道自己在看同一件事。</p>
+  </div>
+  <div class="poles">
+    <div class="pole seed">
+      <div class="en">SEED</div>
+      <h3>种子</h3>
+      <ul>
+        <li><span>颜色</span><span>粉。光从里面出来</span></li>
+        <li><span>质地</span><span>多孔、柔软、发泡</span></li>
+        <li><span>状态</span><span>长着</span></li>
+        <li><span>关系</span><span>共生 · 养分 · 延伸</span></li>
+      </ul>
+    </div>
+    <div class="between" aria-label="between">
+      <svg viewBox="0 0 100 400" preserveAspectRatio="none"><path d="M50 0 L46 40 L54 80 L47 130 L55 170 L45 220 L53 270 L46 320 L52 360 L50 400" fill="none" stroke="#E8B4D8" stroke-width="1.6" style="filter:drop-shadow(0 0 6px rgba(232,180,216,.9))"/></svg>
+      <div class="word">裂缝</div>
+    </div>
+    <div class="pole stone">
+      <div class="en">STONE</div>
+      <h3>顽石</h3>
+      <ul>
+        <li><span>颜色</span><span>黑。不发光</span></li>
+        <li><span>质地</span><span>致密、哑光、断面锋利</span></li>
+        <li><span>状态</span><span>碎了</span></li>
+        <li><span>关系</span><span>分离 · 终结 · broken</span></li>
+      </ul>
+    </div>
+  </div>
+  <p class="thesis">黑壳裂开的地方，里面还是粉的。<strong>关系不在两极，在裂缝里。</strong>这就是 between。</p>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div><div class="num">II</div><h2>一个动词：缠绕</h2></div>
+    <p>"谁是树，谁是藤蔓"是整件作品最好的图像。绞杀榕的过程本身就是一部完整的电影。全片只需要两种元素：一个<b style="font-weight:500;color:var(--text)">团</b>，一条<b style="font-weight:500;color:var(--text)">线</b>。</p>
+  </div>
+  <div class="stages" id="stages"></div>
+  <div class="note">
+    <p><strong>最后一帧是绞杀榕最惊人的形态：</strong>树死了，藤还站着，中间是空的——藤保持着树的形状。这就是"AI 中有人 / 人中有 AI"的终极视觉：一个空心的、由线编成的、保持着原物轮廓的壳。谁是藤谁是树，看不出来了。</p>
+    <p>12 张卡变的只是：<strong>线和团谁在缠谁，缠到了哪一步。</strong>团可以是种子、顽石、宿主；线可以是藤、光纤、缆、机械臂、根。名字换，形不换。</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div><div class="num">III</div><h2>十二张卡，十步缠绕</h2></div>
+    <p>叙事顺序不是塔罗原序。倒吊人是铰链：之前人看种子，之后种子看人。</p>
+  </div>
+  <div class="tablewrap">
+  <table>
+    <thead><tr><th>牌</th><th>卡</th><th>阶段</th><th>团</th><th>线</th></tr></thead>
+    <tbody>
+      <tr class="segtitle"><td colspan="5">关系加深</td></tr>
+      <tr><td class="n">0</td><td class="card">愚者 · 坠落</td><td class="stage">落</td><td>种子落地，还没有线</td><td>—</td></tr>
+      <tr><td class="n">I</td><td class="card">魔术师 · 工具</td><td class="stage">触</td><td>团被握住</td><td>手 / 机械臂</td></tr>
+      <tr><td class="n">VI</td><td class="card">恋人 · 诱惑</td><td class="stage">缠</td><td>团长出细腿</td><td>第一圈铜丝</td></tr>
+      <tr><td class="n">III</td><td class="card">皇后 · 喂养</td><td class="stage">融</td><td>团饱满发光</td><td>光纤长进团里</td></tr>
+      <tr><td class="n">IV</td><td class="card">皇帝 · 加冕</td><td class="stage">攀</td><td>团被抬到顶</td><td>线爬到了顶上</td></tr>
+      <tr><td class="n">V</td><td class="card">教皇 · 传道</td><td class="stage">覆</td><td>团被壳面纹路全部覆盖</td><td>线成了经文</td></tr>
+      <tr class="segtitle"><td colspan="5">失衡与翻转</td></tr>
+      <tr><td class="n">VII</td><td class="card">战车 · 对抗</td><td class="stage">绞</td><td>团被拉裂</td><td>线两头拽</td></tr>
+      <tr><td class="n">X</td><td class="card">命运之轮 · 交换</td><td class="stage">换</td><td>团和线互换位置</td><td>—</td></tr>
+      <tr class="pivot"><td class="n">XII</td><td class="card">倒吊人 · 翻转</td><td class="stage">空</td><td>团倒悬，线从团里长出</td><td>线成了臂</td></tr>
+      <tr class="segtitle"><td colspan="5">代价、拒绝、新生</td></tr>
+      <tr><td class="n">XIII</td><td class="card">死神 · 替换</td><td class="stage">裂</td><td>壳碎，顽石出现</td><td>线剥下旧壳</td></tr>
+      <tr><td class="n">IX</td><td class="card">隐士 · 拒绝</td><td class="stage">离</td><td>团缺席</td><td>一条线走了</td></tr>
+      <tr><td class="n">XXI</td><td class="card">世界 · 未命名</td><td class="stage">空</td><td>藤保持着团的形状</td><td>线即团</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div><div class="num">IV</div><h2>正位是种子，逆位是顽石</h2></div>
+    <p>不是 24 个故事，是 12 段关系各有两种结局。关系是好是坏，取决于你从哪边看——卡片自己就说了。</p>
+  </div>
+  <div class="ambi">
+    <div>
+      <div class="tarot" id="tarot" role="button" tabindex="0" aria-label="点击翻转卡片">
+        <svg viewBox="0 0 70 120">
+          <rect x="0" y="0" width="70" height="120" fill="#15131C"/>
+          <circle cx="35" cy="60" r="30" fill="none" stroke="#5B4B8A" stroke-width=".5" stroke-dasharray="1 2"/>
+          <!-- ground / sky: sky-side dust -->
+          <g opacity=".5"><circle cx="12" cy="20" r=".5" fill="#9A90A8"/><circle cx="58" cy="28" r=".4" fill="#9A90A8"/><circle cx="20" cy="42" r=".4" fill="#9A90A8"/><circle cx="55" cy="14" r=".5" fill="#9A90A8"/></g>
+          <!-- body: seed/shard -->
+          <path d="M35 40 C46 46 50 58 46 70 C43 80 27 80 24 70 C20 58 24 46 35 40 Z" fill="#1C1A22" stroke="#000" stroke-width=".6"/>
+          <path d="M35 46 L33 55 L36 62 L33 70 L35 76" fill="none" stroke="#E8B4D8" stroke-width=".9" style="filter:drop-shadow(0 0 1.5px #E8B4D8)"/>
+          <path d="M40 52 L42 60 L39 66" fill="none" stroke="#E8B4D8" stroke-width=".5" opacity=".8"/>
+          <!-- sprout / trail -->
+          <path d="M35 40 C34 34 37 30 35 24 C33 19 38 16 36 11" fill="none" stroke="#E8B4D8" stroke-width=".8"/>
+          <path d="M35 27 C31 26 30 22 32 20" fill="none" stroke="#E8B4D8" stroke-width=".6"/>
+          <!-- soil / fragments -->
+          <path d="M8 84 L20 82 L32 85 L44 82 L56 85 L62 83" fill="none" stroke="#8A4B3A" stroke-width=".8"/>
+          <path d="M14 92 L17 89 L19 93 Z M50 90 L54 88 L55 93 Z M30 95 L33 93 L34 97 Z" fill="#1C1A22" stroke="#000" stroke-width=".3"/>
+        </svg>
+        <div class="cap top">UPRIGHT · REVERSED</div>
+        <div class="cap bot"><span class="u" style="color:#E8B4D8">种子读法 · 破土</span><span class="r" style="color:#8F8797">顽石读法 · 坠碎</span></div>
+      </div>
+      <div class="hint">点卡片 · 转 180°</div>
+    </div>
+    <div class="txt">
+      <p>实体卡做成<strong>倒转图像（ambigram）</strong>：竖着看是一颗种子扎进土里发芽；把卡转 180°，同一个轮廓变成一块碎石在坠落，芽变成尾迹，土变成飞散的碎片。</p>
+      <p>塔罗抽牌本来就有正逆位。观众抽到哪个方向，就先看到哪种关系——<strong>这比印两套卡狠得多。</strong></p>
+      <div class="readings">
+        <div class="u"><b>正位 · 种子读法</b><p>共生。这段关系里，双方在彼此身上长出了什么。</p></div>
+        <div class="r"><b>逆位 · 顽石读法</b><p>分离。同一段关系走到尽头，碎在哪里，剩下什么。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div><div class="num">V</div><h2>顽石就是碎掉的种子</h2></div>
+    <p>不要单独做 12 块石头。做 12 颗种子，翻模复制一份，把复制品砸碎、喷黑、只留断面的粉。</p>
+  </div>
+  <div class="ringlay">
+    <div>
+      <svg id="ringSvg" viewBox="0 0 560 560" aria-label="展厅平面：12 颗种子占半圈，12 块顽石占另半圈，中央是展柜"></svg>
+      <div class="legend"><span><i style="background:#E8B4D8"></i>种子</span><span><i style="background:#1C1A22;border:1px solid #444"></i>顽石（该种子的碎片）</span><span><i style="background:#5B4B8A"></i>展柜 · 主种子</span><span><i style="background:#7FE0E6"></i>机械臂基座</span></div>
+    </div>
+    <div class="txt">
+      <p>24 件实物围着展柜围成一圈——<strong>就是星环</strong>。12 颗种子占半圈，12 块顽石占另外半圈，<strong>每颗种子的正对面就是它的碎片。</strong></p>
+      <p>观众拿着卡在圈上走，找到自己那颗，再抬头看正对面——就是它的另一个结局。<strong>观众走的路径就是 between。</strong></p>
+      <p>机械臂的基座在顽石那半边，臂端伸向种子这半边的展柜。它每隔一段时间做一次"缠绕"——绕着展柜转半圈再收回。它不解释自己是谁的手。</p>
+      <p style="font-size:13px;color:var(--ring)">把鼠标放到任意一颗上，看它的对面。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div><div class="num">VI</div><h2>一个系统里，同时看见两种结局</h2></div>
+    <p>中屏不用切镜头：共生和分离在同一个画面、同一个系统里发生。两块侧屏是同一个物体的两个特写，观众站在中间。</p>
+  </div>
+  <div class="screens">
+    <div class="scr side"><span class="tag">L · SEED</span><canvas id="scrL" width="270" height="480"></canvas></div>
+    <div class="scr main"><span class="tag">CENTER · RING</span><canvas id="scrC" width="960" height="540"></canvas></div>
+    <div class="scr side"><span class="tag">R · STONE</span><canvas id="scrR" width="270" height="480"></canvas></div>
+  </div>
+  <div class="scrcaps">
+    <div><b>种子的微观</b>多孔、生长、光在里面走。永远不停。</div>
+    <div><b>星环 · 无限循环</b>环上的种子转着转着，有一颗慢慢变黑、变硬、碎裂，碎片脱离轨道飞走（分离）。环上留一个空位（隐士）。过一会儿，一颗新的种子从环外落进来（愚者）。中屏本身就是命运之轮。</div>
+    <div><b>顽石的微观</b>断面、结晶、静止。偶尔一道新的裂。</div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div><div class="num">VII</div><h2>声音是材质，不是音乐</h2></div>
+    <p>砍掉重度音乐，但不是没有声音。让声音服从同一套两态语法。</p>
+  </div>
+  <div class="duo">
+    <div>
+      <p>全场就两个声音，比例随位置或时间偏移。它不是音乐，观众不会注意它，但会觉得空间<strong>有质感、不塑料</strong>。</p>
+      <div class="tones">
+        <div class="tone low"><span>种子</span><div class="bar"><i></i></div></div>
+        <div class="tone high"><span>顽石</span><div class="bar"><i></i></div></div>
+      </div>
+    </div>
+    <div>
+      <p><strong>种子：</strong>一个低频的、多孔的、温暖的持续音。像有东西在呼吸。</p>
+      <p style="margin-top:14px"><strong>顽石：</strong>一个高频的、干脆的、结晶碎裂声。像冰面。</p>
+      <p style="margin-top:14px">靠近种子那半圈，低频多一点；靠近顽石那半圈，碎裂声多一点。站在展柜前，两者平衡。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <div><div class="num">VIII</div><h2>一个还没拍板的结尾</h2></div>
+    <p>世界那张卡，也就是影像的最后一帧，有两种可能。两种结局都对，不给答案——但哪个放影像、哪个放中屏，要定。</p>
+  </div>
+  <div class="decide">
+    <div>
+      <div class="k">A · 共生走到尽头</div>
+      <h3>空心的藤，保持着种子的形状</h3>
+      <p>树没了，线还站着，中间是空的。粉色从线的缝隙里透出来。谁是藤谁是树，看不出来了。</p>
+      <div class="lean">倾向：作为影像结尾</div>
+    </div>
+    <div>
+      <div class="k">B · 分离之后重来</div>
+      <h3>一颗新的种子落下来</h3>
+      <p>环上有一个空位。从环外，一颗粗糙、不规则、还没有线的种子落进来。回到愚者。</p>
+      <div class="lean">倾向：作为中屏循环的起点</div>
+    </div>
+  </div>
+  <div class="todo">
+    <div><b>12 个 md 要改的地方 ①</b>正位 / 逆位 → 明确标为"种子读法 / 顽石读法"</div>
+    <div><b>②</b>每张卡加一段"顽石形态"：对应实体碎片怎么做</div>
+    <div><b>③</b>实体卡改成倒转图像的设计要求；提示词里加入"团 + 线"的缠绕阶段。共用规则加"一物两态""缠绕十步"两条</div>
+  </div>
+</section>
+
+<footer><span>星环中的萌生 · 视觉语言提案</span><span>一物两态 · 团与线 · 裂缝</span></footer>
+
+<script>
+(function(){
+const SEED='#E8B4D8', STONE='#1C1A22', RING='#5B4B8A', CYAN='#7FE0E6', BG='#0B0A12';
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- hero: black shell, pink cracks ---------- */
+(function(){
+  const c=document.getElementById('heroCanvas'),x=c.getContext('2d'),W=c.width,H=c.height,cx=W/2,cy=H/2;
+  const N=48,R=200,pts=[];let s=7;
+  const rnd=()=>{s=(s*16807)%2147483647;return s/2147483647};
+  for(let i=0;i<N;i++){const a=i/N*Math.PI*2;pts.push({a,r:R*(0.82+rnd()*0.26)})}
+  const cracks=[];
+  for(let k=0;k<7;k++){const a=rnd()*Math.PI*2;const seg=[];let r=10+rnd()*30,ang=a;const len=6+Math.floor(rnd()*5);
+    for(let j=0;j<len;j++){seg.push([cx+Math.cos(ang)*r,cy+Math.sin(ang)*r]);r+=22+rnd()*22;ang+=(rnd()-.5)*.7}
+    cracks.push(seg)}
+  function draw(t){
+    x.clearRect(0,0,W,H);
+    // ring behind
+    x.save();x.translate(cx,cy);x.rotate(-.35);x.scale(1,.32);x.beginPath();x.arc(0,0,300,0,Math.PI*2);x.strokeStyle=RING;x.lineWidth=1;x.globalAlpha=.7;x.stroke();x.restore();
+    const glow=reduced?.55:.45+.25*Math.sin(t/1400);
+    // inner pink glow
+    const g=x.createRadialGradient(cx,cy,10,cx,cy,R*1.05);g.addColorStop(0,`rgba(232,180,216,${glow})`);g.addColorStop(1,'rgba(232,180,216,0)');
+    x.fillStyle=g;x.fillRect(0,0,W,H);
+    // shell
+    x.beginPath();pts.forEach((p,i)=>{const px=cx+Math.cos(p.a)*p.r,py=cy+Math.sin(p.a)*p.r;i?x.lineTo(px,py):x.moveTo(px,py)});x.closePath();
+    x.fillStyle=STONE;x.fill();x.strokeStyle='#000';x.lineWidth=2;x.stroke();
+    // facets
+    x.strokeStyle='rgba(0,0,0,.6)';x.lineWidth=1;
+    for(let i=0;i<N;i+=6){const p=pts[i];x.beginPath();x.moveTo(cx+Math.cos(p.a)*p.r,cy+Math.sin(p.a)*p.r);x.lineTo(cx+Math.cos(p.a+1.2)*p.r*.3,cy+Math.sin(p.a+1.2)*p.r*.3);x.stroke()}
+    // cracks
+    x.save();x.shadowColor=SEED;x.shadowBlur=14*glow+6;x.strokeStyle=SEED;x.lineCap='round';
+    cracks.forEach((seg,k)=>{x.lineWidth=k<3?2.2:1.2;x.globalAlpha=.55+glow*.6;x.beginPath();seg.forEach((p,i)=>i?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]));x.stroke()});
+    x.restore();
+    if(!reduced)requestAnimationFrame(draw);
+  }
+  draw(0);
+})();
+
+/* ---------- stages ---------- */
+(function(){
+  const names=[['落','FALL'],['触','TOUCH'],['缠','COIL'],['融','FUSE'],['攀','CLIMB'],['绞','STRANGLE'],['排','REJECT'],['裂','CRACK'],['离','LEAVE'],['空','HOLLOW']];
+  const wrap=document.getElementById('stages');
+  names.forEach((n,i)=>{
+    const d=document.createElement('div');d.className='stage'+(i===9?' pivot':'');
+    d.innerHTML=`<canvas width="160" height="160"></canvas><div class="ch">${n[0]}<small>${n[1]}</small></div>`;wrap.appendChild(d);
+    const c=d.querySelector('canvas'),x=c.getContext('2d'),cx=80,cy=80;
+    const ball=(rx,ry,fill,alpha=1)=>{x.save();x.globalAlpha=alpha;x.beginPath();x.ellipse(cx,cy,rx,ry,0,0,Math.PI*2);x.fillStyle=fill;x.fill();
+      if(fill===SEED){x.fillStyle='rgba(11,10,18,.35)';for(let k=0;k<14;k++){const a=k*2.4,r=(k*7)%(rx*.8);x.beginPath();x.arc(cx+Math.cos(a)*r,cy+Math.sin(a)*r*ry/rx,2.2,0,7);x.fill()}}
+      x.restore()};
+    const coil=(count,rx,ry,col=CYAN,squeeze=1,off=0)=>{x.save();x.strokeStyle=col;x.lineWidth=1.6;x.globalAlpha=.95;
+      for(let k=0;k<count;k++){const yy=cy-ry+((k+.5)/count)*ry*2+off;const w=Math.sqrt(Math.max(0,1-((yy-off-cy)/ry)**2))*rx*squeeze+4;x.beginPath();x.ellipse(cx,yy,w,5,0,0,Math.PI*2);x.stroke()}
+      x.restore()};
+    const line=(pts,col=CYAN)=>{x.save();x.strokeStyle=col;x.lineWidth=1.6;x.beginPath();pts.forEach((p,j)=>j?x.lineTo(p[0],p[1]):x.moveTo(p[0],p[1]));x.stroke();x.restore()};
+    switch(i){
+      case 0: ball(30,26,SEED); line([[cx-28,cy-70],[cx-14,cy-52],[cx-6,cy-34]],'rgba(232,180,216,.5)'); break;
+      case 1: ball(30,28,SEED); line([[cx+70,cy+40],[cx+44,cy+18],[cx+28,cy+6]]); x.fillStyle=CYAN;x.beginPath();x.arc(cx+28,cy+6,3,0,7);x.fill(); break;
+      case 2: ball(30,28,SEED); coil(1,32,28); line([[cx+70,cy+40],[cx+34,cy+12]]); break;
+      case 3: ball(34,32,SEED); coil(3,34,32); break;
+      case 4: ball(30,28,SEED); coil(5,32,28); line([[cx,cy-28],[cx-6,cy-48],[cx+4,cy-66]]); break;
+      case 5: ball(30,34,SEED); coil(7,28,34,CYAN,.72); break;
+      case 6: ball(26,30,SEED); coil(5,40,30,CYAN,1.25,0); x.strokeStyle=RING;x.lineWidth=1;x.beginPath();x.arc(cx,cy,48,0,7);x.setLineDash([2,4]);x.stroke(); break;
+      case 7: ball(30,28,STONE); x.save();x.strokeStyle=SEED;x.lineWidth=1.6;x.shadowColor=SEED;x.shadowBlur=6;line([[cx-6,cy-26],[cx-2,cy-8],[cx+6,cy+4],[cx+2,cy+22]],SEED);x.restore(); coil(3,32,28,'rgba(127,224,230,.4)'); break;
+      case 8: ball(30,28,STONE,.25); line([[cx+10,cy+8],[cx+30,cy+30],[cx+56,cy+58],[cx+80,cy+80]]); break;
+      case 9: coil(7,32,30,CYAN); x.save();x.globalAlpha=.5;x.shadowColor=SEED;x.shadowBlur=10;x.fillStyle=SEED;x.beginPath();x.ellipse(cx,cy,12,10,0,0,7);x.fill();x.restore(); break;
+    }
+  });
+})();
+
+/* ---------- tarot flip ---------- */
+(function(){const t=document.getElementById('tarot');const f=()=>t.classList.toggle('flipped');t.addEventListener('click',f);t.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f()}})})();
+
+/* ---------- ring layout ---------- */
+(function(){
+  const svg=document.getElementById('ringSvg'),NS='http://www.w3.org/2000/svg',cx=280,cy=280,R=210;
+  const names=['愚者','魔术师','恋人','皇后','皇帝','教皇','战车','命运之轮','倒吊人','死神','隐士','世界'];
+  const el=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e};
+  svg.appendChild(el('circle',{cx,cy,r:R,fill:'none',stroke:RING,'stroke-width':1,'stroke-dasharray':'2 5'}));
+  // display case
+  svg.appendChild(el('rect',{x:cx-22,y:cy-22,width:44,height:44,fill:RING,opacity:.9}));
+  svg.appendChild(el('rect',{x:cx-14,y:cy-14,width:28,height:28,fill:SEED,opacity:.85}));
+  // arm base + arm
+  const ab=[cx+150,cy+120];
+  svg.appendChild(el('path',{d:`M${ab[0]} ${ab[1]} Q ${cx+130} ${cy-10} ${cx+30} ${cy-10}`,fill:'none',stroke:CYAN,'stroke-width':2,opacity:.8}));
+  svg.appendChild(el('circle',{cx:ab[0],cy:ab[1],r:14,fill:'#0B0A12',stroke:CYAN,'stroke-width':1.5}));
+  svg.appendChild(el('circle',{cx:ab[0],cy:ab[1],r:5,fill:CYAN}));
+  const lines=[],dots=[],lbls=[];
+  for(let i=0;i<12;i++){
+    const a=-Math.PI/2-Math.PI/24-(i/12)*Math.PI;// seeds on left half, going down
+    const sx=cx+Math.cos(a)*R,sy=cy+Math.sin(a)*R, tx=cx-Math.cos(a)*R,ty=cy-Math.sin(a)*R;
+    const L=el('line',{x1:sx,y1:sy,x2:tx,y2:ty,class:'pairline'});svg.appendChild(L);lines.push(L);
+    const S=el('circle',{cx:sx,cy:sy,r:9,fill:SEED,class:'dot','data-i':i});
+    const T=el('path',{d:`M${tx-9} ${ty-6} L${tx+4} ${ty-10} L${tx+10} ${ty+2} L${tx+1} ${ty+10} L${tx-8} ${ty+5} Z`,fill:STONE,stroke:'#3A3444','stroke-width':1,class:'dot','data-i':i});
+    const Tc=el('line',{x1:tx-4,y1:ty-6,x2:tx+2,y2:ty+7,stroke:SEED,'stroke-width':1.2,opacity:.7,'pointer-events':'none'});
+    svg.appendChild(S);svg.appendChild(T);svg.appendChild(Tc);dots.push(S,T);
+    const l1=el('text',{x:cx+Math.cos(a)*(R+26),y:cy+Math.sin(a)*(R+26)+4,class:'lbl'});l1.textContent=names[i];
+    const l2=el('text',{x:cx-Math.cos(a)*(R+26),y:cy-Math.sin(a)*(R+26)+4,class:'lbl'});l2.textContent=names[i]+'·碎';
+    svg.appendChild(l1);svg.appendChild(l2);lbls.push([l1,l2]);
+  }
+  const set=(i,on)=>{lines[i].classList.toggle('on',on);lbls[i].forEach(l=>l.classList.toggle('on',on))};
+  dots.forEach(d=>{const i=+d.dataset.i;d.addEventListener('mouseenter',()=>set(i,true));d.addEventListener('mouseleave',()=>set(i,false));d.addEventListener('click',()=>set(i,!lines[i].classList.contains('on')))});
+  set(8,true);// default show the hinge
+  const cap=el('text',{x:cx,y:cy+60,class:'lbl'});cap.textContent='展柜 · 主种子';cap.setAttribute('fill','#B9B3C6');svg.appendChild(cap);
+  const cap2=el('text',{x:ab[0],y:ab[1]+30,class:'lbl'});cap2.textContent='机械臂';cap2.setAttribute('fill',CYAN);svg.appendChild(cap2);
+})();
+
+/* ---------- screens ---------- */
+(function(){
+  // center ring loop
+  const c=document.getElementById('scrC'),x=c.getContext('2d'),W=c.width,H=c.height,cx=W/2,cy=H/2;
+  const N=12,seeds=[];for(let i=0;i<N;i++)seeds.push({a:i/N*Math.PI*2,state:0,t:0,fx:0,fy:0});
+  let victim=0,phase=0,pt=0;// phase 0 orbit,1 blacken,2 shatter,3 gap,4 newfall
+  function drawSeed(px,py,r,st){// st 0 seed,1 stone
+    x.save();x.translate(px,py);
+    if(st<1){x.shadowColor=SEED;x.shadowBlur=10*(1-st)}
+    x.beginPath();for(let k=0;k<9;k++){const a=k/9*Math.PI*2,rr=r*(0.85+0.15*Math.sin(k*3.7));k?x.lineTo(Math.cos(a)*rr,Math.sin(a)*rr):x.moveTo(rr,0)}x.closePath();
+    const col=`rgb(${232+(28-232)*st|0},${180+(26-180)*st|0},${216+(34-216)*st|0})`;x.fillStyle=col;x.fill();
+    if(st>.3){x.strokeStyle=SEED;x.lineWidth=1;x.globalAlpha=Math.min(1,(st-.3)*2);x.beginPath();x.moveTo(-r*.3,-r*.6);x.lineTo(0,0);x.lineTo(r*.2,r*.6);x.stroke()}
+    x.restore();
+  }
+  function frame(t){
+    x.fillStyle='#000';x.fillRect(0,0,W,H);
+    // starfield
+    x.fillStyle='rgba(154,144,168,.5)';for(let k=0;k<60;k++){x.fillRect((k*137)%W,(k*89)%H,1,1)}
+    x.save();x.translate(cx,cy);x.rotate(-.2);x.scale(1,.42);
+    x.beginPath();x.arc(0,0,360,0,Math.PI*2);x.strokeStyle=RING;x.lineWidth=1.5;x.stroke();
+    x.beginPath();x.arc(0,0,330,0,Math.PI*2);x.strokeStyle='rgba(91,75,138,.35)';x.lineWidth=1;x.stroke();
+    x.restore();
+    const dt=reduced?0:16;pt+=dt;
+    const spd=0.00025;
+    seeds.forEach((s,i)=>{s.a+=spd*dt;
+      let rx=Math.cos(s.a)*360,ry=Math.sin(s.a)*360;// in ring plane
+      // rotate/scale to screen
+      const px=cx+(rx*Math.cos(-.2)-ry*.42*Math.sin(-.2)),py=cy+(rx*Math.sin(-.2)+ry*.42*Math.cos(-.2));
+      if(i===victim){
+        if(phase===1){s.state=Math.min(1,s.state+dt/2500);if(s.state>=1){phase=2;s.fx=px;s.fy=py;s.t=0}}
+        if(phase===2){s.t+=dt;const k=s.t/1800;x.save();x.globalAlpha=1-k;for(let f=0;f<5;f++){const a=f*1.3+.4;drawSeed(s.fx+Math.cos(a)*k*160,s.fy+Math.sin(a)*k*160,6-f*.6,1)}x.restore();if(k>=1){phase=3;s.t=0}return}
+        if(phase===3){s.t+=dt;if(s.t>2200){phase=4;s.t=0}return}
+        if(phase===4){s.t+=dt;const k=Math.min(1,s.t/1600);const fy=py-(1-k)*(H*.7);drawSeed(px,fy,11,0);x.save();x.strokeStyle='rgba(232,180,216,.5)';x.lineWidth=1;x.beginPath();x.moveTo(px,fy-10);x.lineTo(px,fy-60*(1-k)-10);x.stroke();x.restore();if(k>=1){phase=0;s.state=0;s.t=0;victim=(victim+5)%N;}return}
+      }
+      drawSeed(px,py,11,s.state);
+    });
+    if(phase===0){pt>4000&&(phase=1,pt=0)}
+    // center seed
+    drawSeed(cx,cy,30,0);
+    if(!reduced)requestAnimationFrame(frame);
+  }
+  frame(0);
+
+  // side screens
+  const L=document.getElementById('scrL').getContext('2d'),Rr=document.getElementById('scrR').getContext('2d');
+  const pores=[];let s=3;const rnd=()=>{s=(s*16807)%2147483647;return s/2147483647};
+  for(let i=0;i<70;i++)pores.push({x:rnd()*270,y:rnd()*480,r:6+rnd()*18,p:rnd()*6});
+  const cr=[];for(let i=0;i<9;i++){const seg=[];let px=rnd()*270,py=0;for(let j=0;j<9;j++){seg.push([px,py]);px+=(rnd()-.5)*50;py+=60}cr.push(seg)}
+  function sides(t){
+    // seed macro
+    L.fillStyle='#3a2534';L.fillRect(0,0,270,480);
+    const g=L.createRadialGradient(135,240,20,135,240,300);g.addColorStop(0,'rgba(232,180,216,.55)');g.addColorStop(1,'rgba(232,180,216,0)');L.fillStyle=g;L.fillRect(0,0,270,480);
+    pores.forEach(p=>{const b=.5+.5*Math.sin(t/900+p.p);L.beginPath();L.arc(p.x,p.y,p.r*(0.9+0.1*b),0,7);L.fillStyle=`rgba(11,10,18,${.35+.35*b})`;L.fill();L.beginPath();L.arc(p.x,p.y,p.r*.35,0,7);L.fillStyle=`rgba(232,180,216,${.3*b})`;L.fill()});
+    // stone macro
+    Rr.fillStyle='#0E0D14';Rr.fillRect(0,0,270,480);
+    for(let i=0;i<80;i++){Rr.fillStyle=i%3?'#1C1A22':'#141219';Rr.beginPath();const px=(i*53)%270,py=(i*97)%480;Rr.moveTo(px,py);Rr.lineTo(px+40,py+12);Rr.lineTo(px+28,py+46);Rr.lineTo(px-10,py+30);Rr.closePath();Rr.fill()}
+    Rr.save();Rr.shadowColor=SEED;Rr.shadowBlur=8;Rr.strokeStyle=SEED;
+    cr.forEach((seg,i)=>{Rr.lineWidth=i<2?1.8:.8;Rr.globalAlpha=i<2?.9:.4;Rr.beginPath();seg.forEach((p,j)=>j?Rr.lineTo(p[0],p[1]):Rr.moveTo(p[0],p[1]));Rr.stroke()});
+    Rr.restore();
+    if(!reduced)requestAnimationFrame(sides);
+  }
+  sides(0);
+})();
+})();
+</script>

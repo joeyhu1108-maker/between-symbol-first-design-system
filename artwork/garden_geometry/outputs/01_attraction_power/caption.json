@@ -1,0 +1,31 @@
+{
+  "id": 5,
+  "text": "当算法预判我们的欲望，自由意志是幻觉，还是抵抗本身也已被预先编码？",
+  "bank_version": "ai-questions-30-v1",
+  "selection": "explicit_selection",
+  "placement": "bottom margin within continuous four-sided warm-white mounting border",
+  "material": "soft graphite, gray-brown, handwritten pencil grain",
+  "mounting_border": {
+    "mat_mm": 12.0,
+    "page_mm": [
+      210.0,
+      297.0
+    ],
+    "all_four_sides_equal": true,
+    "top_matches_sides": true,
+    "bottom_slightly_wider": false,
+    "outer_edge_clear": true
+  },
+  "outer_frame": {
+    "material": "light natural oak",
+    "equal_width": true,
+    "mitered_corners": true,
+    "view": "direct frontal",
+    "rail_mm": 6.0
+  },
+  "render_text": false,
+  "line_count": 0,
+  "lettering_size": null,
+  "preserve_verbatim": true,
+  "distinct_from_player_question": true
+}

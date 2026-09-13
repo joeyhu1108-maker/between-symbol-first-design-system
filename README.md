@@ -1,5 +1,9 @@
 # 谁在孕育谁？
 
+完整工程交接见 [新电脑安装与合并](docs/HANDOFF.md)。本仓库同时保留主程序、生图算法、最新几何／有机标注作品模块、数字艺术 skill、原始素材及历史交付包。
+
+首次运行请先执行 `python3 scripts/setup.py`，安装完整生图和 A4 排版依赖。数字艺术 skill 位于 [`.agents/skills/organic-data-annotation/`](.agents/skills/organic-data-annotation/SKILL.md)，含原图、认可示例及提示词。
+
 《星环中的萌生》的实时互动代码原型。一个种子同时承担种子与养分的角色：观者移动光标改变观察环境，点击向红色核心输入养分，停下来等待声音与视觉回应，能量积累后种子向外释放，反过来改变光环。
 
 ## 运行

@@ -1,0 +1,15 @@
+[
+  {
+    "file": "token.gcode.3mf",
+    "size_mb": 1.2,
+    "has_plate_gcode": true,
+    "prediction": "70",
+    "support_used": "false",
+    "outside": "false",
+    "weight": "",
+    "used_m": "0.10",
+    "layers": "6",
+    "eta": "1m 10s",
+    "eta_hms": "1m10s"
+  }
+]

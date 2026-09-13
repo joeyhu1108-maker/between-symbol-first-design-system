@@ -46,4 +46,5 @@
 </main>
 <script>window.addEventListener('error',event=>{const node=document.querySelector('#status');if(node)node.textContent=`原型加载错误：${event.message}（${event.filename||''}:${event.lineno||''}）`;});window.addEventListener('unhandledrejection',event=>{const node=document.querySelector('#status');if(node)node.textContent=`原型加载错误：${event.reason?.stack||event.reason?.message||event.reason}`;});</script>
 <script type="module">window.addEventListener('DOMContentLoaded',()=>import('./prototype-3d.js?v=4'));</script>
+<script type="module" src="./phone-link.js"></script>
 </body></html>

@@ -1,0 +1,84 @@
+{
+  "content-audit": {
+    "tracked": 719,
+    "bytes": 1488910943,
+    "over_100MiB": [],
+    "forbidden_paths_or_corrupt_archives": [],
+    "credential_pattern_files": [],
+    "zip_integrity_checked": 12
+  },
+  "api-verification": {
+    "timeline_cases": 8,
+    "idempotent_creation": true,
+    "exact_input_transfer": true,
+    "artifact_files": true,
+    "invalid_input_rejected": true,
+    "missing_printer_not_submitted": true,
+    "cross_origin_write_rejected": true,
+    "one_card": {
+      "m": 9,
+      "n": 10,
+      "job": "SG-20260913-0002-00067932"
+    },
+    "two_cards": {
+      "m": 4,
+      "n": 11
+    },
+    "card_names_match_game_cards": true,
+    "dice_relay": true,
+    "private_paths_blocked": true,
+    "job": "SG-20260913-0001-13DE61CD"
+  },
+  "artwork-validation": {
+    "a4": [
+      {
+        "sample": "01_attraction_power",
+        "a4": true,
+        "mat_mm": 12,
+        "pixels": [
+          2480,
+          3508
+        ],
+        "relative_sources": true
+      },
+      {
+        "sample": "02_care_inversion",
+        "a4": true,
+        "mat_mm": 12,
+        "pixels": [
+          2480,
+          3508
+        ],
+        "relative_sources": true
+      }
+    ],
+    "seed_reproducibility": true,
+    "different_seeds_differ": true,
+    "all_66_probabilities": true,
+    "glb_integrity": true
+  },
+  "environment": {
+    "python": "3.9.6",
+    "node": "24.21.0",
+    "dependencies": "requirements.txt",
+    "fresh_checkout": "git checkout-index, no parent virtualenv"
+  },
+  "unit_tests": {
+    "composition": 9,
+    "captions": 6,
+    "printer_motion": "PASS"
+  },
+  "browser": {
+    "console": "PASS: canvas and 12 cards rendered",
+    "gallery": "PASS: two A4 images loaded",
+    "captured_errors": [],
+    "tool": "ego-browser"
+  },
+  "limitations": [
+    "No physical printing performed",
+    "Online AI generation not connected",
+    "Cloudflare deployment and remote print backend not tested",
+    "Windows/Linux hardware printing not tested",
+    "Historical auxiliary tools archived, not all executed"
+  ]
+}

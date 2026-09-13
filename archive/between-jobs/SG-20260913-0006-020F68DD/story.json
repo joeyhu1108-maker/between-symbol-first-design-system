@@ -1,0 +1,40 @@
+{
+  "title": "流经与差异",
+  "screen_title": "两种愿望，<br>开始改变彼此。",
+  "story": "一条痕迹想让养分流过而不被占有，另一条痕迹想让每一次生长都不一样。它们在同一片色域中靠近，也留下各自的修改痕迹。最后，一段空白没有被任何一方完全覆盖。",
+  "screen_line": "想让养分流过而不被占有，也想让每一次生长都不一样。两种愿望改变了彼此的边界，却仍保留一处没有被覆盖的空白。",
+  "question": "你愿意把哪一处空白，留给尚未发生的关系？",
+  "anchors": [
+    "a meandering translucent band passing through without ending",
+    "several unequal pigment territories, none repeated",
+    "a boundary kept visibly open"
+  ],
+  "version": "between-story-v1",
+  "cards": [
+    {
+      "index": 5,
+      "id": "05",
+      "name": "河流",
+      "theme": "流经",
+      "wish": "想让养分流过而不被占有"
+    },
+    {
+      "index": 8,
+      "id": "08",
+      "name": "花园",
+      "theme": "差异",
+      "wish": "想让每一次生长都不一样"
+    }
+  ],
+  "perspective": "种子／AI 视角更明显",
+  "relation": "牵制与保留边界",
+  "signature": "被擦掉后又描回的痕迹",
+  "measures": {
+    "human_view_share": 0.2302,
+    "seed_view_share": 0.7698,
+    "balance": 0.4603,
+    "rhythm_gap": 3,
+    "accumulation": 13
+  },
+  "interpretation": "叙事权重与视觉隐喻，不是观众的人格或情绪测量。"
+}

@@ -1,0 +1,38 @@
+{
+  "title": "被理解，也保留自己",
+  "screen_title": "被理解，<br>也保留自己。",
+  "story": "一片柔软的颜色向另一片靠近，像终于有人听懂了它。后来，承接它的线慢慢变成框架。它没有离开，只让一条细线穿过缝隙，留下一段不能被安排的路。",
+  "screen_line": "柔软色域被框架承接，也逐渐被它包围。一条未闭合的细线，为自己保留方向。",
+  "question": "当一种关系足够懂你，你还希望它留下什么未知？",
+  "anchors": [
+    "soft blush pigment partly held by a skew incomplete framework",
+    "one delicate line slipping through a gap; never close the boundary",
+    "one small zone where the two pigment families overlap without erasing either"
+  ],
+  "version": "garden-story-v1",
+  "cards": [
+    {
+      "index": 3,
+      "name": "恋人",
+      "theme": "吸引与选择",
+      "wish": "想被理解"
+    },
+    {
+      "index": 5,
+      "name": "皇帝",
+      "theme": "权力",
+      "wish": "想把不确定安放好"
+    }
+  ],
+  "perspective": "两种视角接近",
+  "relation": "交叠与相互滋养",
+  "signature": "一条偏离框架的细线",
+  "measures": {
+    "human_view_share": 0.5714,
+    "seed_view_share": 0.4286,
+    "balance": 0.8571,
+    "rhythm_gap": 2,
+    "accumulation": 8
+  },
+  "interpretation": "叙事权重与视觉隐喻，不是观众的人格或情绪测量。"
+}

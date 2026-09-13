@@ -1,0 +1,9 @@
+Create one original, very abstract painting titled conceptually GARDEN. A seed becomes a field of relationships, not a depicted plant.
+Fixed style: {"abstraction": 0.96, "organic_motion": 0.78, "pigment_saturation": 0.72, "translucency": 0.6, "gesture": 0.66, "fine_line_density": 0.28, "warm_color_share": 0.62, "asymmetry": 0.85}
+Blend: 38% gestural coral/magenta layered pigment and scratched marks; 37% translucent organic blush fields and delicate wandering lines; 25% atmospheric ultramarine/violet/sprout-green space and pale luminous voids.
+Keep this palette: #F0E7D4, #ED6549, #D62C71, #EAB6B2, #5369AA, #8974A2, #B5CB80, #D9A46A, #754C69
+Use asymmetrical, off-center, overlapping color territories. Hand-painted gouache, oil-pastel and thin watercolor washes. The garden is an abstract ecosystem of color, not an illustration.
+Input Chladni variables: m=3, n=5, a=0.27576837112805397, b=-0.9612241182395393, individual seed=333341133. Use nodal relationships to bend composition and boundaries, without drawing a literal grid.
+Portrait aspect 7:12. Full-bleed image, no frame, labels or numbers; numbering is typeset outside the painting in the print document.
+Exclude: 具象花园风景, 可识别的花朵、树、盆栽, 居中对称的种子或细胞标本, 解剖图、脑、器官, 塔罗边框和标签, 宇宙照片或科幻海报, 临摹参考图构图, 参考图片的签名、文字、水印
+Invent a fresh composition within this fixed visual language. Do not reproduce any reference composition.
