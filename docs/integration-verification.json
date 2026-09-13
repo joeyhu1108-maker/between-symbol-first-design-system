@@ -65,14 +65,28 @@
     {
       "suite": "worker, bridge and pregeneration",
       "passed": 41
+    },
+    {
+      "suite": "portable entry-worker route contract",
+      "passed": 15
     }
   ],
-  "test_total": 91,
+  "test_total": 106,
   "printer_motion_verification": "verify_printer_effects.mjs passed: docking, trajectory continuity and depth cues",
   "local_health": "8765 healthy; generator local_garden, style garden-v1.1",
   "main_flow_ready_job": "SG-20260913-0048-A0DCE9A3",
   "physical_print_scope": "No physical print was initiated by this integration validation. Desktop paper output has separate user confirmation; the NFC owner task is continuing the phone end-to-end check.",
   "services_restarted": false,
   "production_deployed_by_this_integration": false,
-  "blocking_issues": []
+  "blocking_issues": [],
+  "portable_entry_build": {
+    "browser_assets": 109,
+    "active_asset_paths_missing": [],
+    "additional_incoming_assets": [
+      "Codex 图像 2026年9月12日 17_56_04.png",
+      "phone-link.js",
+      "printer/printer_creation.js",
+      "tap.html"
+    ]
+  }
 }
