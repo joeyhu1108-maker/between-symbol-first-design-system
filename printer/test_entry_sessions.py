@@ -245,6 +245,95 @@ class SessionTests(unittest.TestCase):
         self.now += TTL
         self.assert_error(404, self.sessions.current)
 
+    def test_late_participant_gets_full_ttl_for_join_submit_and_ack(self):
+        self.sessions.publish(self.sid, self.owner)
+        self.now = self.created['expires_at'] - 1
+        joined = self.sessions.join(self.sid, self.phone)
+        self.assertEqual(joined['expires_at'], self.now + TTL)
+        self.now = self.created['expires_at']
+        self.assertEqual(self.sessions.current()['status'], 'joined')
+        self.now = joined['expires_at'] - 1
+        submitted = self.sessions.cards(self.sid, self.phone, [5])
+        self.assertEqual(submitted['expires_at'], self.now + TTL)
+        self.now = submitted['expires_at'] - 1
+        accepted = self.sessions.ack(self.sid, self.owner)
+        self.assertEqual(accepted['expires_at'], self.now + TTL)
+        self.assertEqual(accepted['request_id'], self.created['request_id'])
+        self.assertEqual(accepted['ai_card'], submitted['ai_card'])
+        self.now = accepted['expires_at'] - 1
+        self.assertEqual(self.sessions.current()['status'], 'accepted')
+        self.now += 1
+        self.assert_error(410, self.sessions.current)
+        self.now += TTL
+        self.assert_error(404, self.sessions.get, self.sid)
+
+    def test_first_screen_confirmation_renews_submission_lease(self):
+        self.sessions.focus(self.sid, self.owner, 5)
+        self.now = self.created['expires_at'] - 1
+        submitted = self.sessions.confirm(self.sid, self.owner)
+        self.assertEqual(submitted['expires_at'], self.now + TTL)
+        self.now += 1
+        self.assertEqual(self.sessions.confirm(self.sid, self.owner), submitted)
+        # A phone joining an already submitted screen round cannot prolong it.
+        self.assertEqual(self.sessions.join(self.sid, self.phone, 5), submitted)
+        self.now = submitted['expires_at'] - 1
+        accepted = self.sessions.ack(self.sid, self.owner)
+        self.assertEqual(accepted['expires_at'], self.now + TTL)
+
+    def test_retries_and_reads_do_not_extend_active_leases(self):
+        self.sessions.publish(self.sid, self.owner)
+        self.now += 10
+        joined = self.sessions.join(self.sid, self.phone)
+        self.now += 10
+        self.assertEqual(self.sessions.join(self.sid, self.phone), joined)
+        self.assertEqual(self.sessions.publish(self.sid, self.owner), joined)
+        self.assertEqual(self.sessions.get(self.sid), joined)
+        self.assertEqual(self.sessions.current(), joined)
+        submitted = self.sessions.cards(self.sid, self.phone, [5])
+        self.now += 10
+        self.assertEqual(self.sessions.cards(self.sid, self.phone, [5]), submitted)
+        self.assertEqual(self.sessions.join(self.sid, self.phone), submitted)
+        self.assertEqual(self.sessions.publish(self.sid, self.owner), submitted)
+        accepted = self.sessions.ack(self.sid, self.owner)
+        self.now += 10
+        self.assertEqual(self.sessions.ack(self.sid, self.owner), accepted)
+        self.assertEqual(self.sessions.cards(self.sid, self.phone, [5]), accepted)
+        self.assertEqual(self.sessions.join(self.sid, self.phone), accepted)
+
+    def test_rejected_participants_and_cards_do_not_renew_lease(self):
+        joined = self.sessions.join(self.sid, self.phone)
+        self.now += 10
+        self.assert_error(409, self.sessions.join, self.sid, 'other-phone')
+        self.assert_error(409, self.sessions.cards, self.sid, 'other-phone', [5])
+        self.assert_error(403, self.sessions.ack, self.sid, 'wrong-owner')
+        self.sessions.select(self.sid, self.phone, 5)
+        self.assert_error(409, self.sessions.cards, self.sid, self.phone, [6])
+        self.assertEqual(self.sessions.get(self.sid)['expires_at'], joined['expires_at'])
+
+    def test_stage_transitions_cannot_revive_closed_or_expired_leases(self):
+        for operation in ('join', 'cards', 'confirm', 'ack'):
+            for terminal in ('closed', 'expired'):
+                with self.subTest(operation=operation, terminal=terminal):
+                    created = self.sessions.create('192.168.1.8', 8765)
+                    sid, owner = created['id'], created['owner_token']
+                    if operation in ('cards', 'ack'):
+                        self.sessions.join(sid, self.phone)
+                    if operation == 'confirm':
+                        self.sessions.focus(sid, owner, 5)
+                    if operation == 'ack':
+                        self.sessions.cards(sid, self.phone, [5])
+                    deadline = self.sessions.get(sid)['expires_at']
+                    if terminal == 'closed':
+                        self.sessions.close(sid, owner)
+                    else:
+                        self.now = deadline
+                    args = {'join': (self.phone,), 'cards': (self.phone, [5]),
+                            'confirm': (owner,), 'ack': (owner,)}[operation]
+                    self.assert_error(410, getattr(self.sessions, operation), sid, *args)
+                    snapshot = self.sessions.get(sid)
+                    self.assertEqual(snapshot['expires_at'], deadline)
+                    self.assertEqual(snapshot['status'], terminal)
+
     def test_invalid_cards_and_participant(self):
         self.sessions.join(self.sid, self.phone)
         for cards in (None, [], [0], [13], [True], ['1'], [1.0], [1, 2], [1, 1], '1', {'card': 1}):

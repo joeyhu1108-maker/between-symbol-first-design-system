@@ -153,7 +153,7 @@ class EntrySessions:
             if session['status'] not in ('submitted', 'accepted'):
                 session.update(cards=[card], selected_card=card,
                                ai_card=secrets.choice([value for value in range(1, 13) if value != card]),
-                               status='submitted')
+                               status='submitted', expires_at=self.clock() + TTL)
             session['handoff_ready'] = True
             return self._snapshot(session)
 
@@ -170,6 +170,9 @@ class EntrySessions:
                 raise SessionError('已有另一位参与者开始抽卡，请等待下一次二维码。', 409)
             if session['participant_id'] is None:
                 session['participant_id'] = participant_id
+                # Give a newly arriving participant a full round, without renewing reconnects.
+                if session['status'] not in ('submitted', 'accepted'):
+                    session['expires_at'] = self.clock() + TTL
                 if session['status'] == 'waiting':
                     session['status'] = 'joined'
             return self._snapshot(session)
@@ -211,7 +214,7 @@ class EntrySessions:
             # Draw the AI's card once, under the same lock as the participant's confirmed card.
             ai_card = secrets.choice([card for card in range(1, 13) if card != cards[0]])
             session.update(cards=list(cards), selected_card=cards[0], ai_card=ai_card,
-                           status='submitted', handoff_ready=not handoff_required)
+                           status='submitted', handoff_ready=not handoff_required, expires_at=self.clock() + TTL)
             return self._snapshot(session)
 
     def handoff(self, sid, participant_id):
@@ -235,7 +238,8 @@ class EntrySessions:
                 raise SessionError('手机还未完成抽卡。', 409)
             if not session['handoff_ready']:
                 raise SessionError('手机卡片还未完成交接，请稍候。', 409)
-            session['status'] = 'accepted'
+            if session['status'] != 'accepted':
+                session.update(status='accepted', expires_at=self.clock() + TTL)
             return self._snapshot(session)
 
     def close(self, sid, owner_token):
