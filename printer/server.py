@@ -256,7 +256,7 @@ class Handler(SimpleHTTPRequestHandler):
         global LAN_ADDRESS
         if not self.valid_origin(): return self.send_json({'error':'origin or host rejected'},403)
         path=urlparse(self.path).path
-        session_action=re.fullmatch(r'/api/sessions/([A-Za-z0-9_-]+)/(join|select|cards|handoff|ack|close|publish)',path)
+        session_action=re.fullmatch(r'/api/sessions/([A-Za-z0-9_-]+)/(join|select|cards|handoff|ack|close|publish|focus|confirm)',path)
         # Phones can claim a session, preview and submit one card. Printing and artwork writes stay local.
         if not self.is_local() and (not session_action or session_action.group(2) not in ('join','select','cards','handoff')): return self.send_json({'error':'此操作仅供现场主控使用。'},403)
         try: length=int(self.headers.get('Content-Length','0'))
@@ -275,7 +275,9 @@ class Handler(SimpleHTTPRequestHandler):
             if session_action:
                 sid,action=session_action.groups()
                 if action=='publish': return self.send_json(SESSIONS.publish(sid,data.get('owner_token')))
-                if action=='join': return self.send_json(SESSIONS.join(sid,data.get('participant_id')))
+                if action=='focus': return self.send_json(SESSIONS.focus(sid,data.get('owner_token'),data.get('card')))
+                if action=='confirm': return self.send_json(SESSIONS.confirm(sid,data.get('owner_token')))
+                if action=='join': return self.send_json(SESSIONS.join(sid,data.get('participant_id'),data.get('card')))
                 if action=='select': return self.send_json(SESSIONS.select(sid,data.get('participant_id'),data['card']))
                 if action=='cards': return self.send_json(SESSIONS.cards(sid,data.get('participant_id'),data.get('cards'),data.get('handoff_required',False)))
                 if action=='handoff': return self.send_json(SESSIONS.handoff(sid,data.get('participant_id')))

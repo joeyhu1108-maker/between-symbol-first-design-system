@@ -253,3 +253,28 @@ body:not([data-stage="selected"]) .human-card-orbit,body:not([data-stage="select
 .human-focus-symbols{transition:opacity 220ms ease-out}
 .selected-panel .handoff-action{transition:opacity 220ms ease-out,background .2s,transform .2s}
 @media(prefers-reduced-motion:reduce){.human-focus-symbols,.selected-panel .handoff-action{transition:none}}
+
+/* The printed symbol is the physical clue; confirmation is an action, not a page. */
+.app .human-focus-card{width:min(62vw,calc((100dvh - 160px)*2/3),460px)}
+.selected-panel .physical-card-cue{position:absolute;left:calc(50% + min(42vw,480px) - 134px);top:calc(50% + 76px);width:84px;color:#827874;pointer-events:none}
+.physical-card-cue svg{display:block;width:100%;height:auto}
+.tap-wave{animation:physical-tap 2.4s ease-in-out infinite}
+.app .selected-panel .handoff-action{position:absolute;bottom:max(22px,4dvh);background:transparent;border-color:var(--line)}
+#selectedError{position:absolute;bottom:100px;left:10%;right:10%;margin:0;text-align:center;font-size:12px;line-height:1.6;color:var(--symbol-red)}
+.selected-panel[data-drawing="true"] .physical-card-cue{opacity:0}
+@keyframes physical-tap{0%,100%{opacity:.3}50%{opacity:1}}
+@media(max-width:760px){
+ .app .human-focus{height:78dvh;transform:translateY(-14px)}
+ .app .human-focus-card{width:min(70vw,calc((100dvh - 220px)*2/3))}
+ .selected-panel .human-focus-symbols{top:4px;align-items:flex-start}
+ .selected-panel .physical-card-cue{left:calc(50% - 40px);top:auto;bottom:max(104px,13dvh);width:80px}
+}
+@media(max-height:540px) and (min-width:761px){
+ .app .human-focus-card{width:min(40vw,calc((100dvh - 110px)*2/3))}
+ .selected-panel .physical-card-cue{left:calc(50% + 26dvh);top:calc(50% + 70px)}
+ .app .selected-panel .handoff-action{left:calc(50% + 30dvh);bottom:24px;width:52px;height:52px}
+}
+@media(prefers-reduced-motion:reduce){.tap-wave{animation:none}}
+
+body[data-stage="done"] .app #restart{width:68px;height:68px;border:1px solid var(--symbol-blue);background:#f0eee7;margin-top:22px}
+@media(max-width:760px){body[data-stage="done"] .app #restart{width:58px;height:58px;margin:0}}

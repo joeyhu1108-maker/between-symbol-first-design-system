@@ -12,17 +12,18 @@ async function request(path,data){
   }finally{clearTimeout(timeout);}
 }
 export function mountScanEntry(onCard,onLocal,onSelect,{online=false}={}){
-  let session=null,timer=null,stopped=false,applied=false,starting=false,previewCard=null,epoch=0;
+  let session=null,timer=null,stopped=false,applied=false,starting=false,previewCard=null,epoch=0,startup=null,localDrawing=false,available=false;
+  const connected=!!sessionStorage.getItem('between-nfc-control');
   $('entryPanel').dataset.waitingShuffle='true';$('entryPanel').setAttribute('aria-label','等待手机送来你的卡片');
   $('entryCode').hidden=true;$('entryWaiting').hidden=true;$('entryQr').removeAttribute('src');
   $('retryEntry').setAttribute('aria-label','重新连接现场');$('retryEntry').title='重新连接现场';
   const waiting=mountWaitingShuffle($('entryPanel').querySelector('.entry-center'));
-  if(online){
+  if(online&&!connected){
     $('entryPanel').setAttribute('aria-label','开始你与 AI 的抽卡');
     $('localEntry').setAttribute('aria-label','开始抽卡');$('localEntry').title='开始抽卡';
     $('localEntry').onclick=()=>{waiting.destroy();onLocal();};
     window.addEventListener('pagehide',()=>waiting.destroy(),{once:true});
-    return {reset(){waiting.destroy();},rememberRequestId(){}};
+    return {reset(){waiting.destroy();},rememberRequestId(){},async focusCard(){return false;},async confirmCard(){return false;}};
   }
   function save(){sessionStorage.setItem(STORAGE,JSON.stringify(session))}
   function error(message){$('entryError').textContent=message;$('entryError').hidden=false;$('retryEntry').hidden=false}
@@ -55,7 +56,8 @@ export function mountScanEntry(onCard,onLocal,onSelect,{online=false}={}){
           if(!applied){
             applied=true;
             waiting.stop();
-            await receivePhoneCard(snapshot.cards[0]);
+            if(previewCard!==snapshot.cards[0]){previewCard=snapshot.cards[0];onSelect?.(previewCard);}
+            if(!localDrawing)await receivePhoneCard(snapshot.cards[0]);
             if(!current())return;
             onCard(snapshot.cards[0],snapshot.ai_card,session.request_id||snapshot.request_id);
           }
@@ -66,9 +68,13 @@ export function mountScanEntry(onCard,onLocal,onSelect,{online=false}={}){
     }catch(e){if(current()){if((e.status===404||e.status===410)&&!applied){expire();return;}error(e.message);}}
     if(current())timer=setTimeout(()=>poll(version),900);
   }
-  async function start(){
+  function start(){
+    if(!startup)startup=startSession().finally(()=>{startup=null;});
+    return startup;
+  }
+  async function startSession(){
     if(starting||stopped)return;starting=true;const version=++epoch,current=()=>!stopped&&version===epoch;
-    clearTimeout(timer);waiting.start();$('retryEntry').hidden=true;$('entryError').hidden=true;
+    available=false;clearTimeout(timer);if(!localDrawing)waiting.start();$('retryEntry').hidden=true;$('entryError').hidden=true;
     try{
       if(!session)try{session=JSON.parse(sessionStorage.getItem(STORAGE))}catch{session=null;}
       if(session){
@@ -79,6 +85,7 @@ export function mountScanEntry(onCard,onLocal,onSelect,{online=false}={}){
       if(!current())return;
       await request(`/api/sessions/${session.id}/publish`,{owner_token:session.owner_token});
       if(!current())return;
+      available=true;
       $('entryPanel').dataset.sessionId=session.id;
       if(!session.phone_url){error('现场连接尚未准备好，请重新连接。');return;}
       $('entryPhoneLink').href=session.phone_url;
@@ -86,14 +93,29 @@ export function mountScanEntry(onCard,onLocal,onSelect,{online=false}={}){
     }catch(e){if(current())error(e.message);}
     finally{starting=false;}
   }
+  async function focusCard(card){
+    if(!connected)return false;
+    await start();
+    if(!session||stopped||!available)throw Error('现场连接尚未准备好，请重新连接。');
+    const snapshot=await request(`/api/sessions/${session.id}/focus`,{owner_token:session.owner_token,card});
+    previewCard=snapshot.selected_card;
+    return true;
+  }
+  async function confirmCard(){
+    if(!connected)return false;
+    if(!session||stopped)throw Error('现场连接尚未准备好，请重新连接。');
+    await request(`/api/sessions/${session.id}/confirm`,{owner_token:session.owner_token});
+    // The existing poll is the single delivery path for phone and screen confirmation.
+    return true;
+  }
   async function reset(){
     stopped=true;epoch++;clearTimeout(timer);waiting.destroy();cancelCardHandoff();sessionStorage.removeItem(STORAGE);delete $('entryPanel').dataset.sessionId;
     if(session)try{await request(`/api/sessions/${session.id}/close`,{owner_token:session.owner_token})}catch{}
   }
   $('retryEntry').onclick=start;
-  $('localEntry').onclick=()=>{reset();onLocal()};
+  $('localEntry').onclick=()=>{localDrawing=true;waiting.stop();onLocal()};
   window.addEventListener('pagehide',()=>{stopped=true;epoch++;clearTimeout(timer);waiting.destroy();cancelCardHandoff()},{once:true});
   if(sessionStorage.getItem('between-nfc-control'))start();
   else {error('现场设备尚未连接，可以直接点击开始抽卡。');$('retryEntry').hidden=true;}
-  return {reset,rememberRequestId(id){if(session){session.request_id=id;save();}}};
+  return {reset,focusCard,confirmCard,rememberRequestId(id){if(session){session.request_id=id;save();}}};
 }

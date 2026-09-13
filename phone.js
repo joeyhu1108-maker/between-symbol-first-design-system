@@ -1,4 +1,4 @@
-import {mountGlyph,mountSymbolState,mountSymbolLoading,actionGlyph} from './symbol-interface.js?v=loading-sequence-2';
+import {mountGlyph,mountSymbolLoading,actionGlyph} from './symbol-interface.js?v=loading-sequence-2';
 
 const $=id=>document.getElementById(id);
 const params=new URLSearchParams(location.search),nfcEntry=params.has('card'),tagCard=Number(params.get('card'));
@@ -46,16 +46,15 @@ function renderAction(){
   const button=$('action'),busy=state.connecting||state.submitting||state.selecting||state.revealing;
   const loading=!state.stopped&&$('error').hidden;
   setLoading('connecting',loading&&state.connecting&&state.view==='connecting');
-  if(state.view==='accepted')mountSymbolState($('handoffSymbol'),['08'],false);
-  else setLoading('handoffSymbol',loading&&state.view==='submitted');
+  // Receiving the card hands the next draw to AI; it is not the end of the experience.
+  setLoading('handoffSymbol',$('error').hidden&&['submitted','accepted'].includes(state.view));
   const glyph=id=>{if(loading&&!button.hidden&&state.view!=='connecting'&&(state.connecting||state.submitting||state.selecting))setLoading('action',true);else actionGlyph(button,id);};
   $('redraw').hidden=nfcEntry||state.view!=='ready'||busy||!!state.retry;
-  if(state.retry){button.hidden=false;glyph('10');button.disabled=busy;button.ariaLabel=state.retryLabel;button.title=button.ariaLabel;return;}
+  if(state.retry){button.hidden=false;glyph('10');button.disabled=busy;button.ariaLabel=state.retryLabel;return;}
   button.hidden=['departing','submitted','accepted','error'].includes(state.view);
   button.classList.toggle('is-handoff',['ready','sending'].includes(state.view));
   if(['ready','sending'].includes(state.view)){glyph('07');button.ariaLabel=state.connecting?'正在连接现场电脑':state.selecting?'正在同步卡片到现场大屏':state.submitting?'正在确认与电脑的连接':'送到电脑，让 AI 抽卡';button.disabled=busy||!state.joined||(!nfcEntry&&!state.previewSynced);}
   else{glyph(state.started?'10':'01');button.ariaLabel=state.selecting?'正在同步卡片到现场大屏':state.started?'重新洗牌':'开始洗牌，然后抽取一张卡';button.disabled=!state.joined||state.shuffling||busy||state.view==='connecting';}
-  button.title=button.ariaLabel;
 }
 function renderDeck(){
   $('deck').innerHTML=state.order.map(id=>`<button class="seed-card${state.selected===id?' is-chosen':''}" type="button" data-card-id="${id}" aria-label="抽取第 ${id} 张种子卡" aria-pressed="${state.selected===id}" disabled><span class="seed-card-inner"><span class="seed-card-face"><img src="${face(id)}" alt="" draggable="false">${symbolCover(id)}</span><span class="seed-card-face seed-card-back"><img src="${face(id,'illustration')}" alt="" draggable="false"></span></span></button>`).join('');
@@ -193,7 +192,8 @@ async function connect(){
     if(!sessionId||sessionId.length>128){stopSession('expired');return;}
     const current=await request();
     if(['closed','expired'].includes(current.status)){stopSession(current.status);return;}
-    const joined=await request('/join',{participant_id:participantId});
+    if(nfcEntry&&current.selected_card&&current.selected_card!==tagCard){stopSession('mismatch');return;}
+    const joined=await request('/join',{participant_id:participantId,...(nfcEntry?{card:tagCard}:{})});
     state.joined=true;persist();applySession(joined);schedulePoll();
     if(state.view==='draw')announce(state.started?'请抽取一张种子卡。':'先点击开始洗牌，再抽取一张种子卡。');
   }catch(error){

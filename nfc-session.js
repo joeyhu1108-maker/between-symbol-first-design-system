@@ -2,12 +2,12 @@ const control=sessionStorage.getItem('between-nfc-control');
 export const stationMode=location.pathname==='/scene'||new URLSearchParams(location.search).get('mode')==='station';
 export const nfcEnabled=stationMode&&new URLSearchParams(location.search).has('nfc')&&!!control;
 let timer=null,version=0,active=null,paused=false,epoch=0;
-const names={armed:'等待电脑确认打印',waiting_artwork:'答案已确认，作品正在生成',waiting_printer:'答案已确认，等待打印接收端',claimed:'打印接收端已领取作品',submitted:'已提交系统打印队列，请现场确认出纸',failed:'打印提交失败',uncertain:'提交结果不确定，请检查打印队列',cancelled:'本轮已取消，请回主控准备下一轮'};
+const names={armed:'等待电脑确认打印',waiting_artwork:'打印已确认，作品正在生成',waiting_printer:'打印已确认，等待打印接收端',claimed:'打印接收端已领取作品',submitted:'已提交系统打印队列，请现场确认出纸',failed:'打印提交失败',uncertain:'提交结果不确定，请检查打印队列',cancelled:'本轮已取消，请回主控准备下一轮'};
 let panel=null;
 if(nfcEnabled){
   panel=document.createElement('aside');panel.id='nfcHardwareStatus';panel.setAttribute('aria-live','polite');
   panel.style.cssText='position:fixed;left:16px;bottom:36px;z-index:1000;max-width:min(400px,90vw);padding:10px 14px;background:#f5f2e8f2;border:1px solid #b6c0ae;border-radius:8px;color:#344b35;font:13px/1.5 sans-serif;overflow-wrap:anywhere;pointer-events:none';
-  panel.textContent='打印已连接 · 作品生成后可在电脑确认，或用原手机碰答案卡后确认';document.body.append(panel);
+  panel.hidden=true;document.body.append(panel);
 }
 async function api(path,data){
   const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),20000);
@@ -22,7 +22,7 @@ function acceptRun(session,run){
   session.runId=run.id;
 }
 function isCurrent(session,stamp){return !paused&&active===session&&version===session.version&&epoch===stamp;}
-function showRun(run){panel.textContent=`NFC ${run.card_id} · ${names[run.state]||run.state}${run.error?' · '+run.error:''}`;}
+function showRun(run){panel.hidden=run.state==='armed'&&!run.error;panel.textContent=`NFC ${run.card_id} · ${names[run.state]||run.state}${run.error?' · '+run.error:''}`;}
 export function armNfc(job,cardId,onTap){
   if(!nfcEnabled)return;
   clearTimeout(timer);const current=++version;
@@ -44,7 +44,7 @@ export function armNfc(job,cardId,onTap){
       acceptRun(session,run);session.verified=true;showRun(run);
       if(run.received_at&&!session.received&&!['failed','uncertain','cancelled'].includes(run.state)){session.received=true;onTap(run);}
       if(['submitted','failed','uncertain','cancelled'].includes(run.state))return;
-    }catch(error){if(!isCurrent(session,stamp))return;if(!session.statusOnly)session.armRequest=null;session.verified=false;panel.textContent='NFC 连接待恢复 · '+error.message;}
+    }catch(error){if(!isCurrent(session,stamp))return;if(!session.statusOnly)session.armRequest=null;session.verified=false;panel.hidden=false;panel.textContent='NFC 连接待恢复 · '+error.message;}
     if(isCurrent(session,stamp))timer=setTimeout(poll,2000);
   }
   session.poll=poll;

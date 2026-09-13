@@ -1,10 +1,9 @@
-import {mountGlyph,unmountGlyph,mountSymbolState,mountSymbolLoading,actionGlyph,stageGlyph,mountMainInterface} from './symbol-interface.js?v=card-fusion-3d-1';
+import {mountGlyph,mountSymbolState,mountSymbolLoading,actionGlyph,stageGlyph,mountMainInterface} from './symbol-interface.js?v=physical-symbol-2';
 import * as THREE from './vendor/three.module.min.js';
 import {CARDS} from './game-cards.js';
 import {backendReady,createJob,waitForJob,mountPrinterScene} from './bridge.js?v=card-fusion-3d-1';
-import {mountScanEntry} from './entry-display.js?v=front-first-1';
-import {armNfc,nfcEnabled,stationMode,triggerNfcFallback} from './nfc-session.js';
-let manualConfirming=false;
+import {mountScanEntry} from './entry-display.js?v=physical-symbol-2';
+import {armNfc,nfcEnabled,stationMode} from './nfc-session.js';
 const $=id=>document.getElementById(id);
 // PDF pages 1/2, 3/4 ... are one physical card: illustration / seed.
 const cardFace=(card,side='seed')=>`./assets/print-cards/${card.id}-${side}.webp`;
@@ -12,8 +11,7 @@ const faceImage=(card,side='seed')=>`<img src="${cardFace(card,side)}" fetchprio
 const cardFaces=(card,hideSymbol=false)=>`<span class="seed-card-inner"><span class="seed-card-face seed-card-front">${faceImage(card)}${hideSymbol?`<svg class="seed-symbol-cover" viewBox="154 1012 112 72" aria-hidden="true"><image href="${cardFace(card)}" width="800" height="1200"/></svg>`:''}</span><span class="seed-card-face seed-card-back">${faceImage(card,'illustration')}</span></span>`;
 // A selected card keeps its printed symbol throughout the interaction.
 function setSymbolLoading(id,cards,active){
-  if(id==='generationSymbols')mountSymbolState($(id),cards.map(card=>card.id),active,{ambient:true});
-  else if(active)mountSymbolLoading($(id));
+  if(active)mountSymbolLoading($(id));
   else mountSymbolState($(id),cards.map(card=>card.id),false);
 }
 const selectedSymbols=()=>[state.growth,state.relation].filter(Boolean).map(value=>CARDS[value-1]);
@@ -23,7 +21,7 @@ let entryController=null;
 const HIDDEN_PAIR_SETS=[new Set(['01','02']),new Set(['11','12'])];
 const isHiddenPair=(a,b)=>HIDDEN_PAIR_SETS.some(pair=>pair.has(a)&&pair.has(b));
 const state={stage:'input',growth:null,relation:null,answerId:null,selected:null,job:null,progress:0,rolling:false,shuffleMode:'hand',shuffleStarted:false,shuffling:false,pendingSeedId:null,hiddenPair:false,matched:false,paired:false,requestId:null,key:null,printStarted:false,printerView:null,printerFailed:false,generation:{status:'idle',imageUrl:null,progress:0,job:null}};
-let shuffleAnimations=[],cancelDraw=null,pendingArtwork=null;
+let shuffleAnimations=[],cancelDraw=null,pendingArtwork=null,selectionBinding=0;
 const scene=new THREE.Scene();const camera=new THREE.PerspectiveCamera(35,1,.1,100);camera.position.set(0,1.2,9);camera.lookAt(0,.2,0);
 let renderer=null;
 try{
@@ -53,7 +51,13 @@ const wall=new THREE.Group();wall.position.set(1.1,1.15,-1.15);root.add(wall);co
 function cardTexture(card){const texture=new THREE.TextureLoader().load(cardFace(card,'illustration'));texture.colorSpace=THREE.SRGBColorSpace;return texture}
 CARDS.forEach((card,i)=>{const m=new THREE.Mesh(new THREE.PlaneGeometry(.4,.6),new THREE.MeshBasicMaterial({transparent:false,opacity:1}));m.position.set((i%6)*.48-1.2,Math.floor(i/6)*.7-.3,0);wall.add(m);cardMeshes.push(m)});
 function resize(){const canvas=$('scene')||document.querySelector('canvas')||document.documentElement;const r=canvas.getBoundingClientRect();if(renderer)renderer.setSize(r.width,r.height,false);camera.aspect=r.width/r.height;camera.updateProjectionMatrix();root.scale.setScalar(Math.min(r.width,r.height)/760)}addEventListener('resize',resize);resize();
-function setStage(s){if(s!=='selected')cancelDraw?.();state.stage=s;document.body.dataset.stage=s;stageGlyph(s);$('entryPanel').hidden=s!=='entry';$('selectedPanel').hidden=s!=='selected';$('aiPanel').hidden=s!=='ai';document.querySelector('.left-panel').hidden=s!=='input';['keyPanel','cardsPanel','printPanel'].forEach(id=>$(id).hidden=true);if(s==='key')$('keyPanel').hidden=false;if(s==='cards'){$('cardsPanel').hidden=false;cardMeshes.forEach((mesh,index)=>{if(!mesh.material.map){mesh.material.map=cardTexture(CARDS[index]);mesh.material.needsUpdate=true;}})}if(s==='printing'||s==='done')$('printPanel').hidden=false}
+function setStage(s){
+  if(s!=='selected')cancelDraw?.();
+  state.stage=s;document.body.dataset.stage=s;stageGlyph(s);
+  $('entryPanel').hidden=s!=='entry';$('selectedPanel').hidden=s!=='selected';$('aiPanel').hidden=s!=='ai';
+  document.querySelector('.left-panel').hidden=s!=='input';
+  $('printPanel').hidden=!['printing','done'].includes(s);
+}
 function positionSeedCard(b,index){
     b.style.setProperty('--i',index);
 }
@@ -118,7 +122,7 @@ async function startShuffle(){
     state.shuffling=false;
   }
   state.shuffleStarted=true;deck.classList.add('is-started');
-  actionGlyph($('startShuffle'),'10');$('startShuffle').setAttribute('aria-label','重新洗牌');$('startShuffle').title='重新洗牌';
+  actionGlyph($('startShuffle'),'10');$('startShuffle').setAttribute('aria-label','重新洗牌');
   document.querySelectorAll('.shuffle-mode').forEach(button=>button.classList.toggle('is-active',button.dataset.shuffleMode===state.shuffleMode));
   $('status').textContent='正在洗牌。';runShuffle();
 }
@@ -143,9 +147,14 @@ function showHumanSelection(value,remote=false,origin=null,source=null){
   focus.style.setProperty('--tilt-x','0deg');focus.style.setProperty('--tilt-y','0deg');
   mountSymbolState($('humanFocusSymbols'),[card.id],true,{intro:true});
   $('selectedPanel').dataset.remote=String(remote);
-  $('lockInput').hidden=remote;$('lockInput').disabled=remote;
-  $('status').textContent='你的种子卡已出现，将下一次抽卡交给 AI。';
+  $('lockInput').hidden=false;$('lockInput').disabled=true;
+  state.confirmingSelection=false;state.selectionReady=remote;state.focusPending=false;
+  $('selectedError').hidden=true;
+  $('selectedPanel').setAttribute('aria-label',`在线下找到符号 ${card.id}，手机触碰对应实体卡或点击确认`);
+  $('status').textContent='在线下找到这个符号，触碰实体卡或点击确认。';
   setStage('selected');
+  if(!remote)prepareSelectedCard().catch(()=>{});
+  else syncSelectionButton();
   if(!reduced){
     const target=focus.getBoundingClientRect();
     const panel=$('selectedPanel'),field=document.createElement('div');field.className='card-draw-field';field.setAttribute('aria-hidden','true');
@@ -167,7 +176,7 @@ function showHumanSelection(value,remote=false,origin=null,source=null){
     let finished=false;
     const finish=()=>{
       if(finished)return;finished=true;animations.forEach(animation=>animation.cancel());field.remove();delete panel.dataset.drawing;
-      focus.disabled=false;$('lockInput').disabled=remote;
+      focus.disabled=false;syncSelectionButton();
       if(cancelDraw===finish)cancelDraw=null;
     };
     cancelDraw=finish;Promise.allSettled(animations.map(animation=>animation.finished)).then(finish);
@@ -189,13 +198,48 @@ $('selectedPanel').addEventListener('pointermove',event=>{
 $('selectedPanel').addEventListener('pointerleave',()=>{
   $('humanFocusCard').style.setProperty('--tilt-x','0deg');$('humanFocusCard').style.setProperty('--tilt-y','0deg');
 });
+function syncSelectionButton(){
+  $('lockInput').disabled=state.stage!=='selected'||state.focusPending||state.confirmingSelection||$('selectedPanel').dataset.drawing==='true';
+}
+async function prepareSelectedCard(){
+  const binding=++selectionBinding,card=state.growth;
+  state.focusPending=true;syncSelectionButton();
+  try{
+    await entryController?.focusCard?.(card);
+    if(binding===selectionBinding&&state.stage==='selected'&&state.growth===card)state.selectionReady=true;
+  }catch(error){
+    if(binding===selectionBinding&&state.stage==='selected'&&state.growth===card){$('selectedError').textContent=error.message;$('selectedError').hidden=false;}
+    throw error;
+  }finally{
+    if(binding===selectionBinding){state.focusPending=false;syncSelectionButton();}
+  }
+}
+async function confirmSelectedCard(){
+  if(state.stage!=='selected'||state.focusPending||state.confirmingSelection)return;
+  state.confirmingSelection=true;syncSelectionButton();$('selectedError').hidden=true;
+  try{
+    if(!state.selectionReady)await prepareSelectedCard();
+    // Both station inputs commit the same server session; its poll starts the draw.
+    if(await entryController?.confirmCard?.())return;
+    confirmHumanCard(state.growth);
+  }catch(error){
+    $('selectedError').textContent=error.message;$('selectedError').hidden=false;
+  }finally{
+    state.confirmingSelection=false;syncSelectionButton();
+  }
+}
+function confirmHumanCard(cardId,aiValue,requestId){
+  if(state.stage!=='selected'||state.rolling||Number(cardId)!==state.growth)return;
+  if(requestId)state.requestId=requestId;
+  return handOverToAI(aiValue);
+}
 function artworkRequestId(){
   state.requestId??=typeof crypto.randomUUID==='function'?crypto.randomUUID():Array.from(crypto.getRandomValues(new Uint8Array(16)),value=>value.toString(16).padStart(2,'0')).join('');
   entryController?.rememberRequestId(state.requestId);
   return state.requestId;
 }
 async function handOverToAI(aiValue){
-  if(!['input','selected'].includes(state.stage)||state.growth===null||state.rolling)return;
+  if(state.stage!=='selected'||state.growth===null||state.rolling)return;
   state.rolling=true;setStage('ai');$('humanDraw').innerHTML=faceImage(CARDS[state.growth-1]);
   const remaining=CARDS.filter(card=>Number(card.id)!==state.growth);
   for(let i=remaining.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[remaining[i],remaining[j]]=[remaining[j],remaining[i]];}
@@ -214,7 +258,7 @@ async function handOverToAI(aiValue){
   setSymbolLoading('aiSymbols',selectedSymbols(),false);
   await new Promise(resolve=>setTimeout(resolve,1000));
   if(!currentDraw()){state.rolling=false;return;}
-  state.rolling=false;setStage('input');makeKey();
+  state.rolling=false;startFusion();
 }
 async function preGenerateArtwork(key){
   const generation=state.generation;
@@ -222,12 +266,7 @@ async function preGenerateArtwork(key){
   if(generation.job?.status==='failed')state.requestId=null;
   const requestId=artworkRequestId(),cards=[state.growth,state.relation];
   const isCurrent=()=>state.generation===generation&&state.requestId===requestId&&cards[0]===state.growth&&cards[1]===state.relation;
-  generation.status='generating';generation.progress=0;
-  generation.imageUrl=null;$('generatedArt').hidden=true;
-  setSymbolLoading('generationSymbols',selectedSymbols(),true);
-  $('generationProgress').style.width='0%';$('generationPercent').textContent='…';
-  $('generationCopy').textContent='作品正在准备，你可以先找符号。';
-  $('retryGeneration').hidden=true;$('openCards').disabled=state.paired;$('generationCopy').classList.remove('is-error');
+  generation.status='generating';generation.progress=0;generation.imageUrl=null;
   if(state.stage==='printing')updatePrintReady();
   try{
     let created;
@@ -241,33 +280,22 @@ async function preGenerateArtwork(key){
     }
     if(!isCurrent())return;
     generation.job=created;state.job=created.id;$('jobText').textContent=created.id;
-    armNfc(created,CARDS[state.answerId].id,()=>{
-      if(!isCurrent())return;
-      if(state.stage==='key'){continuePair('nfc');return;}
-      if(state.stage==='cards'){
-        document.querySelectorAll('.card')[state.answerId].click();scan('nfc');
-      }
+    // Preparing the paper-print session does not confirm or enqueue a print.
+    armNfc(created,CARDS[state.growth-1].id,()=>{
+      if(isCurrent())syncPhone('print-confirmed',{job:created.id});
     });
-    syncPhone('job-created',{job:state.job,key,answerId:CARDS[state.answerId].id});
+    syncPhone('job-created',{job:state.job,key,answerId:CARDS[state.growth-1].id});
     const started=performance.now();
     const done=await waitForJob(created.id,job=>{
       if(!isCurrent())return;
       generation.job=job;
       generation.progress=job.status==='queued'?0:Math.min(.95,(performance.now()-started)/6000);
-      $('generationProgress').style.width=`${Math.round(generation.progress*100)}%`;
-      $('generationCopy').classList.toggle('is-queued',job.status==='queued');
-      $('generationCopy').textContent=job.status==='queued'?`作品正在排队${job.queue_position?'，前面还有 '+Math.max(0,job.queue_position-1)+' 件':''}，请保留这两张卡。`:'作品正在准备，你可以先找符号。';
-      if(state.stage==='printing'&&job.status==='queued')$('printCopy').textContent='作品正在排队，请保留页面，完成后会自动继续。';
+      if(state.stage==='printing')$('printTitle').setAttribute('aria-label',job.status==='queued'?'作品正在排队':'作品正在生成');
     });
     if(!isCurrent())return;
     generation.job=done;
     if(done.status!=='ready')throw Error(done.error||'作品生成失败，请重试。');
     generation.imageUrl=done.image;generation.progress=1;generation.status='ready';
-    $('generatedArt').src=done.image;$('generatedArt').hidden=false;$('generatedArt').alt=`作品 ${done.id}`;
-    setSymbolLoading('generationSymbols',selectedSymbols(),false);
-    $('generationProgress').style.width='100%';$('generationPercent').textContent='100%';
-    $('generationCopy').classList.remove('is-queued');$('generationCopy').textContent='作品已准备好，配对后即可看到它。';$('openCards').disabled=state.paired;
-    if(state.stage==='cards'&&state.selected!==null&&!state.matched)$('manualCard').disabled=false;
     const params=new URLSearchParams({job:done.id});
     $('downloadArtwork').href=done.pdf;
     $('openPrinter').href=`./printer/?${params}`;
@@ -276,94 +304,18 @@ async function preGenerateArtwork(key){
     if(state.stage==='printing')updatePrintReady();
   }catch(error){
     if(!isCurrent())return;
-    generation.status='failed';generation.error=error.message;$('generationCopy').classList.add('is-error');
-    setSymbolLoading('generationSymbols',selectedSymbols(),false);
-    $('generationPercent').textContent='!';$('generationCopy').textContent=error.message;
-    $('retryGeneration').hidden=false;
+    generation.status='failed';generation.error=error.message;
     if(state.stage==='printing')updatePrintReady();
   }
 }
-function makeKey(){
-  if(state.stage!=='input'||state.growth===null||state.relation===null)return;
-  const n=(state.growth*7+state.relation*11)%12;state.answerId=n;
-  $('jobText').textContent='作品生成中';
-  const key=`${CARDS[state.growth-1].id} · ${CARDS[state.relation-1].id} · ${String(n+1).padStart(2,'0')}`;
-  $('keyGlyph').innerHTML=`<span class="key-pair"><span aria-label="你抽出的卡">${faceImage(CARDS[state.growth-1])}<small>你的卡</small></span><span aria-label="AI 抽出的卡">${faceImage(CARDS[state.relation-1])}<small>AI 的卡</small></span></span>`;
-  if(state.hiddenPair)$('keyGlyph').classList.add('hidden-key');
-  mountGlyph($('pairTarget'),CARDS[n].id);$('pairTarget').setAttribute('aria-label',`要寻找的符号 ${CARDS[n].id}`);
-  mountGlyph($('targetHint'),CARDS[n].id);$('targetHint').setAttribute('aria-label',`参照符号 ${CARDS[n].id}`);$('targetHint').setAttribute('role','img');state.key=key;
-  syncPhone('key-generated',{key,answerId:CARDS[n].id,hidden:state.hiddenPair});
-  if(stationMode&&nfcEnabled&&$('entryPanel').dataset.sessionId)$('pairingHint').innerHTML='现场：用刚才抽卡的同一手机浏览器碰对应实体卡，<br>再点“确认配对并打印”。也可以在屏幕中找。';
-  setStage('key');preGenerateArtwork(key);
-}
-async function continuePair(method='manual'){
-  if(state.stage!=='key'||state.paired||manualConfirming)return;
-  if(method!=='nfc'&&state.generation.status!=='ready')return;
-  manualConfirming=true;$('openCards').disabled=true;
-  $('generationCopy').classList.remove('is-error');
-  try{
-    if(method==='manual'&&nfcEnabled)await triggerNfcFallback(state.generation.job,CARDS[state.answerId].id);
-    if(state.stage!=='key'||state.paired)return;
-    $('previewPair').hidden=true;state.selected=state.answerId;state.matched=true;
-    syncPhone('card-synced',{job:state.job,cardId:CARDS[state.answerId].id,source:method});
-    await startFusion();
-  }catch(error){
-    $('generationCopy').textContent=error.message;$('generationCopy').classList.add('is-error');
-    if(nfcEnabled)$('previewPair').hidden=false;
-  }finally{
-    manualConfirming=false;
-    if(state.stage==='key'&&!state.paired)$('openCards').disabled=state.generation.status!=='ready';
-  }
-}
-function openSymbolSearch(){
-  if(state.stage!=='key'||state.paired||manualConfirming)return;
-  setStage('cards');renderCards();$('scanCard').disabled=true;$('manualCard').disabled=true;
-  $('scanStatus').textContent='对照上方图案，选择相同的符号。';$('scanStatus').dataset.symbol='';
-  $('pairSearchTitle').focus({preventScroll:true});
-}
-function renderCards(){
-  const grid=$('cardGrid');grid.innerHTML='';
-  CARDS.forEach((card,i)=>{
-    const b=document.createElement('button');b.className='card symbol-choice';b.type='button';b.dataset.cardId=card.id;
-    b.setAttribute('aria-label',`选择符号 ${card.id}`);b.setAttribute('aria-pressed','false');
-    b.innerHTML=`<img src="./motion/vectors/${card.id}.svg" alt="" draggable="false"><span class="choice-number">${card.id}</span>`;
-    b.onclick=()=>{
-      if(state.paired||state.matched||manualConfirming)return;state.selected=i;$('pairButton').hidden=true;
-      document.querySelectorAll('.card').forEach(x=>{x.classList.remove('selected');x.setAttribute('aria-pressed','false')});
-      b.classList.add('selected');b.setAttribute('aria-pressed','true');
-      $('scanCard').disabled=false;$('manualCard').disabled=state.generation.status!=='ready';
-      $('scanStatus').textContent='已选择，点“确认配对”看看是否相同。';$('scanStatus').style.color='';$('scanStatus').dataset.symbol='';
-    };grid.append(b);
-  });
-}
-async function scan(method='nfc-simulated'){
-  if(state.stage!=='cards'||state.selected==null||state.paired||state.matched)return;
-  if(method==='manual'&&manualConfirming)return;
-  if(state.selected!==state.answerId){state.matched=false;$('pairButton').hidden=true;$('scanStatus').textContent='还不一样。请对照上方的符号，再选一次。';$('scanStatus').style.color='#a14a48';$('scanStatus').dataset.symbol='×';return;}
-  if(method==='manual'&&nfcEnabled){
-    if(state.generation.status!=='ready')return;
-    manualConfirming=true;$('manualCard').disabled=true;$('scanCard').disabled=true;
-    mountSymbolLoading($('manualCard'));
-    $('scanStatus').textContent='正在确认打印指令。';$('scanStatus').dataset.symbol='';
-    try{await triggerNfcFallback(state.generation.job,CARDS[state.selected].id);}
-    catch(error){
-      if(state.stage==='cards'&&!state.paired){$('scanStatus').textContent=error.message;$('scanStatus').style.color='#a14a48';$('scanStatus').dataset.symbol='×';$('manualCard').disabled=false;$('scanCard').disabled=false;}
-      return;
-    }finally{manualConfirming=false;unmountGlyph($('manualCard'));$('manualCard').textContent='配对并打印';}
-    if(state.stage!=='cards'||state.paired)return;
-  }
-  state.matched=true;$('scanStatus').textContent='配对成功！两张卡即将一起生成作品。';$('scanStatus').style.color='#476d52';$('scanStatus').dataset.symbol='✓';
-  syncPhone('card-synced',{job:state.job,cardId:CARDS[state.selected].id,source:method});
-  $('scanCard').disabled=true;$('manualCard').disabled=true;$('pairButton').hidden=true;$('cardsPanel').classList.add('matched');
-  document.querySelectorAll('.symbol-choice').forEach(button=>button.disabled=true);
-  await new Promise(resolve=>setTimeout(resolve,650));
-  if(state.stage==='cards'&&!state.paired)startFusion();
-}
 function syncPhone(type,payload={}){const message={type:`between:${type}`,...payload};window.parent!==window&&window.parent.postMessage(message,location.origin);window.opener?.postMessage(message,location.origin);window.dispatchEvent(new CustomEvent('between-sync',{detail:message}))}
-async function startFusion(){
-  if(!['key','cards'].includes(state.stage)||!state.matched||state.selected!==state.answerId||state.paired)return;
-  state.paired=true;syncPhone('pairing',{cardId:CARDS[state.selected].id});$('pairButton').hidden=true;
+function startFusion(){
+  if(state.stage!=='ai'||state.growth===null||state.relation===null||state.paired)return;
+  state.answerId=state.growth-1;state.selected=state.answerId;state.matched=true;state.paired=true;
+  state.key=`${CARDS[state.growth-1].id} · ${CARDS[state.relation-1].id}`;
+  syncPhone('pairing',{cardId:CARDS[state.growth-1].id});
   state.printerFailed=false;
+  preGenerateArtwork(state.key);
   showPrintReady();
 }
 function showPrintProgress(p,phase){
@@ -409,7 +361,7 @@ function updatePrintReady(){
   $('startPrintButton').hidden=false;
   $('startPrintButton').disabled=generation.status==='generating';
   const action=generation.status==='failed'?'重新生成作品':state.printerFailed?'重试 3D 预演':'开始 3D 打印预演';
-  $('startPrintButton').setAttribute('aria-label',action);$('startPrintButton').title=action;
+  $('startPrintButton').setAttribute('aria-label',action);
   actionGlyph($('startPrintButton'),generation.status==='failed'||state.printerFailed?'06':'12');
   $('printCopy').textContent=generation.status==='failed'?generation.error:!ready?'作品还在生成，完成后即可继续。':state.printerFailed?'3D 场景加载失败，可以重试；作品和 PDF 已保存。':'作品已保存。开始预演，观看它在打印机中成形。';
   if(ready&&!state.printerFailed)preparePrinterScene();
@@ -434,8 +386,19 @@ function startPrint(){
   $('startPrintButton').hidden=true;$('artworkActions').hidden=true;$('restart').hidden=true;
   showPrintProgress(0);state.printerView.start();
 }
-window.addEventListener('message',event=>{if(event.origin!==location.origin)return;const data=event.data||{};if(data.type==='between:phone-card'&&state.stage==='cards'){const index=CARDS.findIndex(card=>card.id===String(data.cardId).padStart(2,'0'));if(index>=0){document.querySelectorAll('.card')[index].click();scan('nfc')}}if(data.type==='between:phone-pair')startFusion()});
-$('lockInput').onclick=()=>handOverToAI();$('openCards').onclick=openSymbolSearch;$('previewPair').onclick=()=>continuePair('screen');$('scanCard').onclick=()=>scan('nfc-simulated');$('manualCard').onclick=()=>scan('manual');$('pairButton').onclick=startFusion;$('startPrintButton').onclick=startPrint;$('restart').onclick=async()=>{state.printerView?.close();await entryController?.reset();location.href=stationMode?'./prototype-3d.html?mode=station'+(nfcEnabled?'&nfc=1':''):'./'};$('retryGeneration').onclick=()=>preGenerateArtwork(state.key);$('startShuffle').onclick=startShuffle;document.querySelectorAll('.shuffle-mode').forEach(button=>button.onclick=()=>{if(state.shuffling||state.growth!==null)return;state.shuffleMode=button.dataset.shuffleMode;document.querySelectorAll('.shuffle-mode').forEach(item=>{item.classList.toggle('is-active',item===button);item.setAttribute('aria-pressed',String(item===button))})});renderSeedDeck();setStage('input');
+async function restartExperience(){
+  if($('restart').disabled)return;
+  $('restart').disabled=true;$('restart').setAttribute('aria-label','正在开始下一轮');
+  mountSymbolLoading($('restart'));state.printerView?.close();
+  await entryController?.reset();
+  location.href=stationMode?'./prototype-3d.html?mode=station'+(nfcEnabled?'&nfc=1':''):'./';
+}
+window.addEventListener('message',event=>{
+  if(event.origin!==location.origin||event.source!==window.opener&&event.source!==window.parent)return;
+  const data=event.data||{};
+  if(data.type==='between:phone-card')confirmHumanCard(data.cardId);
+});
+$('lockInput').onclick=confirmSelectedCard;$('startPrintButton').onclick=startPrint;$('restart').onclick=restartExperience;$('startShuffle').onclick=startShuffle;document.querySelectorAll('.shuffle-mode').forEach(button=>button.onclick=()=>{if(state.shuffling||state.growth!==null)return;state.shuffleMode=button.dataset.shuffleMode;document.querySelectorAll('.shuffle-mode').forEach(item=>{item.classList.toggle('is-active',item===button);item.setAttribute('aria-pressed',String(item===button))})});renderSeedDeck();setStage('input');
 const incomingCard=new URLSearchParams(location.search).get('card');
 if(incomingCard){
   const index=CARDS.findIndex(card=>card.id===incomingCard.padStart(2,'0'));
@@ -443,17 +406,11 @@ if(incomingCard){
   else {$('status').textContent='卡片编号无法识别，请重新选择一张种子卡。';$('status').classList.add('is-error');}
 }
 else if(!new URLSearchParams(location.search).has('local')){
-  setStage('entry');entryController=mountScanEntry((card,aiCard,requestId)=>{state.growth=card;state.requestId=requestId;setStage('selected');return handOverToAI(aiCard)},()=>setStage('input'),card=>{if(card)showHumanSelection(card,true);else{state.growth=null;setStage('entry')}},{online:!stationMode});
+  setStage('entry');entryController=mountScanEntry((card,aiCard,requestId)=>confirmHumanCard(card,aiCard,requestId),()=>setStage('input'),card=>{if(card)showHumanSelection(card,true);else{state.growth=null;setStage('entry')}},{online:!stationMode});
 }
-if(!stationMode){
-  $('manualCard').hidden=true;
-  $('scanCard').setAttribute('aria-label','确认这张答案卡');$('scanCard').title='确认答案';
-  $('openPrinter').hidden=true;
-  document.querySelector('#cardsPanel .kicker').textContent='寻找答案 · ANSWER';
-  document.querySelector('#printPanel .kicker').textContent='你的作品 · ARTWORK';
-}
-if(!nfcEnabled)$('manualCard').hidden=true;
-for(const [id,label] of [['lockInput','交给 AI 抽卡 →'],['openCards','在屏幕中找'],['scanCard','确认配对'],['manualCard','配对并打印']]){unmountGlyph($(id));$(id).textContent=label;$(id).setAttribute('aria-label',label);$(id).title=label;}
+if(!stationMode)$('openPrinter').hidden=true;
+// Labels remain available to assistive technology without visible instructions.
+document.querySelectorAll('[title]').forEach(node=>node.removeAttribute('title'));
 window.addEventListener('pagehide',()=>{state.printerView?.close();shuffleAnimations.forEach(animation=>animation.cancel());cancelDraw?.();});
 window.addEventListener('resize',()=>{shuffleAnimations.forEach(animation=>animation.cancel());cancelDraw?.();});
 function loop(now){if(renderer&&!document.hidden&&['printing','done'].includes(state.stage)){printer.rotation.y=Math.sin(now*.0004)*.02;wall.rotation.y=Math.sin(now*.00025)*.025;printObj.rotation.y+=.006;renderer.render(scene,camera)}requestAnimationFrame(loop)}requestAnimationFrame(loop);

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#f6f4ed">
   <title>BETWEEN · 把卡片交给 AI</title>
-  <link rel="stylesheet" href="./phone.css?v=mobile-pairing-1">
+  <link rel="stylesheet" href="./phone.css?v=ai-handoff-motion-1">
   <link rel="stylesheet" href="./symbol-interface.css?v=loading-sequence-2">
 </head>
 <body>
@@ -27,7 +27,6 @@
     </section>
 
     <section id="reveal" class="reveal" aria-label="你抽中的种子卡" hidden>
-      <p class="chosen-caption">你的卡片</p>
       <div id="revealSymbols" class="reveal-symbols" aria-hidden="true"></div>
       <div id="chosenCard" class="chosen-card"></div>
       <div id="handoff" class="handoff" aria-label="卡片交接状态" hidden>
@@ -41,8 +40,8 @@
       <div id="drawHint" class="draw-hint" aria-hidden="true" hidden>
       </div>
       <div class="action-row">
-        <button id="redraw" class="redraw" type="button" title="重新洗牌并重抽" aria-label="重新洗牌并重抽" hidden></button>
-        <button id="action" class="action" type="button" title="开始洗牌，然后抽取一张卡" aria-label="开始洗牌，然后抽取一张卡" disabled>
+        <button id="redraw" class="redraw" type="button" aria-label="重新洗牌并重抽" hidden></button>
+        <button id="action" class="action" type="button" aria-label="开始洗牌，然后抽取一张卡" disabled>
         </button>
       </div>
       <p id="handoffHint" class="sr-only">一张属于你的卡，另一张交给 AI。</p>
@@ -51,6 +50,6 @@
     </footer>
   </main>
   <script src="./motion/vendor/lottie.min.js"></script>
-  <script type="module" src="./phone.js?v=loading-sequence-2"></script>
+  <script type="module" src="./phone.js?v=ai-handoff-motion-1"></script>
 </body>
 </html>

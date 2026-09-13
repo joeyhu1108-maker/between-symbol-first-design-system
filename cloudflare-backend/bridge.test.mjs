@@ -137,18 +137,23 @@ function printerContext(overrides = {}) {
   const elements = new Map();
   const state = { loaded: true, running: false, failed: false, mode: 'live', job: null };
   const params = { m: 12, n: 1, a: 0.8, b: 0.6, seed: 123 };
-  const failures = [], submissions = [], polls = [];
+  const failures = [], submissions = [], polls = [], questionBindings = [];
+  const questionReveal = {
+    reset() {},
+    bind: parameters => questionBindings.push(parameters),
+    question: { text: '这次相遇让什么开始生长？' }
+  };
   const context = vm.createContext({
-    state, params, query: new URLSearchParams(),
+    state, params, questionReveal, query: new URLSearchParams(),
     $: id => { if (!elements.has(id)) elements.set(id, {}); return elements.get(id); },
     crypto: { randomUUID: () => requestId }, Uint8Array, URLSearchParams,
     begin: () => { state.running = true; state.failed = false; },
     showError: message => { failures.push(message); state.failed = true; state.running = false; },
     poll: (...args) => polls.push(args),
-    createJob: async (cards, id) => { submissions.push({ cards: Array.from(cards), id }); return { id: 'job1', status: 'queued' }; },
+    createJob: async (cards, id) => { submissions.push({ cards: Array.from(cards), id }); return { id: 'job1', status: 'queued', params: { ...params, cards: Array.from(cards) } }; },
     ...overrides
   });
-  return { context, state, params, elements, failures, submissions, polls };
+  return { context, state, params, elements, failures, submissions, polls, questionBindings };
 }
 
 test('printer start uses card contract and preserves requestId after submission failure', async () => {
@@ -157,7 +162,7 @@ test('printer start uses card contract and preserves requestId after submission 
   p.context.createJob = async (cards, id) => {
     p.submissions.push({ cards: Array.from(cards), id });
     if (++attempts === 1) throw new TypeError('network unavailable');
-    return { id: 'job1', status: 'queued' };
+    return { id: 'job1', status: 'queued', params: { ...p.params, cards: Array.from(cards) } };
   };
   vm.runInContext(printerFunction('start', 'refreshPrinters') + '\nthis.startUnderTest=start;', p.context);
   await p.context.startUnderTest();
@@ -166,6 +171,10 @@ test('printer start uses card contract and preserves requestId after submission 
   await p.context.startUnderTest();
   assert.deepEqual(p.submissions, [{ cards: [12, 1], id: requestId }, { cards: [12, 1], id: requestId }]);
   assert.deepEqual(p.polls, [['job1', 'live']]);
+  assert.equal(p.state.failed, false);
+  assert.equal(p.questionBindings.length, 1);
+  assert.equal(p.questionBindings[0], p.state.job.params, 'the recovered job supplies its exact parameters to the question');
+  assert.deepEqual(p.questionBindings[0].cards, [12, 1]);
 });
 
 test('printer start uses crypto.getRandomValues UUID fallback when randomUUID is absent', async () => {
@@ -186,7 +195,8 @@ test('printer adoptJob uses the ready manifest parameters and downloadable artif
     sampleGardenColors() {}, sessionStorage: { setItem: (...args) => stored.push(args) }
   });
   vm.runInContext(printerFunction('adoptJob', 'poll') + '\nthis.adoptUnderTest=adoptJob;', p.context);
-  const job = { id: 'ready-job', status: 'ready', params: { cards: [12, 1], m: 1, n: 12, a: 0.32, b: 0.81, seed: 4294967295 }, particles: '/p.json', image: '/a.webp', pdf: '/a.pdf' };
+  const job = { id: 'ready-job', status: 'ready', params: { cards: [12, 1], m: 1, n: 12, a: 0.32, b: 0.81, seed: 4294967295 }, particles: '/p.json', image: '/a.webp', pdf: '/a.pdf',
+    story: { title: '归档作品', story: '同一组种子', cards: [], perspective: '共生', relation: '相遇', signature: '原始参数' } };
   await p.context.adoptUnderTest(job);
   assert.equal(p.state.job, job);
   assert.equal(p.params.seed, 4294967295);
@@ -197,6 +207,9 @@ test('printer adoptJob uses the ready manifest parameters and downloadable artif
   assert.deepEqual(requested, ['/p.json', '/a.webp']);
   assert.deepEqual(stored, [['seed-press-job', 'ready-job']]);
   assert.equal(oldTexture.disposed, true);
+  assert.equal(p.questionBindings.length, 1);
+  assert.equal(p.questionBindings[0], job.params, 'question and artwork must bind to the same archived manifest');
+  assert.equal(p.elements.get('storyQuestion').textContent, p.context.questionReveal.question.text);
 });
 
 function installPrinterPoll(context) {

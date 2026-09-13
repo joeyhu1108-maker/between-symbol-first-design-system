@@ -12,3 +12,24 @@ html.embed main{display:block;height:100vh;max-height:none;min-height:0;margin:0
 html.embed .theatre{position:fixed;inset:0}
 
 .story-link{font-size:10px;color:#9f7184;margin-left:7px}.story-panel{max-width:760px;margin:28px auto 60px;padding:30px;border-top:1px solid #d5c1bd;color:#806a66}.story-panel small{font-size:10px;letter-spacing:.16em;color:#b18190}.story-panel h2{font:28px 'Songti SC',serif;font-weight:400}.story-panel p{font-size:13px;line-height:2.15}.story-panel .question{color:#a5768a}.story-panel summary{font-size:11px;cursor:pointer;color:#a58b83}
+
+/* The standalone visitor view shares the console's symbol-only controls. */
+html:not(.embed) :is(header,footer,.scene-note,.eyebrow,.cards,.card-names,.rarity-badge,.rule-data,.narration,.story-link,.micro,#storyPanel,#lab){display:none!important}
+html:not(.embed) main{display:block;height:100svh;min-height:0;max-height:none;margin:0}
+html:not(.embed) .theatre{position:absolute;inset:0;height:auto;min-height:0}
+html:not(.embed) aside{position:absolute;left:50%;bottom:max(24px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(480px,calc(100% - 32px));padding:0;align-items:center;gap:12px}
+html:not(.embed) .actions{gap:14px}
+html:not(.embed) :is(#start,#sound,#motion,#download,#print,#refreshPrinters){display:grid;place-items:center;flex:none;width:48px;height:48px;min-width:0;padding:10px;margin:0;border:1px solid #cbbcb270;border-radius:50%;background:#fbf7efcc;color:var(--world-ink);gap:0}
+html:not(.embed) #start{width:62px;height:62px;padding:15px}
+html:not(.embed) :is(button,a)>svg,#loading svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
+html:not(.embed) #sound[aria-pressed="true"]{background:#e7dce9}
+html:not(.embed) .theatre>#motion{right:24px;bottom:max(24px,env(safe-area-inset-bottom))}
+html:not(.embed) #result:not([hidden]){display:flex;align-items:center;justify-content:center;gap:10px;padding:0;flex-wrap:wrap}
+html:not(.embed) .print-row{align-items:center;gap:10px}
+html:not(.embed) #printer{max-width:min(220px,46vw);height:44px;border-color:#cbbcb270;border-radius:8px;background:#fbf7efcc;font-size:12px}
+html:not(.embed) #status{display:none;margin:0;padding:8px 14px;border-radius:10px;background:#fbf7efee;text-align:center;font-size:12px;line-height:1.6}
+html:not(.embed) #status:is(.failed,.essential){display:block}
+html:not(.embed) #loading svg{width:48px;height:48px;animation:seed-breathe 1.8s ease-in-out infinite}
+@keyframes seed-breathe{50%{opacity:.35;transform:scale(.88)}}
+@media(prefers-reduced-motion:reduce){html:not(.embed) #loading svg{animation:none}}
+@media(max-width:600px){html:not(.embed) .theatre>#motion{top:16px;right:16px;bottom:auto;width:42px;height:42px}}

@@ -1,0 +1,30 @@
+/* The sentence occupies the same space before and after it becomes readable. */
+.closing-question{position:absolute;left:64%;right:6%;top:50%;transform:translateY(-50%);pointer-events:none;color:#242c29;font:400 clamp(22px,2.15vw,32px)/1.85 'Songti SC','STSong','Noto Serif CJK SC',serif}
+.closing-question[hidden]{display:none}
+html.embed .theatre{height:100%;min-height:0}
+.question-active #viewport{right:39%}
+.question-script{margin:0;overflow-wrap:normal;word-break:normal;line-height:1.85}
+.question-word{display:inline-block;white-space:nowrap}
+.question-char{display:inline-block;position:relative;vertical-align:top;width:1em;height:1.85em}
+.question-latin{width:.6em}.question-latin .question-glyph{width:.6em;height:.8em;top:.42em}
+.question-glyph{position:absolute;top:.32em;left:0;width:1em;height:1em;opacity:.75;animation:question-breathe 2.8s var(--pulse-delay) ease-in-out infinite}
+.question-han{position:absolute;inset:0;opacity:0;transform:translateY(.14em)}
+.question-punctuation .question-han{opacity:.4;transform:none}
+.closing-question[data-state="decoding"] .question-glyph,.closing-question[data-state="revealed"] .question-glyph{animation:none;opacity:0;transform:scale(.8);transition:opacity 280ms var(--reveal-delay),transform 280ms var(--reveal-delay)}
+.closing-question[data-state="decoding"] .question-han,.closing-question[data-state="revealed"] .question-han{opacity:1;transform:none;transition:opacity 320ms var(--reveal-delay),transform 320ms var(--reveal-delay) cubic-bezier(.22,1,.36,1)}
+.closing-question[data-state="revealed"] :is(.question-glyph,.question-han){transition:none}
+.question-announcement{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@keyframes question-breathe{0%,100%{opacity:.42;transform:translateY(1px)}50%{opacity:.86;transform:translateY(-1px)}}
+@media(max-width:760px) and (orientation:portrait){
+ .closing-question{top:auto;bottom:118px;left:8%;right:8%;transform:none;font-size:clamp(18px,5vw,22px);line-height:1.8}
+ .question-active #viewport{right:0;bottom:310px}
+ html:not(.embed) .closing-question{bottom:190px}
+ html:not(.embed) .question-active #viewport{bottom:375px}
+}
+@media(max-height:540px) and (orientation:landscape){
+ .closing-question{left:58%;right:6%;top:45%;font-size:18px;line-height:1.65}
+ .question-active #viewport{right:45%}
+ .question-char{height:1.65em}
+}
+.closing-question[data-reduced="true"] :is(.question-glyph,.question-han){animation:none;transition:none}
+@media(prefers-reduced-motion:reduce){.closing-question :is(.question-glyph,.question-han){animation:none;transition:none}}

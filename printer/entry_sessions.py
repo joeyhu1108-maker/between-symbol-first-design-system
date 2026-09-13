@@ -99,7 +99,7 @@ class EntrySessions:
                        'phone_url': f'http://{address}:{port}/phone.html?session={sid}' if address else None,
                        'qr_url': f'/api/sessions/{sid}/qr.svg' if address else None,
                        'expires_at': self.clock() + TTL, 'status': 'waiting', 'cards': [], 'selected_card': None, 'ai_card': None,
-                       'request_id': f'entry-{sid}', 'handoff_ready': False}
+                       'request_id': f'entry-{sid}', 'handoff_ready': False, 'screen_card': None}
             if not address:
                 session['error'] = '未找到可供手机访问的局域网地址，请连接 Wi-Fi 后重试。'
             self.sessions[sid] = session
@@ -128,15 +128,50 @@ class EntrySessions:
                 raise SessionError('电脑上的本轮抽卡已结束，请等待下一轮准备好后重新碰卡。', error.status) from error
             return self._snapshot(session)
 
-    def join(self, sid, participant_id):
+    def focus(self, sid, owner_token, card):
+        if type(card) is not int or not 1 <= card <= 12:
+            raise SessionError('请选择一张 01–12 号卡。')
+        with self.lock:
+            session = self._get(sid)
+            self._owner(session, owner_token)
+            self._active(session)
+            if session['status'] in ('submitted', 'accepted'):
+                if session['selected_card'] != card:
+                    raise SessionError('卡片已确认，不能重复更换。', 409)
+                return self._snapshot(session)
+            session.update(screen_card=card, selected_card=card, status='selected')
+            return self._snapshot(session)
+
+    def confirm(self, sid, owner_token):
+        with self.lock:
+            session = self._get(sid)
+            self._owner(session, owner_token)
+            self._active(session)
+            card = session.get('screen_card')
+            if card is None:
+                raise SessionError('请先在电脑上选中一张卡。', 409)
+            if session['status'] not in ('submitted', 'accepted'):
+                session.update(cards=[card], selected_card=card,
+                               ai_card=secrets.choice([value for value in range(1, 13) if value != card]),
+                               status='submitted')
+            session['handoff_ready'] = True
+            return self._snapshot(session)
+
+    def join(self, sid, participant_id, card=None):
         participant_id = self._participant(participant_id)
+        if card is not None and (type(card) is not int or not 1 <= card <= 12):
+            raise SessionError('标签卡号无效。')
         with self.lock:
             session = self._get(sid)
             self._active(session)
+            if card is not None and session.get('screen_card') not in (None, card):
+                raise SessionError('请触碰电脑上选中卡片对应的符号。', 409)
             if session['participant_id'] not in (None, participant_id):
                 raise SessionError('已有另一位参与者开始抽卡，请等待下一次二维码。', 409)
             if session['participant_id'] is None:
-                session.update(participant_id=participant_id, status='joined')
+                session['participant_id'] = participant_id
+                if session['status'] == 'waiting':
+                    session['status'] = 'joined'
             return self._snapshot(session)
 
     def select(self, sid, participant_id, card):
@@ -150,6 +185,8 @@ class EntrySessions:
                 raise SessionError('请先用当前手机加入这次抽卡。', 409)
             if session['status'] in ('submitted', 'accepted'):
                 raise SessionError('卡片已确认，不能重复更换。', 409)
+            if session.get('screen_card') is not None and card != session['screen_card']:
+                raise SessionError('请触碰电脑上选中卡片对应的符号。', 409)
             session.update(selected_card=card, status='selected' if card is not None else 'joined')
             return self._snapshot(session)
 

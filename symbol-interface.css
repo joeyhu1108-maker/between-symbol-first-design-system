@@ -107,6 +107,10 @@ body[data-stage="printing"][data-printer-phase="loading"]:not(:has(#printCopy.is
 @media(max-width:760px){body[data-stage="printing"][data-preview-running="true"] .print-panel{bottom:32px;right:20px}}
 
 /* Mobile controls stay below the machine, including completion and recovery. */
+body[data-stage="done"][data-preview-running="true"] .print-panel{display:flex;align-items:center;justify-content:center;gap:12px;inset:auto 4.5% 28px auto;width:max-content;max-width:calc(100vw - 32px);max-height:none;padding:10px 12px;background:transparent;border:0;backdrop-filter:none;overflow:visible}
+body[data-stage="done"][data-preview-running="true"] #printTitle.has-glyph{width:32px;height:32px;min-height:0}
+body[data-stage="done"][data-preview-running="true"] .print-panel :is(.print-art,.progress,.print-meta){display:none}
+body[data-stage="done"][data-preview-running="true"] .print-panel .symbol-action{margin-top:0}
 @media(max-width:760px),(max-height:540px) and (max-width:1000px){
  .app .print-panel{position:fixed;top:auto;left:16px;right:16px;width:auto;height:auto;padding:16px;bottom:calc(20px + env(safe-area-inset-bottom));max-height:40dvh;overscroll-behavior:contain}
  body[data-stage="printing"][data-preview-running="true"] .print-panel{right:20px;bottom:calc(20px + env(safe-area-inset-bottom))}

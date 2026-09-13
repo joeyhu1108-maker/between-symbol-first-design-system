@@ -47,6 +47,42 @@ class SessionTests(unittest.TestCase):
         self.assertEqual(closed, self.sessions.close(self.sid, self.owner))
         self.assert_error(410, self.sessions.join, self.sid, self.phone)
 
+    def test_screen_focus_rejects_wrong_tag_without_claiming_round(self):
+        focused = self.sessions.focus(self.sid, self.owner, 12)
+        self.assertIsNone(focused['ai_card'])
+        self.assert_error(409, self.sessions.join, self.sid, 'wrong-phone-123', 11)
+        joined = self.sessions.join(self.sid, self.phone, 12)
+        self.assertEqual((joined['status'], joined['selected_card']), ('selected', 12))
+        self.assert_error(409, self.sessions.select, self.sid, self.phone, 11)
+        self.assert_error(409, self.sessions.select, self.sid, self.phone, None)
+        self.assert_error(409, self.sessions.cards, self.sid, self.phone, [11])
+
+    def test_phone_and_screen_confirm_race_draws_ai_once(self):
+        self.sessions.focus(self.sid, self.owner, 12)
+        self.sessions.join(self.sid, self.phone, 12)
+        with patch('entry_sessions.secrets.choice', return_value=7) as choose:
+            with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+                phone = pool.submit(self.sessions.cards, self.sid, self.phone, [12], True)
+                screen = pool.submit(self.sessions.confirm, self.sid, self.owner)
+                self.assertEqual(phone.result()['ai_card'], screen.result()['ai_card'])
+            snapshot = self.sessions.confirm(self.sid, self.owner)
+            self.assertTrue(snapshot['handoff_ready'])
+            self.sessions.ack(self.sid, self.owner)
+            self.assertEqual(self.sessions.cards(self.sid, self.phone, [12])['status'], 'accepted')
+        choose.assert_called_once()
+        self.assertEqual(snapshot['cards'], [12])
+        self.assertEqual(snapshot['request_id'], self.created['request_id'])
+
+    def test_screen_confirmation_requires_owner_and_focused_card(self):
+        self.assert_error(403, self.sessions.focus, self.sid, 'wrong-owner', 12)
+        self.assert_error(409, self.sessions.confirm, self.sid, self.owner)
+        self.sessions.focus(self.sid, self.owner, 12)
+        self.assert_error(403, self.sessions.confirm, self.sid, 'wrong-owner')
+        self.sessions.confirm(self.sid, self.owner)
+        self.assert_error(409, self.sessions.focus, self.sid, self.owner, 11)
+        joined = self.sessions.join(self.sid, self.phone, 12)
+        self.assertEqual(joined['status'], 'submitted')
+
     def test_ai_draw_excludes_human_and_never_repeats_on_retry(self):
         self.sessions.join(self.sid, self.phone)
         with patch('entry_sessions.secrets.choice', return_value=12) as choose:
@@ -322,6 +358,18 @@ class HttpBoundaryTests(unittest.TestCase):
         status, svg = self.request('GET', self.base + '/qr.svg')
         self.assertEqual(status, 200)
         self.assertTrue(svg.startswith(b'<svg'))
+
+    def test_screen_focus_and_confirm_http_authorization(self):
+        owner = {'owner_token': self.created['owner_token']}
+        self.assertEqual(self.request('POST', self.base + '/focus', {**owner, 'card': 12})[0], 200)
+        self.assertEqual(self.request('POST', self.base + '/confirm', {})[0], 403)
+        self.local = False
+        host = f'192.168.1.8:{self.port}'
+        self.assertEqual(self.request('POST', self.base + '/confirm', owner, host, 'http://' + host)[0], 403)
+        self.assertEqual(self.request('POST', self.base + '/join', {'participant_id': 'wrong-phone-123', 'card': 11}, host, 'http://' + host)[0], 409)
+        self.local = True
+        status, confirmed = self.request('POST', self.base + '/confirm', owner)
+        self.assertEqual((status, confirmed['cards'], confirmed['handoff_ready']), (200, [12], True))
 
     def test_remote_write_and_file_boundaries(self):
         self.local = False
