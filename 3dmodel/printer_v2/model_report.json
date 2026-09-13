@@ -1,0 +1,20 @@
+{
+  "objects": 371,
+  "collections": {
+    "01 • formed acrylic panels": 11,
+    "02 • machined metal chassis": 19,
+    "03 • feed rollers and print mechanism": 214,
+    "04 • fasteners and controls": 98,
+    "05 • continuous paper path": 2,
+    "06 • engraved linework": 27
+  },
+  "nominal_body_mm": [
+    236,
+    180,
+    248
+  ],
+  "paper_width_mm": 136,
+  "geometry_unit": "meter",
+  "reference": "photo/printer.png; photo/猫咪细线罗马数字版/总览.jpg",
+  "note": "Appearance model reconstructed from a single front photo; unseen mechanism and rear are designed, not measured engineering data."
+}

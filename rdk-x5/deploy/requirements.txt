@@ -1,0 +1,5 @@
+numpy>=1.21
+opencv-python-headless>=4.5
+# On RDK X5 (Ubuntu 22.04 aarch64) prefer: sudo apt install python3-opencv
+# Interpreter: tflite_runtime, or tensorflow.lite as fallback
+tflite-runtime>=2.11; platform_machine == "aarch64" or platform_machine == "arm64"

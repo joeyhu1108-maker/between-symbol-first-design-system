@@ -1,0 +1,62 @@
+--- a/nfc-print-agent.py
++++ b/nfc-print-agent.py
+@@ -6,6 +6,8 @@
+ from urllib.request import Request, HTTPRedirectHandler, build_opener
+ 
+ MAX_PDF = 20 * 1024 * 1024
++# Cloudflare on the production domain rejects urllib's default "Python-urllib/x.y" with error 1010 (HTTP 403).
++USER_AGENT = 'BETWEEN-print-agent/1.0'
+ 
+ class NoRedirect(HTTPRedirectHandler):
+     def redirect_request(self, req, fp, code, msg, headers, newurl):
+@@ -25,13 +27,17 @@
+                           env={**os.environ, 'LC_ALL': 'C'})
+ 
+ def printer_status(selected):
+-    result = cups(['lpstat', '-p'])
+-    queues = dict(re.findall(r'^printer\s+(\S+)\s+([^\n]+)', result.stdout, re.M))
++    # lpstat text is localized (Chinese on zh-Hans Macs) and LC_ALL=C does not override it,
++    # so take bare names from `lpstat -e` and key=value state from `lpoptions -p`.
++    queues = cups(['lpstat', '-e']).stdout.split()
+     if not selected:
+         default = cups(['lpstat', '-d'])
+-        found = re.search(r'system default destination:\s*(\S+)', default.stdout)
++        found = re.search(r'[:：]\s*(\S+)\s*$', default.stdout.strip())
+         selected = found.group(1) if found else ''
+-    ready = selected in queues and 'disabled' not in queues[selected].lower()
++    ready = False
++    if selected in queues:
++        options = dict(item.split('=', 1) for item in cups(['lpoptions', '-p', selected]).stdout.split() if '=' in item)
++        ready = options.get('printer-state') != '5' and options.get('printer-is-accepting-jobs') != 'false'
+     return selected or '', ready
+ 
+ class Agent:
+@@ -52,7 +58,7 @@
+ 
+     def post(self, path, data):
+         request = Request(self.server + path, data=json.dumps(data).encode(),
+-                          headers={'Content-Type': 'application/json', 'Authorization': 'Bearer ' + self.token})
++                          headers={'Content-Type': 'application/json', 'Authorization': 'Bearer ' + self.token, 'User-Agent': USER_AGENT})
+         with self.opener.open(request, timeout=15) as response:
+             return json.loads(response.read(1024 * 1024))
+ 
+@@ -67,7 +73,7 @@
+         parsed, origin = urlparse(url), urlparse(self.server)
+         if (parsed.scheme, parsed.netloc) != (origin.scheme, origin.netloc) or parsed.query or parsed.fragment or parsed.path != '/printer/jobs/' + job['job_id'] + '/artwork.pdf':
+             raise ValueError('PDF must use the same server and the assigned printer/jobs artifact path.')
+-        request = Request(url, headers={'Authorization': 'Bearer ' + self.token})
++        request = Request(url, headers={'Authorization': 'Bearer ' + self.token, 'User-Agent': USER_AGENT})
+         with self.opener.open(request, timeout=20) as response:
+             raw = response.read(MAX_PDF + 1)
+         if len(raw) > MAX_PDF or not raw.startswith(b'%PDF-'):
+@@ -96,8 +102,8 @@
+                     if result.returncode:
+                         record.update(status='failed', error=(result.stderr or result.stdout or 'CUPS rejected submission.').strip()[:1000])
+                     else:
+-                        match = re.search(r'request id is (\S+)', result.stdout)
+-                        record.update(status='submitted', cups_job_id=match.group(1) if match else result.stdout.strip()[:200])
++                        match = re.search(re.escape(printer) + r'-\d+', result.stdout)
++                        record.update(status='submitted', cups_job_id=match.group(0) if match else result.stdout.strip()[:200])
+                 except subprocess.TimeoutExpired:
+                     record.update(status='uncertain', error='CUPS submission timed out; inspect the queue before retrying.')
+                 except OSError as error:

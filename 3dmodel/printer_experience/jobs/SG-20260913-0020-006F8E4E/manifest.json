@@ -1,0 +1,86 @@
+{
+  "id": "SG-20260913-0020-006F8E4E",
+  "params": {
+    "m": 3,
+    "n": 5,
+    "a": 0.8,
+    "b": 0.6,
+    "seed": 7310926,
+    "intensity": 8,
+    "formula_version": "chladni-v1"
+  },
+  "rarity": {
+    "sum": 8,
+    "ways": 3,
+    "total_pairs": 66,
+    "probability": 0.045454545454545456,
+    "percent": 4.55,
+    "kind": "rare",
+    "label": "低频 · 偶然偏移",
+    "token": "R"
+  },
+  "story": {
+    "title": "被理解，也保留自己",
+    "screen_title": "被理解，<br>也保留自己。",
+    "story": "一片柔软的颜色向另一片靠近，像终于有人听懂了它。后来，承接它的线慢慢变成框架。它没有离开，只让一条细线穿过缝隙，留下一段不能被安排的路。",
+    "screen_line": "柔软色域被框架承接，也逐渐被它包围。一条未闭合的细线，为自己保留方向。",
+    "question": "当一种关系足够懂你，你还希望它留下什么未知？",
+    "anchors": [
+      "soft blush pigment partly held by a skew incomplete framework",
+      "one delicate line slipping through a gap; never close the boundary",
+      "one small zone where the two pigment families overlap without erasing either"
+    ],
+    "version": "garden-story-v1",
+    "cards": [
+      {
+        "index": 3,
+        "name": "恋人",
+        "theme": "吸引与选择",
+        "wish": "想被理解"
+      },
+      {
+        "index": 5,
+        "name": "皇帝",
+        "theme": "权力",
+        "wish": "想把不确定安放好"
+      }
+    ],
+    "perspective": "两种视角接近",
+    "relation": "交叠与相互滋养",
+    "signature": "一条偏离框架的细线",
+    "measures": {
+      "human_view_share": 0.5714,
+      "seed_view_share": 0.4286,
+      "balance": 0.8571,
+      "rhythm_gap": 2,
+      "accumulation": 8
+    },
+    "interpretation": "叙事权重与视觉隐喻，不是观众的人格或情绪测量。"
+  },
+  "created_at": "2026-09-13T07:28:00.118036",
+  "status": "ready",
+  "revises": "",
+  "generator": "local_garden",
+  "style_version": "garden-v1.1",
+  "style_scale": {
+    "abstraction": 0.96,
+    "organic_motion": 0.78,
+    "pigment_saturation": 0.62,
+    "translucency": 0.6,
+    "gesture": 0.66,
+    "fine_line_density": 0.46,
+    "warm_color_share": 0.88,
+    "asymmetry": 0.85,
+    "oil_paint_presence": 0.2,
+    "weathering": 0.24,
+    "mark_irregularity": 0.85,
+    "pentimento": 0.58
+  },
+  "print_status": "not_submitted",
+  "request_id": "622bc6bd-9673-4ac4-b664-97008f1cb668",
+  "ready_at": "2026-09-13T07:28:02.717715",
+  "image": "/jobs/SG-20260913-0020-006F8E4E/artwork.png",
+  "pdf": "/jobs/SG-20260913-0020-006F8E4E/artwork.pdf",
+  "particles": "/jobs/SG-20260913-0020-006F8E4E/particles.json",
+  "particle_count": 4500
+}

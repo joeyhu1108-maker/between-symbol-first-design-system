@@ -1,0 +1,38 @@
+{
+  "title": "第一次被接住",
+  "screen_title": "第一次，<br>有人接住。",
+  "story": "一个陌生的痕迹落进空白，另一条线靠近，为它留出可以停下的位置。被接住让它安心，也让它开始改变。最后，那道边界仍然没有封口。",
+  "screen_line": "少量痕迹第一次靠近。承接它的线没有封口，安放与自由同时存在。",
+  "question": "接住一个生命，是否也能为它留下离开的空间？",
+  "anchors": [
+    "one small off-center trace supported by an incomplete sheltering line",
+    "a large untouched interval; the shelter remains open",
+    "one small zone where the two pigment families overlap without erasing either"
+  ],
+  "version": "garden-story-v1",
+  "cards": [
+    {
+      "index": 1,
+      "name": "愚者",
+      "theme": "初遇",
+      "wish": "想被接住"
+    },
+    {
+      "index": 2,
+      "name": "魔术师",
+      "theme": "使用",
+      "wish": "想改变世界"
+    }
+  ],
+  "perspective": "两种视角接近",
+  "relation": "交叠与相互滋养",
+  "signature": "一条偏离框架的细线",
+  "measures": {
+    "human_view_share": 0.5714,
+    "seed_view_share": 0.4286,
+    "balance": 0.8571,
+    "rhythm_gap": 1,
+    "accumulation": 3
+  },
+  "interpretation": "叙事权重与视觉隐喻，不是观众的人格或情绪测量。"
+}

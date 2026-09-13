@@ -1,0 +1,60 @@
+[
+  {
+    "folder": "01_attraction_power",
+    "artwork_id": "GDN-0305-0305-13DE61CD-6cee6060",
+    "base": "assets/base_attraction_power.png",
+    "guide": "outputs/01_attraction_power/geometry_guide.png",
+    "prompt": "outputs/01_attraction_power/prompt.txt",
+    "story": "是谁借谁抵达",
+    "input": {
+      "card_ids": [
+        3,
+        5
+      ],
+      "numbers": [
+        3,
+        5
+      ],
+      "a": 0.27576837112805397,
+      "b": -0.9612241182395393,
+      "seed": 333341133,
+      "question": null
+    },
+    "image": "outputs/01_attraction_power/artwork_A4.png",
+    "manifest": "outputs/01_attraction_power/manifest.json",
+    "painting": "outputs/01_attraction_power/artwork.png",
+    "caption_question_id": 5,
+    "presentation_id": "GDN-0305-0305-13DE61CD-6cee6060-Q05",
+    "pdf": "outputs/01_attraction_power/artwork_A4.pdf",
+    "layout": "outputs/01_attraction_power/layout_A4.json"
+  },
+  {
+    "folder": "02_care_inversion",
+    "artwork_id": "GDN-0409-0409-05792CA4-2f7dbcad",
+    "base": "assets/base_care_inversion.png",
+    "guide": "outputs/02_care_inversion/geometry_guide.png",
+    "prompt": "outputs/02_care_inversion/prompt.txt",
+    "story": "换一个方向看照料",
+    "input": {
+      "card_ids": [
+        4,
+        9
+      ],
+      "numbers": [
+        4,
+        9
+      ],
+      "a": 0.82,
+      "b": 0.57236352,
+      "seed": 91827364,
+      "question": null
+    },
+    "image": "outputs/02_care_inversion/artwork_A4.png",
+    "manifest": "outputs/02_care_inversion/manifest.json",
+    "painting": "outputs/02_care_inversion/artwork.png",
+    "caption_question_id": 7,
+    "presentation_id": "GDN-0409-0409-05792CA4-2f7dbcad-Q07",
+    "pdf": "outputs/02_care_inversion/artwork_A4.pdf",
+    "layout": "outputs/02_care_inversion/layout_A4.json"
+  }
+]

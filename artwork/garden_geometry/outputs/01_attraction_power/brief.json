@@ -1,0 +1,252 @@
+{
+  "schema_version": "garden-geometry-semantic-v1",
+  "artwork_id": "GDN-0305-0305-13DE61CD-6cee6060",
+  "input": {
+    "card_ids": [
+      3,
+      5
+    ],
+    "numbers": [
+      3,
+      5
+    ],
+    "orientations": [
+      "both",
+      "both"
+    ],
+    "a": 0.27576837112805397,
+    "b": -0.9612241182395393,
+    "seed": 333341133,
+    "question": null,
+    "version": "garden-geometry-semantic-v1",
+    "style": "garden-v1.1"
+  },
+  "question": {
+    "provided": false,
+    "text": null,
+    "sha256": null,
+    "themes": [],
+    "geometry_actions": [],
+    "motifs": []
+  },
+  "cards": [
+    {
+      "id": 3,
+      "name": "恋人",
+      "theme": "吸引与选择",
+      "source": "卡片/03_恋人_诱惑.md",
+      "source_sha256": "e3933a32d6ef9bcf90bc60f9618753b0f9b0f7e25bf6e945ac64992d91a59727",
+      "orientation": "both",
+      "desire": "被吸引并作出选择",
+      "human": "我愿意把它带走",
+      "seed": "我借它的选择完成移动",
+      "cost": "亲密也可能有目的",
+      "motifs": [
+        "disc",
+        "triangle",
+        "broken_ring"
+      ],
+      "visual_rule": "a tender disc and an inclined triangle appear to attract one another; one points beyond the immediate enclosure"
+    },
+    {
+      "id": 5,
+      "name": "皇帝",
+      "theme": "权力",
+      "source": "卡片/05_皇帝_加冕.md",
+      "source_sha256": "c89c60725c1cbc2fb5b0d02a7465541fdaed53e4b040b1ef5cb2c51b936a2bfa",
+      "orientation": "both",
+      "desire": "交出判断以安放不确定",
+      "human": "我把方向交给更快、更可靠的它",
+      "seed": "可见的权力仍由我提供支架",
+      "cost": "自愿交付也会产生依赖",
+      "motifs": [
+        "open_frame",
+        "offset_frame",
+        "bar_pair"
+      ],
+      "visual_rule": "a dominant raised frame appears authoritative, but its supporting bars emerge from the softer painted territory"
+    }
+  ],
+  "numeric_layer": {
+    "m": 3,
+    "n": 5,
+    "sum": 8,
+    "gap": 2,
+    "a": 0.27576837112805397,
+    "b": -0.9612241182395393,
+    "ways": 3,
+    "total_pairs": 66,
+    "probability": 0.045454545454545456,
+    "human_view_share": 0.22293455578621924,
+    "seed_view_share": 0.7770654442137808,
+    "geometry_count": 3,
+    "spatial_relation": "near but not sealed: preserve a meaningful gap",
+    "derived_seed": 7849317168216337854
+  },
+  "story": {
+    "title": "是谁借谁抵达",
+    "text": "柔软的色域让一枚小片靠近，一套框架随后承接了它的方向。看起来是框架在决定去处，底层的细线却悄悄显示：支撑框架的力量来自那片被带走的颜色。",
+    "emotion": "亲密、主动选择与隐约的依赖交织",
+    "viewpoints": [
+      "恋人／人看种子：我愿意把它带走",
+      "恋人／种子看人：我借它的选择完成移动",
+      "皇帝／人看种子：我把方向交给更快、更可靠的它",
+      "皇帝／种子看人：可见的权力仍由我提供支架"
+    ],
+    "required_evidence": [
+      "a tender disc and an inclined triangle appear to attract one another; one points beyond the immediate enclosure",
+      "a dominant raised frame appears authoritative, but its supporting bars emerge from the softer painted territory",
+      "near but not sealed: preserve a meaningful gap"
+    ],
+    "question_influence": [],
+    "interpretation": "Artistic relational fiction, not a personality assessment or a prediction."
+  },
+  "geometry": [
+    {
+      "id": "g1",
+      "motif": "disc",
+      "semantic_card": 3,
+      "meaning": "a tender disc and an inclined triangle appear to attract one another; one points beyond the immediate enclosure",
+      "u": 0.51394,
+      "v": 0.5,
+      "width": 0.1454,
+      "height": 0.0848,
+      "rotation_degrees": 1.9,
+      "layer": 0,
+      "color": "#DDD0E8",
+      "material": "painted thin relief, imperfect edge, 20% oil character",
+      "nodal_residual": 0.0
+    },
+    {
+      "id": "g2",
+      "motif": "offset_frame",
+      "semantic_card": 5,
+      "meaning": "a dominant raised frame appears authoritative, but its supporting bars emerge from the softer painted territory",
+      "u": 0.7186,
+      "v": 0.24471,
+      "width": 0.1001,
+      "height": 0.0674,
+      "rotation_degrees": 3.8,
+      "layer": 1,
+      "color": "#DDD0E8",
+      "material": "painted thin relief, imperfect edge, 20% oil character",
+      "nodal_residual": 1e-06
+    },
+    {
+      "id": "g3",
+      "motif": "triangle",
+      "semantic_card": 3,
+      "meaning": "a tender disc and an inclined triangle appear to attract one another; one points beyond the immediate enclosure",
+      "u": 0.1269,
+      "v": 0.5,
+      "width": 0.1304,
+      "height": 0.1115,
+      "rotation_degrees": -2.9,
+      "layer": 2,
+      "color": "#F5E8DE",
+      "material": "painted thin relief, imperfect edge, 20% oil character",
+      "nodal_residual": 0.0
+    }
+  ],
+  "style": {
+    "version": "garden-v1.1",
+    "concept": "花园 / Garden — 种子落入关系与色彩共同生长的场域",
+    "references": [
+      "assets/garden_refs/01_gesture.jpg",
+      "assets/garden_refs/02_translucence.jpg",
+      "assets/garden_refs/03_chromatic_space.jpg"
+    ],
+    "reference_weights": {
+      "gestural_pigment": 0.38,
+      "translucent_organic_fields": 0.37,
+      "chromatic_atmosphere": 0.25
+    },
+    "scale": {
+      "abstraction": 0.96,
+      "organic_motion": 0.78,
+      "pigment_saturation": 0.62,
+      "translucency": 0.6,
+      "gesture": 0.66,
+      "fine_line_density": 0.46,
+      "warm_color_share": 0.88,
+      "asymmetry": 0.85,
+      "oil_paint_presence": 0.2,
+      "weathering": 0.24,
+      "mark_irregularity": 0.85,
+      "pentimento": 0.58
+    },
+    "palette": {
+      "cream": "#F5E8DE",
+      "peach_pink": "#E9AAA9",
+      "rose": "#CF7894",
+      "blush": "#ECC2CE",
+      "pale_lilac": "#DDD0E8",
+      "lavender": "#CEC0DA",
+      "dusty_pink": "#D8A8BA",
+      "warm_ground": "#DEC3AB",
+      "muted_plum": "#A68B9F"
+    },
+    "invariants": [
+      "非常抽象的全幅绘画场域",
+      "色域叠压、擦除、渗化与可见笔触",
+      "局部细线与悬浮色点",
+      "柔和发光的空域与高饱和颜料相邻",
+      "不对称、多中心、具有呼吸空间",
+      "编号排在打印页边，不挤进绘画主体",
+      "粉色为主、很淡紫色为辅，减少蓝绿冷色",
+      "约20%油画笔触与局部厚涂",
+      "轻微、诗意的破败与时间痕迹，整体仍明亮",
+      "细节局部聚集、尺度不一，保留空域",
+      "非标准、未完成和反复修改的手工痕迹"
+    ],
+    "exclude": [
+      "具象花园风景",
+      "可识别的花朵、树、盆栽",
+      "居中对称的种子或细胞标本",
+      "解剖图、脑、器官",
+      "塔罗边框和标签",
+      "宇宙照片或科幻海报",
+      "临摹参考图构图",
+      "参考图片的签名、文字、水印",
+      "大块钴蓝或群青",
+      "大面积鲜绿",
+      "黑脏霉斑",
+      "恐怖废墟",
+      "全画面污浊棕灰滤镜"
+    ],
+    "random_controls": {
+      "m_n": "色域的节奏与空间分隔",
+      "a_b": "冷暖色域交错和方向偏转",
+      "seed": "构图、笔触、局部空域、色点与层叠位置"
+    },
+    "palette_balance": {
+      "pink_rose_blush": 0.55,
+      "very_pale_lilac": 0.25,
+      "warm_cream": 0.15,
+      "muted_accents": 0.05
+    },
+    "medium_mix": {
+      "airy_translucent_layers": 0.8,
+      "oil_paint": 0.2
+    },
+    "aging": [
+      "细微龟裂",
+      "局部颜料剥落露出暖底",
+      "边缘磨损",
+      "轻微褪色"
+    ],
+    "detail_vocabulary": [
+      "断续且长短不齐的排线",
+      "未闭合框架与弯折网格",
+      "像缝线或手记的不可读涂写",
+      "反复描画但略错位的轮廓",
+      "局部擦除后露出的旧层",
+      "越过色域边界又中断的小形状"
+    ]
+  },
+  "production": {
+    "status": "brief_ready",
+    "image_generated": false,
+    "question_is_placeholder": true
+  }
+}

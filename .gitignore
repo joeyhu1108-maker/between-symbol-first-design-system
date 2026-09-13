@@ -4,3 +4,13 @@ __pycache__/
 *.pyc
 printer/jobs/
 printer/recomposition.webm
+.wrangler/
+node_modules
+.env
+.env.*
+!.env.example
+between-print-config*.json
+.between-nfc-print-agent.json
+
+# Local integration checks and temporary previews
+tmp/

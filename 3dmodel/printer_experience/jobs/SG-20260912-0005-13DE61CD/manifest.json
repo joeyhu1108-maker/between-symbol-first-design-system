@@ -1,0 +1,29 @@
+{
+  "id": "SG-20260912-0005-13DE61CD",
+  "params": {
+    "m": 3,
+    "n": 5,
+    "a": 0.27576837112805397,
+    "b": -0.9612241182395393,
+    "seed": 333341133,
+    "intensity": 8,
+    "formula_version": "chladni-v1"
+  },
+  "created_at": "2026-09-12T20:55:46.158115",
+  "status": "ready",
+  "generator": "ai_imagegen",
+  "print_status": "not_submitted",
+  "request_id": "ai-constrained-specimen-v1",
+  "ready_at": "2026-09-12T20:55:46.427582",
+  "image": "/jobs/SG-20260912-0005-13DE61CD/ai_original.png",
+  "pdf": "/jobs/SG-20260912-0005-13DE61CD/artwork.pdf",
+  "particles": "/jobs/SG-20260912-0005-13DE61CD/particles.json",
+  "particle_count": 4500,
+  "source_guide": "/jobs/SG-20260912-0005-13DE61CD/guide.png",
+  "ai_provenance": {
+    "provider": "built-in imagegen",
+    "mode": "offline_generated_sample",
+    "attached_at": "2026-09-12T21:01:13.468651",
+    "source_image": "exec-fd871b73-7a6f-4d4d-b6d2-e4d79595c249.png"
+  }
+}

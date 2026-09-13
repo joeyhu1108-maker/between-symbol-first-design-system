@@ -1,0 +1,1 @@
+{"id": "SG-20260912-0011-13DE61CD", "params": {"m": 3, "n": 5, "a": 0.27576837112805397, "b": -0.9612241182395393, "seed": 333341133, "intensity": 8, "formula_version": "chladni-v1"}, "rarity": {"sum": 8, "ways": 3, "total_pairs": 66, "probability": 0.045454545454545456, "percent": 4.55, "kind": "rare", "label": "低频 · 偶然偏移", "token": "R"}}

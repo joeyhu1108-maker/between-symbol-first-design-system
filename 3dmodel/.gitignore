@@ -1,0 +1,9 @@
+# 凭据：访问码等同密钥，绝不入库
+.env
+
+# 构建产物
+out/
+out_sup/
+*.gcode
+*.gcode.3mf
+__pycache__/

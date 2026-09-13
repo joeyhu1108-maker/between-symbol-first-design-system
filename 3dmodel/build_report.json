@@ -1,0 +1,17 @@
+[
+  {
+    "name": "seed_01",
+    "watertight": true,
+    "winding_consistent": true,
+    "volume_mm3": 51316.3,
+    "faces": 257972,
+    "size_mm": [
+      58.0,
+      51.86,
+      44.21
+    ],
+    "euler": 2,
+    "note": "陨石胚体 · 不可命名",
+    "standardization_t": 0.0
+  }
+]

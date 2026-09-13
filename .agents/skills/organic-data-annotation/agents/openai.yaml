@@ -1,0 +1,4 @@
+interface:
+  display_name: "有机式数据标注层"
+  short_description: "为原图叠加触须细线、树状分支、微型标签与科学手稿式注释"
+  default_prompt: "使用 $organic-data-annotation 为这张图添加有机式数据标注层，保留原画构图、色彩和材质。"

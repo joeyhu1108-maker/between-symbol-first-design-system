@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>种子星球 · 微小居民</title>
+<style>
+html,body{margin:0;width:100%;height:100%;background:#f7f1df;overflow:hidden}
+video{width:100%;height:100%;object-fit:contain}
+button{position:fixed;bottom:24px;right:24px;border:1px solid #b5a49a;border-radius:24px;background:#fff9;color:#574c48;padding:12px 20px;font:16px sans-serif;cursor:pointer}
+body:fullscreen button{display:none}
+</style>
+<video id="film" src="seed_planet_micro.mp4" autoplay muted loop playsinline controls></video>
+<button id="full">全屏循环播放</button>
+<script>
+document.getElementById('full').onclick=async()=>{await document.getElementById('film').play();await document.body.requestFullscreen();};
+</script>
+</html>

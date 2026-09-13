@@ -4,21 +4,30 @@
 
 ## 交付状态 · 2026-09-13
 
+最新交付与验收边界见 [DELIVERY-2026-09-13.md](./DELIVERY-2026-09-13.md)。云生成后端、独立网页预览与正式域名的云生成路由均已上线；正式域名单件生成及完整下载校验通过。**200 人完整出图下载验收未通过。**
+
 | 项目 | 已核实的状态 |
 | --- | --- |
-| Worker / Queue / D1 / R2 代码 | 已实现；本地 Worker 测试 16/16、前端请求恢复测试 13/13、抽卡提前生成与会话隔离测试 8/8 通过 |
+| Worker / Queue / D1 / R2 代码 | 已实现；本地共 41/41 项通过：Worker 20/20、前端请求恢复 13/13、抽卡提前生成与会话隔离 8/8 |
 | 工具链 | 锁定 Wrangler `4.131.1`、`@cloudflare/containers` `0.3.7`；dry-run 通过 |
 | 镜像与原算法 | Linux `amd64` Docker 镜像已构建；本地限制 1 CPU 的真实渲染样例 `[12,1] / seed=12345` 用时约 10.94 秒，四种文件生成成功，卡片顺序保持 |
 | 本地真实全链路 | Wrangler + Docker 原算法 + 本地 D1 / Queue / R2 已跑通 1 件独立创作；接收 65 ms、ready 21.612 秒、WebP / PDF 下载校验完成 21.775 秒，HTTP 错误 0；另外逐一 GET 四种文件均 200。报告见 `output/cloudflare-backend/local-stream-fixed.json` |
-| Cloudflare 账户 | 已在控制台确认 Workers Paid；Containers 列表为空表示尚无应用，不代表必须升级。旧 `cloudchamber/me` 探针的 401 不能作为当前套餐结论 |
+| Cloudflare 账户 | 已确认 Workers Paid，R2 已开通，staging 与 production 容器应用均已部署。旧 `cloudchamber/me` 探针的 401 不能作为当前套餐结论 |
 | Staging D1 | `between-artwork-staging` 已创建，位置 APAC；ID `ac167554-d825-42bb-8602-4f2566da4006`；schema 已执行成功 |
 | Staging Queue | `between-artwork-staging` 已创建 |
 | R2 | 账户持有人已开通，`between-artwork-staging` bucket 已实际创建 |
-| 云后端端到端 | Staging 已部署至 `https://between-artwork-staging.joeyhu1108.workers.dev`，基线版本 `6d87ed1b-28e7-4991-a49d-27b06f31325f`；首件真实作品 ready 16.382 秒、WebP / PDF 完整下载校验 19.039 秒，无请求失败。正式入口的生成 API 尚未切换 |
-| 200 人公网负载 | 未通过验收；静态资源每组 200 并发连接、共 600 GET 出现 44 次失败；改为每组 200 请求 / 最多 20 连接后仍有 12 次卡图下载失败。小并发两种网络路径各 10 次完整成功，暂未确定高并发断流原因。本地 200 次提交逻辑测试不代表云上吞吐 |
+| 云后端端到端 | Production 已部署至 `https://between-artwork.joeyhu1108.workers.dev`，版本 `f29440ec-6bad-4e2d-a011-5e0a95eca6d9`；真实 bridge 单用户 1/1 完整成功，ready 13.684 秒、WebP / PDF 下载校验完成 32.112 秒，无请求失败。报告：`output/cloudflare-backend/production-browser-one.json`。单件结果不能视作并发承诺 |
+| 完整网页云预览 | `https://between-cloud-preview.joeyhu1108.workers.dev` 已部署，版本 `53aee6d6-ff74-482b-8e5f-7a736de639fb`，通过 service binding 接入 production。网页发布不等于完整浏览器交互与实体打印已验收 |
+| 正式域名云生成 | `https://between.zone-y.com` 已切换，入口版本 `b8739427-3c92-456a-bfed-bb08baf452fa`，`ARTWORK_BACKEND` 绑定 `between-artwork`，现场路由使用恢复后的新 upstream。真实 bridge 单用户 1/1 通过：ready 12.875 秒、WebP / PDF 完整下载 14.983 秒，11 次请求无失败。报告：`output/cloudflare-backend/canonical-browser-one.json` |
+| Staging 20 人基线 | 原 `load-test.mjs`：ready 20/20，p95 139.680 秒；WebP / PDF 完整下载 20/20，p95 141.485 秒，HTTP 错误 0。报告：`output/cloudflare-backend/staging-20-baseline.json` |
+| Staging 20 人优化对照 | 同一旧工具：ready 20/20，p95 65.759 秒；完整下载仅 14/20，6 个 PDF 收到 HTTP 200 后响应体 `terminated`，另有 2 次网络失败。**本轮未通过**，断流原因仍在排查，不能用 ready 改善代替下载验收。报告：`output/cloudflare-backend/staging-20-optimized.json` |
+| Staging 200 人真实 bridge 负载 | **未通过**：200/200 首次提交接收、200/200 ready，ready p95 186.866 秒；WebP / PDF 完整下载仅 96/200，104 人失败。99 次收到 HTTP 200 后响应体断流，5 次下载请求网络失败；状态轮询另有 82 次瞬时失败后恢复。报告：`output/cloudflare-backend/staging-browser-200-final-sanitized.json` |
+| 200 人静态资源负载 | 同样未通过；每组 200 并发连接、共 600 GET 出现 44 次失败；改为每组 200 请求 / 最多 20 连接后仍有 12 次卡图下载失败。小并发两种网络路径各 10 次完整成功，暂未确定高并发断流的具体网络环节 |
 | 国内外 / 微信 | 尚未完成国内外真实网络与微信群扫码、微信内浏览器真机验收；浏览器修改 UA 不能替代真机 |
 
-`https://between.zone-y.com` 的静态页面已经在 Cloudflare，不等于本目录的云生成后端已经上线。正式网站原来的生成接口仍有本机隧道路由，只有完成下文的 service binding 切换及实测后，才能宣称公网出图摆脱本机依赖。现场 NFC、手机与大屏配对、CUPS / 小米打印机出纸不属于本 Worker。
+`https://between.zone-y.com` 的静态页面和生成链路已在 Cloudflare；生成与作品读取通过 service binding 进入独立云后端，不再依赖现场电脑计算。现场 NFC、手机与大屏配对、CUPS / 小米打印机出纸仍依赖现场服务，不属于本 Worker。现场主控和打印接收端已恢复；用户手机最新反馈为浏览器无法打开网页，尚不能定位为应用 503，现场负责人正在核对实体 NFC 卡的实际 URL，最新云版本的实物闭环尚未验收。
+
+本轮 GET 核对正式页面实际引用链为 `prototype-3d.html → prototype-3d.js?v=mobile-pairing-1 → bridge.js?v=card-fusion-3d-1`。版本化 `bridge.js` 返回 200，5574 字节，SHA-256 `b4d073d794af9fa74ee4c39a76b465fd65be1b274dbf035624c0ad5f511ae84c` 与本地一致；此项仅证明请求模块版本一致，不证明后端已切换。本文报告路径均相对项目上层目录。
 
 ## 流程与职责
 
@@ -42,7 +51,7 @@ flowchart LR
 | 绑定 / 配置 | 用途 |
 | --- | --- |
 | `DB` | D1 保存任务、幂等键、原始卡片顺序、seed、计算租约和最终 manifest |
-| `GENERATION_QUEUE` | 消息只携带 job ID；每批 1 条，最大 consumer 并发 20，队列投递重试配置 100 |
+| `GENERATION_QUEUE` | 消息只携带 job ID；每批最多 2 条，最大 consumer 并发 10；处理器每次并行处理 2 条，等待两条结束再处理下一组；队列投递重试配置 100 |
 | `RENDERER` / `ArtworkRenderer` | job ID 稳定散列到 `renderer-0` 至 `renderer-19`，每个容器同时只渲染一件作品 |
 | `ARTWORKS` | R2 保存四种成品；不公开 bucket，文件通过 Worker 按 job ID 读取 |
 | `standard-2` / `max_instances:20` | 当前每槽配置 1 vCPU、6 GiB 内存、12 GB 磁盘；上限是最多 20 个按需启动实例，不是预先常驻 20 台。[官方规格与计费](https://developers.cloudflare.com/containers/platform/pricing/) |
@@ -53,7 +62,9 @@ flowchart LR
 
 Queue 至少一次投递可能出现重复消息。Worker 通过 D1 原子租约取得唯一处理权，租约持续 6 分钟，每次文件上传前续租。`429 busy` 退避，不消耗业务失败次数；其他计算或上传错误最多尝试 5 次。任务从创建起超过 30 分钟仍未完成，下一次取得处理权时会进入可查询的 `failed`，而不是永远转圈。重试始终保留原 cards / seed / ID；容器暂存丢失后可按原输入重算。
 
-四个文件全部写入 R2 后才发布 `ready`。Container 代理返回的流需按 Content-Length 包装 `FixedLengthStream`，恢复 R2 所需的已知长度标记；上传和传输同时等待，失败时取消管道，避免整图占用 Worker 内存。上传中断留下的部分文件不能通过公开接口读取；成功后清理容器暂存，最终失败也会尽力清理部分对象。D1 和 R2 是持久结果，容器磁盘不是归档。[FixedLengthStream 官方说明](https://developers.cloudflare.com/workers/runtime-apis/streams/transformstream/)
+四个文件每 2 个并行上传，全部写入 R2 后才发布 `ready`；一组出现错误时也等待同组另一项结束，再决定重试或清理，避免清理后又落入迟到的文件。Container 代理返回的流需按 Content-Length 包装 `FixedLengthStream`，恢复 R2 所需的已知长度标记；上传和传输同时等待，失败时取消管道，避免整图占用 Worker 内存。上传中断留下的部分文件不能通过公开接口读取；成功后清理容器暂存，最终失败也会尽力清理部分对象。D1 和 R2 是持久结果，容器磁盘不是归档。[FixedLengthStream 官方说明](https://developers.cloudflare.com/workers/runtime-apis/streams/transformstream/)
+
+生成优化只把花园循环中重复的位移计算移到循环外，并将成品 PNG 改为无损 `compress_level=4`，保留原合成数据类型、分辨率、粒子规则和 `guide.png`。离线固定的三组 cards / seed 对照中，粒子 JSON、guide 文件、PNG 像素、WebP 文件均完全一致；固定 PDF 元数据后 PDF 文件及嵌入 JPEG 也一致。PNG 压缩字节数会变化，此验证不表示所有输入都已穷举，也不是线上耗时承诺。证据：`output/performance/renderer-minimal-patch-profile.json`。
 
 ## 对外兼容契约
 
@@ -83,6 +94,8 @@ Queue 至少一次投递可能出现重复消息。Worker 通过 D1 原子租约
 
 主流程应等到 ready 才调用 `mountPrinterScene(job)`。本轮前端已将独立 `/printer/` 的创建格式迁移为 cards 契约，主流程与打印页补了 crypto 随机编号回退，`bridge.js` 等待窗口调整为 30 分钟。发布前仍需检查最终构建和浏览器完整流程，不能仅凭单元测试判断微信真机兼容。
 
+AI 卡片一确定就提交生成，让计算与后续 2.2 秒抽卡展示、1 秒进入钥匙的动画重叠，相比原提交时机提前约 3.2 秒。钥匙阶段复用同 cards / request_id 的请求，不重复创建；NFC、符号目标和翻卡顺序仍按原时机出现。废弃会话的返回结果不会被新会话采用。提前提交不能保证每张作品的总等待恰好减少 3.2 秒。
+
 ## 本地验证
 
 以下命令从 `seed-universe/cloudflare-backend` 执行。Node 24 可运行使用内置 SQLite 的测试；Docker 需要运行。
@@ -93,7 +106,7 @@ npm test
 npm run check
 ```
 
-`npm test` 共 37 项。Worker 的 16 项使用真实 SQLite 执行生产 SQL，R2 / Queue / Container 是测试绑定，没有调用线上服务；包括 200 个独立请求、520 次并发提交中的 512 容量上限、同 key 幂等与冲突、uint32 边界、原序卡片、重复投递、上传中断、固定长度流的截断 / 超长拒绝、失效租约恢复和日志能力标识脱敏。前端的 13 项读取实际 bridge / printer 函数，验证断网与 503 后同 key / 同 job 恢复、30 分钟截止、UUID 兼容、采用真实参数，以及终态失败后新创作。另 8 项验证抽卡时立即提交、3.2 秒后才进入钥匙和 NFC 阶段、只提交一次、同编号重试、废弃会话的旧请求和轮询不能覆盖新会话。`npm run check` 是 Wrangler dry-run；编译成功不是实际资源已建好或已经上线。
+`npm test` 共 41 项。Worker 的 20 项使用真实 SQLite 执行生产 SQL，R2 / Queue / Container 是测试绑定，没有调用线上服务；包括 200 个独立请求、520 次并发提交中的 512 容量上限、同 key 幂等与冲突、uint32 边界、原序卡片、重复投递、上传中断、固定长度流的截断 / 超长拒绝、失效租约恢复和日志能力标识脱敏；并验证两条消息并行、失败互不阻塞、同批重复投递唯一租约，以及双文件上传结束后才 ready 或清理。前端的 13 项读取实际 bridge / printer 函数，验证断网与 503 后同 key / 同 job 恢复、30 分钟截止、UUID 兼容、采用真实参数，以及终态失败后新创作。另 8 项验证抽卡时立即提交、3.2 秒后才进入钥匙和 NFC 阶段、只提交一次、同编号重试、废弃会话的旧请求和轮询不能覆盖新会话。`npm run check` 是 Wrangler dry-run；编译成功不是实际资源已建好或已经上线。
 
 可复验镜像：
 
@@ -132,21 +145,29 @@ curl --get http://127.0.0.1:8799/__scheduled --data-urlencode 'cron=* * * * *'
 
 3. 检查 [wrangler.jsonc](./wrangler.jsonc) 四种绑定名称、D1 ID、Queue 名称、container class、迁移标签及每分钟 cron。D1 schema 已在 staging 执行；后续需要重建独立测试环境时才对正确目标执行 `npm run db:remote`，不要清空现有正式数据。
 4. `npm run deploy` 部署 staging，保存 Wrangler 返回的实际 URL、版本 ID 和时间；不要预先假定 workers.dev 子域名。检查 Container 镜像发布、应用状态和所有资源绑定后，再 GET `/api/health`。
-5. 用实际 staging origin 先生成 1 件，再逐级扩大到 20 / 200 件，保存各轮报告。示例中的域名是占位符，必须替换；压测会真实计算、写 D1 / R2，产生相应用量。
+5. 用实际 staging origin 先生成 1 件，再逐级扩大到 20 / 200 件，保存各轮报告及部署版本。20 人优化对照保留旧工具以保持测试方法一致；200 人验收使用读取真实 `bridge.js` 的新工具。示例中的域名是占位符，必须替换；压测会真实计算、写 D1 / R2，产生相应用量。
 
    ```sh
    node load-test.mjs --base https://STAGING-ORIGIN --users 1 --output ../../output/cloudflare-backend/staging-one.json
    node load-test.mjs --base https://STAGING-ORIGIN --users 20 --output ../../output/cloudflare-backend/staging-20.json
-   node load-test.mjs --base https://STAGING-ORIGIN --users 200 --output ../../output/cloudflare-backend/staging-200.json
+   node load-test-browser.mjs --base https://STAGING-ORIGIN --users 1 --output ../../output/cloudflare-backend/staging-browser-one.json
+   node load-test-browser.mjs --base https://STAGING-ORIGIN --users 200 --output ../../output/cloudflare-backend/staging-browser-200.json
    ```
 
-压测默认 1 人，显式 `--users 200` 才会生成 200 个独立任务；最长运行 10 分钟。它检查每位用户的 ID / cards / seed 稳定与隔离，轮询 ready，下载 WebP / PDF，验证 MIME、文件头、长度并记录 SHA-256、错误率和 p50 / p95 / max。不会调用 NFC、会话或实体打印接口。`passed:true` 表示这一轮任务全部完成且下载验证通过；还应记录瞬时失败、重试次数、排队时间以及是否超过体验可接受等待，不能只看最后成功数。
+两种工具默认 1 人，显式 `--users 200` 才生成 200 个独立任务，上限 200、整轮最长 10 分钟；均检查 ID / cards / seed 稳定与隔离，以及 WebP / PDF 的 MIME、文件头、长度和 SHA-256，不调用 NFC、会话或实体打印接口。
+
+| 工具 | 请求策略与报告边界 |
+| --- | --- |
+| `load-test.mjs` | 原后端基线工具：单请求最长 30 秒，提交重试可持续到整轮 10 分钟截止，轮询基础间隔退避至 8 秒。不能将其成功率当作浏览器实际恢复策略的结果 |
+| `load-test-browser.mjs` | 在 VM 中执行本地真实 `bridge.js` 的 `createJob / waitForJob`，不复制超时或重试实现，并记录源文件 SHA-256。当前提交 / 状态单请求最多 10 秒（health 15 秒）、提交最多重试 2 分钟、queued / generating 基础轮询间隔 2 / 1 秒、原等待窗口 30 分钟；验收工具额外在整轮 10 分钟强制停止并列出全部未完成用户。每位 ready 用户依次下载 WebP、PDF，各一次，不额外重试下载 |
+
+新工具记录每个阶段、用户和 attempt 的请求，分别统计首次提交成功、重试后接收、网络 / 超时 / 响应体验证错误，以及 accepted / ready / downloaded 的 p50、p95、max。30 / 60 / 120 秒完成比例以全部请求用户为分母；耗时分位数只统计达到该阶段的用户，必须连同样本数报告。`passed:true` 表示本轮全部任务与下载校验最终完成，不表示无瞬时失败或无需等待；HTTP 200 后断流也算失败。先核对报告中的 bridge SHA 与实际发布引用，才可将它作为该前端版本的 HTTP 行为验收；它仍是一次并发突发测试，不是持续负载或真实浏览器渲染测试。
 
 200 人验证至少保留：200 个独立任务 ID、200 份 WebP 与 PDF 的下载记录、没有卡片串号、队列排空、Cloudflare 错误与资源峰值、真实成品抽样。脚本不验证画面审美、手机帧率或实体出纸。国内外不同网络、iOS / Android 微信内点击、微信群二维码与回到页面后的恢复另行验收；本机命令行压测不能替代这些项目。
 
 ## 切换正式域名
 
-现有入口 Worker 在项目上层的 `cloudflare/`，负责静态页面与正式域名。先完成 staging 验收，再准备独立正式资源及 `between-artwork` 后端配置；保持 staging 数据与正式作品分开。可以从当前配置复制正式配置，逐一替换 Worker、D1、R2 和 Queue 名称 / ID；不要把占位 ID 直接发布。
+现有入口 Worker 在项目上层的 `cloudflare/`，负责静态页面与正式域名。独立正式资源及 `between-artwork` 后端已部署，staging 数据与正式作品分开；不必重复创建资源。独立网页预览和正式域名均已接入正式后端，正式入口版本为 `b8739427-3c92-456a-bfed-bb08baf452fa`。以下保留配置与复验步骤供维护使用；200 人完整下载验收仍未通过，不能将一次单件通过当作该验收已完成。
 
 在正式入口的 Wrangler 配置加入 HTTP service binding，例如：
 
@@ -171,7 +192,7 @@ node cloudflare/build.mjs
 seed-universe/cloudflare-backend/node_modules/.bin/wrangler deploy --config cloudflare/wrangler.jsonc
 ```
 
-最终从 `https://between.zone-y.com` 重新完整体验一次：抽卡 → 同一个 request_id 建任务 → queued / generating → ready → 两张卡融合 → 3D 演出 → 下载原作品。核对 `/api/health` 显示 cloudflare，并在受控验收中确认生成链路不再调用 Mac 隧道。保存入口与后端版本 ID 便于回退；回退不要删除已经写入 D1 / R2 的作品。
+正式域名已完成 health、真实 bridge 建任务、ready 与 WebP / PDF 完整下载校验；完整浏览器中的抽卡、融合与 3D 演出视觉验收仍在进行。后续每次发布应从 `https://between.zone-y.com` 复验这些环节，核对 `/api/health` 显示 cloudflare。保存入口与后端版本 ID 便于回退；回退不要删除已经写入 D1 / R2 的作品。
 
 ## 费用与运维边界
 

@@ -1,0 +1,40 @@
+{
+  "timeline_cases": 8,
+  "idempotent_creation": true,
+  "exact_input_transfer": true,
+  "artifact_files": true,
+  "invalid_input_rejected": true,
+  "missing_printer_not_submitted": true,
+  "cross_origin_write_rejected": true,
+  "job": "SG-20260912-0004-13DE61CD",
+  "browser": {
+    "input_bridge_exact_match": true,
+    "normal_complete": true,
+    "failure_retry_available": true,
+    "slow_wait_not_complete": true,
+    "reduced_motion_toggle": true,
+    "fps_observed": 30,
+    "gaussian_surface_splats": 23110,
+    "render_batches": 133,
+    "script_errors": [],
+    "mobile_no_horizontal_overflow": true,
+    "idle_model_rotation": true
+  },
+  "video": {
+    "duration_seconds": 25,
+    "fps": 30,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "ai_artwork_id": "SG-20260912-0005-13DE61CD",
+    "verified_metadata": {
+      "size": [
+        1280,
+        720
+      ],
+      "fps": 30.0,
+      "duration": 25.0
+    }
+  }
+}

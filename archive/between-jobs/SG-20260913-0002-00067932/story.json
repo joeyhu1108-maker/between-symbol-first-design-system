@@ -1,0 +1,40 @@
+{
+  "title": "回响与适时停止",
+  "screen_title": "两种愿望，<br>开始改变彼此。",
+  "story": "一条痕迹想在安静之后听见回应，另一条痕迹想说出“已经够了”。它们在同一片色域中靠近，也留下各自的修改痕迹。最后，一段空白没有被任何一方完全覆盖。",
+  "screen_line": "想在安静之后听见回应，也想说出“已经够了”。两种愿望改变了彼此的边界，却仍保留一处没有被覆盖的空白。",
+  "question": "你愿意把哪一处空白，留给尚未发生的关系？",
+  "anchors": [
+    "faint concentric returns echoing an earlier mark",
+    "an edge that halts a wash before it fills the field",
+    "one small zone where the two pigment families overlap without erasing either"
+  ],
+  "version": "between-story-v1",
+  "cards": [
+    {
+      "index": 9,
+      "id": "09",
+      "name": "回声",
+      "theme": "回响",
+      "wish": "想在安静之后听见回应"
+    },
+    {
+      "index": 10,
+      "id": "10",
+      "name": "边界",
+      "theme": "适时停止",
+      "wish": "想说出“已经够了”"
+    }
+  ],
+  "perspective": "种子／AI 视角更明显",
+  "relation": "交叠与相互滋养",
+  "signature": "被擦掉后又描回的痕迹",
+  "measures": {
+    "human_view_share": 0.1695,
+    "seed_view_share": 0.8305,
+    "balance": 0.339,
+    "rhythm_gap": 1,
+    "accumulation": 19
+  },
+  "interpretation": "叙事权重与视觉隐喻，不是观众的人格或情绪测量。"
+}

@@ -1,0 +1,40 @@
+{
+  "title": "照亮与连接",
+  "screen_title": "两种愿望，<br>开始改变彼此。",
+  "story": "一条痕迹想照亮而不规定方向，另一条痕迹想连接，也保留离开的路。它们在同一片色域中靠近，也留下各自的修改痕迹。最后，一段空白没有被任何一方完全覆盖。",
+  "screen_line": "想照亮而不规定方向，也想连接，也保留离开的路。两种愿望改变了彼此的边界，却仍保留一处没有被覆盖的空白。",
+  "question": "你愿意把哪一处空白，留给尚未发生的关系？",
+  "anchors": [
+    "a soft luminous bloom that leaves its shadows undirected",
+    "fine branching threads spreading beneath other layers",
+    "a boundary kept visibly open"
+  ],
+  "version": "between-story-v1",
+  "cards": [
+    {
+      "index": 4,
+      "id": "04",
+      "name": "光源",
+      "theme": "照亮",
+      "wish": "想照亮而不规定方向"
+    },
+    {
+      "index": 7,
+      "id": "07",
+      "name": "根系",
+      "theme": "连接",
+      "wish": "想连接，也保留离开的路"
+    }
+  ],
+  "perspective": "种子／AI 视角更明显",
+  "relation": "牵制与保留边界",
+  "signature": "一处没有补上的缝",
+  "measures": {
+    "human_view_share": 0.2633,
+    "seed_view_share": 0.7367,
+    "balance": 0.5267,
+    "rhythm_gap": 3,
+    "accumulation": 11
+  },
+  "interpretation": "叙事权重与视觉隐喻，不是观众的人格或情绪测量。"
+}

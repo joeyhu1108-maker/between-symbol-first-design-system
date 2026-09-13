@@ -1,0 +1,74 @@
+[
+  {
+    "file": "artwork/garden_geometry/outputs/02_care_inversion/manifest.json",
+    "field": "caption_source",
+    "original_source": "/Users/shawn/.codex/generated_images/01a09611-857d-7233-a3ae-0371fceb7921/exec-fd4eadbc-49ff-416d-a147-d3537032ee45.png",
+    "repository_path": "artwork/garden_geometry/outputs/02_care_inversion/artwork_captioned_oneline.png"
+  },
+  {
+    "file": "artwork/garden_geometry/outputs/02_care_inversion/manifest.json",
+    "field": "mounting_border_source",
+    "original_source": "/Users/shawn/.codex/generated_images/01a09611-857d-7233-a3ae-0371fceb7921/exec-e517ab61-bd91-44e4-a7bb-b1553b6db429.png",
+    "repository_path": "artwork/garden_geometry/outputs/02_care_inversion/artwork_mounting_border.png"
+  },
+  {
+    "file": "artwork/garden_geometry/outputs/02_care_inversion/manifest.json",
+    "field": "artwork_source",
+    "original_source": "/Users/shawn/Desktop/Project/艺术黑客松/artwork/garden_geometry/outputs/02_care_inversion/artwork_annotated.png",
+    "repository_path": "artwork/garden_geometry/outputs/02_care_inversion/artwork_annotated.png"
+  },
+  {
+    "file": "artwork/garden_geometry/outputs/02_care_inversion/manifest.json",
+    "field": "wood_source",
+    "original_source": "/Users/shawn/Desktop/Project/艺术黑客松/artwork/garden_geometry/assets/oak_frame_source.png",
+    "repository_path": "artwork/garden_geometry/assets/oak_frame_source.png"
+  },
+  {
+    "file": "artwork/garden_geometry/outputs/02_care_inversion/layout_A4.json",
+    "field": "artwork_source",
+    "original_source": "/Users/shawn/Desktop/Project/艺术黑客松/artwork/garden_geometry/outputs/02_care_inversion/artwork_annotated.png",
+    "repository_path": "artwork/garden_geometry/outputs/02_care_inversion/artwork_annotated.png"
+  },
+  {
+    "file": "artwork/garden_geometry/outputs/02_care_inversion/layout_A4.json",
+    "field": "wood_source",
+    "original_source": "/Users/shawn/Desktop/Project/艺术黑客松/artwork/garden_geometry/assets/oak_frame_source.png",
+    "repository_path": "artwork/garden_geometry/assets/oak_frame_source.png"
+  },
+  {
+    "file": "artwork/garden_geometry/outputs/01_attraction_power/manifest.json",
+    "field": "caption_source",
+    "original_source": "/Users/shawn/.codex/generated_images/01a09611-857d-7233-a3ae-0371fceb7921/exec-2d906809-c4c5-4685-a2ad-c63a2a51116c.png",
+    "repository_path": "artwork/garden_geometry/outputs/01_attraction_power/artwork_captioned_oneline.png"
+  },
+  {
+    "file": "artwork/garden_geometry/outputs/01_attraction_power/manifest.json",
+    "field": "mounting_border_source",
+    "original_source": "/Users/shawn/.codex/generated_images/01a09611-857d-7233-a3ae-0371fceb7921/exec-ba329480-1e72-486e-9287-09259ae7e042.png",
+    "repository_path": "artwork/garden_geometry/outputs/01_attraction_power/artwork_mounting_border.png"
+  },
+  {
+    "file": "artwork/garden_geometry/outputs/01_attraction_power/manifest.json",
+    "field": "artwork_source",
+    "original_source": "/Users/shawn/Desktop/Project/艺术黑客松/artwork/garden_geometry/outputs/01_attraction_power/artwork_annotated.png",
+    "repository_path": "artwork/garden_geometry/outputs/01_attraction_power/artwork_annotated.png"
+  },
+  {
+    "file": "artwork/garden_geometry/outputs/01_attraction_power/manifest.json",
+    "field": "wood_source",
+    "original_source": "/Users/shawn/Desktop/Project/艺术黑客松/artwork/garden_geometry/assets/oak_frame_source.png",
+    "repository_path": "artwork/garden_geometry/assets/oak_frame_source.png"
+  },
+  {
+    "file": "artwork/garden_geometry/outputs/01_attraction_power/layout_A4.json",
+    "field": "artwork_source",
+    "original_source": "/Users/shawn/Desktop/Project/艺术黑客松/artwork/garden_geometry/outputs/01_attraction_power/artwork_annotated.png",
+    "repository_path": "artwork/garden_geometry/outputs/01_attraction_power/artwork_annotated.png"
+  },
+  {
+    "file": "artwork/garden_geometry/outputs/01_attraction_power/layout_A4.json",
+    "field": "wood_source",
+    "original_source": "/Users/shawn/Desktop/Project/艺术黑客松/artwork/garden_geometry/assets/oak_frame_source.png",
+    "repository_path": "artwork/garden_geometry/assets/oak_frame_source.png"
+  }
+]

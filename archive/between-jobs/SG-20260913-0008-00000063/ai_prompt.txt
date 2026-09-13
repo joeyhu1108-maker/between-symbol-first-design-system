@@ -1,0 +1,17 @@
+Create one original, very abstract painting titled conceptually GARDEN. A seed becomes a field of relationships, not a depicted plant.
+Fixed style: {"abstraction": 0.96, "organic_motion": 0.78, "pigment_saturation": 0.62, "translucency": 0.6, "gesture": 0.66, "fine_line_density": 0.46, "warm_color_share": 0.88, "asymmetry": 0.85, "oil_paint_presence": 0.2, "weathering": 0.24, "mark_irregularity": 0.85, "pentimento": 0.58}
+Artistic rarity treatment (4/66 exact probability for this sum): COMMON SUM RANGE: use the balanced, medium-density Garden baseline: several interacting pigment territories, roughly 25–40% breathing space, no extreme sparse or densely overgrown treatment.
+Emotional narrative: 萌生与差异 — 一条痕迹想在给予中长成自己，另一条痕迹想让每一次生长都不一样。它们在同一片色域中靠近，也留下各自的修改痕迹。最后，一段空白没有被任何一方完全覆盖。
+Two card motives: 种子 / 萌生 / 想在给予中长成自己, 花园 / 差异 / 想让每一次生长都不一样
+Perspective: 两种视角接近. Relation: 牵制与保留边界. An individual trace: 一处没有补上的缝
+Show emotion through abstract visual evidence: a small dense pigment knot beginning to open outward; several unequal pigment territories, none repeated; a boundary kept visibly open
+Do not depict literal people, crowns, plants, tools or organs. Keep the approved pink/pale-lilac palette, 20% oil character and handmade nonstandard details. Do not write the story into the image.
+Palette balance: 55% pink/rose/blush, 25% very pale lilac, 15% warm cream, 5% muted accents. Reduce cool blue and green. Preserve the established abstract Garden composition language.
+Medium: 80% airy translucent painterly layers, 20% oil-painted character: selective thin impasto, brush ridges and scraped edges. Gentle aged decay: fine craquelure, rubbed pigment, small flakes exposing warm ground, faint fading. Keep luminous; no dark dirty grunge.
+Handmade details: broken loops, incomplete bent frameworks, irregular hatching, seam-like marks, double-traced misregistered contours, erased and revealed shapes, tiny illegible note-like marks. Cluster details locally at mixed scales; do not apply a uniform stamped texture. Preserve breathing space.
+Keep this palette: #F5E8DE, #E9AAA9, #CF7894, #ECC2CE, #DDD0E8, #CEC0DA, #D8A8BA, #DEC3AB, #A68B9F
+Use asymmetrical, off-center, overlapping color territories. Hand-painted gouache, oil-pastel and thin watercolor washes. The garden is an abstract ecosystem of color, not an illustration.
+Input Chladni variables: m=1, n=8, a=0.8022688990660247, b=-0.5969628242959427, individual seed=99. Use nodal relationships to bend composition and boundaries, without drawing a literal grid.
+Portrait aspect 7:12. Full-bleed image, no frame, labels or numbers; numbering is typeset outside the painting in the print document.
+Exclude: 具象花园风景, 可识别的花朵、树、盆栽, 居中对称的种子或细胞标本, 解剖图、脑、器官, 塔罗边框和标签, 宇宙照片或科幻海报, 临摹参考图构图, 参考图片的签名、文字、水印, 大块钴蓝或群青, 大面积鲜绿, 黑脏霉斑, 恐怖废墟, 全画面污浊棕灰滤镜
+Invent a fresh composition within this fixed visual language. Do not reproduce any reference composition.

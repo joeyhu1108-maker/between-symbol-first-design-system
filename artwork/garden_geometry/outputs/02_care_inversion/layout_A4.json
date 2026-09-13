@@ -1,0 +1,37 @@
+{
+  "version": "a4-oak6-mat12-organic-v1",
+  "page_mm": [
+    210.0,
+    297.0
+  ],
+  "wood_mm": 6.0,
+  "mat_mm": {
+    "top": 12.0,
+    "bottom": 12.0,
+    "left": 12.0,
+    "right": 12.0
+  },
+  "artwork_rect_mm": [
+    18.0,
+    18.0,
+    174.0,
+    261.0
+  ],
+  "footer_text": false,
+  "raster_dpi": 300,
+  "pdf": "artwork_A4.pdf",
+  "png": "artwork_A4.png",
+  "pixels": [
+    2480,
+    3508
+  ],
+  "artwork_source": "artwork_annotated.png",
+  "wood_source": "../../assets/oak_frame_source.png",
+  "source_pixels": [
+    1024,
+    1536
+  ],
+  "source_aspect_ratio": 0.6666666666666666,
+  "image_sha256": "0c4fc27208912a2fcae2ed4ca8183e04fc631abff7771ac4d6baa6d3ef92f7e5",
+  "verification": "A4 MediaBox checked; artwork inset 18 mm minus wood inset 6 mm = 12 mm on all four sides. PNG boundaries quantized to pixels at 300 dpi."
+}

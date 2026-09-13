@@ -1,0 +1,40 @@
+{
+  "title": "萌生与差异",
+  "screen_title": "两种愿望，<br>开始改变彼此。",
+  "story": "一条痕迹想在给予中长成自己，另一条痕迹想让每一次生长都不一样。它们在同一片色域中靠近，也留下各自的修改痕迹。最后，一段空白没有被任何一方完全覆盖。",
+  "screen_line": "想在给予中长成自己，也想让每一次生长都不一样。两种愿望改变了彼此的边界，却仍保留一处没有被覆盖的空白。",
+  "question": "你愿意把哪一处空白，留给尚未发生的关系？",
+  "anchors": [
+    "a small dense pigment knot beginning to open outward",
+    "several unequal pigment territories, none repeated",
+    "a boundary kept visibly open"
+  ],
+  "version": "between-story-v1",
+  "cards": [
+    {
+      "index": 1,
+      "id": "01",
+      "name": "种子",
+      "theme": "萌生",
+      "wish": "想在给予中长成自己"
+    },
+    {
+      "index": 8,
+      "id": "08",
+      "name": "花园",
+      "theme": "差异",
+      "wish": "想让每一次生长都不一样"
+    }
+  ],
+  "perspective": "两种视角接近",
+  "relation": "牵制与保留边界",
+  "signature": "一处没有补上的缝",
+  "measures": {
+    "human_view_share": 0.5734,
+    "seed_view_share": 0.4266,
+    "balance": 0.8533,
+    "rhythm_gap": 7,
+    "accumulation": 9
+  },
+  "interpretation": "叙事权重与视觉隐喻，不是观众的人格或情绪测量。"
+}

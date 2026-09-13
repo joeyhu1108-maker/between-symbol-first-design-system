@@ -1,0 +1,40 @@
+.git
+.gitignore
+.DS_Store
+.wolf
+.venv
+__pycache__
+wrangler.jsonc
+worker
+.wrangler
+# over the 25 MiB per-file limit
+media/seedance-concept.mp4
+# local-only: printer backend, its jobs and launch scripts
+printer/*.py
+printer/requirements.txt
+printer/jobs
+printer/recomposition.webm
+server.mjs
+start.command
+hardware
+# Repository handoff assets are retained in Git, not deployed as site assets.
+3dmodel
+artwork
+archive
+output
+photo
+video
+卡片
+nfc-print-agent-fix
+rdk-x5
+.agents
+docs
+scripts
+requirements.txt
+SHAWN-NFC-TEST.md
+SHAWN-NFC-TEST-结果.md
+星环中的萌生.md
+Codex 图像 2026年9月12日 17_56_04.png
+
+cloudflare-backend
+tmp

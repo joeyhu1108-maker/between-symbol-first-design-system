@@ -1,0 +1,26 @@
+{
+  "video": {
+    "duration": 25.0,
+    "fps": 30.0,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  "observed_assembly": {
+    "camera_x": 0,
+    "yaw": 0,
+    "pitch": 0,
+    "gaussian": false,
+    "fps": 30
+  },
+  "observed_printing": {
+    "camera_x": 0,
+    "yaw": 0,
+    "pitch": 0,
+    "gaussian": true,
+    "fps": 30,
+    "locked_modules": 133
+  },
+  "script_errors": []
+}

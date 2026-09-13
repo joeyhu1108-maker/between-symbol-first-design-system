@@ -1,0 +1,779 @@
+{
+  "samples": [
+    {
+      "elapsed": 0.987900000000187,
+      "fps": 29,
+      "fx": {
+        "idle": false,
+        "phase": "assembly",
+        "gaussian": false,
+        "time": 0.987900000000187,
+        "lockedModules": 0,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 1.9870000000001855,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "assembly",
+        "gaussian": false,
+        "time": 1.9870000000001855,
+        "lockedModules": 8,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 2.987900000000187,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "assembly",
+        "gaussian": false,
+        "time": 2.987900000000187,
+        "lockedModules": 44,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 3.9870000000001857,
+      "fps": 29,
+      "fx": {
+        "idle": false,
+        "phase": "assembly",
+        "gaussian": false,
+        "time": 3.9870000000001857,
+        "lockedModules": 144,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 4.982800000000187,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "assembly",
+        "gaussian": false,
+        "time": 4.982800000000187,
+        "lockedModules": 154,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 5.983700000000186,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "assembly",
+        "gaussian": false,
+        "time": 5.983700000000186,
+        "lockedModules": 177,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 6.983700000000186,
+      "fps": 29,
+      "fx": {
+        "idle": false,
+        "phase": "assembled",
+        "gaussian": false,
+        "time": 6.983700000000186,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 7.983800000000185,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "assembled",
+        "gaussian": false,
+        "time": 7.983800000000185,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 8.683600000000189,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 8.683600000000189,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 9.991300000000185,
+      "fps": 14,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 9.991300000000185,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 10.992000000000186,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 10.992000000000186,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 11.983600000000187,
+      "fps": 29,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 11.983600000000187,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 12.983700000000185,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 12.983700000000185,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 13.991700000000186,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 13.991700000000186,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 14.983600000000187,
+      "fps": 29,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 14.983600000000187,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 15.983600000000187,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 15.983600000000187,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 16.983600000000187,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 16.983600000000187,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 17.983600000000187,
+      "fps": 29,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 17.983600000000187,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 18.983600000000187,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 18.983600000000187,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 19.983500000000184,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 19.983500000000184,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 20.983500000000184,
+      "fps": 29,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 20.983500000000184,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 21.983600000000187,
+      "fps": 29,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 21.983600000000187,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 22.98310000000019,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 22.98310000000019,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 23.982900000000182,
+      "fps": 29,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": true,
+        "time": 23.982900000000182,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    },
+    {
+      "elapsed": 24.983500000000188,
+      "fps": 30,
+      "fx": {
+        "idle": false,
+        "phase": "printing",
+        "gaussian": false,
+        "time": 24.983500000000188,
+        "lockedModules": 191,
+        "camera": {
+          "x": 0,
+          "yaw": 0,
+          "pitch": 0,
+          "radius": 0.85
+        },
+        "nearCue": {
+          "far": 0,
+          "blurPixels": 0,
+          "saturation": 1.18,
+          "opacity": 1
+        },
+        "farCue": {
+          "far": 0.9803240740740741,
+          "blurPixels": 5.391782407407407,
+          "saturation": 0.4349537037037037,
+          "opacity": 0.3431828703703703
+        }
+      }
+    }
+  ],
+  "stats": {
+    "fps": 30,
+    "drawCalls": 2,
+    "triangles": 3840,
+    "meshes": 191,
+    "gaussianSplats": 30535,
+    "visibleSplats": 30535,
+    "rarity": "rare",
+    "printerEffect": {
+      "idle": false,
+      "phase": "complete",
+      "gaussian": false,
+      "time": 25.01600000000019,
+      "lockedModules": 191,
+      "camera": {
+        "x": 0,
+        "yaw": 0,
+        "pitch": 0,
+        "radius": 0.85
+      },
+      "nearCue": {
+        "far": 0,
+        "blurPixels": 0,
+        "saturation": 1.18,
+        "opacity": 1
+      },
+      "farCue": {
+        "far": 0.9803240740740741,
+        "blurPixels": 5.391782407407407,
+        "saturation": 0.4349537037037037,
+        "opacity": 0.3431828703703703
+      }
+    },
+    "phase": "complete"
+  },
+  "errors": [],
+  "mechanics": {
+    "components": 218,
+    "staticBatches": 44,
+    "systems": [
+      "cutter motor and reduction gears",
+      "timing belt and pulleys",
+      "moving cutter and guide rails",
+      "head pressure bridge and springs",
+      "feed shaft and traction bands",
+      "bearings and retainers",
+      "flex cable and wiring",
+      "paper sensor and threaded mounts"
+    ]
+  }
+}

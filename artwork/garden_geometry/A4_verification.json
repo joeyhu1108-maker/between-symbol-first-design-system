@@ -1,0 +1,50 @@
+[
+  {
+    "folder": "01_attraction_power",
+    "a4_mm": [
+      210,
+      297
+    ],
+    "mat_mm_measured": [
+      11.999999491373696,
+      11.999999491373696,
+      11.999999491373696,
+      11.999999491373696
+    ],
+    "raster_white_band_pixels": {
+      "left": 141,
+      "right": 141,
+      "top": 141,
+      "bottom": 141
+    },
+    "pixels": [
+      2480,
+      3508
+    ],
+    "passed": true
+  },
+  {
+    "folder": "02_care_inversion",
+    "a4_mm": [
+      210,
+      297
+    ],
+    "mat_mm_measured": [
+      11.999999491373696,
+      11.999999491373696,
+      11.999999491373696,
+      11.999999491373696
+    ],
+    "raster_white_band_pixels": {
+      "left": 141,
+      "right": 141,
+      "top": 141,
+      "bottom": 141
+    },
+    "pixels": [
+      2480,
+      3508
+    ],
+    "passed": true
+  }
+]

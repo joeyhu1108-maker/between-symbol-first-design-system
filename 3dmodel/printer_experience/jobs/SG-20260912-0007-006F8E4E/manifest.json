@@ -1,0 +1,22 @@
+{
+  "id": "SG-20260912-0007-006F8E4E",
+  "params": {
+    "m": 3,
+    "n": 5,
+    "a": 0.8,
+    "b": 0.6,
+    "seed": 7310926,
+    "intensity": 8,
+    "formula_version": "chladni-v1"
+  },
+  "created_at": "2026-09-12T21:04:28.837912",
+  "status": "ready",
+  "generator": "local_chladni",
+  "print_status": "not_submitted",
+  "request_id": "4a3b18e2-41d6-4080-9bb2-a7b402003e0d",
+  "ready_at": "2026-09-12T21:04:29.111174",
+  "image": "/jobs/SG-20260912-0007-006F8E4E/artwork.png",
+  "pdf": "/jobs/SG-20260912-0007-006F8E4E/artwork.pdf",
+  "particles": "/jobs/SG-20260912-0007-006F8E4E/particles.json",
+  "particle_count": 4500
+}
