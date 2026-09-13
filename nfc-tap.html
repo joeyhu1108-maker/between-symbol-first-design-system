@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#fbfaf7">
+<title>BETWEEN · 你的卡片</title>
+<style>body{margin:0;background:#fbfaf7;color:#4d4351;font:16px/1.7 "PingFang SC",sans-serif}main{min-height:100svh;display:grid;place-content:center;padding:24px;text-align:center}a{color:inherit}</style>
+<main><p id="message">◉</p><noscript>请启用浏览器的 JavaScript 后重新碰卡。</noscript></main>
+<script type="module">
+const params=new URLSearchParams(location.search),card=params.get('card');
+if(/^(0?[1-9]|1[0-2])$/.test(card||'')){
+  const destination=new URL('./phone.html',location.href);
+  destination.searchParams.set('card',card.padStart(2,'0'));
+  let sessionId=params.get('session');
+  try{
+    const path=sessionId?'/api/sessions/'+encodeURIComponent(sessionId):'/api/entry/current';
+    const response=await fetch(path,{cache:'no-store',signal:AbortSignal.timeout(12000)});
+    if(response.ok){
+      const current=await response.json();sessionId=current.id;
+      if(['submitted','accepted'].includes(current.status))destination.pathname=destination.pathname.replace(/phone\.html$/,'phone-print.html');
+    }
+  }catch{}
+  if(sessionId)destination.searchParams.set('session',sessionId);
+  location.replace(destination.href);
+}else document.getElementById('message').textContent='标签卡号无效，请联系现场工作人员。';
+</script>
+</html>

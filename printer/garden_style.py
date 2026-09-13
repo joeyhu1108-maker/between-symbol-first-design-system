@@ -33,13 +33,14 @@ def render_garden(p,size=(1400,2400)):
     rarity=rarity_for(p['m'],p['n']);kind=rarity['kind'];emotion=story_for(p)
     phase=rng.uniform(0,math.tau,3)
     warp=.075*np.sin(p['m']*math.pi*u+phase[0])*np.cos(p['n']*math.pi*v+phase[1])
+    warp_offset=warp*(.5+p['a']); sine_offset=.05*np.sin(u*8+phase[2])
     # Broad asymmetrical pigment territories; fixed palette, variable placement.
     for k in range(3 if kind=='origin' else 28 if kind=='palimpsest' else 14 if kind=='rare' else 17):
         cx,cy=rng.uniform(-.15,1.15),rng.uniform(-.08,1.08);sx,sy=rng.uniform(.12,.43),rng.uniform(.09,.34)
         sx*=.55+emotion['measures']['human_view_share' if k%2==0 else 'seed_view_share']
         if kind=='origin': sx*=.52;sy*=.52
         if kind=='palimpsest': sx*=1.10;sy*=1.12
-        dx=u-cx+warp*(.5+p['a']);dy=v-cy+.05*np.sin(u*8+phase[2])
+        dx=u-cx+warp_offset;dy=v-cy+sine_offset
         angle=rng.uniform(-2,2);x=dx*math.cos(angle)-dy*math.sin(angle);y=dx*math.sin(angle)+dy*math.cos(angle)
         power=1.2 if k%3==0 else 2.4
         dist=np.abs(x/sx)**power+np.abs(y/sy)**power

@@ -1,0 +1,60 @@
+/* Exhibition entrance: a quiet, living atlas on the printed cards' paper. */
+body[data-stage="entry"]{background:#fcfaf3}
+body[data-stage="entry"] .topbar{z-index:5;top:27px;left:36px;right:36px;color:#8d806f}
+body[data-stage="entry"] footer{display:none}
+body[data-stage="entry"] .entry-panel{inset:0;gap:0;overflow:hidden;isolation:isolate;background:#fcfaf3}
+.entry-panel:before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23b5a183' filter='url(%23n)' opacity='.65' d='M0 0h220v220H0z'/%3E%3C/svg%3E");mix-blend-mode:multiply}
+.entry-panel .entry-scene{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.entry-panel .entry-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(246px,23vw,326px);min-height:348px;box-sizing:border-box;padding:26px 20px;gap:18px;background:#fcfaf3;border-radius:48%;pointer-events:auto;box-shadow:0 0 50px 24px #fcfaf3}
+.entry-panel .entry-phone{width:29px;height:40px;stroke:#84765f;stroke-width:1.2}
+.entry-panel #entryPhoneLink{display:block;padding:12px;background:#fff;border-radius:3px;outline-offset:8px;transition:box-shadow .25s}
+.entry-panel #entryPhoneLink:hover{box-shadow:0 0 0 1px #c3aa82,0 8px 25px #a897721a}
+.entry-panel #entryPhoneLink:focus-visible{outline:2px solid #916ea4}
+.entry-panel #entryQr{width:clamp(182px,14vw,224px);height:clamp(182px,14vw,224px);max-width:none;max-height:none}
+.entry-panel .entry-sequence{height:27px;gap:19px;color:#948776}
+.entry-panel .entry-sequence span{font-size:22px}.entry-panel .entry-sequence svg{width:23px;height:25px}.entry-panel .entry-sequence i{color:#b3a48c}
+.entry-panel #entryWaiting{width:224px;height:224px;max-width:none;max-height:none}
+.entry-panel .entry-actions{position:absolute;z-index:4;left:50%;top:calc(50% + 222px);transform:translateX(-50%)}
+.entry-panel .entry-actions .ghost{width:52px;height:52px;background:#f8f2e8;border:1px solid #c9bba2;color:#8d7560;box-shadow:0 3px 12px #8370570b;transition:transform .25s,background .25s}
+.entry-panel .entry-actions .ghost:hover{transform:translateY(-3px);background:#eee5d5}
+.entry-panel #entryError{position:absolute;z-index:5;top:calc(50% + 286px);left:50%;transform:translateX(-50%);background:#fcfaf3;padding:5px 14px;width:min(380px,80vw)}
+.entry-garden{position:absolute;inset:0;pointer-events:none;--pointer-x:0px;--pointer-y:0px}
+.garden-orbits{position:absolute;inset:0;width:100%;height:100%;opacity:.84}
+.garden-orbit-dots{transform-origin:800px 450px;animation:garden-orbit-turn 180s linear infinite}
+.garden-symbols{position:absolute;inset:0;transform:translate(var(--pointer-x),var(--pointer-y));transition:transform 1.4s cubic-bezier(.22,1,.36,1)}
+.garden-symbol{position:absolute;left:var(--x);top:var(--y);width:clamp(68px,min(8vw,12vh),112px);aspect-ratio:1;transform:translate(-50%,-50%)}
+.garden-center-ring{position:absolute;width:clamp(356px,31vw,452px);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%);border:1px solid #bd9d694a;border-radius:50%}
+.garden-center-ring:after{content:"";position:absolute;inset:10px;border:1px dotted #baa48466;border-radius:50%;transform:rotate(-14deg) scaleX(1.1)}
+.garden-frame{position:absolute;inset:22px;border:1px solid #ae9c7c52}
+.garden-frame:before,.garden-frame:after{content:"";position:absolute;left:50%;width:10px;height:10px;border:1px solid #ab997977;border-radius:50%;transform:translate(-50%,-50%)}
+.garden-frame:after{top:100%}
+.garden-frame i{position:absolute;width:13px;height:13px;border:1px solid #ac9b7d88;border-radius:50%;transform:translate(-50%,-50%)}
+.garden-frame i:after,.garden-frame i:before{content:"";position:absolute;left:50%;top:50%;width:23px;height:1px;background:#ae9c7c77;transform:translate(-50%,-50%)}
+.garden-frame i:after{transform:translate(-50%,-50%) rotate(90deg)}
+.garden-frame i:nth-child(2){left:100%}.garden-frame i:nth-child(3){left:100%;top:100%}.garden-frame i:nth-child(4){top:100%}
+/* Keep the living marks and colored particles, without diagram guide lines. */
+.garden-frame,.garden-center-ring,.garden-orbits>path,.garden-orbits ellipse{display:none}
+
+.garden-dust{position:absolute;left:50%;top:50%;width:0;height:0}
+.garden-dust i{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--ink);transform:rotate(var(--a)) translateX(var(--r));animation:garden-pollen 13s ease-in-out var(--delay) infinite}
+.entry-panel[data-connected="true"] .garden-dust{animation:garden-orbit-turn 70s linear infinite}
+@keyframes garden-orbit-turn{to{transform:rotate(360deg)}}
+@keyframes garden-pollen{0%,100%{opacity:0;transform:rotate(var(--a)) translateX(var(--r)) scale(.5)}35%,65%{opacity:.55}50%{transform:rotate(calc(var(--a) + 14deg)) translateX(calc(var(--r) + 5vmin)) scale(1)}}
+@media(max-width:1000px){.entry-panel .entry-center{width:250px;min-height:320px}.entry-panel .entry-actions{top:calc(50% + 205px)}.garden-center-ring{width:340px}}
+@media(max-width:600px){.garden-frame{inset:13px}.entry-panel .entry-center{width:240px;min-height:304px;gap:15px;box-shadow:0 0 36px 28px #fcfaf3}.entry-panel #entryQr{width:182px;height:182px}.entry-panel .entry-actions{top:calc(50% + 190px)}.entry-panel #entryError{top:calc(50% + 244px)}.garden-center-ring{width:310px}.garden-orbits{opacity:.52}.entry-panel #entryWaiting{width:182px;height:182px}body[data-stage="entry"] .topbar{left:28px;right:28px;top:24px}}
+@media(max-height:650px) and (min-width:601px){.entry-panel .entry-center{min-height:256px;gap:10px;padding:16px;width:224px}.entry-panel #entryQr{width:164px;height:164px}.entry-panel .entry-phone{width:22px;height:30px}.entry-panel .entry-actions{top:calc(50% + 168px)}.entry-panel #entryError{top:calc(50% + 220px)}.garden-center-ring{width:310px}.entry-panel #entryWaiting{width:164px;height:164px}}
+@media(prefers-reduced-motion:reduce){.garden-orbit-dots,.garden-dust,.garden-dust i,.entry-panel[data-connected="true"] .garden-dust{animation:none}.garden-dust i{opacity:.4}.entry-panel .entry-actions .ghost{transition:none}}
+
+/* Keep both entry actions within the still center, clear of the bottom specimen. */
+.entry-panel .entry-actions{position:static;transform:none;margin-top:2px}
+.entry-panel .entry-actions .ghost{width:44px;height:44px}
+body:not([data-stage="entry"]) .entry-garden *{animation-play-state:paused!important}
+/* Joining on a phone swaps the QR for its seed sign without moving the controls. */
+.entry-panel #entryWaiting{width:calc(clamp(182px,14vw,224px) + 24px);height:calc(clamp(182px,14vw,224px) + 24px)}
+@media(max-width:600px){.entry-panel #entryWaiting{width:206px;height:206px}}
+@media(max-height:650px) and (min-width:601px){.entry-panel #entryWaiting{width:188px;height:188px}}
+
+
+@media(max-width:600px){.garden-symbol{width:48px}.garden-symbols{transform:none}.entry-panel[data-waiting-shuffle="true"] .waiting-shuffle{transform:scale(.72)}}
+@media(max-height:650px) and (min-width:601px){.garden-symbol{width:62px}}
+@media(prefers-reduced-motion:reduce){.garden-symbols{transform:none;transition:none}}

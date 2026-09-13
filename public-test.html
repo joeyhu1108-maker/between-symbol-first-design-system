@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BETWEEN · Shawn 测试入口</title>
+  <style>
+    :root{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;color:#272823;background:#f3f1e9;line-height:1.65}
+    *{box-sizing:border-box}body{margin:0}main{max-width:760px;margin:0 auto;padding:48px 24px 64px}h1{font-size:32px;line-height:1.25;letter-spacing:-.04em;margin:8px 0 16px}h2{font-size:20px;margin:0 0 10px}.eyebrow{font-size:12px;letter-spacing:.13em;color:#686c61}p{margin:10px 0;color:#5a5e53}section{padding:28px 0;border-top:1px solid #cccec1;margin-top:28px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}a.button,button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;border:1px solid #3e4c3b;border-radius:8px;background:#3e4c3b;color:white;font:inherit;font-size:15px;text-decoration:none;cursor:pointer}a.secondary,button.secondary{background:transparent;color:#34432f}button:disabled{opacity:.5;cursor:wait}a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid #9b783f;outline-offset:4px}label{display:block;font-size:13px;color:#686c61;margin:18px 0 6px}input{width:100%;min-width:0;background:#fffdf6;border:1px solid #b8bdac;border-radius:7px;padding:12px;color:#343b2f;font:inherit;font-size:13px}#status{min-height:28px;color:#34432f}#status[data-error=true]{color:#9b3228}#artwork{display:block;width:175px;max-width:100%;height:auto;margin:20px 0;border:1px solid #cccec1}small{display:block;font-size:13px;color:#686c61}#result[hidden],#artwork[hidden]{display:none}@media(max-width:480px){main{padding:30px 20px 48px}h1{font-size:28px}.actions>*{flex:1 1 auto}}
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">BETWEEN / HARDWARE TEST</div>
+  <h1>Shawn 测试入口</h1>
+  <p>此页用于手动检查作品文件。手机碰 NFC → 后台收卡 → Shawn 的 Mac 自动提交打印，请使用单独提供的 NFC 联调主控链接。</p>
+  <small>这是临时公网地址，连接当前测试后台；测试电脑和连接服务需要保持运行。正式制卡前请换成最终固定地址，当前标签请保留可重写。</small>
+
+  <section>
+    <h2>01 · 打开体验</h2>
+    <p>电脑直接体验可以单机抽卡；大屏扫码体验需要再用手机扫描屏幕二维码。</p>
+    <div class="actions">
+      <a class="button" href="./prototype-3d.html?local=1" target="_blank" rel="noopener">电脑直接体验</a>
+      <a class="button secondary" href="./prototype-3d.html" target="_blank" rel="noopener">大屏扫码体验</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>02 · NFC 标签打开 01 号卡</h2>
+    <p>在 NFC 写入工具中选择「网址 / URL」，写入下面的完整地址；然后用手机碰一下标签，确认浏览器能打开并带入 01 号卡。</p>
+    <label for="nfcUrl">01 号卡 · 写入网址</label>
+    <input id="nfcUrl" type="url" readonly>
+    <div class="actions">
+      <button id="copyNfc" type="button" class="secondary">复制 NFC 地址</button>
+      <a id="openNfc" class="button secondary" target="_blank" rel="noopener">先打开检查</a>
+    </div>
+    <small id="copyStatus" role="status">本项验证标签打开网页。读卡器读取 UID、实体答案卡同步到大屏，仍需接入真实硬件。</small>
+  </section>
+
+  <section>
+    <h2>03 · 生成作品，测试纸张打印</h2>
+    <p>生成一张测试作品，打开 PDF 后使用浏览器打印（⌘P / Ctrl+P），选择你电脑上的打印机。也可以下载 PDF 后在系统阅读器中打印。</p>
+    <button id="generate" type="button">生成打印测试作品</button>
+    <p id="status" role="status" aria-live="polite">等待生成。</p>
+    <div id="result" hidden>
+      <img id="artwork" alt="本次生成的打印测试作品" hidden>
+      <div class="actions">
+        <a id="openPdf" class="button" target="_blank" rel="noopener">打开 PDF 打印</a>
+        <a id="downloadPdf" class="button secondary" download>下载 PDF</a>
+        <a id="openPrinter" class="button secondary" target="_blank" rel="noopener">查看 3D 预演</a>
+      </div>
+      <small>PDF 为 A5 页面（148 × 210 mm），作品区域为 105 × 180 mm。测试原始尺寸时选择「实际大小 / 100%」；若纸张规格不同，请在打印窗口调整缩放。</small>
+    </div>
+    <small>网页生成作品和播放 3D 预演不会自动出纸。公网后台不能直接找到你身边的打印机；本次由你打开 PDF 后选择本机打印。</small>
+  </section>
+</main>
+<script type="module">
+  const $=id=>document.getElementById(id);
+  const nfcUrl=new URL('./prototype-3d.html?card=01',location.href).href;
+  $('nfcUrl').value=nfcUrl;
+  $('openNfc').href=nfcUrl;
+  $('copyNfc').onclick=async()=>{
+    try{await navigator.clipboard.writeText(nfcUrl);$('copyStatus').textContent='已复制。请作为网址 / URL 写入 NFC 标签。';}
+    catch{$('nfcUrl').focus();$('nfcUrl').select();$('copyStatus').textContent='请长按或使用 ⌘C / Ctrl+C 复制已选中的地址。';}
+  };
+  async function api(path,data){
+    const response=await fetch(path,{method:data?'POST':'GET',headers:data?{'Content-Type':'application/json'}:{},body:data?JSON.stringify(data):undefined,signal:AbortSignal.timeout(15000)});
+    if(!response.ok){const error=await response.json().catch(()=>({}));throw Error(error.error||`服务暂时不可用（${response.status}），请重试。`);}
+    return response.json();
+  }
+  let pendingJob=null,requestId=null;
+  $('generate').onclick=async()=>{
+    $('generate').disabled=true;$('status').dataset.error='false';$('result').hidden=true;
+    $('status').textContent=pendingJob?'正在继续检查作品状态……':'正在生成测试作品，请稍候……';
+    try{
+      requestId||=`shawn-print-${crypto.randomUUID()}`;
+      let job=pendingJob||await api('/api/jobs',{cards:[1,8],request_id:requestId});
+      pendingJob=job;
+      const deadline=Date.now()+120000;
+      while(job.status==='generating'&&Date.now()<deadline){
+        await new Promise(resolve=>setTimeout(resolve,1500));
+        job=await api(`/api/jobs/${encodeURIComponent(job.id)}`);pendingJob=job;
+      }
+      if(job.status==='failed'){pendingJob=null;requestId=null;throw Error(job.error||'作品生成失败，请重试。');}
+      if(job.status!=='ready')throw Error('作品仍在生成。点击重试会继续检查同一件作品。');
+      $('openPdf').href=job.pdf;$('downloadPdf').href=job.pdf;$('downloadPdf').download=`${job.id}.pdf`;
+      $('openPrinter').href=`./printer/?job=${encodeURIComponent(job.id)}`;
+      $('artwork').src=job.image;$('artwork').hidden=false;$('result').hidden=false;
+      $('status').textContent=`作品 ${job.id} 已生成。请打开 PDF 并选择本机打印机。`;
+      $('generate').textContent='再生成一张';pendingJob=null;requestId=null;
+    }catch(error){$('status').dataset.error='true';$('status').textContent=error.message;$('generate').textContent='重试';}
+    finally{$('generate').disabled=false;}
+  };
+</script>
+</body>
+</html>

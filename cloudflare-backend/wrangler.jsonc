@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "between-artwork-staging",
+  "main": "worker.mjs",
+  "account_id": "a0a1d4f5e847a4d3551ee7d54b276a81",
+  "compatibility_date": "2026-09-13",
+  "workers_dev": true,
+  "observability": {"enabled": true},
+  "limits": {"cpu_ms": 30000},
+  "triggers": {"crons": ["*/1 * * * *"]},
+  "d1_databases": [{"binding":"DB", "database_name":"between-artwork-staging", "database_id":"ac167554-d825-42bb-8602-4f2566da4006"}],
+  "r2_buckets": [{"binding":"ARTWORKS", "bucket_name":"between-artwork-staging"}],
+  "queues": {
+    "producers": [{"binding":"GENERATION_QUEUE", "queue":"between-artwork-staging"}],
+    "consumers": [{"queue":"between-artwork-staging", "max_batch_size":2, "max_batch_timeout":1, "max_concurrency":10, "max_retries":100}]
+  },
+  "containers": [{
+    "class_name":"ArtworkRenderer",
+    "image":"./container/Dockerfile",
+    "image_build_context":"..",
+    "instance_type":"standard-2",
+    "max_instances":20
+  }],
+  "durable_objects": {"bindings":[{"name":"RENDERER", "class_name":"ArtworkRenderer"}]},
+  "migrations": [{"tag":"v1", "new_sqlite_classes":["ArtworkRenderer"]}]
+}

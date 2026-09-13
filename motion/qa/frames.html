@@ -1,0 +1,6 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BETWEEN · Motion QA</title><style>body{margin:20px;background:#fff;color:#141917;font:12px Arial}h1{font-size:20px}#frames{display:grid;grid-template-columns:repeat(7,160px)}.cell{border:1px solid #ddd;padding:5px}.art{width:150px;height:150px}small{display:block;text-align:center}.row-name{font-size:14px}button{padding:12px;margin:10px}</style></head><body><h1>同一 Lottie 渲染器 · 0 / 蓄力 / 主动作 / 跟随 / 结束 / 静态</h1><div id="frames"></div><script src="../vendor/lottie.min.js"></script><script type="module">
+import glyphs from '../src/manifest.mjs';import {createSymbol} from '../player.mjs';
+const times=[0,180,540,900,1380,1800,'static'];
+for(const g of glyphs)for(const time of times){const cell=document.createElement('div');cell.className='cell';cell.dataset.symbol=g.id;cell.dataset.time=time;cell.innerHTML=`<div class="art"></div><small>${g.id} ${g.name} / ${time}</small>`;document.querySelector('#frames').append(cell);const player=await createSymbol(cell.firstElementChild,g.id,{interactive:false});if(time==='static')player.static();else player.seek(time);}
+document.body.dataset.ready='true';
+</script></body></html>

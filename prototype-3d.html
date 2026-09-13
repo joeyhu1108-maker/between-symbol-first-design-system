@@ -2,48 +2,130 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>铸造钥匙｜3D 游戏原型</title>
+<title>BETWEEN · 一场关系的生长</title>
+<!-- The opening fan chooses five random cards; warm every seed face before the module graph. -->
+<link rel="preload" as="image" href="./assets/print-cards/01-seed.webp" fetchpriority="high">
+<link rel="preload" as="image" href="./assets/print-cards/02-seed.webp" fetchpriority="high">
+<link rel="preload" as="image" href="./assets/print-cards/03-seed.webp" fetchpriority="high">
+<link rel="preload" as="image" href="./assets/print-cards/04-seed.webp" fetchpriority="high">
+<link rel="preload" as="image" href="./assets/print-cards/05-seed.webp" fetchpriority="high">
+<link rel="preload" as="image" href="./assets/print-cards/06-seed.webp" fetchpriority="high">
+<link rel="preload" as="image" href="./assets/print-cards/07-seed.webp" fetchpriority="high">
+<link rel="preload" as="image" href="./assets/print-cards/08-seed.webp" fetchpriority="high">
+<link rel="preload" as="image" href="./assets/print-cards/09-seed.webp" fetchpriority="high">
+<link rel="preload" as="image" href="./assets/print-cards/10-seed.webp" fetchpriority="high">
+<link rel="preload" as="image" href="./assets/print-cards/11-seed.webp" fetchpriority="high">
+<link rel="preload" as="image" href="./assets/print-cards/12-seed.webp" fetchpriority="high">
+<style>
+html,body{background:#fcfaf3}
+body:not([data-ready]) .app{visibility:hidden}
+#bootScreen{position:fixed;inset:0;display:grid;place-content:center;justify-items:center;background:#fcfaf3;color:#777971;font:14px/1.8 sans-serif;text-align:center}
+#bootGlyph{width:72px;height:72px}#bootGlyph>img{width:100%;height:100%}
+#bootError a{color:inherit;text-underline-offset:4px}
+</style>
 <link rel="stylesheet" href="./prototype-3d.css">
+<link rel="stylesheet" href="./entry-garden.css">
+<link rel="stylesheet" href="./symbol-interface.css?v=mobile-pairing-1">
+<link rel="stylesheet" href="./pairing-guide.css?v=pairing-guide-1">
 </head>
 <body>
-<main class="app">
+<div id="bootScreen" role="status" aria-label="正在载入花园">
+  <div id="bootGlyph" aria-hidden="true"><img src="./motion/vectors/01.svg" alt="" width="72" height="72"></div>
+  <p id="bootError" role="alert" hidden>花园暂时未能打开。<a href="">重新加载</a></p>
+  <noscript><p>请启用 JavaScript 后重新打开花园。</p></noscript>
+</div>
+<main class="app" inert>
   <canvas id="scene" aria-label="3D 铸造钥匙游戏场景"></canvas>
-  <header class="topbar"><div class="brand" aria-label="BETWEEN / 铸造钥匙">⌘</div><div id="stageLabel" aria-label="当前阶段">◒</div></header>
-  <section class="hud left-panel">
-    <p class="kicker">入口 · SEED FIELD</p><h1 aria-label="让一颗种子开始发生"><span aria-hidden="true">◒<br><em>✳</em></span></h1>
-    <p class="lede">翻开两张种子卡，让它们彼此发生。</p>
-    <div id="seedDeck" class="seed-deck" aria-label="选择两张种子卡"></div>
-    <div class="shuffle-controls" aria-label="洗牌方式">
-      <button type="button" class="shuffle-mode is-active" data-shuffle-mode="hand" aria-label="AI 手洗牌" title="AI 手洗牌">✋</button>
-      <button type="button" class="shuffle-mode" data-shuffle-mode="slot" aria-label="老虎机滚动" title="老虎机滚动">▤</button>
-      <button type="button" class="shuffle-mode" data-shuffle-mode="converge" aria-label="三合一汇聚" title="三合一汇聚">⟡</button>
-      <button type="button" id="startShuffle" class="primary shuffle-start" aria-label="开始洗牌" title="开始洗牌">▶</button>
+  <header class="topbar"><a class="brand" href="./" aria-label="返回当前体验" title="返回当前体验"></a><div id="stageLabel" aria-label="当前阶段"></div></header>
+  <section id="entryPanel" class="entry-panel" aria-label="用手机扫码，洗牌并抽一张卡" hidden>
+    <div id="entryGarden" class="entry-garden" aria-hidden="true"></div>
+    <div class="entry-scene">
+      <div class="entry-center">
+        <div id="entryGlyph" aria-hidden="true"></div>
+        <div id="entryCode" hidden><a id="entryPhoneLink" target="_blank" rel="noopener" aria-label="手机扫码抽一张卡，点击可打开手机入口" title="手机扫码抽一张卡"><img id="entryQr" alt="手机扫码抽卡二维码" width="256" height="256"></a></div>
+        <div id="entryWaiting" class="symbol-loading" role="status" aria-label="手机已连接，等待抽卡" hidden><svg class="card-loading-symbol" viewBox="344 1012 112 72" aria-hidden="true"><image href="./assets/print-cards/01-seed.webp" width="800" height="1200"/></svg></div>
+        <div class="entry-sequence" aria-label="进入，抽一张卡，再交给另一端"><span data-interface-glyph="01"></span><i></i><span data-interface-glyph="03"></span><i></i><span data-interface-glyph="07"></span></div>
+        <div class="entry-actions"><button id="retryEntry" class="ghost" aria-label="刷新二维码" title="刷新二维码" hidden>↻</button><button id="localEntry" class="ghost" aria-label="在电脑上直接抽一张卡" title="在电脑上直接抽一张卡">⌁</button></div>
+      </div>
     </div>
-    <div class="seed-selection" aria-live="polite"><span id="seedOne">—</span><i>·</i><span id="seedTwo">—</span></div>
-    <div class="actions input-actions"><button id="lockInput" class="primary" aria-label="锁定两张种子，生成钥匙" title="锁定两张种子，生成钥匙" disabled>✦</button></div>
-    <p id="status" class="status">翻开并选择两张种子卡。</p>
+    <p id="entryError" role="alert" hidden></p>
+  </section>
+  <section class="hud left-panel" hidden>
+    <p class="kicker">入口 · SEED FIELD</p><h1 aria-label="让一颗种子开始发生"><span id="openingGlyph" aria-hidden="true"></span></h1>
+    <p class="lede">洗牌后，翻开一张属于你的种子卡。</p>
+    <div id="seedDeck" class="seed-deck" aria-label="选择一张种子卡"></div>
+    <div id="shuffleSymbols" class="symbol-loading shuffle-loading" role="status" aria-label="种子卡正在洗牌" hidden></div>
+    <div class="entry-controls">
+    <div class="shuffle-controls" aria-label="洗牌方式">
+      <button type="button" class="shuffle-mode is-active" data-shuffle-mode="hand" aria-label="AI 手洗牌" title="AI 手洗牌"></button>
+      <button type="button" class="shuffle-mode" data-shuffle-mode="slot" aria-label="老虎机滚动" title="老虎机滚动"></button>
+      <button type="button" class="shuffle-mode" data-shuffle-mode="converge" aria-label="三合一汇聚" title="三合一汇聚"></button>
+      <button type="button" id="startShuffle" class="primary shuffle-start" aria-label="开始洗牌" title="开始洗牌"></button>
+    </div>
+    </div>
+    <p id="status" class="status" aria-live="polite">点击开始洗牌，再翻开一张种子卡。</p>
+  </section>
+  <section id="selectedPanel" class="selected-panel" aria-label="你抽中的种子卡，等待交给 AI" hidden>
+    <p class="chosen-caption">你抽中的卡</p>
+    <div class="human-focus">
+      <button id="humanFocusCard" class="human-focus-card" type="button" aria-label="翻转查看插画面" aria-pressed="false"></button>
+      <div id="humanFocusSymbols" class="human-focus-symbols" aria-hidden="true"></div>
+    </div>
+    <button id="lockInput" class="handoff-action" aria-label="把下一次抽卡交给 AI" title="把下一次抽卡交给 AI" disabled><svg viewBox="0 0 40 32" aria-hidden="true"><path d="M2 16h12m-4-4 4 4-4 4M28 5c2 7 4 9 11 11-7 2-9 4-11 11-2-7-4-9-11-11 7-2 9-4 11-11Z"/></svg></button>
+  </section>
+  <section id="aiPanel" class="ai-panel" aria-label="你已抽一张，现在由 AI 从剩余卡牌中抽一张" hidden>
+    <div class="ai-duet">
+      <div class="ai-player"><span class="draw-label">你的卡</span><div id="humanDraw" class="draw-card"></div></div>
+      <div class="ai-transfer"><span class="ai-state-copy">AI 正在抽卡</span><div id="aiSymbols" class="symbol-loading" role="status" aria-label="AI 正在抽卡"></div></div>
+      <div class="ai-player"><span class="draw-label">AI 的卡</span><div id="aiDeck" class="draw-card" aria-label="剩余卡牌，AI 正在选择"></div></div>
+    </div>
   </section>
   <section class="hud right-panel" id="keyPanel" hidden>
-    <p class="kicker">中间凭证 · KEY TRACE</p><div id="keyGlyph" class="key-glyph">—</div><p id="keyExplain">这串钥匙会指向一张答案卡。</p>
-    <div class="generation-box"><div class="generation-head"><span aria-label="预生成作品">◌</span><strong id="generationPercent">0%</strong></div><div class="generation-progress"><i id="generationProgress"></i></div><p id="generationCopy">钥匙生成后立即开始，不让打印时等待。</p></div>
+    <p class="kicker">中间凭证 · KEY TRACE</p><div id="keyGlyph" class="key-glyph">—</div><p id="keyExplain">你和 AI 的选择共同生长成花园。</p>
+    <div class="pairing-guide">
+      <p class="pairing-step">接下来 · 找符号配对</p>
+      <h2>找到这个符号</h2>
+      <div id="pairTarget" class="pairing-target" role="img"></div>
+      <p id="pairingHint" class="pairing-hint">对照上面的图案，在屏幕中找到相同的符号。</p>
+    </div>
+    <div class="generation-box"><div class="generation-head"><div id="generationSymbols" class="symbol-loading" role="status" aria-label="作品生成状态"></div><strong id="generationPercent">0%</strong></div><div class="generation-progress"><i id="generationProgress"></i></div><p id="generationCopy">两张卡正在共同生成花园。</p></div>
     <img id="generatedArt" class="generated-art" alt="预生成的作品预览" hidden>
-    <div class="actions"><button id="openCards" class="primary" aria-label="去答案墙寻找卡片" title="去答案墙寻找卡片">⌁</button></div>
+    <button id="retryGeneration" class="ghost" aria-label="重试作品生成" title="重试作品生成" hidden>↻</button>
+    <div class="actions"><button id="openCards" class="primary" aria-label="融合两张卡，进入打印机动画" title="融合两张卡，进入打印机动画" disabled>⌁</button><button id="previewPair" class="ghost" hidden>继续屏幕动画</button></div>
   </section>
   <section class="hud cards-panel" id="cardsPanel" hidden>
-    <div class="cards-head"><div><p class="kicker">第二次实体输入 · ANSWER WALL</p><h2 aria-label="找到钥匙指向的种子">◇</h2></div><div id="targetHint" class="target-hint">—</div></div>
+    <div class="cards-head"><div><p class="kicker">第二次实体输入 · ANSWER WALL</p><h2 id="pairSearchTitle" tabindex="-1">找相同的符号</h2></div><div id="targetHint" class="target-hint">—</div></div>
     <div id="cardGrid" class="card-grid"></div>
-    <div id="fusionField" class="fusion-field" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-    <div class="card-actions"><button id="scanCard" class="primary" aria-label="模拟 NFC 触碰" title="模拟 NFC 触碰" disabled>◉</button><button id="manualCard" class="secondary" aria-label="电脑端直接确认" title="电脑端直接确认" disabled>↯</button><button id="pairButton" class="pair-button" aria-label="配对并融合" title="配对并融合" hidden>⟲</button><span id="scanStatus">—</span></div>
+    <div id="fusionField" class="fusion-field" aria-hidden="true"><i></i><i></i><i></i><i></i><div id="fusionSymbols" class="symbol-loading"></div></div>
+    <div class="card-actions"><button id="scanCard" class="primary" aria-label="确认答案，继续屏幕体验" title="确认答案" disabled>◉</button><button id="manualCard" class="secondary" aria-label="确认答案并提交实体打印" title="确认并提交实体打印" disabled>↯</button><button id="pairButton" class="pair-button" aria-label="配对并融合" title="配对并融合" hidden>⟲</button><span id="scanStatus" role="status" aria-live="polite">—</span></div>
   </section>
   <section class="hud print-panel" id="printPanel" hidden>
     <p class="kicker">实体输出 · PRINT TWIN</p><h2 id="printTitle" aria-label="数字孪生正在打印">▧</h2><p id="printCopy">—</p>
     <img id="printArt" class="generated-art print-art" alt="即将打印的预生成作品" hidden>
     <div class="progress"><i id="printProgress"></i></div><div class="print-meta"><span id="layerText">等待启动</span><span id="percentText">0%</span></div>
-    <button id="startPrintButton" class="primary print-button" aria-label="发送到小米打印机" title="发送到小米打印机">⟶</button>
+    <button id="startPrintButton" class="primary print-button" aria-label="开始 3D 打印预演" title="开始 3D 打印预演">⟶</button>
+    <div id="artworkActions" class="artwork-actions" hidden><a id="downloadArtwork" aria-label="下载作品 PDF" title="下载作品 PDF" download>⇩</a><a id="openPrinter" aria-label="打开作品与纸张打印" title="打开作品与纸张打印" target="_blank" rel="noopener">▧ ↗</a></div>
     <button id="restart" class="ghost" aria-label="重新开始" title="重新开始">↺</button>
   </section>
-  <footer><span>3D 游戏原型 · NFC / 电脑确认 · 小米打印机输出</span><span id="jobText">JOB —</span></footer>
+  <footer><span>种子 · 钥匙 · 作品 · 3D 预演</span><span id="jobText">—</span></footer>
 </main>
-<script>window.addEventListener('error',event=>{const node=document.querySelector('#status');if(node)node.textContent=`原型加载错误：${event.message}（${event.filename||''}:${event.lineno||''}）`;});window.addEventListener('unhandledrejection',event=>{const node=document.querySelector('#status');if(node)node.textContent=`原型加载错误：${event.reason?.stack||event.reason?.message||event.reason}`;});</script>
-<script type="module">window.addEventListener('DOMContentLoaded',()=>import('./prototype-3d.js?v=4'));</script>
+<script src="./motion/vendor/lottie.min.js"></script>
+<script type="module">
+let releaseLogo;
+try{
+  const {mountSymbolLoading,unmountGlyph}=await import('./symbol-interface.js?v=card-fusion-3d-1');
+  const logo=document.querySelector('#bootGlyph');
+  mountSymbolLoading(logo);releaseLogo=()=>unmountGlyph(logo);
+  await Promise.all([import('./entry-garden.js?v=card-fusion-3d-1'),import('./prototype-3d.js?v=mobile-pairing-1')]);
+  releaseLogo();
+  document.querySelector('.app').inert=false;
+  document.body.dataset.ready='true';
+  document.querySelector('#bootScreen').remove();
+}catch(error){
+  releaseLogo?.();
+  document.querySelector('#bootGlyph').hidden=true;
+  document.querySelector('#bootError').hidden=false;
+  console.error('Garden could not load',error);
+}
+</script>
 </body></html>

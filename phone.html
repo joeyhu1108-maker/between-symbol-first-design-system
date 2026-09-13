@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f6f4ed">
+  <title>BETWEEN · 把卡片交给 AI</title>
+  <link rel="stylesheet" href="./phone.css?v=mobile-pairing-1">
+  <link rel="stylesheet" href="./symbol-interface.css?v=loading-sequence-2">
+</head>
+<body>
+  <main id="phone" class="phone" data-view="connecting" aria-label="手机抽卡">
+    <header class="journey" aria-label="扫码进入，抽取一张卡，交给 AI 抽另一张，再看现场大屏">
+      <span class="journey-step is-current" data-step="connect" aria-label="手机已扫码">
+      </span>
+      <span class="journey-line" aria-hidden="true"></span>
+      <span class="journey-step" data-step="draw" aria-label="抽取一张种子卡">
+      </span>
+      <span class="journey-line" aria-hidden="true"></span>
+      <span class="journey-step" data-step="screen" aria-label="抬头看现场大屏">
+      </span>
+    </header>
+
+    <section id="field" class="field" aria-label="种子卡牌">
+      <div id="deck" class="deck" aria-label="洗牌后抽取一张卡" aria-busy="false"></div>
+      <div id="shuffleLoading" class="shuffle-loading symbol-loading" role="status" aria-label="正在洗牌" hidden></div>
+    </section>
+
+    <section id="reveal" class="reveal" aria-label="你抽中的种子卡" hidden>
+      <p class="chosen-caption">你的卡片</p>
+      <div id="revealSymbols" class="reveal-symbols" aria-hidden="true"></div>
+      <div id="chosenCard" class="chosen-card"></div>
+      <div id="handoff" class="handoff" aria-label="卡片交接状态" hidden>
+        <div id="handoffSymbol" class="symbol-loading" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <div id="connecting" class="connecting symbol-loading" role="status" aria-label="正在连接现场大屏"></div>
+
+    <footer class="controls">
+      <div id="drawHint" class="draw-hint" aria-hidden="true" hidden>
+      </div>
+      <div class="action-row">
+        <button id="redraw" class="redraw" type="button" title="重新洗牌并重抽" aria-label="重新洗牌并重抽" hidden></button>
+        <button id="action" class="action" type="button" title="开始洗牌，然后抽取一张卡" aria-label="开始洗牌，然后抽取一张卡" disabled>
+        </button>
+      </div>
+      <p id="handoffHint" class="sr-only">一张属于你的卡，另一张交给 AI。</p>
+      <p id="error" class="error" role="alert" hidden></p>
+      <p id="status" class="sr-only" aria-live="polite">正在连接现场大屏。</p>
+    </footer>
+  </main>
+  <script src="./motion/vendor/lottie.min.js"></script>
+  <script type="module" src="./phone.js?v=loading-sequence-2"></script>
+</body>
+</html>

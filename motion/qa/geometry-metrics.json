@@ -1,0 +1,374 @@
+[
+  {
+    "id": "01",
+    "name": "种匣",
+    "rawAlpha": {
+      "iou": 0.4272716094921923,
+      "intersection": 13900,
+      "union": 32532,
+      "sourcePixels": 32064,
+      "vectorPixels": 14368
+    },
+    "foreground": {
+      "iou": 0.8877498053464833,
+      "intersection": 13682,
+      "union": 15412,
+      "sourcePixels": 14726,
+      "vectorPixels": 14368
+    },
+    "residualPixels": 17338,
+    "sourceBounds": [
+      107,
+      82,
+      265,
+      359
+    ],
+    "vectorBounds": [
+      107,
+      82,
+      265,
+      358
+    ]
+  },
+  {
+    "id": "02",
+    "name": "镜叶",
+    "rawAlpha": {
+      "iou": 0.41258823876893996,
+      "intersection": 13969,
+      "union": 33857,
+      "sourcePixels": 32882,
+      "vectorPixels": 14944
+    },
+    "foreground": {
+      "iou": 0.795094383593568,
+      "intersection": 13647,
+      "union": 17164,
+      "sourcePixels": 15867,
+      "vectorPixels": 14944
+    },
+    "residualPixels": 17015,
+    "sourceBounds": [
+      72,
+      129,
+      322,
+      338
+    ],
+    "vectorBounds": [
+      71,
+      130,
+      320,
+      337
+    ]
+  },
+  {
+    "id": "03",
+    "name": "并茎",
+    "rawAlpha": {
+      "iou": 0.4543806275160567,
+      "intersection": 14786,
+      "union": 32541,
+      "sourcePixels": 31830,
+      "vectorPixels": 15497
+    },
+    "foreground": {
+      "iou": 0.8742801721525125,
+      "intersection": 14423,
+      "union": 16497,
+      "sourcePixels": 15423,
+      "vectorPixels": 15497
+    },
+    "residualPixels": 16407,
+    "sourceBounds": [
+      75,
+      113,
+      281,
+      347
+    ],
+    "vectorBounds": [
+      76,
+      113,
+      281,
+      346
+    ]
+  },
+  {
+    "id": "04",
+    "name": "寄枝",
+    "rawAlpha": {
+      "iou": 0.3185507959377306,
+      "intersection": 9065,
+      "union": 28457,
+      "sourcePixels": 27754,
+      "vectorPixels": 9768
+    },
+    "foreground": {
+      "iou": 0.8423354887790034,
+      "intersection": 8858,
+      "union": 10516,
+      "sourcePixels": 9606,
+      "vectorPixels": 9768
+    },
+    "residualPixels": 18148,
+    "sourceBounds": [
+      95,
+      86,
+      267,
+      357
+    ],
+    "vectorBounds": [
+      95,
+      85,
+      265,
+      357
+    ]
+  },
+  {
+    "id": "05",
+    "name": "环束",
+    "rawAlpha": {
+      "iou": 0.4722177639392675,
+      "intersection": 14711,
+      "union": 31153,
+      "sourcePixels": 30689,
+      "vectorPixels": 15175
+    },
+    "foreground": {
+      "iou": 0.8787786259541984,
+      "intersection": 14390,
+      "union": 16375,
+      "sourcePixels": 15590,
+      "vectorPixels": 15175
+    },
+    "residualPixels": 15099,
+    "sourceBounds": [
+      104,
+      87,
+      269,
+      333
+    ],
+    "vectorBounds": [
+      105,
+      88,
+      269,
+      334
+    ]
+  },
+  {
+    "id": "06",
+    "name": "破壳",
+    "rawAlpha": {
+      "iou": 0.41115521056513643,
+      "intersection": 11706,
+      "union": 28471,
+      "sourcePixels": 28249,
+      "vectorPixels": 11928
+    },
+    "foreground": {
+      "iou": 0.8919836432374045,
+      "intersection": 11561,
+      "union": 12961,
+      "sourcePixels": 12594,
+      "vectorPixels": 11928
+    },
+    "residualPixels": 15655,
+    "sourceBounds": [
+      85,
+      72,
+      278,
+      329
+    ],
+    "vectorBounds": [
+      85,
+      72,
+      277,
+      329
+    ]
+  },
+  {
+    "id": "07",
+    "name": "交汇结",
+    "rawAlpha": {
+      "iou": 0.4666766781799069,
+      "intersection": 15538,
+      "union": 33295,
+      "sourcePixels": 32269,
+      "vectorPixels": 16564
+    },
+    "foreground": {
+      "iou": 0.8523956290277389,
+      "intersection": 15211,
+      "union": 17845,
+      "sourcePixels": 16492,
+      "vectorPixels": 16564
+    },
+    "residualPixels": 15777,
+    "sourceBounds": [
+      40,
+      140,
+      327,
+      303
+    ],
+    "vectorBounds": [
+      40,
+      140,
+      326,
+      306
+    ]
+  },
+  {
+    "id": "08",
+    "name": "合生",
+    "rawAlpha": {
+      "iou": 0.3842443183748344,
+      "intersection": 11311,
+      "union": 29437,
+      "sourcePixels": 28584,
+      "vectorPixels": 12164
+    },
+    "foreground": {
+      "iou": 0.8362493372718321,
+      "intersection": 11041,
+      "union": 13203,
+      "sourcePixels": 12080,
+      "vectorPixels": 12164
+    },
+    "residualPixels": 16504,
+    "sourceBounds": [
+      76,
+      106,
+      279,
+      330
+    ],
+    "vectorBounds": [
+      75,
+      108,
+      279,
+      332
+    ]
+  },
+  {
+    "id": "09",
+    "name": "争隙",
+    "rawAlpha": {
+      "iou": 0.36,
+      "intersection": 9927,
+      "union": 27575,
+      "sourcePixels": 26786,
+      "vectorPixels": 10716
+    },
+    "foreground": {
+      "iou": 0.8215041028677776,
+      "intersection": 9711,
+      "union": 11821,
+      "sourcePixels": 10816,
+      "vectorPixels": 10716
+    },
+    "residualPixels": 15970,
+    "sourceBounds": [
+      73,
+      62,
+      304,
+      263
+    ],
+    "vectorBounds": [
+      72,
+      62,
+      306,
+      263
+    ]
+  },
+  {
+    "id": "10",
+    "name": "共脉",
+    "rawAlpha": {
+      "iou": 0.41954408313778074,
+      "intersection": 12515,
+      "union": 29830,
+      "sourcePixels": 29140,
+      "vectorPixels": 13205
+    },
+    "foreground": {
+      "iou": 0.8625070581592321,
+      "intersection": 12220,
+      "union": 14168,
+      "sourcePixels": 13183,
+      "vectorPixels": 13205
+    },
+    "residualPixels": 15957,
+    "sourceBounds": [
+      42,
+      114,
+      321,
+      240
+    ],
+    "vectorBounds": [
+      42,
+      117,
+      320,
+      241
+    ]
+  },
+  {
+    "id": "11",
+    "name": "断丝",
+    "rawAlpha": {
+      "iou": 0.24608641202254228,
+      "intersection": 5502,
+      "union": 22358,
+      "sourcePixels": 22099,
+      "vectorPixels": 5761
+    },
+    "foreground": {
+      "iou": 0.88251771296754,
+      "intersection": 5356,
+      "union": 6069,
+      "sourcePixels": 5664,
+      "vectorPixels": 5761
+    },
+    "residualPixels": 16435,
+    "sourceBounds": [
+      44,
+      123,
+      324,
+      231
+    ],
+    "vectorBounds": [
+      44,
+      123,
+      326,
+      232
+    ]
+  },
+  {
+    "id": "12",
+    "name": "分叉",
+    "rawAlpha": {
+      "iou": 0.3275067097928567,
+      "intersection": 9518,
+      "union": 29062,
+      "sourcePixels": 27701,
+      "vectorPixels": 10879
+    },
+    "foreground": {
+      "iou": 0.7277173055687017,
+      "intersection": 9226,
+      "union": 12678,
+      "sourcePixels": 11025,
+      "vectorPixels": 10879
+    },
+    "residualPixels": 16676,
+    "sourceBounds": [
+      53,
+      60,
+      282,
+      281
+    ],
+    "vectorBounds": [
+      53,
+      60,
+      281,
+      281
+    ]
+  }
+]

@@ -1,0 +1,275 @@
+{
+  "source": {
+    "file": "植物视觉塔罗 · 参考图符号版 · 无页眉(1).pdf",
+    "sha256": "8da7a08733906031122faff6b03f29280fb4f0a6fce28743ad2099bdb78bb0a2",
+    "pages": 24,
+    "pageSizePoints": [
+      336,
+      504
+    ]
+  },
+  "pairing": "Adjacent PDF pages form one card: pages 1/2 = card 01, pages 3/4 = card 02, through pages 23/24 = card 12. Odd pages are illustration faces; even pages are seed faces. Mapping verified from rendered pages, not hidden PDF text.",
+  "rendering": {
+    "renderer": "PDFium via pypdfium2",
+    "width": 800,
+    "height": 1200,
+    "format": "webp",
+    "quality": 95,
+    "crop": null,
+    "preserves": "Complete printed page, including paper color, texture, cat frame, symbols, and Roman numerals."
+  },
+  "cards": [
+    {
+      "id": "01",
+      "faces": {
+        "illustration": {
+          "file": "01-illustration.webp",
+          "pdfPage": 1,
+          "figureNumber": 1,
+          "width": 800,
+          "height": 1200,
+          "sha256": "21b9c3234f95840d0e9c6957fb824a63c81eab69a0b792786fa494752effdf84"
+        },
+        "seed": {
+          "file": "01-seed.webp",
+          "pdfPage": 2,
+          "figureNumber": 2,
+          "width": 800,
+          "height": 1200,
+          "sha256": "96a1f55b99898e3e7d87eb18579a59e02b3ab83065c56d766d1c40c4e10cf2c7"
+        }
+      }
+    },
+    {
+      "id": "02",
+      "faces": {
+        "illustration": {
+          "file": "02-illustration.webp",
+          "pdfPage": 3,
+          "figureNumber": 3,
+          "width": 800,
+          "height": 1200,
+          "sha256": "70b327342ce6199705e9ef48a4c1cbde946cc4ec949b0519541121070ddfbcaa"
+        },
+        "seed": {
+          "file": "02-seed.webp",
+          "pdfPage": 4,
+          "figureNumber": 4,
+          "width": 800,
+          "height": 1200,
+          "sha256": "fb3255f3e5391cf8abde24d66e0c2284414ee9898e8b49e27ace73998a80be06"
+        }
+      }
+    },
+    {
+      "id": "03",
+      "faces": {
+        "illustration": {
+          "file": "03-illustration.webp",
+          "pdfPage": 5,
+          "figureNumber": 5,
+          "width": 800,
+          "height": 1200,
+          "sha256": "07dec2424105c61929a9581399c9093515d806776d3e02e32273a133250230c8"
+        },
+        "seed": {
+          "file": "03-seed.webp",
+          "pdfPage": 6,
+          "figureNumber": 6,
+          "width": 800,
+          "height": 1200,
+          "sha256": "ac6557529a768aa3879bde173cfb0017ed8b7fffbba56470942507f62d2a8080"
+        }
+      }
+    },
+    {
+      "id": "04",
+      "faces": {
+        "illustration": {
+          "file": "04-illustration.webp",
+          "pdfPage": 7,
+          "figureNumber": 7,
+          "width": 800,
+          "height": 1200,
+          "sha256": "c8f6bc7fa2ae040853d88a6bad014ec444137efe13fa19fb906a83a89de12d65"
+        },
+        "seed": {
+          "file": "04-seed.webp",
+          "pdfPage": 8,
+          "figureNumber": 8,
+          "width": 800,
+          "height": 1200,
+          "sha256": "a04a390a1ff98fc5b7d98787f5e2ef49683c2c524e64c7aa8143b097a33321d8"
+        }
+      }
+    },
+    {
+      "id": "05",
+      "faces": {
+        "illustration": {
+          "file": "05-illustration.webp",
+          "pdfPage": 9,
+          "figureNumber": 9,
+          "width": 800,
+          "height": 1200,
+          "sha256": "cce0cdeef4c738f33710a4d7c5e88776a645008f7cf4e5b754c71ad4eac2e591"
+        },
+        "seed": {
+          "file": "05-seed.webp",
+          "pdfPage": 10,
+          "figureNumber": 10,
+          "width": 800,
+          "height": 1200,
+          "sha256": "74d093d4e1b0c4649dfc1e1cdd0c9ff4bf93ec443d0173533de939920727aaf3"
+        }
+      }
+    },
+    {
+      "id": "06",
+      "faces": {
+        "illustration": {
+          "file": "06-illustration.webp",
+          "pdfPage": 11,
+          "figureNumber": 11,
+          "width": 800,
+          "height": 1200,
+          "sha256": "f7e50d46ad8f2387a7b46156177dec4c5a4e3a75b64720fca8044a7fb034f9e0"
+        },
+        "seed": {
+          "file": "06-seed.webp",
+          "pdfPage": 12,
+          "figureNumber": 12,
+          "width": 800,
+          "height": 1200,
+          "sha256": "81fe98477b983183e7324a76ac1b20333730aca3c2d91cb91504d019937ee9e8"
+        }
+      }
+    },
+    {
+      "id": "07",
+      "faces": {
+        "illustration": {
+          "file": "07-illustration.webp",
+          "pdfPage": 13,
+          "figureNumber": 13,
+          "width": 800,
+          "height": 1200,
+          "sha256": "d90b494aafce2b68a490e61617e7237d1193cfa501bf618e55c2362b87a4a021"
+        },
+        "seed": {
+          "file": "07-seed.webp",
+          "pdfPage": 14,
+          "figureNumber": 14,
+          "width": 800,
+          "height": 1200,
+          "sha256": "7ad1e22655a211f7524cded9195a78c1e9da2d7edb52087aec69890d1b47c482"
+        }
+      }
+    },
+    {
+      "id": "08",
+      "faces": {
+        "illustration": {
+          "file": "08-illustration.webp",
+          "pdfPage": 15,
+          "figureNumber": 15,
+          "width": 800,
+          "height": 1200,
+          "sha256": "c669d81ee42d76015902e37926ccab6dfb07974d1c155b230e1a3a0880593af6"
+        },
+        "seed": {
+          "file": "08-seed.webp",
+          "pdfPage": 16,
+          "figureNumber": 16,
+          "width": 800,
+          "height": 1200,
+          "sha256": "bb486668501a09aabf33222d9d72271704f02e52636b770fab6f2d482dac3ff4"
+        }
+      }
+    },
+    {
+      "id": "09",
+      "faces": {
+        "illustration": {
+          "file": "09-illustration.webp",
+          "pdfPage": 17,
+          "figureNumber": 17,
+          "width": 800,
+          "height": 1200,
+          "sha256": "3060366d7b54adfaaabcbc1f9b312fbc4cda9cafa87ec0278249c529dfe4332b"
+        },
+        "seed": {
+          "file": "09-seed.webp",
+          "pdfPage": 18,
+          "figureNumber": 18,
+          "width": 800,
+          "height": 1200,
+          "sha256": "5152967184875b4dadc4fdf6fe3a4bb34d7f15217997aedecf0d7bb7c47cce37"
+        }
+      }
+    },
+    {
+      "id": "10",
+      "faces": {
+        "illustration": {
+          "file": "10-illustration.webp",
+          "pdfPage": 19,
+          "figureNumber": 19,
+          "width": 800,
+          "height": 1200,
+          "sha256": "198b3f5fc912093e3fd1922d76732415573fc97a75f153b1e0b3bbcee9ed8aa5"
+        },
+        "seed": {
+          "file": "10-seed.webp",
+          "pdfPage": 20,
+          "figureNumber": 20,
+          "width": 800,
+          "height": 1200,
+          "sha256": "e7bcfb7633cf5b6b4339bde6bb83d8cdc8262ad689cd72feae043da9170fdda5"
+        }
+      }
+    },
+    {
+      "id": "11",
+      "faces": {
+        "illustration": {
+          "file": "11-illustration.webp",
+          "pdfPage": 21,
+          "figureNumber": 21,
+          "width": 800,
+          "height": 1200,
+          "sha256": "4064652c252a2790f9816c338611da928a47474ed49739267df2b2b75751cb06"
+        },
+        "seed": {
+          "file": "11-seed.webp",
+          "pdfPage": 22,
+          "figureNumber": 22,
+          "width": 800,
+          "height": 1200,
+          "sha256": "cd471e9c1acd007547c26dca3f9391e9c7236d833b2a0876f958911b0e611a0f"
+        }
+      }
+    },
+    {
+      "id": "12",
+      "faces": {
+        "illustration": {
+          "file": "12-illustration.webp",
+          "pdfPage": 23,
+          "figureNumber": 23,
+          "width": 800,
+          "height": 1200,
+          "sha256": "d49bb711e8005e4279f4bda7cd57050776987abe7b3ec941914eb4e5d3222978"
+        },
+        "seed": {
+          "file": "12-seed.webp",
+          "pdfPage": 24,
+          "figureNumber": 24,
+          "width": 800,
+          "height": 1200,
+          "sha256": "41455640e0c00cddb19610350969a4318e16a6f1038d180f1b00bb5510253853"
+        }
+      }
+    }
+  ]
+}

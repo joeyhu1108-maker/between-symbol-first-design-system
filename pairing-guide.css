@@ -1,0 +1,68 @@
+/* A fixed, readable clue stays separate from artwork generation. */
+.selected-panel .chosen-caption{position:absolute;top:max(24px,5dvh);left:0;right:0;text-align:center;margin:0;font-size:14px;letter-spacing:2px;color:var(--muted)}
+.selected-panel .human-focus-symbols{display:none}
+.app .human-focus-card{width:min(66vw,calc((100dvh - 170px)*2/3),460px)}
+body .app #lockInput.symbol-action{width:auto;height:48px;padding:0 24px!important;border-radius:28px;background:var(--ink);border-color:var(--ink);color:var(--paper);font:14px/1.4 sans-serif;letter-spacing:.5px}
+.ai-player .draw-label{font-size:13px;color:var(--muted);letter-spacing:1px}
+.app #aiSymbols{display:none}
+.app .ai-transfer .ai-state-copy{display:block;font-size:12px;color:var(--muted);white-space:nowrap}
+body[data-stage="ai"] .ai-panel:has(.is-picked) .ai-state-copy{visibility:hidden}
+body[data-stage="key"] .right-panel{--pair-card:54px;--pair-gap:20px;position:fixed;inset:68px auto 24px 50%;width:min(480px,calc(100vw - 40px));gap:14px}
+body[data-stage="key"] .key-pair{justify-content:center}
+body[data-stage="key"] .key-pair small{display:block;margin-top:8px;font:11px/1.4 sans-serif;letter-spacing:0;color:var(--muted)}
+.pairing-guide{text-align:center}
+.pairing-step{margin:0 0 8px;color:var(--muted);font-size:11px;letter-spacing:2px}
+.pairing-guide h2{margin:0;font-size:26px;font-weight:400;letter-spacing:1px}
+.pairing-target{width:clamp(104px,19dvh,160px);height:clamp(104px,19dvh,160px);margin:14px auto}
+.pairing-hint{margin:0;font-size:13px;line-height:1.8;color:var(--muted)}
+body[data-stage="key"] .generation-head{display:none}
+body[data-stage="key"] .generation-box{order:5;width:100%;max-width:340px}
+body[data-stage="key"] .generation-progress{display:none}
+body[data-stage="key"] #generationCopy{position:static;clip:auto;width:auto;height:auto;white-space:normal;margin:0;font-size:11px;line-height:1.5;color:var(--muted)}
+body[data-stage="key"] #generationCopy.is-error{color:var(--symbol-red)}
+body[data-stage="key"] .actions{width:auto;justify-content:center}
+body .app :is(#openCards,#scanCard,#manualCard).symbol-action{width:auto!important;min-width:140px;height:48px;padding:0 22px!important;border:1px solid var(--line);border-radius:28px;background:#eeeee5;color:var(--ink);font:14px/1.4 sans-serif;letter-spacing:.5px}
+body .app #openCards.symbol-action{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+body[data-stage="cards"] .cards-panel{position:fixed;inset:70px max(24px,7vw) max(24px,env(safe-area-inset-bottom));gap:16px}
+body[data-stage="cards"] .cards-head{height:98px;justify-content:center;gap:28px}
+body[data-stage="cards"] .cards-head h2{width:auto;height:auto;font:24px/1.4 sans-serif;letter-spacing:1px;color:var(--ink);outline:0}
+body[data-stage="cards"] .target-hint{width:90px;height:90px;flex:none}
+body[data-stage="cards"] .card-grid{--deck-rows:2;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;max-width:980px;width:100%;align-self:center}
+body[data-stage="cards"] .symbol-choice{position:relative;width:min(100%,calc((100cqh - 16px)/2));height:auto;min-height:0;aspect-ratio:1;padding:12%;border:1px solid var(--line);border-radius:12px;background:transparent;box-shadow:none;transition:background 180ms,border-color 180ms,transform 180ms}
+body[data-stage="cards"] .symbol-choice img{display:block;width:100%;height:100%;object-fit:contain}
+.choice-number{position:absolute;bottom:7px;left:0;width:100%;font:10px/1 monospace;color:var(--muted);text-align:center}
+body[data-stage="cards"] .symbol-choice.selected{outline:2px solid var(--symbol-red);outline-offset:3px;background:#eeeee5;transform:translateY(-2px)}
+body[data-stage="cards"] .symbol-choice:disabled{opacity:1}
+@media(hover:hover){body[data-stage="cards"] .symbol-choice:hover:not(:disabled){background:#eeeee5;transform:translateY(-2px)}}
+body[data-stage="cards"] .card-actions{position:relative;height:88px;flex-wrap:wrap;align-content:flex-start;gap:10px}
+body[data-stage="cards"] #scanStatus{position:static;flex:0 0 100%;width:auto;font-size:12px;line-height:1.6;text-align:center;margin:0}
+body[data-stage="cards"] #scanStatus:after{display:none}
+body[data-stage="cards"] .cards-panel.matched .symbol-choice.selected{outline-color:#476d52;background:#e9efe5}
+@media(max-width:760px){
+ body[data-stage="key"] .right-panel{--pair-card:44px;gap:12px;inset:64px auto 20px 50%}
+ .pairing-guide h2{font-size:23px}.pairing-hint{font-size:12px}
+ body[data-stage="cards"] .cards-panel{inset:60px 22px max(20px,env(safe-area-inset-bottom));gap:14px}
+ body[data-stage="cards"] .cards-head{height:82px;gap:20px}
+ body[data-stage="cards"] .cards-head h2{font-size:20px}
+ body[data-stage="cards"] .target-hint{width:78px;height:78px}
+ body[data-stage="cards"] .card-grid{--deck-rows:4;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+ body[data-stage="cards"] .symbol-choice{width:min(100%,calc((100cqh - 36px)/4));padding:14%;border-radius:8px}
+ body[data-stage="cards"] .card-actions{height:90px;gap:10px}
+ body .app :is(#scanCard,#manualCard).symbol-action{min-width:120px;padding:0 16px!important}
+}
+@media(max-height:540px){
+ body[data-stage="key"] .right-panel{--pair-card:40px;display:grid;grid-template-columns:110px minmax(260px,380px);grid-template-rows:1fr auto auto;column-gap:32px;row-gap:10px;inset:60px auto 16px 50%;width:min(580px,calc(100vw - 80px));align-content:center}
+ body[data-stage="key"] .key-glyph{grid-column:1;grid-row:1 / 4;align-self:center}
+ .pairing-guide{grid-column:2;grid-row:1}.pairing-guide h2{font-size:21px}.pairing-step{font-size:10px;margin-bottom:4px}.pairing-target{width:80px;height:80px;margin:6px auto}.pairing-hint{font-size:11px}
+ body[data-stage="key"] .actions{grid-column:2;grid-row:2;width:auto}
+ body[data-stage="key"] .generation-box{grid-column:2;grid-row:3}
+ body[data-stage="key"] #retryGeneration{position:absolute;left:35px;bottom:0}
+ body[data-stage="cards"] .cards-panel{inset:54px 24px 14px;gap:10px}
+ body[data-stage="cards"] .cards-head{position:absolute;left:0;top:0;bottom:74px;height:auto;width:140px;flex-direction:column;gap:8px}
+ body[data-stage="cards"] .cards-head h2{font-size:16px}.app .target-hint{width:76px;height:76px}
+ body[data-stage="cards"] .card-grid{--deck-rows:2;grid-template-columns:repeat(6,minmax(0,1fr));width:calc(100% - 160px);align-self:flex-end;gap:12px}
+ body[data-stage="cards"] .symbol-choice{width:min(100%,calc((100cqh - 12px)/2));padding:12%}
+ body[data-stage="cards"] .card-actions{height:74px;gap:4px}
+ .choice-number{bottom:5px;font-size:8px}
+}
+@media(prefers-reduced-motion:reduce){body[data-stage="cards"] .symbol-choice{transition:none}}

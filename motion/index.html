@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f6f5ef"><title>BETWEEN — 符号的动态语言</title><link rel="stylesheet" href="./style.css"></head>
+<body>
+<header class="mast"><a class="wordmark" href="../">BETWEEN<span>关系的十二种动作</span></a><div class="edition"><i></i> MOTION STUDIES / 01</div><a class="download" href="./between-motion-kit.zip" download>下载整套 <span>↓</span></a></header>
+<main>
+<section class="workspace" aria-label="符号动态预览">
+ <div class="stage-panel">
+  <div class="stage-top"><span id="current-index">01 / 12</span><span>MOVE CLOSER. MAKE A CONNECTION.</span></div>
+  <button id="logo-root" class="hero-symbol" aria-label="播放种匣的动作" type="button"></button>
+  <div class="stage-bottom"><span class="live-state" id="live-state">呼吸</span><span class="interaction-hint">悬停回应 · 轻触相遇</span></div>
+ </div>
+ <aside class="inspector">
+  <p class="eyebrow">A RELATIONSHIP IN MOTION</p><h1 id="symbol-name">种匣<span>委托</span></h1><p class="verb" id="symbol-verb">承接 · 打开</p><p id="symbol-story" class="story"></p>
+  <div class="playback"><button class="icon-control replay" id="replay" type="button" aria-label="重播完整动作" title="重播完整动作"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M35 15A15 15 0 1 0 39 28M35 6v10H25"/></svg></button><button class="icon-control" id="pause" type="button" aria-label="暂停动作" title="暂停动作"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M18 13v22M30 13v22"/></svg></button><button class="slow" id="slow" type="button" aria-pressed="false">¼ 慢放</button><span class="duration">1.8 s</span></div>
+  <label class="speed-label" for="speed">播放速度 <output id="speed-label">1×</output></label><input id="speed" type="range" min="0.25" max="1.5" step="0.05" value="1" aria-label="播放速度">
+  <div class="studies" aria-label="三种动作状态"><button class="study" data-mode="idle" type="button"><span class="study-symbol"></span><small>呼吸</small></button><button class="study" data-mode="hover" type="button"><span class="study-symbol"></span><small>悬停</small></button><button class="study" data-mode="tap" type="button"><span class="study-symbol"></span><small>轻触</small></button></div>
+  <div class="file-links"><a id="json-link" href="./animations/01.json" download>LOTTIE JSON ↗</a><a id="svg-link" href="./vectors/01.svg" download>SVG ↗</a><span id="file-size"></span></div>
+ </aside>
+</section>
+<section class="collection" aria-label="十二个关系符号"><div class="collection-heading"><h2>每一次相遇，都有自己的节奏。</h2><span>01 — 12 / EXPLORE</span></div><div id="symbol-grid" class="symbol-grid"></div></section>
+<footer><span>黑色承托，蓝色发起，红色回应。</span><a href="./motion_spec.md">动作说明 ↗</a><span>BETWEEN / RELATIONAL BOTANY</span></footer>
+<p class="load-error" id="load-error" role="alert" hidden>符号暂时未能载入，请刷新重试。</p>
+</main><script src="./vendor/lottie.min.js"></script><script type="module" src="./showcase.mjs"></script>
+</body></html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BETWEEN · NFC 真实联调</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f3f1e9;color:#29342b;font:16px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}main{max-width:820px;margin:auto;padding:36px 22px}h1{font-size:30px;margin:10px 0}h2{font-size:20px}p,small{color:#586255}section{border-top:1px solid #c9cfc1;margin-top:26px;padding-top:16px}.row{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}button,a.button{font:inherit;border:1px solid #3e4c3b;background:#3e4c3b;color:white;text-decoration:none;border-radius:7px;padding:11px 15px;cursor:pointer}button:disabled{opacity:.5;cursor:wait}input,select{font:inherit;max-width:100%;padding:10px;border:1px solid #b1b8a8;background:#fffdf7;border-radius:5px}input{width:100%;font-size:13px}label{display:block;margin:10px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#e8ecdf;padding:15px;border-radius:7px}#status{font-size:20px;color:#294132}#error{color:#a23030}small{display:block}a{color:#365d40}[hidden]{display:none!important}
+</style>
+<main>
+<small>BETWEEN / NFC · INTERACTION · PRINT</small><h1>NFC 真实联调</h1>
+<p>手机碰入口标签，打开悬浮卡；点按手机上的按钮让卡片飞出，电脑接卡后进入 AI 环节。作品生成完成后，在电脑上确认打印。</p>
+<p>入口标签不触发打印。没有打印接收端时，电脑已确认的打印任务会保留等待。</p>
+<p id="error" role="alert"></p>
+<section><h2>1 · 接好打印电脑</h2><p>在连接打印机的电脑下载这两个文件，放在同一文件夹。接收程序通过公网连接，手机和打印电脑可以使用不同网络。</p>
+<div class="row"><a class="button" href="/nfc-print-agent.py" download>下载打印接收程序</a><button id="config">下载连接配置</button></div>
+<pre>cd ~/Downloads
+python3 nfc-print-agent.py --config between-print-config.json</pre>
+<small>当前程序支持 macOS / Linux 的系统打印队列。使用默认打印机；没有默认设备时只报告等待。配置含测试接入密钥，仅交给打印电脑保管。</small>
+<p id="agent">正在检查打印接收端……</p></section>
+<section><h2>2 · 开始现场体验</h2><p>现场电脑请从下面的“进入完整抽卡流程”打开，保留本页的联调权限。手机碰标签进入悬浮卡页面，点按按钮后，继续在电脑完成接卡、AI 和作品生成。</p>
+<label>入口标签卡号 <select id="card"></select></label>
+<div class="row"><a class="button" href="/prototype-3d.html?mode=station&nfc=1">进入完整抽卡流程</a><button id="arm">准备后台打印测试</button></div>
+<small>后台测试按钮只准备作品与所选卡号的绑定，供单独检查状态；本页不提供打印确认。完整联调请进入抽卡流程，等作品准备好后在电脑上确认打印。</small>
+<label for="nfcUrl">写入 NFC 标签的「网址 / URL」</label><input id="nfcUrl" readonly>
+<div class="row"><button id="copy">复制 NFC 网址</button></div>
+<small>这个网址用于手机入口互动。测试完成后再准备下一轮；请使用本页给出的正式标签地址。</small></section>
+<section><h2>3 · 查看作品与打印状态</h2><p id="status" role="status">尚未开始</p><pre id="details"></pre><button id="cancel">取消尚未领取的本轮任务</button>
+<small>“已提交打印队列”表示系统收到了任务，是否出纸仍要到设备旁确认。网络中断时保留队列状态；提交结果不确定时不会自动重复打印。</small></section>
+</main>
+<script type="module">
+const $=id=>document.getElementById(id),hash=new URLSearchParams(location.hash.slice(1));
+const control=hash.get('control')||sessionStorage.getItem('between-nfc-control');
+if(control){sessionStorage.setItem('between-nfc-control',control);history.replaceState(null,'',location.pathname);}
+const names={armed:'作品已绑定，等待电脑确认打印',waiting_artwork:'已确认打印，等待作品文件',waiting_printer:'已确认打印，等待打印接收端',claimed:'打印接收端已领取，正在提交',submitted:'已提交系统打印队列，请确认出纸',failed:'打印提交失败',uncertain:'提交结果不确定，请检查系统队列后处理',cancelled:'本轮已取消，可以准备下一轮'};
+const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+async function api(path,data){const r=await fetch(path,{method:data?'POST':'GET',headers:{'X-Test-Control':control||'',...(data?{'Content-Type':'application/json'}:{})},body:data?JSON.stringify(data):undefined,signal:AbortSignal.timeout(20000)});const value=await r.json();if(!r.ok)throw Error(value.error||`请求失败 ${r.status}`);return value;}
+function tagUrl(){const url=new URL('/nfc-tap.html',location.origin);url.searchParams.set('card',$('card').value);$('nfcUrl').value=url.href;}
+for(let i=1;i<=12;i++)$('card').add(new Option(String(i).padStart(2,'0'),String(i).padStart(2,'0')));
+$('card').onchange=tagUrl;tagUrl();
+$('copy').onclick=async()=>{try{await navigator.clipboard.writeText($('nfcUrl').value);$('copy').textContent='已复制';}catch{$('nfcUrl').focus();$('nfcUrl').select();}};
+$('config').onclick=async()=>{try{const data=await api('/api/nfc/agent-config');const url=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='between-print-config.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}catch(e){$('error').textContent=e.message;}};
+let visibleRun=null,pendingJob=null,requestId=null;
+$('cancel').onclick=async()=>{try{await api('/api/nfc/cancel',{run_id:visibleRun});await poll();}catch(e){$('error').textContent=e.message;}};
+$('arm').onclick=async()=>{
+  $('arm').disabled=true;$('error').textContent='';
+  try{
+    if(!control)throw Error('请使用发给 Shawn 的主控链接打开此页。');
+    requestId||=`nfc-test-${crypto.randomUUID()}`;
+    pendingJob||=await api('/api/jobs',{cards:[1,8],request_id:requestId});
+    const result=await api('/api/nfc/arm',{cardId:$('card').value,jobId:pendingJob.id});
+    $('status').textContent=names[result.run.state]||result.run.state;
+    pendingJob=null;requestId=null;await poll();
+  }catch(e){$('error').textContent=e.message;}finally{$('arm').disabled=false;}
+};
+let polling=false;
+async function poll(){if(polling||!control)return;polling=true;
+  try{const {run,agent}=await api('/api/nfc/status');$('error').textContent='';
+    $('agent').textContent=agent?.online?`接收端在线 · ${agent.printer||'未找到系统打印队列'}${agent.ready?' · 队列可用':' · 等待打印队列'}`:'接收端未连接：电脑确认后的打印任务会保留，等待接收端上线。';
+    $('status').textContent=run?names[run.state]||run.state:'尚未开始';
+    $('cancel').disabled=!run||!['armed','waiting_artwork','waiting_printer'].includes(run.state);
+    $('details').textContent=run?`测试轮次：${run.id}\n作品：${run.job_id}\n绑定卡号：${run.card_id}\n收到打印确认：${run.received_at||'尚未确认'}\n打印队列编号：${run.cups_job_id||'尚未提交'}${run.error?'\n提示：'+run.error:''}`:'请从“进入完整抽卡流程”开始体验，作品准备好后在电脑上确认打印。';
+    if(run&&run.id!==visibleRun){$('card').value=run.card_id;tagUrl();}visibleRun=run?.id||null;
+  }catch(e){$('error').textContent='主控连接中断：'+e.message;}finally{polling=false;}
+}
+if(!control){$('error').textContent='此页需要主控链接。入口 NFC 标签用于手机卡片互动，不具有主控权限。';$('arm').disabled=true;$('config').disabled=true;$('cancel').disabled=true;}
+else{await poll();while(true){await sleep(2500);await poll();}}
+</script></html>

@@ -28,7 +28,7 @@ body[data-game-mode] .question{display:none}
 .primary-action{width:100%;min-height:49px;border:1px solid #907b9d;background:#e9dfeb;color:#584562;display:flex;align-items:center;justify-content:space-between;padding:0 18px;gap:12px;font-size:12px;letter-spacing:1.1px;transition:background .2s,transform .2s,border-color .2s}
 .primary-action:hover:not(:disabled){background:#ded0e4;border-color:#7f688e;transform:translateY(-2px)}
 .primary-action:disabled{cursor:default;background:transparent;border-color:#d8cfd8;color:#a59ba7}
-.primary-action:focus-visible,.text-action:focus-visible,.fate-node:focus-visible,.card-scan-link:focus-visible,.footer button:focus-visible{outline:2px solid #6c8f91;outline-offset:5px}
+.primary-action:focus-visible,.text-action:focus-visible,.fate-node:focus-visible,.card-scan-link:focus-visible,.artwork-link:focus-visible,.footer button:focus-visible{outline:2px solid #6c8f91;outline-offset:5px}
 .primary-action>span:last-child{font-size:19px;font-family:var(--serif)}
 .draw-note{font-size:9px;line-height:1.7;color:#918693;letter-spacing:.3px;margin:12px 0 0}
 .roulette-stage{position:absolute;z-index:3;left:50%;top:47%;width:var(--wheel-size);height:var(--wheel-size);transform:translate(-50%,-50%);pointer-events:none}
@@ -70,6 +70,9 @@ body[data-game-mode] .question{display:none}
 .card-task{margin:19px 0 13px;font-size:10px;line-height:1.8;letter-spacing:.2px;color:#897a8d}
 .enter-action{min-height:42px;font-size:10px;background:#eee5ef}
 .card-scan-link{display:block;margin-top:11px;font-size:9px;color:#8f7a99;text-decoration:underline;text-underline-offset:3px;line-height:1.6}
+.artwork-link{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px;min-height:38px;padding:8px 12px;border:1px solid #cfc1d3;color:#786482;font-size:10px;line-height:1.6;text-decoration:none;background:rgba(253,249,242,.6)}
+.artwork-link:hover{background:#eee5ef;border-color:#ad8aba}
+.game-result .artwork-link{max-width:270px;margin:16px auto 0}
 [hidden]{display:none!important}
 .journey-status{position:absolute;z-index:3;left:50%;bottom:23%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;max-width:42%;text-align:center;color:#907d96}
 .journey-status p{font-size:10px;letter-spacing:.6px;line-height:1.7;margin:0}

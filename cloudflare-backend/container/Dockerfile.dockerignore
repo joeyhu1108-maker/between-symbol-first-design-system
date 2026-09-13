@@ -1,0 +1,16 @@
+# Allowlist applies to the seed-universe build context; no user jobs or databases.
+**
+!printer/
+!printer/server.py
+!printer/garden_style.py
+!printer/garden_style.json
+!printer/rarity.py
+!printer/story.py
+!printer/entry_sessions.py
+!cloudflare-backend/
+!cloudflare-backend/container/
+!cloudflare-backend/container/Dockerfile
+!cloudflare-backend/container/Dockerfile.dockerignore
+!cloudflare-backend/container/requirements.txt
+!cloudflare-backend/container/app.py
+!cloudflare-backend/container/runner.py

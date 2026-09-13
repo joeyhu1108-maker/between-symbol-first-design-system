@@ -3,91 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f0e9">
-  <title>BETWEEN — 十二种关系的游戏</title>
-  <link rel="stylesheet" href="./style.css">
+  <meta name="theme-color" content="#ffffff">
+  <title>种子 · 卡片互动</title>
+  <script>
+    window.location.replace('./prototype-3d.html' + window.location.search + window.location.hash);
+  </script>
+  <noscript><meta http-equiv="refresh" content="0;url=./prototype-3d.html"></noscript>
 </head>
-<body data-game-mode="map">
-  <main id="experience" aria-label="谁在孕育谁？互动种子宇宙">
-    <video id="seed-film" aria-hidden="true" autoplay muted loop playsinline preload="auto">
-      <source src="./media/seedance-concept.mp4" type="video/mp4">
-    </video>
-    <canvas id="universe" tabindex="0" aria-label="互动种子宇宙。先移动寻找红色核心，靠近后点击一次，停下来听养分向星环释放。"></canvas>
-    <div class="veil" aria-hidden="true"></div>
-    <header class="masthead">
-      <div class="mark"><span class="mark-dot"></span><span>BETWEEN</span></div>
-      <div class="edition">TWELVE CARDS · ONE SHARED UNIVERSE</div>
-    </header>
-    <section class="title-block" aria-live="polite">
-      <p class="eyebrow">十二张卡片 / 十二种相遇</p>
-      <h1>谁在<br><em>孕育谁？</em></h1>
-      <p class="dek">先让偶然替你选择一个入口。<br>再用行动，决定关系如何生长。</p>
-      <div class="draw-actions">
-        <button id="draw-card" class="primary-action" type="button"><span>抽取我的卡片</span><span aria-hidden="true">↗</span></button>
-        <p class="draw-note">看光球落在哪里，领取同编号实体卡。</p>
-      </div>
-      <div class="playing-intro">
-        <span class="section-label">你正在书写这段关系</span>
-        <p>不是找到标准答案，<br>而是让你的选择留下痕迹。</p>
-        <button id="leave-node" class="text-action" type="button">← 返回十二节点</button>
-      </div>
-    </section>
-
-    <section id="roulette-stage" class="roulette-stage" aria-label="十二张关系卡的命运轮盘">
-      <div class="orbit-engraving" aria-hidden="true"><i></i><i></i><i></i></div>
-      <div class="orbit-axis" aria-hidden="true"><span>N</span><span>S</span></div>
-      <p class="orbit-caption"><span>THE POSSIBILITY FIELD</span><strong>一切，从一次偶然开始。</strong></p>
-    </section>
-
-    <aside class="game-card-panel" aria-label="抽卡结果与进入方式">
-      <div class="panel-heading"><span id="game-step">01 / 抽取关系</span><span class="small-cross" aria-hidden="true">+</span></div>
-      <section id="card-reveal" class="fate-card" aria-live="polite">
-        <div class="card-topline"><span>BETWEEN</span><span id="card-number">00</span></div>
-        <svg class="card-seed-mark" viewBox="0 0 120 150" fill="none" aria-hidden="true">
-          <ellipse cx="60" cy="75" rx="44" ry="25" transform="rotate(-35 60 75)" stroke="currentColor" stroke-width=".7"/>
-          <path d="M60 13C31 34 26 52 27 79c1 26 18 44 33 58 20-22 33-42 32-65-1-25-15-44-32-59Z" stroke="currentColor"/>
-          <path d="M60 13c-14 33-17 46-14 67 2 23 8 39 14 57m0-124c13 34 19 49 16 72-3 19-10 36-16 52m0-124v124" stroke="currentColor" stroke-width=".55"/>
-          <circle cx="60" cy="74" r="5" fill="#d6847d"/><circle cx="60" cy="74" r="11" stroke="#d6847d" stroke-width=".5"/>
-          <circle cx="25" cy="88" r="2" fill="currentColor"/><circle cx="96" cy="54" r="2" fill="currentColor"/>
-        </svg>
-        <span class="card-category">RELATIONSHIP SPECIMEN</span>
-        <h2 id="card-name">未揭晓的可能</h2>
-        <p id="card-prompt">你将成为种子，还是滋养它的世界？</p>
-        <div class="card-bottomline"><span>人与 AI · 之间</span><span aria-hidden="true">✦</span></div>
-      </section>
-      <p id="card-task" class="card-task">抽一张卡，让你和这件作品的关系开始发生。</p>
-      <button id="enter-node" class="primary-action enter-action" type="button" disabled><span>进入这个节点</span><span aria-hidden="true">→</span></button>
-      <a id="card-scan-link" class="card-scan-link" href="?card=01" hidden>打开这张卡的扫码入口 ↗</a>
-    </aside>
-
-    <section class="journey-status" aria-label="游戏状态">
-      <span class="status-light" aria-hidden="true"></span><p id="game-status" role="status">十二种关系，等待你来打开。</p>
-    </section>
-    <section class="readout" aria-live="polite">
-      <div class="readout-top"><span id="phase-label">休眠 / DORMANT</span><span id="energy-label">养分 00%</span></div>
-      <div class="meter"><i id="meter-fill"></i></div>
-      <p id="hint">移动光标，寻找种子内部的红色核心</p>
-      <div class="node-completion"><div><span>本次关系</span><span id="node-progress-label">0%</span></div><progress id="node-progress" max="100" value="0">0%</progress></div>
-    </section>
-    <section id="game-result" class="game-result" aria-live="polite" hidden></section>
-    <nav class="physical-journey" aria-label="现场体验流程">
-      <div><span>01</span><p>抽一张卡<small>让偶然决定入口</small></p></div><i aria-hidden="true">→</i>
-      <div><span>02</span><p>找到实体卡<small>认领相同编号</small></p></div><i aria-hidden="true">→</i>
-      <div><span>03</span><p>扫码进入<small>手机打开对应节点</small></p></div><i aria-hidden="true">→</i>
-      <div><span>04</span><p>留下你的关系<small>行动改变生长</small></p></div>
-    </nav>
-    <div class="question" id="question" aria-hidden="true">一粒种子，是一个宇宙。</div>
-    <footer class="footer">
-      <span>叶帆 × 胡卓熠</span>
-      <span id="foot-state">线下实体 × 数字生命 · 互动原型</span>
-      <button id="audio-toggle" type="button" aria-pressed="true">声音 关</button>
-      <button id="reset" type="button">重新开始 ↻</button>
-    </footer>
-    <div class="loading" id="loading" role="status"><span></span><p>让一个宇宙开始生长</p></div>
-  </main>
-  <script type="module" src="./complex-model.js"></script>
-  <script type="module" src="./audio.js"></script>
-  <script type="module" src="./app.js"></script>
-  <script type="module" src="./game-flow.js"></script>
-</body>
+<body></body>
 </html>

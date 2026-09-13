@@ -1,0 +1,14 @@
+{
+  "name": "between-cloudflare-artwork",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test worker.test.mjs bridge.test.mjs pregeneration.test.mjs",
+    "check": "wrangler deploy --dry-run",
+    "deploy": "wrangler deploy",
+    "db:local": "wrangler d1 execute DB --local --file schema.sql",
+    "db:remote": "wrangler d1 execute DB --remote --file schema.sql"
+  },
+  "dependencies": {"@cloudflare/containers": "0.3.7"},
+  "devDependencies": {"wrangler": "4.131.1"}
+}
